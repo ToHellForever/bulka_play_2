@@ -2,7 +2,73 @@
 {% load static %}
 {% block title %}Главная{% endblock title %}
 {% block content %}
-<div class="container mt-5">
+<div class='container mt-5'>
     <h1>НАСТОЛЬНЫЕ ИГРЫ <span class='wood_h'>ИЗ ДЕРЕВА</span></h1>
+<div class="d-flex mt-4">
+  <!-- Левая часть с фото -->
+  <div class="me-3 position-relative">
+    <img src="media/photo/left_photo.jpg" alt="Левое фото" class="left_photo">
+    <img src="media/icon/arend_icon.png" alt="" class='arend_icon'>
+  </div>
+  <!-- Правая часть: фото над тремя блоками -->
+  <div>
+    <!-- Фото сверху -->
+    <div class="mb-3 position-relative">
+      <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
+      <img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'>
+    </div>
+    <!-- Три блока -->
+    <div class="d-flex">
+      <div class="p-5 me-3 flex-fill">ОСТАВИТЬ ЗАЯВКУ</div>
+      <div class="p-3 me-3 flex-fill">О НАС</div>
+      <div class="p-3 flex-fill">ПОДАРОЧНЫЕ СЕРТИФИКАТЫ</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-3">
+      <img src="media/icon/cube.svg" alt="Картинка 1" class="block-img">
+      <h3 class="block-title">Эксклюзивные игры</h3>
+      <p class="block-text">В нашей коллекции есть игры, аналогов которых нет на рынке</p>
+    </div>
+    <div class="col-3">
+      <img src="media/icon/star.svg" alt="Картинка 2" class="block-img">
+      <h3 class="block-title">Брендирование</h3>
+      <p class="block-text">Возможно нанесение индивидуальной гравировки</p>
+    </div>
+    <div class="col-3">
+      <img src="media/icon/hammer.svg" alt="Картинка 3" class="block-img">
+      <h3 class="block-title">Ручная работа</h3>
+      <p class="block-text">Собственное производство в г.Красноясрк</p>
+    </div>
+    <div class="col-3">
+      <img src="media/icon/car.svg" alt="Картинка 4" class="block-img">
+      <h3 class="block-title">Доставка</h3>
+      <p class="block-text">Отправляем по всей России</p>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+<div class="swiper">
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <div class="swiper-wrapper">
+    {% for product in products %}
+    <div class="swiper-slide">
+      <div class="product-card" style="text-align: center;">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 200px; height: auto;">
+        <h4>{{ product.name }}</h4>
+        <p>{{ product.description|truncatechars:100 }}</p>
+        <p>Цена: {{ product.price }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 </div>
 {% endblock content%}
