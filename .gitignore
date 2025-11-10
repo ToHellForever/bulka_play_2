@@ -1,0 +1,49 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+
+# Виртуальные окружения
+venv/
+.env/
+.envrc
+# или если используете poetry
+poetry.lock
+*.venv
+
+# Django
+db.sqlite3
+/media/
+/static/
+
+# Настройки локальной среды
+/local_settings.py
+
+# Логи
+*.log
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Документация
+/epub/
+/*.egg-info
+
+# сборки
+/dist/
+/build/
+.eggs/
+
+# Другие
+.secret_key
+*.bak
+*.swp
+*~ 
+
+# 환경ные переменные (если есть)
+.env
