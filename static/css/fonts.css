@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Mont';
+  src: url('/static/css/fonts/mont/Mont-ExtraLightDEMO.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mont';
+  src: url('/static/css/fonts/mont/mont_extralightdemo.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mont';
+  src: url('/static/css/fonts/mont/Mont-HeavyDEMO.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mont';
+  src: url('/static/css/fonts/mont/mont_heavydemo.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/static/css/fonts/unbounded/Unbounded-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+}

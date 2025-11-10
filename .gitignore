@@ -15,8 +15,6 @@ poetry.lock
 
 # Django
 db.sqlite3
-/media/
-/static/
 
 # Настройки локальной среды
 /local_settings.py
