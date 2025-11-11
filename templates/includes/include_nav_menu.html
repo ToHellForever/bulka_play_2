@@ -1,22 +1,22 @@
-<div class="container mt-3">
-  <div class='row d-flex justify-content-center align-items-center'>
-    <div class='col-2'>
-      <a href="{% url 'landing' %}"><img src="/media/icon/icon_landing.png" alt="" class='icon_landing'></a>
-    </div>
-    <div class='col-2'>
-      <a href="{% url 'about' %}" class='menu-text'>О нас</a>
-    </div>
-    <div class='col-2'>
-      <a href="#" class='menu-text'>Каталог игр</a>
-    </div>
-    <div class='col-2'>
-      <a href="#" class='menu-text'>Аренда</a>
-    </div>
-    <div class='col-2'>
-      <a href="#" class='menu-text'>Доставка</a>
-    </div>
-    <div class='col-2'>
-      <a href="#" class='menu-text'>Контакты</a>
-    </div>
+<div class='container mt-3 mb-3'>
+  <div class="d-flex align-items-center" style="width: 100%; gap: 4rem;">
+    <!-- Все 6 основных ссылок -->
+    <a href="{% url 'landing' %}"><img src="/media/icon/icon_landing.png" alt="" class='icon_landing'></a>
+    <a href="{% url 'about' %}" class='menu-text'>О нас</a>
+    <a href="#" class='menu-text'>Каталог игр</a>
+    <a href="#" class='menu-text'>Аренда</a>
+    <a href="#" class='menu-text'>Доставка</a>
+    <a href="#" class='menu-text'>Контакты</a>
+    
+    <!-- Правые 3 ссылки, прижаты к правому краю -->
+    <a href="#" class='menu-text' style="margin-left: auto; text-decoration: none;">
+      <img src="/media/icon/vk.svg" alt="" class='footer_icon'>
+    </a>
+    <a href="#" class='menu-text' style="margin-left: -2rem;">
+      <img src="/media/icon/telegram.svg" alt="" class='footer_icon'>
+    </a>
+    <a href="#" class='menu-text' style="margin-left: -2rem;">
+      <img src="/media/icon/instagram.svg" alt="" class='footer_icon'>
+    </a>
   </div>
 </div>

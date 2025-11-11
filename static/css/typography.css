@@ -72,3 +72,47 @@
     color: black;
 }
 
+
+
+
+/* о нас  */
+.about_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 8.2rem;
+    font-weight: 600;
+    color: white;
+}
+.about_block {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 20px;
+    margin-top: 20px;
+    text-align: justify;
+    color: rgba(255, 255, 255, 1);
+}
+
+.about_block_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.about_block_text {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 20px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.about_block_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+    margin-top: 20px;
+}

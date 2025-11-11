@@ -1,2 +1,103 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}Главная{% endblock title %}
+{% block content %}
+<!-- Контейнер для трех столбцов -->
+<div class="container my-4 mt-5">
+    <div class="row gap-3 justify-content-center" style='flex-wrap: nowrap;'>
+    <div class="col-md-5">
+      <div class="mb-2">
+        <h1 class='about_h'>О <span class='wood_h'>НАС</span></h1>
+      </div>
+      <div>
+        <iframe src="https://vkvideo.ru/video_ext.php?oid=-226618368&id=456239026&hd=2&"  style="background-color: #000;" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen class='video_1'></iframe>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="about_block">
+        <p class="about_text">BUL.K.A-PLAY — производитель эксклюзивных настольных игр из твёрдых пород дерева. Мы объединяем ручную работу, надёжные материалы и оригинальные идеи, создавая игры, которые становятся украшением любого мероприятия или интерьера. Наши изделия востребованы как для семейного отдыха, так и для корпоративных событий. Мы предлагаем:</p>
+        <ul>
+            <li>продажу настольных игр с доставкой по всей России;</li>
+            <li>аренду и сопровождение игр на мероприятиях любого масштаба — от частных праздников до городских фестивалей.</li>
+        </ul>
+        <p class="about_text">Выбирая BUL.K.A-PLAY, вы получаете продукт высокого качества и надёжного партнёра для организации ярких событий.</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <iframe src="https://vk.com/video_ext.php?oid=-226618368&id=456239221&hd=2&" style="background-color: #000;" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen class='video_2'></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row g-4">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class='about_block_h'>500+</h2>
+          <p class='about_block_text'>проведённых мероприятий</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-3">
+      <div class="card border-0">
+        <div class="card-body">
+          <h2 class='about_block_h'>18</h2>
+          <p class='about_block_text'>уникальных игр</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Блок 3 -->
+    <div class="col-md-3">
+      <div class="card border-0">
+        <div class="card-body">
+          <h2 class='about_block_h'>1000+</h2>
+          <p class='about_block_text'>отправок по России</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Блок 4 -->
+    <div class="col-md-3">
+      <div class="card border-0">
+        <div class="card-body">
+          <h2 class='about_block_h'>3+</h2>
+          <p class='about_block_text'>возраст игроков</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container mt-5">
+    <h1 class='about_block_h'>ПОЧЕМУ НАС ВЫБИРАЮТ?</h1>
+  <div class="row mt-5">
+    <div class="col-3">
+      <img src="/media/icon/cube.svg" alt="Картинка 1" class="block-img">
+      <h3 class="block-title">Эксклюзивные игры</h3>
+      <p class="block-text">В нашей коллекции есть игры, аналогов которых нет на рынке</p>
+    </div>
+    <div class="col-3">
+      <img src="/media/icon/star.svg" alt="Картинка 2" class="block-img">
+      <h3 class="block-title">Брендирование</h3>
+      <p class="block-text">Возможно нанесение индивидуальной гравировки</p>
+    </div>
+    <div class="col-3">
+      <img src="/media/icon/hammer.svg" alt="Картинка 3" class="block-img">
+      <h3 class="block-title">Ручная работа</h3>
+      <p class="block-text">Собственное производство в г.Красноясрк</p>
+    </div>
+    <div class="col-3">
+      <img src="/media/icon/car.svg" alt="Картинка 4" class="block-img">
+      <h3 class="block-title">Доставка</h3>
+      <p class="block-text">Отправляем по всей России</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}
