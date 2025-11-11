@@ -1,8 +1,8 @@
 /* карусель продуктов */
 .product_card_image,
 .arend_card_image {
-  width: 23rem; 
-  height: 23rem; 
+  width: 25rem; 
+  height: 25rem; 
   border-radius: 31px;
 }
 
