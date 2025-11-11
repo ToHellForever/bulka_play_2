@@ -29,11 +29,13 @@
     color: rgba(255, 255, 255, 1);
 }
 .game_catalog_h,
-.rental_catalog_h {
+.rental_catalog_h,
+.contact_catalog_h {
     font-family: 'Unbounded' , sans-serif;
     font-size: 2rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
+    text-align: start !important;
 }
 
 .product-card-title {
@@ -49,3 +51,24 @@
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
 }
+
+.contact_link {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+.center-block_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: black;
+}
+.center-block_text {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: black;
+}
+
