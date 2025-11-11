@@ -14,8 +14,9 @@ poetry.lock
 *.venv
 
 # Django
+.db.sqlite3
 db.sqlite3
-
+*.sqlite3
 # Настройки локальной среды
 /local_settings.py
 

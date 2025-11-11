@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="static/css/main.css">
     <link rel="stylesheet" href="static/css/nav.css">
     <link rel="stylesheet" href="static/css/fonts.css">
+    <link rel="stylesheet" href="static/css/typography.css">
     <link rel="stylesheet" href="static/css/pages/landing.css">
     <link rel="stylesheet" href="static/css/carousel.css">
 
@@ -45,9 +46,10 @@
       slidesPerView: 3,
       spaceBetween: 30,
       slidesPerGroup: 1,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+      {% comment %} autoplay: {% endcomment %}
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
       },
       loop: true,
     });

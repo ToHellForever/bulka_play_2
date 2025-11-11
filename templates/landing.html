@@ -3,7 +3,7 @@
 {% block title %}Главная{% endblock title %}
 {% block content %}
 <div class='container mt-5'>
-    <h1>НАСТОЛЬНЫЕ ИГРЫ <span class='wood_h'>ИЗ ДЕРЕВА</span></h1>
+    <h1 class='title_h'>НАСТОЛЬНЫЕ ИГРЫ <span class='wood_h'>ИЗ ДЕРЕВА</span></h1>
 <div class="d-flex mt-4">
   <!-- Левая часть с фото -->
   <div class="me-3 position-relative">
@@ -16,6 +16,7 @@
     <div class="mb-3 position-relative">
       <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
       <img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'>
+      <p class="position-absolute bottom-0 start-0 m-4 game_count_text">18 эксклюзивных игр</p>
     </div>
     <!-- Три блока -->
     <div class="d-flex">
@@ -52,19 +53,18 @@
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container carousel-container mt-5">
+  <h1 class='game_catalog_h mb-5'>КАТАЛОГ ИГР</h1>
 <div class="swiper">
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-
+  <div class="swiper-button-prev custom-prev"></div>
+  <div class="swiper-button-next custom-next"></div>
   <div class="swiper-wrapper">
     {% for product in products %}
     <div class="swiper-slide">
-      <div class="product-card" style="text-align: center;">
-        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 200px; height: auto;">
-        <h4>{{ product.name }}</h4>
-        <p>{{ product.description|truncatechars:100 }}</p>
-        <p>Цена: {{ product.price }}</p>
+      <div class="product-card">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class='product_card_image'>
+        <h1 class="product-card-title">{{ product.name }}</h1>
+        <p class="product-card-price">{{ product.price| floatformat }} руб.</p>
       </div>
     </div>
     {% endfor %}

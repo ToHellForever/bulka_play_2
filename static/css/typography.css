@@ -1,0 +1,50 @@
+.title_h {
+    text-align: center;
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+}
+.wood_h {
+    color: rgba(248, 128, 5, 1);
+}
+.game_count_text {
+    font-family: 'Mont' , sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+.block-title {
+    margin-top: 1rem;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+}
+.block-text {
+    margin-top: 10px;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 1);
+}
+.game_catalog_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+.product-card-title {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 2rem;
+}
+.product-card-price {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+}
