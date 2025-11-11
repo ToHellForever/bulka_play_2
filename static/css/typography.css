@@ -28,7 +28,8 @@
     font-weight: 100;
     color: rgba(255, 255, 255, 1);
 }
-.game_catalog_h {
+.game_catalog_h,
+.rental_catalog_h {
     font-family: 'Unbounded' , sans-serif;
     font-size: 2rem;
     font-weight: 400;

@@ -71,4 +71,21 @@
   </div>
 </div>
 </div>
+
+<div class="container carousel-container mt-5">
+  <h1 class='rental_catalog_h mb-5'>ВЫЕЗДНАЯ АРЕНДА</h1>
+<div class="swiper">
+  <div class="swiper-button-prev custom-prev"></div>
+  <div class="swiper-button-next custom-next"></div>
+  <div class="swiper-wrapper">
+    {% for arend in arenda %}
+    <div class="swiper-slide">
+      <div class="arend-card">
+        <img src="{{ arend.image.url }}" alt="{{ arend.name }}" class='arend_card_image'>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
 {% endblock content%}

@@ -1,5 +1,6 @@
 /* карусель продуктов */
-.product_card_image {
+.product_card_image,
+.arend_card_image {
   width: 23rem; 
   height: 23rem; 
   border-radius: 31px;
@@ -15,3 +16,4 @@
 .swiper-button-next {
   display: none;
 }
+
