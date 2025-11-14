@@ -17,3 +17,23 @@
   display: none;
 }
 
+.news_card_image {
+  width: 25.5rem; 
+  height: 18rem; 
+  object-fit: cover;
+  border-radius: 31px;
+}
+
+.news-card-button {
+  width: 50%;
+  height: auto;
+  background-color: rgba(248, 128, 5, 1);
+  color: rgba(33, 33, 33, 1);
+  border-radius: 10px;
+  border: none;
+  font-size: 1.2rem;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 400;
+  padding: 7px;
+  margin-top: 10px;
+}
