@@ -22,5 +22,42 @@
     </div>
   </div>
 
-  
+
+<div class='container'>
+<div class="row mt-5">
+    <div class="col-3">
+        <select name="size" class="form-control filter-select custom-select" onchange="this.form.submit()">
+            <option value="">Выберите размер</option>
+            <option value="standard_45x45" {% if request.GET.size == 'standard_45x45' %}selected{% endif %}>Стандарт (45x45 см)</option>
+            <option value="standard_30x30" {% if request.GET.size == 'standard_30x30' %}selected{% endif %}>Стандарт (30х30 см)</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <select name="players" class="form-control filter-select custom-select" onchange="this.form.submit()">
+            <option value="">Выберите количество игроков</option>
+            <option value="2" {% if request.GET.players == '2' %}selected{% endif %}>2</option>
+            <option value="3+" {% if request.GET.players == '3+' %}selected{% endif %}>3+</option>
+            <option value="2-4" {% if request.GET.players == '2-4' %}selected{% endif %}>2-4</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <select name="age" class="form-control filter-select custom-select" onchange="this.form.submit()">
+            <option value="">Выберите возраст игроков</option>
+            <option value="7+" {% if request.GET.age == '7+' %}selected{% endif %}>7+</option>
+            <option value="12+" {% if request.GET.age == '12+' %}selected{% endif %}>12+</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <select name="type" class="form-control filter-select custom-select" onchange="this.form.submit()">
+            <option value="">Выберите вид игры</option>
+            <option value="logical" {% if request.GET.type == 'logical' %}selected{% endif %}>Логическая</option>
+            <option value="strategy" {% if request.GET.type == 'strategy' %}selected{% endif %}>Стратегия</option>
+            <option value="skill" {% if request.GET.type == 'skill' %}selected{% endif %}>На ловкость</option>
+            <option value="luck" {% if request.GET.type == 'luck' %}selected{% endif %}>На удачу</option>
+            <option value="tactical" {% if request.GET.type == 'tactical' %}selected{% endif %}>Тактическая</option>
+            <option value="custom" {% if request.GET.type == 'custom' %}selected{% endif %}>Авторские</option>
+        </select>
+    </div>
+</div>
+</div>
 {% endblock content %}

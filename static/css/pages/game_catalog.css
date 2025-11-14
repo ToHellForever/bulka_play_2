@@ -20,3 +20,14 @@ outline: none;
 box-shadow: none;
 border-color: #ced4da;
 }
+
+.custom-select {
+    background: black;
+}
+.custom-select:active {
+    background: black;
+}
+.custom-select:focus {
+    background: rgba(33, 33, 33, 1);
+}
+
