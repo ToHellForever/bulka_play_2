@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Главная{% endblock title %}
+{% block content %}
+  <div class="container mt-5">
+    <div class="row ms-auto">
+      <div class="col-6">
+        <h1 class='game_catalog_h'>КАТАЛОГ ИГР</h1>
+      </div>
+<div class="col-3 search-container">
+  <input type="text" name="search" class="form-control search-input" placeholder="Поиск" value="{{ request.GET.search }}" style='color: white'>
+</div>
+      <div class="col-3">
+        <select name="sort" class="form-control filter-select" onchange="this.form.submit()">
+          <option value="">Порядок по:</option>
+          <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Цена по возрастанию</option>
+          <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Цена по убыванию</option>
+          <option value="name_asc" {% if request.GET.sort == 'name_asc' %}selected{% endif %}>Название (А-Я)</option>
+          <option value="name_desc" {% if request.GET.sort == 'name_desc' %}selected{% endif %}>Название (Я-А)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock content %}

@@ -24,3 +24,12 @@ class AboutView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["news"] = News.objects.filter(is_active=True).order_by("-created_at")
         return context
+    
+    
+class GameCatalogView(TemplateView):
+    template_name = "game_catalog.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["products"] = Product.objects.filter(is_active=True).order_by("-created_at")
+        return context

@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from core.views import (
     LandingView, 
     AboutView, 
+    GameCatalogView, 
 )
 from debug_toolbar.toolbar import debug_toolbar_urls
 
@@ -12,6 +13,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', LandingView.as_view(), name='landing'),
     path('about/', AboutView.as_view(), name='about'),
+    path('game-catalog/', GameCatalogView.as_view(), name='game-catalog'),
 ] + debug_toolbar_urls()
 
 
