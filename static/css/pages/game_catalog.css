@@ -23,6 +23,7 @@ border-color: #ced4da;
 
 .custom-select {
     background: black;
+    opacity: 1;
 }
 .custom-select:active {
     background: black;
@@ -30,4 +31,29 @@ border-color: #ced4da;
 .custom-select:focus {
     background: rgba(33, 33, 33, 1);
 }
+
+.product_card_image {
+    width: 95%;
+    height: 18rem;
+    object-fit: cover;
+    border-radius: 22.66px;
+}
+
+
+.product_card_button {
+    width: 95%;
+    background: rgba(248, 128, 5, 1);
+    padding: 10px;
+    border-radius: 11.99px;
+    color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+}
+
+
 

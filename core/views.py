@@ -28,8 +28,54 @@ class AboutView(TemplateView):
     
 class GameCatalogView(TemplateView):
     template_name = "game_catalog.html"
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["products"] = Product.objects.filter(is_active=True).order_by("-created_at")
+        products = Product.objects.filter(is_active=True)
+
+        # Получаем все возможные значения для фильтров
+        sizes = Size.objects.all()
+        player_counts = PlayerCount.objects.all()
+        player_ages = PlayerAge.objects.all()
+        game_types = GameType.objects.all()
+
+        # Обработка поискового запроса
+        search_query = self.request.GET.get('search', '')
+        if search_query:
+            products = products.filter(name__iregex=r'{}'.format(search_query))
+
+        # Обработка фильтров
+        if 'size' in self.request.GET and self.request.GET['size']:
+            products = products.filter(sizes__id=self.request.GET['size'])
+
+        if 'player_count' in self.request.GET and self.request.GET['player_count']:
+            products = products.filter(player_counts__id=self.request.GET['player_count'])
+
+        if 'player_age' in self.request.GET and self.request.GET['player_age']:
+            products = products.filter(player_ages__id=self.request.GET['player_age'])
+
+        if 'game_type' in self.request.GET and self.request.GET['game_type']:
+            products = products.filter(game_types__id=self.request.GET['game_type'])
+
+        # Обработка сортировки
+        sort = self.request.GET.get('sort', '')
+        if sort == 'price_asc':
+            products = products.order_by('price')
+        elif sort == 'price_desc':
+            products = products.order_by('-price')
+        elif sort == 'name_asc':
+            products = products.order_by('name')
+        elif sort == 'name_desc':
+            products = products.order_by('-name')
+        else:
+            products = products.order_by('-created_at')
+
+        context["products"] = products
+
+        # Добавляем значения для фильтров в контекст
+        context["sizes"] = sizes
+        context["player_counts"] = player_counts
+        context["player_ages"] = player_ages
+        context["game_types"] = game_types
+
         return context
