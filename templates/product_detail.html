@@ -2,6 +2,20 @@
 {% load static %}
 {% block title %}Детально про игру{% endblock title %}
 {% block content %}
-
-
+<div class="container mt-5">
+    <div class='row'>
+        <div class='col-1'>
+            {% for image in product.additional_images.all %}
+                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images mb-2">
+            {% endfor %}
+        </div>  
+        <div class='col-6'>
+            <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image">
+        </div>
+        <div class='col-5'>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+        </div>
+    </div>
+</div>
 {% endblock content %}

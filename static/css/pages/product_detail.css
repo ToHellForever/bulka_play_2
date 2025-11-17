@@ -1,0 +1,10 @@
+.product_detail_image {
+    height: 40rem;
+    object-fit: cover;
+    border-radius: 31px;
+}   
+.additional_images {
+    width: 100%;
+    height: 6rem;
+    border-radius: 20px;
+}
