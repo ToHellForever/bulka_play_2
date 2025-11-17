@@ -8,3 +8,59 @@
     height: 6rem;
     border-radius: 20px;
 }
+
+
+.kit-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Минимальная ширина 200px, максимальная зависит от доступного пространства */
+    grid-gap: 20px; /* Пространство между элементами сетки */
+    justify-items: stretch; /* Растягиваем элементы равномерно */
+}
+
+.kit-item {
+    background: #1A1A1A;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Индивидуальное задание размера первого ряда */
+.kit-item:nth-child(-n+3) {
+    grid-row-start: 1; /* Первые три элемента находятся в первом ряду */
+}
+
+/* Размер второго ряда */
+.kit-item:nth-child(n+4) {
+    grid-row-start: 2; /* Остальные элементы переходят во второй ряд */
+}
+
+/* Дополнительные настройки ширины */
+.kit-item:nth-child(1) {
+    grid-column-end: span 2; /* Первый элемент занимает 2 колонки */
+}
+
+.kit-item:nth-child(2),
+.kit-item:nth-child(3) {
+    grid-column-end: span 1; /* Следующие занимают по одной колонке */
+}
+
+.kit-item:nth-child(4) {
+    grid-column-end: span 2; /* Четвёртый элемент снова занимает 2 колонки */
+}
+
+.kit-item:nth-child(5) {
+    grid-column-end: span 3; /* Последний элемент занимает оставшиеся 3 колонки */
+}
+
+.kit-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Product, Arenda, Order, News, ProductImage,
-    Size, PlayerCount, GameType, PlayerAge, NewsImage, PlayerRange, AdditionalProducts, AdditionalProductsImage, GameKitItem
+    Size, PlayerCount, GameType, PlayerAge, NewsImage, PlayerRange, AdditionalProducts, AdditionalProductsImage, GameKitItem, OrderedGameKitItem
 )
 admin.site.register(ProductImage)
 class ProductImageInline(admin.TabularInline):
@@ -17,6 +17,13 @@ admin.site.register(AdditionalProductsImage)
 class AdditionalProductsImageInline(admin.TabularInline):
     model = AdditionalProductsImage
     extra = 1 
+    
+    
+class OrderedGameKitItemInline(admin.TabularInline):
+    model = OrderedGameKitItem
+    extra = 1
+    fields = ('game_kit_item', 'order')  # Теперь можем выставлять порядок вручную
+    autocomplete_fields = ['game_kit_item']  # Автодополнение элемента комплекта
     
 # Основной класс для регистрации модели Product
 @admin.register(Product)
@@ -42,6 +49,7 @@ class ProductAdmin(admin.ModelAdmin):
     # Указываем созданный inline-класс
     inlines = [
         ProductImageInline,
+        OrderedGameKitItemInline, 
     ]
     
 @admin.register(GameKitItem)

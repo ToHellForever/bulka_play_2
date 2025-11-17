@@ -238,3 +238,12 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Заказ от {self.name} ({self.created_at})"
+
+
+class OrderedGameKitItem(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='ordered_game_kits')
+    game_kit_item = models.ForeignKey('GameKitItem', on_delete=models.CASCADE)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']

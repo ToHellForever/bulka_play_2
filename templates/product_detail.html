@@ -3,18 +3,29 @@
 {% block title %}Детально про игру{% endblock title %}
 {% block content %}
 <div class="container mt-5">
-    <div class='row'>
+    <div class='row' style='flex-wrap: nowrap'>
         <div class='col-1'>
             {% for image in product.additional_images.all %}
                 <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images mb-2">
             {% endfor %}
         </div>  
-        <div class='col-6'>
+<div class='col-6' style='margin-right: 3rem'>
             <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image">
         </div>
         <div class='col-5'>
             <h2>{{ product.name }}</h2>
             <p>{{ product.description }}</p>
+            <p>КОМПЛЕКТ</p>
+                <div class="kit-container">
+                    {% for item in product.ordered_game_kits.all %}
+                        <div class="kit-item">
+                            <div class="kit-content">
+                                <span class="highlighted-text">{{ item.game_kit_item.highlighted_text }}</span>
+                                <span class="normal-text">{{ item.game_kit_item.normal_text }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
         </div>
     </div>
 </div>
