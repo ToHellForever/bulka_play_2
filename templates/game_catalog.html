@@ -69,7 +69,7 @@
           <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_card_image">
           <h1 class='product_card_name'>{{ product.name }}</h1>
           <p class="product_card_price">{{ product.price|floatformat }} руб.</p>
-          <a href="#" class="product_card_button">ПОДРОБНЕЕ</a>
+          <a href="{% url 'product-detail' product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
         </div>
       </div>
     {% endfor %}
