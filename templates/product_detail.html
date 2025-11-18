@@ -4,12 +4,12 @@
 {% block content %}
 <div class="container mt-5">
     <div class='row' style='flex-wrap: nowrap'>
-        <div class='col-1' style='margin-right: 1rem'>
+        <div class='col-1'>
             {% for image in product.additional_images.all %}
                 <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images">
             {% endfor %}
         </div>  
-<div class='col-6' style='margin-right: 1rem'>
+<div class='col-6'>
             <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image">
         </div>
         <div class='col-5'>
