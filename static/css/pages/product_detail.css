@@ -1,13 +1,13 @@
 .product_detail_image {
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 31px;
 }   
 .additional_images {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    object-fit: cover;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 15px;
+    margin-bottom: 2.1rem;
 }
 
 
@@ -61,3 +61,15 @@
 }
 
 
+.product_detail_button {
+    width: 100%;
+    height: 4rem;
+    border-radius: 10px;
+    background-color: rgba(248, 128, 5, 1);
+    color: rgba(33, 33, 33, 1);
+    border: none;
+    font-size: 1.5rem;
+    font-family: 'Unbounded' , sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
