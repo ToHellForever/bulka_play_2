@@ -155,12 +155,12 @@
 }
 
 
-
+/* детали товара */
 .highlighted-text {
     color: white;
     font-family: 'Unbounded', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.3rem;
+    font-weight: 400;
     margin: 0;
     line-height: 1.2;
 }
@@ -168,8 +168,30 @@
 .normal-text {
     color: white;
     font-family: 'Unbounded', sans-serif;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 300;
     margin: 0;
     line-height: 1.2;
+}
+
+.product_detail_name {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.product_detail_description {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 1rem;
+}
+.product_detail_set {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 3rem;
 }

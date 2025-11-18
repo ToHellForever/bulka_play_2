@@ -9,13 +9,13 @@
                 <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images mb-2">
             {% endfor %}
         </div>  
-<div class='col-6' style='margin-right: 3rem'>
+<div class='col-6' style='margin-right: 2rem'>
             <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image">
         </div>
         <div class='col-5'>
-            <h2>{{ product.name }}</h2>
-            <p>{{ product.description }}</p>
-            <p>КОМПЛЕКТ</p>
+            <h1 class='product_detail_name'>{{ product.name }}</h1>
+            <p class='product_detail_description'>{{ product.description }}</p>
+            <p class='product_detail_set'>КОМПЛЕКТ</p>
                 <div class="kit-container">
                     {% for item in product.ordered_game_kits.all %}
                         <div class="kit-item">
