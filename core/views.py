@@ -84,9 +84,17 @@ class GameCatalogView(TemplateView):
     
 class ProductDetailView(TemplateView):
     template_name = "product_detail.html"
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["product"] = Product.objects.get(pk=self.kwargs.get("pk"))
-        context["additional_images"] = context["product"].additional_images.all()
+        current_product = Product.objects.get(pk=self.kwargs.get("pk"))
+        context["product"] = current_product
+        context["products"] = Product.objects.filter(is_active=True).order_by("-created_at")
+        context["additional_images"] = current_product.additional_images.all()
+
+        random_products = list(Product.objects.filter(is_active=True).exclude(pk=current_product.pk).order_by('?')[:4]) 
+        context["random_products"] = random_products 
+
+        additional_products = list(AdditionalProducts.objects.filter(is_active=True).order_by('-created_at'))
+        context["additional_products"] = additional_products
         return context

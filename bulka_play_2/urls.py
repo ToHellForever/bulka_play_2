@@ -14,8 +14,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', LandingView.as_view(), name='landing'),
     path('about/', AboutView.as_view(), name='about'),
-    path('game-catalog/', GameCatalogView.as_view(), name='game-catalog'),
-    path('product/<int:pk>/', ProductDetailView.as_view(), name='product-detail'),
+    path('game-catalog/', GameCatalogView.as_view(), name='game_catalog'),
+    path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
 ] + debug_toolbar_urls()
 
 
