@@ -29,7 +29,7 @@
     color: rgba(255, 255, 255, 1);
 }
 .game_catalog_h,
-.rental_catalog_h,
+.rental_catalog_landing_h,
 .contact_catalog_h,
 .news_catalog_h {
     font-family: 'Unbounded' , sans-serif;
@@ -202,4 +202,18 @@
     font-size: 1.5rem;
     font-weight: 400;
     margin-top: 7rem;
+}
+
+/* каталог аренды */
+.rental_catalog_h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+}
+.rental_catalog_p {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
 }

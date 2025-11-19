@@ -7,6 +7,7 @@ from core.views import (
     AboutView, 
     GameCatalogView, 
     ProductDetailView, 
+    RentalCatalogView
 )
 from debug_toolbar.toolbar import debug_toolbar_urls
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path('about/', AboutView.as_view(), name='about'),
     path('game-catalog/', GameCatalogView.as_view(), name='game_catalog'),
     path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
+    path('rental-catalog/', RentalCatalogView.as_view(), name='rental_catalog'),
 ] + debug_toolbar_urls()
 
 
