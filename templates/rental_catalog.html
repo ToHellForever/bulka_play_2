@@ -50,7 +50,35 @@
 </div>
 
 
-<div>
-    
+<div class='container mt-5'>
+  <div class='row'>
+    {% for arend in arenda %}
+      <div class='col-4 mt-5'>
+        <div class="game-card">
+          <img src="{{ arend.image.url }}" alt="{{ arend.name }}" class="arenda_card_image">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<div class="container carousel-container mt-5 mb-5">
+  <h1 class='news_catalog_h mb-5'>МЕРОПРИЯТИЯ С BUL.K.A-PLAY</h1>
+<div class="swiper">
+  <div class="swiper-button-prev custom-prev"></div>
+  <div class="swiper-button-next custom-next"></div>
+  <div class="swiper-wrapper">
+    {% for n in news %}
+    <div class="swiper-slide">
+      <div class="news-card">
+        <img src="{{ n.image.url }}" alt="{{ n.name }}" class='news_card_image'>
+        <h1 class="news-card-title">{{ n.name }}</h1>
+        <button class="news-card-button">ПОДРОБНЕЕ</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 </div>
 {% endblock content %}
