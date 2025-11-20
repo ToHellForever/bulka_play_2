@@ -130,6 +130,13 @@
 
 /* каталог игр */
 /* для placeholder */
+select.form-control {
+    color: white !important;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 20px;
+}
 .form-control::-webkit-input-placeholder {
     color: white !important;
     font-family: 'Mont' , sans-serif;

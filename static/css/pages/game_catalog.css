@@ -32,7 +32,7 @@ border-color: #ced4da;
     background: rgba(33, 33, 33, 1);
 }
 
-.product_card_image {
+.game_catalog_card {
     width: 95%;
     height: 18rem;
     object-fit: cover;
@@ -56,4 +56,6 @@ border-color: #ced4da;
 }
 
 
-
+.filter-select option {
+    padding: 10px; /* Установите нужное вам значение отступа */
+}
