@@ -217,3 +217,39 @@
     font-weight: 300;
     font-size: 1.1rem;
 }
+
+.rental_text {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: -1rem;
+}
+.wood_p {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.rental_recomendation_h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+}
+
+h3 {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+}
+.guest_count_h {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+}
