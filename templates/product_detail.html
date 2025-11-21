@@ -4,7 +4,7 @@
 {% block title %}{{ product.name }}{% endblock title %}
 {% block content %}
 <div class="container mt-5">
-    <div class='row' style='flex-wrap: nowrap'>
+    <div class='row mt-5' style='flex-wrap: nowrap'>
         <div class='col-1'>
             {% for image in product.additional_images.all %}
                 <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images">
@@ -34,6 +34,37 @@
 </div>
 
 
+<div class='container mt-3'>
+    <div class="button-container">
+        <button class="button" onclick="showInfo('info1')">ПРАВИЛА ИГРЫ</button>
+        <button class="button" onclick="showInfo('info2')">МАТЕРИАЛ</button>
+        <button class="button" onclick="showInfo('info3')">ДОСТАВКА</button>
+        <button class="button" onclick="showInfo('info4')">ДОПОЛНИТЕЛЬНО</button>
+    </div>
+    <div id="info1" class="info-block">
+        <p>{{ product.game_rules }}</p>
+    </div>
+    <div id="info2" class="info-block">
+        <ul>
+          <li>Натуральное дерево твердых пород. </li>
+          <li>Ручная работа</li>
+          <li>Гипоаллергенное покрытие (высококачественные масла, воск и пропитки).</li>
+        </ul>
+    </div>
+    <div id="info3" class="info-block">
+        <p><b>Мы осуществляем доставку по всей территории России.</b></p>
+        <ul>
+          <li>Обратите внимание, что стоимость доставки оплачивается заказчиком отдельно.</li>
+          <li>Мы сотрудничаем с надежной курьерскими службами, что позволяет обеспечить своевременное получение вами заказа.</li>
+          <li>Стоимость и сроки доставки зависят от вашего местоположения. После отправки заказа мы предоставим вам трек-номер для отслеживания статуса доставки в режиме онлайн. </li>
+          <li>Для оформления доставки добавьте соответствующую услугу в корзину при оформлении заказа и укажите точный адрес доставки. Наш сотрудник свяжется с вами для уточнения всех необходимых деталей.</li>
+        </ul>
+    </div>
+    <div id="info4" class="info-block">
+        <p>{{ product.additional_info }}</p>
+    </div>
+</div>
+
 
 <div class='container mt-5'>
   <h1 class='game_catalog_h'>СМОТРИТЕ ТАКЖЕ</h1>
@@ -41,7 +72,7 @@
     {% for product in random_products %}
       <div class='col-3 mt-5'>
         <div class="game-card">
-          <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_card_image">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
           <h1 class='product_card_name'>{{ product.name }}</h1>
           <p class="product_card_price">{{ product.price|floatformat }} руб.</p>
           <a href="{% url 'product_detail' pk=product.pk %}" class="product_card_button">ПОДРОБНЕЕ</a>
@@ -57,7 +88,7 @@
     {% for additional_product  in additional_products  %}
       <div class='col-3 mt-5'>
         <div class="game-card">
-          <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_card_image">
+          <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
           <h1 class='product_card_name'>{{ additional_product.name }}</h1>
           <p class="product_card_price">{{ additional_product.price|floatformat }} руб.</p>
           <a href="#" class="product_card_button">ПОДРОБНЕЕ</a>
@@ -67,3 +98,23 @@
   </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script>
+    function showInfo(id) {
+        const selectedBlock = document.getElementById(id);
+        if (selectedBlock.style.display === 'block') {
+            selectedBlock.style.display = 'none';
+        } else {
+            // Hide all info blocks
+            const infoBlocks = document.querySelectorAll('.info-block');
+            infoBlocks.forEach(block => {
+                block.style.display = 'none';
+            });
+
+            // Show the selected info block
+            selectedBlock.style.display = 'block';
+        }
+    }
+</script>
+{% endblock scripts %}

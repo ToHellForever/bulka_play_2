@@ -180,7 +180,18 @@ select.form-control {
     margin: 0;
     line-height: 1.2;
 }
-
+.button {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+.info-block {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+}
 .product_detail_name {
     color: rgba(248, 128, 5, 1);
     font-family: 'Unbounded', sans-serif;
