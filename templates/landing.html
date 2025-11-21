@@ -8,21 +8,21 @@
   <!-- Левая часть с фото -->
   <div class="me-3 position-relative">
     <img src="media/photo/left_photo.jpg" alt="Левое фото" class="left_photo">
-    <img src="media/icon/arend_icon.png" alt="" class='arend_icon'>
+    <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="" class='arend_icon'></a>
   </div>
   <!-- Правая часть: фото над тремя блоками -->
   <div>
     <!-- Фото сверху -->
     <div class="mb-3 position-relative">
       <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
-      <img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'>
-      <p class="position-absolute bottom-0 start-0 m-4 game_count_text">18 эксклюзивных игр</p>
+      <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'></a>
+      <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
     </div>
     <!-- Три блока -->
     <div class="d-flex">
-      <div class="p-5 me-3 flex-fill">ОСТАВИТЬ ЗАЯВКУ</div>
-      <div class="p-3 me-3 flex-fill">О НАС</div>
-      <div class="p-3 flex-fill">ПОДАРОЧНЫЕ СЕРТИФИКАТЫ</div>
+      <button class="p-5 me-3 flex-fill" onclick="openOrderModal()">ОСТАВИТЬ ЗАЯВКУ</button>
+      <a href="{% url 'about' %}" class="p-3 me-3 flex-fill">О НАС</a>
+      <a href="#" class="p-3 flex-fill">ПОДАРОЧНЫЕ СЕРТИФИКАТЫ</a>
     </div>
   </div>
 </div>
@@ -62,6 +62,7 @@
     {% for product in products %}
     <div class="swiper-slide">
       <div class="product-card">
+        <a href="{% url 'product_detail' pk=product.pk %}">
         <img src="{{ product.image.url }}" alt="{{ product.name }}" class='product_card_image'>
         <h1 class="product-card-title">{{ product.name }}</h1>
         <p class="product-card-price">{{ product.price| floatformat }} руб.</p>
@@ -81,6 +82,7 @@
     {% for arend in arenda %}
     <div class="swiper-slide">
       <div class="arend-card">
+        <a href="{% url 'rental_catalog' %}">
         <img src="{{ arend.image.url }}" alt="{{ arend.name }}" class='arend_card_image'>
       </div>
     </div>
@@ -110,7 +112,7 @@
   <div class="center-block mt-5">
     <h1 class='center-block_h'>ОСТАЛИСЬ ВОПРОСЫ?</h1>
     <p class='center-block_text'>Отправь заявку, мы свяжемся с тобой в ближайшее время</p>
-    <button class='center-block_button'>ЗАПОЛНИТЬ ЗАЯВКУ</button>
+    <button class='center-block_button' onclick="openOrderModal()">ЗАПОЛНИТЬ ЗАЯВКУ</button>
   </div>
 </div>
 {% endblock content%}

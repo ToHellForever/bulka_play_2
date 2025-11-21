@@ -1,37 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const guestInput = document.getElementById("guestInput");
-    const guestSlider = document.getElementById("guestSlider");
-    const guestMinCount = document.getElementById("guestMinCount");
-    const guestMaxCount = document.getElementById("guestMaxCount");
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('orderModal');
+    const closeBtn = document.querySelector('.close');
 
-    function updateRecommendedGames(guests) {
-        fetch('/calculate_games/?guests=' + guests)
-            .then(response => response.json())
-            .then(data => {
-                guestMinCount.textContent = `${data.min} `;
-                guestMaxCount.textContent = ` ${data.max}`;
-            })
-            .catch(error => console.error('Ошибка:', error));
+    // Функция для открытия модального окна
+    window.openOrderModal = function() {
+      modal.style.display = 'block';
     };
 
-    // Ограничиваем минимальное значение двумя гостями
-    guestInput.addEventListener("change", () => {
-        let newValue = Math.max(parseInt(guestInput.value), 2); // Минимум - 2 человека
-        guestInput.value = newValue;
-        guestSlider.value = newValue;
-        updateRecommendedGames(newValue); // Отправляем запрос и обновляем рекомендации
-    });
+    // Закрытие модального окна
+    if (closeBtn) {
+      closeBtn.onclick = function() {
+        modal.style.display = 'none';
+      };
+    }
 
-    // То же самое делаем для слайдера
-    guestSlider.addEventListener("input", () => {
-        let newValue = Math.max(parseInt(guestSlider.value), 2); // Минимум - 2 человека
-        guestInput.value = newValue;
-        guestSlider.value = newValue;
-        updateRecommendedGames(newValue); // Отправляем запрос и обновляем рекомендации
-    });
-
-    guestSlider.addEventListener("input", () => {
-        const value = (guestSlider.value - guestSlider.min) / (guestSlider.max - guestSlider.min) * 100;
-        guestSlider.style.setProperty('--value', `${value}%`);
-    });
-});
+    // Закрытие модального окна при клике вне его
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
+  });

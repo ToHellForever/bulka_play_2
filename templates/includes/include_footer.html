@@ -2,9 +2,9 @@
   <div class="d-flex align-items-center" style="width: 100%; gap: 4rem;">
     <!-- Все 6 основных ссылок -->
     <a href="{% url 'landing' %}"><img src="/media/icon/icon_landing.png" alt="" class='icon_landing'></a>
-    <a href="#" class='menu-text'>О нас</a>
-    <a href="#" class='menu-text'>Каталог игр</a>
-    <a href="#" class='menu-text'>Аренда</a>
+    <a href="{% url 'about' %}" class='menu-text'>О нас</a>
+    <a href="{% url 'game_catalog' %}" class='menu-text'>Каталог игр</a>
+    <a href="{% url 'rental_catalog' %}" class='menu-text'>Аренда</a>
     <a href="#" class='menu-text'>Доставка</a>
     <a href="#" class='menu-text'>Контакты</a>
     

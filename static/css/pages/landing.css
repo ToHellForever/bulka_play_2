@@ -28,16 +28,24 @@
     left: 50%;
     transform: translateX(-50%);
 }
+a {
+  white-space: normal; /* Разрешает перенос текста */
+  word-wrap: break-word; /* Разрешает перенос слов */
+  overflow-wrap: break-word; /* Альтернатива для word-wrap */
+}
 .flex-fill {
     border: none !important;
     background: rgba(26, 26, 26, 1);
     height: 9.8rem;
     width: 8rem;
-    padding: 25px !important;
+    padding: 18px !important;
+    flex-wrap: wrap;
     border-radius: 33px;
     color: rgba(255, 255, 255, 1);
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
+    display: flex; /* Добавьте это свойство */
+    text-align: start;
 }
 .flex-fill:nth-child(2) {
     background: rgba(248, 128, 5, 1);

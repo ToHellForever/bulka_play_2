@@ -53,11 +53,13 @@
 <div class='container mt-5'>
   <div class='row'>
     {% for arend in arenda %}
-      <div class='col-4 mt-5'>
-        <div class="game-card">
+    <div class='col-4 mt-5'>
+      <div class="game-card">
+        <a href="#" onclick="openOrderModal()">
           <img src="{{ arend.image.url }}" alt="{{ arend.name }}" class="arenda_card_image">
-        </div>
+        </a>
       </div>
+    </div>
     {% endfor %}
   </div>
 </div>
@@ -80,5 +82,11 @@
     {% endfor %}
   </div>
 </div>
+</div>
+
+<div class="center-block mt-5 mb-5">
+  <h1 class='center-block_h'>ХОЧЕШЬ ТАКЖЕ?</h1>
+  <p class='center-block_text'>Отправь заявку, мы свяжемся с тобой в ближайшее время</p>
+  <button class='center-block_button' onclick="openOrderModal()">ЗАПОЛНИТЬ ЗАЯВКУ</button>
 </div>
 {% endblock content %}
