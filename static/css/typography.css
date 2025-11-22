@@ -271,3 +271,35 @@ h3 {
     font-size: 1.7rem;
     margin-top: 1rem;
 }
+
+
+/* модальное окно для заказа */
+.modal-title {
+    color: white;
+    text-align: start;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+.modal-content label {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-title-section {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.submit-button {
+     color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}

@@ -1,7 +1,7 @@
 <div id="orderModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Оформить заказ</h2>
+    <h2 class="modal-title">ОФОРМИТЬ ЗАКАЗ</h2>
 
     <form id="orderForm" method="post" action="/process_order/" onsubmit="return submitOrder(event)">
       {% csrf_token %}
@@ -10,19 +10,17 @@
 
       <!-- Основные поля -->
       <div class="form-group">
-        <label for="name">Ваше имя*</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" placeholder="Имя" required>
         <div id="name-error" class="error-message">Пожалуйста, введите ваше имя</div>
       </div>
 
       <div class="form-group">
-        <label for="phone">Телефон*</label>
-        <input type="tel" id="phone" name="phone" required>
+        <input type="tel" id="phone" name="phone" placeholder="Номер телефона"required>
         <div id="phone-error" class="error-message">Пожалуйста, введите корректный номер телефона</div>
       </div>
 
       <div class="form-group">
-        <label for="order-type">Тип заказа*</label>
+        <label for="order-type">Что вас заинтересовало?</label>
         <select id="order-type" name="order_type" onchange="toggleOrderType(this.value)" required>
           <option value="">Выберите тип заказа</option>
           <option value="buy">Купить игру</option>
@@ -33,7 +31,7 @@
 
       <!-- Секция покупки -->
       <div id="buy-section" class="order-section" style="display: none;">
-        <h3>Выбор игр для покупки</h3>
+        <h3 class="modal-title-section">Выбор игр для покупки</h3>
 
         <div class="games-grid" id="buy-games-container">
           <!-- Игры будут загружены динамически -->
@@ -53,7 +51,7 @@
           {% endfor %}
         </div>
 
-        <h3>Дополнительные товары</h3>
+        <h3 class="modal-title-section">Дополнительные товары</h3>
         <div class="games-grid" id="additional-goods-container">
           <!-- Дополнительные товары будут загружены динамически -->
           {% for additional in additional_products %}
@@ -81,7 +79,7 @@
         </div>
 
         <div class="form-group">
-          <label for="delivery-address">Адрес доставки*</label>
+          <label for="delivery-address">Адрес доставки</label>
           <input type="text" id="delivery-address" name="delivery_address">
           <div id="address-error" class="error-message">Пожалуйста, введите адрес доставки</div>
         </div>
@@ -89,7 +87,20 @@
 
       <!-- Секция аренды -->
       <div id="rent-section" class="order-section" style="display: none;">
-        <h3>Выбор игр для аренды</h3>
+        <div class="form-group">
+          <label for="order-type">Количество игр</label>
+          <select id="rent-options" name="rent_type" onchange="updateRentLimits()">
+            <option value="">Количество игр</option>
+            {% for arenda in arenda %}
+              <option value="{{ arenda.id }}" data-game-count="{{ arenda.game_count }}" data-price="{{ arenda.price }}">
+                {{ arenda.name }} ({{ arenda.game_count }} игр) - {{ arenda.price }} руб.
+              </option>
+            {% endfor %}
+          </select>
+          <div id="rent-options-error" class="error-message">Пожалуйста, выберите тип аренды</div>
+        </div>
+
+        <h3 class="modal-title-section">Выбор игр для аренды</h3>
 
         <div class="games-grid" id="rent-games-container">
           <!-- Игры для аренды будут загружены динамически -->
@@ -108,34 +119,22 @@
           {% endfor %}
         </div>
 
-        <div class="form-group">
-          <label for="rent-options">Тип аренды*</label>
-          <select id="rent-options" name="rent_type" onchange="updateRentLimits()">
-            <option value="">Выберите тип аренды</option>
-            {% for arenda in arenda %}
-              <option value="{{ arenda.id }}" data-game-count="{{ arenda.game_count }}" data-price="{{ arenda.price }}">
-                {{ arenda.name }} ({{ arenda.game_count }} игр) - {{ arenda.price }} руб.
-              </option>
-            {% endfor %}
-          </select>
-          <div id="rent-options-error" class="error-message">Пожалуйста, выберите тип аренды</div>
-        </div>
+
 
         <div class="form-group">
-          <label for="rent-date">Дата аренды*</label>
+        <label for="order-type">Выберете дату</label>
           <input type="date" id="rent-date" name="rent_date">
           <div id="date-error" class="error-message">Пожалуйста, выберите дату аренды</div>
         </div>
 
         <div class="form-group">
-          <label for="rent-address">Адрес доставки*</label>
+        <label for="order-type">Адрес доставки</label>
           <input type="text" id="rent-address" name="rent_address">
           <div id="rent-address-error" class="error-message">Пожалуйста, введите адрес доставки</div>
         </div>
 
         <div class="form-group">
-          <label for="comment">Комментарий</label>
-          <textarea id="comment" name="comment" rows="3"></textarea>
+          <textarea id="comment" name="comment" rows="3" placeholder="Комментарий"></textarea>
         </div>
       </div>
 
@@ -143,7 +142,7 @@
         <h3>Итого к оплате: <span id="total-price">0</span> руб.</h3>
       </div>
 
-      <button type="submit" id="submit-btn" class="submit-button">Оформить заказ</button>
+      <button type="submit" id="submit-btn" class="submit-button">ОФОРМИТЬ ЗАКАЗ</button>
     </form>
   </div>
 </div>
