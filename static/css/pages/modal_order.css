@@ -161,6 +161,7 @@
   .modal-content select,
   .modal-content textarea {
     padding: 10px;
+    
   }
 }
 
@@ -196,30 +197,14 @@
   }
 
   .game-card-modal img {
-    width: 100%;
-    height: 3rem;
-    object-fit: cover;
+    width: 13rem;
+    height: 13rem;
+    border-radius: 20px;
   }
 
   .game-info {
-    padding: 10px;
-    text-align: center;
+    margin-top: 15px;
   }
-
-  .game-info h4 {
-    margin: 5px 0;
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .game-price {
-    font-weight: bold;
-    color: #e67e22;
-    margin: 5px 0;
-  }
-
   .game-checkbox {
     position: absolute;
     top: 10px;

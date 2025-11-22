@@ -37,15 +37,10 @@
           <!-- Игры будут загружены динамически -->
           {% for product in products %}
             <div class="game-card-modal">
-              <label class="game-checkbox">
-                <input type="checkbox" name="buy_games" value="{{ product.id }}"
-                       data-name="{{ product.name }}" data-price="{{ product.price }}">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}"
-                     onerror="this.src='/static/images/default-game.jpg'">
-              </label>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
               <div class="game-info">
                 <h4>{{ product.name }}</h4>
-                <p class="game-price">{{ product.price }} руб.</p>
+                <p class="game-price">{{ product.price|floatformat }} руб.</p>
               </div>
             </div>
           {% endfor %}
@@ -56,12 +51,7 @@
           <!-- Дополнительные товары будут загружены динамически -->
           {% for additional in additional_products %}
             <div class="game-card-modal">
-              <label class="game-checkbox">
-                <input type="checkbox" name="additional_goods" value="{{ additional.id }}"
-                       data-name="{{ additional.name }}" data-price="{{ additional.price }}">
-                <img src="{{ additional.image.url }}" alt="{{ additional.name }}"
-                     onerror="this.src='/static/images/default-game.jpg'">
-              </label>
+                <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
               <div class="game-info">
                 <h4>{{ additional.name }}</h4>
                 <p class="game-price">{{ additional.price }} руб.</p>
@@ -106,12 +96,7 @@
           <!-- Игры для аренды будут загружены динамически -->
           {% for product in products %}
             <div class="game-card-modal">
-              <label class="game-checkbox">
-                <input type="checkbox" name="rent_games" value="{{ product.id }}"
-                       data-name="{{ product.name }}">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}"
-                     onerror="this.src='/static/images/default-game.jpg'">
-              </label>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
               <div class="game-info">
                 <h4>{{ product.name }}</h4>
               </div>
