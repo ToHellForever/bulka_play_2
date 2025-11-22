@@ -113,4 +113,9 @@ display: none;
 }
 .arrow_accorderon {
     margin-left: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.arrow_accorderon.active {
+    transform: rotate(180deg);
 }
