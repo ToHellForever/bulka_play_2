@@ -1,29 +1,239 @@
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+/* Основные стили модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 30px;
+  border: none;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: modalContentSlide 0.3s;
+}
+
+@keyframes modalContentSlide {
+  from { transform: translateY(-50px); }
+  to { transform: translateY(0); }
+}
+
+.close {
+  color: #555;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* Стили для формы */
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 28px;
+}
+
+.modal-content h3 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="tel"],
+.modal-content input[type="date"],
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="tel"]:focus,
+.modal-content input[type="date"]:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.modal-content select {
+  height: 44px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.modal-content textarea {
+  min-height: 100px;
+  resize: vertical;
+  padding: 12px;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  width: 100%;
+  font-size: 17px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.modal-content button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Стили для списков игр */
+#games-list-buy,
+#games-list-rent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+#games-list-buy li,
+#games-list-rent li {
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 200px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#games-list-buy li:hover,
+#games-list-rent li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#games-list-buy img,
+#games-list-rent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+#games-list-buy label,
+#games-list-rent label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#games-list-buy input[type="checkbox"],
+#games-list-rent input[type="checkbox"] {
+  display: block;
+  margin: 0 auto 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
   .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    width: 95%;
     padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    border-radius: 10px;
   }
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+
+  #games-list-buy li,
+  #games-list-rent li {
+    flex: 1 1 calc(50% - 15px);
   }
-  .close:hover {
-    color: black;
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    margin: 3% auto;
+    padding: 15px;
   }
+
+  #games-list-buy li,
+  #games-list-rent li {
+    flex: 1 1 100%;
+  }
+
+  .modal-content input[type="text"],
+  .modal-content input[type="tel"],
+  .modal-content input[type="date"],
+  .modal-content select,
+  .modal-content textarea {
+    padding: 10px;
+  }
+}
+
+/* Стили для скрытых элементов */
+.hidden {
+  display: none !important;
+}
+
+/* Стили для ошибок валидации */
+.error-message {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.input-error {
+  border-color: #d32f2f !important;
+}

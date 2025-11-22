@@ -230,6 +230,8 @@ class Order(models.Model):
     date = models.DateField(verbose_name="Дата заказа", default=datetime.now)
     time = models.TimeField(verbose_name="Время заказа", default=datetime.now)
     comment = models.TextField(blank=True, verbose_name="Комментарий")
+    delivery_address = models.CharField(max_length=255, verbose_name="Адрес доставки", blank=True, null=True)
+    engraving = models.CharField(max_length=3, choices=[('yes', 'Да'), ('no', 'Нет')], default='no', verbose_name="Гравировка")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
 
     class Meta:

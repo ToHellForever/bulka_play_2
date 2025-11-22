@@ -3,11 +3,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from core.views import (
-    LandingView, 
-    AboutView, 
-    GameCatalogView, 
-    ProductDetailView, 
-    RentalCatalogView
+    LandingView,
+    AboutView,
+    GameCatalogView,
+    ProductDetailView,
+    RentalCatalogView,
+    ProcessOrderView
 )
 from debug_toolbar.toolbar import debug_toolbar_urls
 
@@ -18,6 +19,7 @@ urlpatterns = [
     path('game-catalog/', GameCatalogView.as_view(), name='game_catalog'),
     path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
     path('rental-catalog/', RentalCatalogView.as_view(), name='rental_catalog'),
+    path('process_order/', ProcessOrderView.as_view(), name='process_order'),
 ] + debug_toolbar_urls()
 
 

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
-import random
+from django.http import JsonResponse
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from .models import Product, Arenda, News, Order, PlayerRange, Size, PlayerCount, PlayerAge, GameType, AdditionalProducts
 
 
@@ -108,3 +110,65 @@ class RentalCatalogView(TemplateView):
         context["arenda"] = Arenda.objects.filter(is_active=True).order_by("-created_at")
         context["news"] = News.objects.filter(is_active=True).order_by("-created_at")
         return context
+
+@method_decorator(csrf_exempt, name='dispatch')
+class ProcessOrderView(View):
+    def post(self, request, *args, **kwargs):
+        try:
+            data = request.POST
+
+            # Создание заказа
+            order = Order.objects.create(
+                name=data.get('name'),
+                phone=data.get('phone'),
+                order_type=data.get('order_type'),
+                comment=data.get('comment', '')
+            )
+
+            # Обработка в зависимости от типа заказа
+            if data.get('order_type') == 'buy':
+                # Сохранение выбранных игр для покупки
+                if 'buy_games' in data:
+                    games = data.getlist('buy_games')
+                    order.products.set(games)
+
+                # Сохранение дополнительных товаров
+                if 'additional_goods' in data:
+                    additional_goods = data.getlist('additional_goods')
+                    order.additional_products.set(additional_goods)
+
+                # Сохранение адреса доставки
+                order.delivery_address = data.get('delivery_address')
+
+                # Сохранение информации о гравировке
+                order.engraving = data.get('engraving', 'no')
+
+            elif data.get('order_type') == 'rent':
+                # Сохранение выбранных игр для аренды
+                if 'rent_games' in data:
+                    games = data.getlist('rent_games')
+                    order.games_for_rent.set(games)
+
+                # Сохранение типа аренды
+                if 'rent_type' in data:
+                    order.arenda.set([data.get('rent_type')])
+
+                # Сохранение даты аренды
+                if 'rent_date' in data:
+                    order.date = data.get('rent_date')
+
+                # Сохранение адреса доставки
+                order.delivery_address = data.get('rent_address')
+
+            order.save()
+
+            return JsonResponse({
+                'success': True,
+                'message': 'Заказ успешно оформлен!'
+            })
+
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'message': f'Ошибка при оформлении заказа: {str(e)}'
+            }, status=400)
