@@ -100,27 +100,5 @@
 {% endblock content %}
 
 {% block scripts %}
-<script>
-function showInfo(id) {
-    const selectedBlock = document.getElementById(id);
-    if (selectedBlock.style.display === 'block') {
-        selectedBlock.style.display = 'none';
-    } else {
-        // Hide all info blocks
-        const infoBlocks = document.querySelectorAll('.info-block');
-        infoBlocks.forEach(block => {
-            block.style.display = 'none';
-        });
-
-        // Show the selected info block
-        selectedBlock.style.display = 'block';
-    }
-}
-        document.querySelectorAll(".button").forEach(button => {
-        const img = button.querySelector(".arrow_accorderon");
-        button.addEventListener("click", () => {
-            img.classList.toggle("active");
-        });
-    });
-</script>
+{{ block.super }}
 {% endblock scripts %}
