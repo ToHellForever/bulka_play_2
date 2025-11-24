@@ -90,11 +90,6 @@ function updateRentLimits() {
 
 // Ограничение выбора игр при аренде
 function limitGameSelection() {
-  const checkedGames = document.querySelectorAll('#rent-games-container input[type="checkbox"]:checked');
-  if (checkedGames.length > maxSelectableGames) {
-    alert(`Вы можете выбрать не более ${maxSelectableGames} игр для этого типа аренды`);
-    this.checked = false;
-  }
   updateTotalPrice();
 }
 
@@ -139,145 +134,6 @@ function updateTotalPrice() {
   }
 
   totalElement.textContent = total.toFixed(2);
-}
-
-function submitOrder(event) {
-  event.preventDefault();
-  clearErrorMessages();
-  let isValid = true;
-
-  // Валидация основных полей
-  const name = document.getElementById('name');
-  if (!name.value.trim()) {
-    showError('name-error', 'Пожалуйста, введите ваше имя');
-    isValid = false;
-  }
-
-  const phone = document.getElementById('phone');
-  if (!phone.value.trim() || !validatePhone(phone.value)) {
-    showError('phone-error', 'Пожалуйста, введите корректный номер телефона');
-    isValid = false;
-  }
-
-  const orderType = document.getElementById('order-type');
-  if (!orderType.value) {
-    showError('order-type-error', 'Пожалуйста, выберите тип заказа');
-    isValid = false;
-  }
-
-  // Валидация только для выбранного типа заказа
-  if (orderType.value === 'buy') {
-    const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
-    if (selectedGames.length === 0) {
-      showError('form-error', 'Пожалуйста, выберите хотя бы одну игру для покупки');
-      isValid = false;
-    }
-
-    const address = document.getElementById('delivery-address');
-    if (!address.value.trim()) {
-      showError('address-error', 'Пожалуйста, введите адрес доставки');
-      isValid = false;
-    }
-  }
-  else if (orderType.value === 'rent') {
-    const rentOption = document.getElementById('rent-options');
-    if (!rentOption.value) {
-      showError('rent-options-error', 'Пожалуйста, выберите тип аренды');
-      isValid = false;
-    }
-
-    const selectedGames = document.querySelectorAll('#rent-games-container input[type="checkbox"]:checked');
-    if (selectedGames.length === 0) {
-      showError('form-error', 'Пожалуйста, выберите хотя бы одну игру для аренды');
-      isValid = false;
-    }
-    else if (selectedGames.length > maxSelectableGames) {
-      showError('form-error', `Вы можете выбрать не более ${maxSelectableGames} игр для этого типа аренды`);
-      isValid = false;
-    }
-
-    const date = document.getElementById('rent-date');
-    if (!date.value) {
-      showError('date-error', 'Пожалуйста, выберите дату аренды');
-      isValid = false;
-    }
-
-    const address = document.getElementById('rent-address');
-    if (!address.value.trim()) {
-      showError('rent-address-error', 'Пожалуйста, введите адрес доставки');
-      isValid = false;
-    }
-  }
-
-  if (!isValid) {
-    const firstError = document.querySelector('.error-message[style="display: block;"]');
-    if (firstError) {
-      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    return false;
-  }
-
-  submitFormData();
-  return false;
-}
-
-function submitFormData() {
-  const form = document.getElementById('orderForm');
-  const formData = new FormData(form);
-  const submitBtn = document.getElementById('submit-btn');
-
-  // Добавляем выбранные игры в зависимости от типа заказа
-  if (currentOrderType === 'buy') {
-    const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
-    selectedGames.forEach(game => {
-      formData.append('buy_games', game.value);
-    });
-
-    const selectedGoods = document.querySelectorAll('#additional-goods-container input[type="checkbox"]:checked');
-    selectedGoods.forEach(good => {
-      formData.append('additional_goods', good.value);
-    });
-  }
-  else if (currentOrderType === 'rent') {
-    const selectedGames = document.querySelectorAll('#rent-games-container input[type="checkbox"]:checked');
-    selectedGames.forEach(game => {
-      formData.append('rent_games', game.value);
-    });
-  }
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Отправка...';
-
-  fetch(form.action, {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
-      'X-Requested-With': 'XMLHttpRequest'
-    }
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    if (data.success) {
-      alert('Ваш заказ успешно оформлен! Мы свяжемся с вами в ближайшее время.');
-      closeModal();
-    } else {
-      showError('form-error', data.message || 'Произошла ошибка при оформлении заказа');
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    showError('form-error', 'Произошла ошибка при отправке заказа. Пожалуйста, попробуйте позже.');
-  })
-  .finally(() => {
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Оформить заказ';
-  });
 }
 
 // Отправка формы
@@ -331,8 +187,8 @@ function submitOrder(event) {
       showError('form-error', 'Пожалуйста, выберите хотя бы одну игру для аренды');
       isValid = false;
     }
-    else if (selectedGames.length > maxSelectableGames) {
-      showError('form-error', `Вы можете выбрать не более ${maxSelectableGames} игр для этого типа аренды`);
+    else if (selectedGames.length !== maxSelectableGames) {
+      showError('form-error', `Вы выбрали ${selectedGames.length} игр, но ваш тип аренды требует выбрать ровно ${maxSelectableGames} игр.`);
       isValid = false;
     }
 
@@ -505,3 +361,36 @@ document.addEventListener('DOMContentLoaded', function() {
     deliveryAddressInput.removeAttribute('required');
   }
 });
+
+
+    // Функция для отображения блоков информации
+    window.showInfo = function(id) {
+      const selectedBlock = document.getElementById(id);
+      if (selectedBlock) {
+        if (selectedBlock.style.display === 'block') {
+          selectedBlock.style.display = 'none';
+        } else {
+          // Hide all info blocks
+          const infoBlocks = document.querySelectorAll('.info-block');
+          infoBlocks.forEach(block => {
+            block.style.display = 'none';
+          });
+
+          // Show the selected info block
+          selectedBlock.style.display = 'block';
+        }
+      }
+    };
+
+    // Обработчики для кнопок с классом .button
+    const buttons = document.querySelectorAll(".button");
+    if (buttons.length > 0) {
+      buttons.forEach(button => {
+        const img = button.querySelector(".arrow_accorderon");
+        if (img) {
+          button.addEventListener("click", () => {
+            img.classList.toggle("active");
+          });
+        }
+      });
+    }
