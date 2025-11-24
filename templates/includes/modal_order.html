@@ -36,13 +36,16 @@
         <div class="games-grid" id="buy-games-container">
           <!-- Игры будут загружены динамически -->
           {% for product in products %}
-            <div class="game-card-modal">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-              <div class="game-info">
-                <h4>{{ product.name }}</h4>
-                <p class="game-price">{{ product.price|floatformat }} руб.</p>
-              </div>
-            </div>
+<div class="game-card-modal">
+    <div class="game-checkbox">
+      <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.price|floatformat }}">
+    </div>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+  <div class="game-info">
+    <h4>{{ product.name }}</h4>
+    <p class="game-price">{{ product.price|floatformat }} руб.</p>
+  </div>
+</div>
           {% endfor %}
         </div>
 
@@ -50,13 +53,16 @@
         <div class="games-grid" id="additional-goods-container">
           <!-- Дополнительные товары будут загружены динамически -->
           {% for additional in additional_products %}
-            <div class="game-card-modal">
-                <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
-              <div class="game-info">
-                <h4>{{ additional.name }}</h4>
-                <p class="game-price">{{ additional.price }} руб.</p>
-              </div>
-            </div>
+<div class="game-card-modal">
+    <div class="game-checkbox">
+      <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.price }}">
+    </div>
+    <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
+  <div class="game-info">
+    <h4>{{ additional.name }}</h4>
+    <p class="game-price">{{ additional.price }} руб.</p>
+  </div>
+</div>
           {% endfor %}
         </div>
 
@@ -95,12 +101,15 @@
         <div class="games-grid" id="rent-games-container">
           <!-- Игры для аренды будут загружены динамически -->
           {% for product in products %}
-            <div class="game-card-modal">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-              <div class="game-info">
-                <h4>{{ product.name }}</h4>
-              </div>
-            </div>
+<div class="game-card-modal">
+    <div class="game-checkbox">
+      <input type="checkbox" name="selected_rent_game" value="{{ product.id }}">
+    </div>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+  <div class="game-info">
+    <h4>{{ product.name }}</h4>
+  </div>
+</div>
           {% endfor %}
         </div>
 
@@ -131,4 +140,3 @@
     </form>
   </div>
 </div>
-

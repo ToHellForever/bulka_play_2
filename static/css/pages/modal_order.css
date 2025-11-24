@@ -216,6 +216,27 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .game-checkbox input[type="checkbox"]:checked {
+    background-color: #f88005;
+    border-color: #f88005;
+  }
+
+  .game-checkbox input[type="checkbox"]:hover {
+    background-color: #f88005;
+    border-color: #f88005;
+  }
+
+  .game-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 
   /* Стили для кнопки отправки */
