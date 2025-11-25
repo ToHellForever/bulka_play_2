@@ -30,14 +30,72 @@ function clearErrorMessages() {
   document.querySelectorAll('.error-message').forEach(el => {
     el.style.display = 'none';
   });
+
+  // Удаляем все toast уведомления
+  const toastContainer = document.querySelector('.toast-container');
+  if (toastContainer) {
+    toastContainer.remove();
+  }
 }
 
 // Показ ошибки
 function showError(elementId, message) {
-  const errorElement = document.getElementById(elementId);
-  if (errorElement) {
-    errorElement.textContent = message;
-    errorElement.style.display = 'block';
+  // Создаем контейнер для toast уведомлений, если его нет
+  let toastContainer = document.querySelector('.toast-container');
+  if (!toastContainer) {
+    toastContainer = document.createElement('div');
+    toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
+    document.body.appendChild(toastContainer);
+  }
+
+  // Создаем элемент toast
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.setAttribute('role', 'alert');
+  toast.setAttribute('aria-live', 'assertive');
+  toast.setAttribute('aria-atomic', 'true');
+
+  // Создаем заголовок toast
+  const toastHeader = document.createElement('div');
+  toastHeader.className = 'toast-header bg-danger text-white';
+
+  const strong = document.createElement('strong');
+  strong.className = 'me-auto';
+  strong.textContent = 'Ошибка';
+
+  const small = document.createElement('small');
+  small.textContent = 'только что';
+
+  const closeButton = document.createElement('button');
+  closeButton.type = 'button';
+  closeButton.className = 'btn-close btn-close-white';
+  closeButton.setAttribute('data-bs-dismiss', 'toast');
+  closeButton.setAttribute('aria-label', 'Закрыть');
+
+  toastHeader.appendChild(strong);
+  toastHeader.appendChild(small);
+  toastHeader.appendChild(closeButton);
+
+  // Создаем тело toast
+  const toastBody = document.createElement('div');
+  toastBody.className = 'toast-body';
+  toastBody.textContent = message;
+
+  // Собираем toast
+  toast.appendChild(toastHeader);
+  toast.appendChild(toastBody);
+
+  // Добавляем toast в контейнер
+  toastContainer.appendChild(toast);
+
+  // Показываем toast
+  const bootstrapToast = new bootstrap.Toast(toast, { delay: 3000 });
+  bootstrapToast.show();
+
+  // Прокручиваем к элементу, если он существует
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
 
@@ -206,10 +264,6 @@ function submitOrder(event) {
   }
 
   if (!isValid) {
-    const firstError = document.querySelector('.error-message[style="display: block;"]');
-    if (firstError) {
-      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
     return false;
   }
 
@@ -261,7 +315,52 @@ function submitFormData() {
   })
   .then(data => {
     if (data.success) {
-      alert('Ваш заказ успешно оформлен! Мы свяжемся с вами в ближайшее время.');
+      // Создаем toast уведомление об успехе
+      let toastContainer = document.querySelector('.toast-container');
+      if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
+        document.body.appendChild(toastContainer);
+      }
+
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.setAttribute('role', 'alert');
+      toast.setAttribute('aria-live', 'assertive');
+      toast.setAttribute('aria-atomic', 'true');
+
+      const toastHeader = document.createElement('div');
+      toastHeader.className = 'toast-header bg-success text-white';
+
+      const strong = document.createElement('strong');
+      strong.className = 'me-auto';
+      strong.textContent = 'Успех';
+
+      const small = document.createElement('small');
+      small.textContent = 'только что';
+
+      const closeButton = document.createElement('button');
+      closeButton.type = 'button';
+      closeButton.className = 'btn-close btn-close-white';
+      closeButton.setAttribute('data-bs-dismiss', 'toast');
+      closeButton.setAttribute('aria-label', 'Закрыть');
+
+      toastHeader.appendChild(strong);
+      toastHeader.appendChild(small);
+      toastHeader.appendChild(closeButton);
+
+      const toastBody = document.createElement('div');
+      toastBody.className = 'toast-body';
+      toastBody.textContent = 'Ваш заказ успешно оформлен! Мы свяжемся с вами в ближайшее время.';
+
+      toast.appendChild(toastHeader);
+      toast.appendChild(toastBody);
+
+      toastContainer.appendChild(toast);
+
+      const bootstrapToast = new bootstrap.Toast(toast, { delay: 3000 });
+      bootstrapToast.show();
+
       closeModal();
     } else {
       showError('form-error', data.message || 'Произошла ошибка при оформлении заказа');
@@ -362,35 +461,34 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Функция для отображения блоков информации
+window.showInfo = function(id) {
+  const selectedBlock = document.getElementById(id);
+  if (selectedBlock) {
+    if (selectedBlock.style.display === 'block') {
+      selectedBlock.style.display = 'none';
+    } else {
+      // Hide all info blocks
+      const infoBlocks = document.querySelectorAll('.info-block');
+      infoBlocks.forEach(block => {
+        block.style.display = 'none';
+      });
 
-    // Функция для отображения блоков информации
-    window.showInfo = function(id) {
-      const selectedBlock = document.getElementById(id);
-      if (selectedBlock) {
-        if (selectedBlock.style.display === 'block') {
-          selectedBlock.style.display = 'none';
-        } else {
-          // Hide all info blocks
-          const infoBlocks = document.querySelectorAll('.info-block');
-          infoBlocks.forEach(block => {
-            block.style.display = 'none';
-          });
+      // Show the selected info block
+      selectedBlock.style.display = 'block';
+    }
+  }
+};
 
-          // Show the selected info block
-          selectedBlock.style.display = 'block';
-        }
-      }
-    };
-
-    // Обработчики для кнопок с классом .button
-    const buttons = document.querySelectorAll(".button");
-    if (buttons.length > 0) {
-      buttons.forEach(button => {
-        const img = button.querySelector(".arrow_accorderon");
-        if (img) {
-          button.addEventListener("click", () => {
-            img.classList.toggle("active");
-          });
-        }
+// Обработчики для кнопок с классом .button
+const buttons = document.querySelectorAll(".button");
+if (buttons.length > 0) {
+  buttons.forEach(button => {
+    const img = button.querySelector(".arrow_accorderon");
+    if (img) {
+      button.addEventListener("click", () => {
+        img.classList.toggle("active");
       });
     }
+  });
+}

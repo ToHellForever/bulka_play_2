@@ -264,13 +264,51 @@
   }
 
 
-  /* Стили для итоговой суммы */
-  .order-summary {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    text-align: right;
-    font-size: 18px;
-    font-weight: bold;
+
+.toast-header.bg-danger {
+  background-color: rgb(230, 64, 64) !important; 
+  color: white !important; 
+}
+.toast-body {
+  padding: 10px 15px !important; 
+  font-size: 1rem !important; 
+  font-family: 'Unbounded' , sans-serif;
+  font-weight: 400 !important; 
+}
+
+.toast-header.bg-success {
+  background-color: rgba(248, 128, 5, 1) !important; 
+  color: white !important; 
+}
+
+
+.toast.show {
+  animation: slideIn 0.3s ease-out !important;
+}
+
+
+.toast.hide {
+  animation: slideOut 0.3s ease-in !important;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
