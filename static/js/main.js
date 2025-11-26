@@ -200,8 +200,11 @@ function submitOrder(event) {
   // Валидация только для выбранного типа заказа
   if (orderType.value === 'buy') {
     const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
-    if (selectedGames.length === 0) {
-      showError('form-error', 'Пожалуйста, выберите хотя бы одну игру для покупки');
+    const selectedGoods = document.querySelectorAll('#additional-goods-container input[type="checkbox"]:checked');
+
+    // Проверка на наличие хотя бы одного выбранного товара (игры или дополнительного товара)
+    if (selectedGames.length === 0 && selectedGoods.length === 0) {
+      showError('form-error', 'Пожалуйста, выберите хотя бы одну игру или дополнительный товар для покупки');
       isValid = false;
     }
 
