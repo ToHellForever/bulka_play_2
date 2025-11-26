@@ -265,50 +265,17 @@
 
 
 
-.toast-header.bg-danger {
-  background-color: rgb(230, 64, 64) !important; 
-  color: white !important; 
-}
 .toast-body {
-  padding: 10px 15px !important; 
-  font-size: 1rem !important; 
+  padding: 10px 15px; 
+  font-size: 1rem ; 
   font-family: 'Unbounded' , sans-serif;
-  font-weight: 400 !important; 
+  font-weight: 400 ; 
+  background: rgba(248, 128, 5, 1);
 }
 
 .toast-header.bg-success {
-  background-color: rgba(248, 128, 5, 1) !important; 
-  color: white !important; 
+  background-color: rgba(248, 128, 5, 1) ; 
+  color: white ; 
 }
 
 
-.toast.show {
-  animation: slideIn 0.3s ease-out !important;
-}
-
-
-.toast.hide {
-  animation: slideOut 0.3s ease-in !important;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}

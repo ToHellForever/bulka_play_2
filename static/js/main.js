@@ -55,34 +55,12 @@ function showError(elementId, message) {
   toast.setAttribute('aria-live', 'assertive');
   toast.setAttribute('aria-atomic', 'true');
 
-  // Создаем заголовок toast
-  const toastHeader = document.createElement('div');
-  toastHeader.className = 'toast-header bg-danger text-white';
-
-  const strong = document.createElement('strong');
-  strong.className = 'me-auto';
-  strong.textContent = 'Ошибка';
-
-  const small = document.createElement('small');
-  small.textContent = 'только что';
-
-  const closeButton = document.createElement('button');
-  closeButton.type = 'button';
-  closeButton.className = 'btn-close btn-close-white';
-  closeButton.setAttribute('data-bs-dismiss', 'toast');
-  closeButton.setAttribute('aria-label', 'Закрыть');
-
-  toastHeader.appendChild(strong);
-  toastHeader.appendChild(small);
-  toastHeader.appendChild(closeButton);
-
   // Создаем тело toast
   const toastBody = document.createElement('div');
   toastBody.className = 'toast-body';
   toastBody.textContent = message;
-
+ 
   // Собираем toast
-  toast.appendChild(toastHeader);
   toast.appendChild(toastBody);
 
   // Добавляем toast в контейнер
@@ -329,31 +307,9 @@ function submitFormData() {
       toast.setAttribute('aria-live', 'assertive');
       toast.setAttribute('aria-atomic', 'true');
 
-      const toastHeader = document.createElement('div');
-      toastHeader.className = 'toast-header bg-success text-white';
-
-      const strong = document.createElement('strong');
-      strong.className = 'me-auto';
-      strong.textContent = 'Успех';
-
-      const small = document.createElement('small');
-      small.textContent = 'только что';
-
-      const closeButton = document.createElement('button');
-      closeButton.type = 'button';
-      closeButton.className = 'btn-close btn-close-white';
-      closeButton.setAttribute('data-bs-dismiss', 'toast');
-      closeButton.setAttribute('aria-label', 'Закрыть');
-
-      toastHeader.appendChild(strong);
-      toastHeader.appendChild(small);
-      toastHeader.appendChild(closeButton);
-
       const toastBody = document.createElement('div');
       toastBody.className = 'toast-body';
       toastBody.textContent = 'Ваш заказ успешно оформлен! Мы свяжемся с вами в ближайшее время.';
-
-      toast.appendChild(toastHeader);
       toast.appendChild(toastBody);
 
       toastContainer.appendChild(toast);
