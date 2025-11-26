@@ -15,7 +15,7 @@
       </div>
 
       <div class="form-group">
-        <input type="tel" id="phone" name="phone" placeholder="Номер телефона"required>
+        <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
         <div id="phone-error" class="error-message">Пожалуйста, введите корректный номер телефона</div>
       </div>
 
@@ -36,16 +36,16 @@
         <div class="games-grid" id="buy-games-container">
           <!-- Игры будут загружены динамически -->
           {% for product in products %}
-<div class="game-card-modal">
-    <div class="game-checkbox">
-      <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.price|floatformat }}">
-    </div>
-    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-  <div class="game-info">
-    <h4>{{ product.name }}</h4>
-    <p class="game-price">{{ product.price|floatformat }} руб.</p>
-  </div>
-</div>
+          <div class="game-card-modal">
+            <div class="game-checkbox">
+              <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.price|floatformat }}">
+            </div>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="game-info">
+              <h4>{{ product.name }}</h4>
+              <p class="game-price">{{ product.price|floatformat }} руб.</p>
+            </div>
+          </div>
           {% endfor %}
         </div>
 
@@ -53,16 +53,16 @@
         <div class="games-grid" id="additional-goods-container">
           <!-- Дополнительные товары будут загружены динамически -->
           {% for additional in additional_products %}
-<div class="game-card-modal">
-    <div class="game-checkbox">
-      <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.price }}">
-    </div>
-    <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
-  <div class="game-info">
-    <h4>{{ additional.name }}</h4>
-    <p class="game-price">{{ additional.price }} руб.</p>
-  </div>
-</div>
+          <div class="game-card-modal">
+            <div class="game-checkbox">
+              <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.price }}">
+            </div>
+            <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
+            <div class="game-info">
+              <h4>{{ additional.name }}</h4>
+              <p class="game-price">{{ additional.price }} руб.</p>
+            </div>
+          </div>
           {% endfor %}
         </div>
 
@@ -101,28 +101,26 @@
         <div class="games-grid" id="rent-games-container">
           <!-- Игры для аренды будут загружены динамически -->
           {% for product in products %}
-<div class="game-card-modal">
-    <div class="game-checkbox">
-      <input type="checkbox" name="selected_rent_game" value="{{ product.id }}">
-    </div>
-    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-  <div class="game-info">
-    <h4>{{ product.name }}</h4>
-  </div>
-</div>
+          <div class="game-card-modal">
+            <div class="game-checkbox">
+              <input type="checkbox" name="selected_rent_game" value="{{ product.id }}">
+            </div>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="game-info">
+              <h4>{{ product.name }}</h4>
+            </div>
+          </div>
           {% endfor %}
         </div>
 
-
-
         <div class="form-group">
-        <label for="order-type">Выберете дату</label>
+          <label for="order-type">Выберете дату</label>
           <input type="date" id="rent-date" name="rent_date">
           <div id="date-error" class="error-message">Пожалуйста, выберите дату аренды</div>
         </div>
 
         <div class="form-group">
-        <label for="order-type">Адрес доставки</label>
+          <label for="order-type">Адрес доставки</label>
           <input type="text" id="rent-address" name="rent_address">
           <div id="rent-address-error" class="error-message">Пожалуйста, введите адрес доставки</div>
         </div>
@@ -138,5 +136,16 @@
 
       <button type="submit" id="submit-btn" class="submit-button">ОФОРМИТЬ ЗАКАЗ</button>
     </form>
+  </div>
+</div>
+
+<!-- Модальное окно поздравления -->
+<div id="successModal" class="success-modal">
+  <div class="success-modal-content">
+    <span class="success-close" onclick="closeSuccessModal()">&times;</span>
+    <div class="success-icon">🎉</div>
+    <h2 class="success-title">Поздравляем!</h2>
+    <p class="success-message">Ваш заказ успешно оформлен! Мы свяжемся с вами в ближайшее время.</p>
+    <button class="success-ok-button" onclick="closeSuccessModal()">Хорошо</button>
   </div>
 </div>

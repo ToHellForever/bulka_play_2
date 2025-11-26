@@ -59,7 +59,7 @@ function showError(elementId, message) {
   const toastBody = document.createElement('div');
   toastBody.className = 'toast-body';
   toastBody.textContent = message;
- 
+
   // Собираем toast
   toast.appendChild(toastBody);
 
@@ -296,30 +296,13 @@ function submitFormData() {
   })
   .then(data => {
     if (data.success) {
-      // Создаем toast уведомление об успехе
-      let toastContainer = document.querySelector('.toast-container');
-      if (!toastContainer) {
-        toastContainer = document.createElement('div');
-        toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
-        document.body.appendChild(toastContainer);
+      // Показываем модальное окно поздравления
+      const successModal = document.getElementById('successModal');
+      if (successModal) {
+        successModal.style.display = 'block';
       }
 
-      const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.setAttribute('role', 'alert');
-      toast.setAttribute('aria-live', 'assertive');
-      toast.setAttribute('aria-atomic', 'true');
-
-      const toastBody = document.createElement('div');
-      toastBody.className = 'toast-body';
-      toastBody.textContent = 'Ваш заказ успешно оформлен! Мы свяжемся с вами в ближайшее время.';
-      toast.appendChild(toastBody);
-
-      toastContainer.appendChild(toast);
-
-      const bootstrapToast = new bootstrap.Toast(toast, { delay: 3000 });
-      bootstrapToast.show();
-
+      // Закрываем основное модальное окно
       closeModal();
     } else {
       showError('form-error', data.message || 'Произошла ошибка при оформлении заказа');
@@ -334,6 +317,14 @@ function submitFormData() {
     submitBtn.textContent = 'Оформить заказ';
   });
 }
+
+// Функция для закрытия модального окна поздравления
+window.closeSuccessModal = function() {
+  const successModal = document.getElementById('successModal');
+  if (successModal) {
+    successModal.style.display = 'none';
+  }
+};
 
 // Инициализация формы при загрузке
 document.addEventListener('DOMContentLoaded', function() {
