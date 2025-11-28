@@ -54,12 +54,16 @@
 }
 
 .contact_link {
-    font-family: 'Mont' , sans-serif;
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
     color: rgba(255, 255, 255, 1);
 }
-
+.contact_link a {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
 .center-block_h {
     font-family: 'Unbounded' , sans-serif;
     font-size: 2.8rem;

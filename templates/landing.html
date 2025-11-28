@@ -64,6 +64,7 @@
       <div class="product-card">
         <a href="{% url 'product_detail' pk=product.pk %}">
         <img src="{{ product.image.url }}" alt="{{ product.name }}" class='product_card_image'>
+        </a>
         <h1 class="product-card-title">{{ product.name }}</h1>
         <p class="product-card-price">{{ product.price| floatformat }} руб.</p>
       </div>
@@ -84,6 +85,7 @@
       <div class="arend-card">
         <a href="{% url 'rental_catalog' %}">
         <img src="{{ arend.image.url }}" alt="{{ arend.name }}" class='arend_card_image'>
+        </a>
       </div>
     </div>
     {% endfor %}
