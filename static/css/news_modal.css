@@ -7,7 +7,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   overflow-y: auto;
 }
 
@@ -40,21 +40,29 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .news-carousel-inner {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .news-carousel-item {
   min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .news-carousel-item img {
-  width: 40rem;
+  width: 100%;
   height: 40rem;
-  border-radius: 8px;
+  border-radius: 30px;
+  object-fit: cover;
 }
 
 /* Кнопки навигации для карусели */
@@ -76,11 +84,10 @@
   justify-content: center;
   z-index: 1002;
 }
-
 .news-carousel-control.prev {
-  left: 0px;
+  left: 10px;
 }
 
 .news-carousel-control.next {
-  right: 0px;
+  right:  10px;
 }
