@@ -1,0 +1,86 @@
+/* Стили для модального окна новостей */
+.news-modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
+}
+
+.news-modal-content {
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+}
+
+.news-close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.news-close:hover {
+  color: black;
+}
+
+/* Стили для карусели новостей */
+.news-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.news-carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.news-carousel-item {
+  min-width: 100%;
+}
+
+.news-carousel-item img {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 8px;
+}
+
+/* Кнопки навигации для карусели */
+.news-carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+}
+
+.news-carousel-control.prev {
+  left: 0px;
+}
+
+.news-carousel-control.next {
+  right: 0px;
+}

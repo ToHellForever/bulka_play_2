@@ -107,17 +107,36 @@
 <div class="swiper">
   <div class="swiper-button-prev custom-prev"></div>
   <div class="swiper-button-next custom-next"></div>
-  <div class="swiper-wrapper">
+<div class="swiper-wrapper">
     {% for n in news %}
     <div class="swiper-slide">
-      <div class="news-card">
+      <div class="news-card" data-news-id="{{ n.id }}">
         <img src="{{ n.image.url }}" alt="{{ n.name }}" class='news_card_image'>
+        <!-- Дополнительные изображения новости -->
+        {% for additional_image in n.additional_images.all %}
+          <img src="{{ additional_image.image.url }}" alt="Additional Image" class="additional_news_image" style="display: none;">
+        {% endfor %}
         <h1 class="news-card-title">{{ n.name }}</h1>
+        <button class="news-card-button" data-news-id="{{ n.id }}">ПОДРОБНЕЕ</button>
       </div>
     </div>
     {% endfor %}
   </div>
 </div>
+</div>
+
+<!-- Модальное окно для новостей -->
+<div id="newsModal" class="news-modal">
+  <span class="news-close">&times;</span>
+  <div class="news-modal-content">
+    <div class="news-carousel">
+      <div class="news-carousel-inner">
+        <!-- Слайды будут добавляться динамически -->
+      </div>
+      <button class="news-carousel-control prev" onclick="newsPrevSlide()">&#10094;</button>
+      <button class="news-carousel-control next" onclick="newsNextSlide()">&#10095;</button>
+    </div>
+  </div>
 </div>
 
   <div class="center-block mt-5 mb-5">
@@ -126,4 +145,3 @@
     <button class='center-block_button' onclick="openOrderModal()">ЗАПОЛНИТЬ ЗАЯВКУ</button>
   </div>
 {% endblock content %}
-
