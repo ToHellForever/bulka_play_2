@@ -73,22 +73,22 @@ class GameCatalogView(TemplateView):
         # Обработка поискового запроса
         search_query = self.request.GET.get("search", "")
         if search_query:
-            products = products.filter(name__iregex=r"{}".format(search_query))
+            products = products.filter(name__icontains=search_query)
 
         # Обработка фильтров
         if "size" in self.request.GET and self.request.GET["size"]:
-            products = products.filter(sizes__id=self.request.GET["size"])
+            products = products.filter(sizes__name=self.request.GET["size"])
 
-        if "player_count" in self.request.GET and self.request.GET["player_count"]:
+        if "players" in self.request.GET and self.request.GET["players"]:
             products = products.filter(
-                player_counts__id=self.request.GET["player_count"]
+                player_counts__count=self.request.GET["players"]
             )
 
-        if "player_age" in self.request.GET and self.request.GET["player_age"]:
-            products = products.filter(player_ages__id=self.request.GET["player_age"])
+        if "age" in self.request.GET and self.request.GET["age"]:
+            products = products.filter(player_ages__age=self.request.GET["age"])
 
-        if "game_type" in self.request.GET and self.request.GET["game_type"]:
-            products = products.filter(game_types__id=self.request.GET["game_type"])
+        if "type" in self.request.GET and self.request.GET["type"]:
+            products = products.filter(game_types__name=self.request.GET["type"])
 
         # Обработка сортировки
         sort = self.request.GET.get("sort", "")
