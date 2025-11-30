@@ -2,19 +2,18 @@
     margin-top: -40px;
 }
 /* для белого инпута с гстями */
-.input-guest {
-    width: 200px !important;
+#guestValueDisplay {
+    width: 10rem;
     border-radius: 10px;
     background: white;
     height: 40px !important;
-    margin-top: 10px;
-    margin-left: 30px;
     text-align: center;
     color: black;
-    font-size: 20px;
+    font-size: 1.3rem;
+    margin-top: 10px;
     font-family: "Unbounded", sans-serif;
     font-weight: 400;
-    border: none;
+    padding: 5px;
 }
 
 /* стили для подписи под ползунком  */

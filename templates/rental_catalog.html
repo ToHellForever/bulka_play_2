@@ -21,12 +21,10 @@
 <div class="row mt-1">
     <div class="col-md-6 d-flex align-items-center">
         <h3 class="guest_count_h mb-0">КОЛИЧЕСТВО ГОСТЕЙ</h3>
-        <form id="myForm" onsubmit="return false;" class="ms-2">
-            <input class='input-guest' type="number" name="guests" id="guestInput">
-        </form>
+        <div id="guestValueDisplay" class="ms-2">2 <span id="guestUnit">чел</span></div>
     </div>
 </div>
-    
+
 <div class="row mt-3 slider-container">
     <input type="range" class="form-range" id="guestSlider" min="2" max="25" step="1" value="2"/>
       <div class="slider-labels">
@@ -37,11 +35,11 @@
 
 <div class="row rental_recomendation mt-3">
     <div class="col-6">
-        <h2 class="rental_recomendation_h">Рекомендуемое минимальное количество игр:</h3>
+        <h2 class="rental_recomendation_h">Рекомендуемое минимальное количество игр:</h2>
     </div>
     <div class="col-5">
       <p id="guestCounts">
-            <span id="guestMinCount"></span>  -  <span id="guestMaxCount"></span>
+            <span id="guestMinCount"></span>  -  <span id="guestMaxCount"></span> <span id="gamesLabel"></span>
         </p>
     </div>
     </div>
