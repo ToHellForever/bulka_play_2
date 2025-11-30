@@ -159,7 +159,22 @@ class RentalCatalogView(TemplateView):
         )
         context["news"] = News.objects.filter(is_active=True).order_by("-created_at")
         return context
-
+def calculate_games(request):
+    guests = int(request.GET.get('guests'))
+    try:
+        player_range = PlayerRange.objects.filter(min_players__lte=guests, max_players__gte=guests).first()
+        
+        if player_range is not None:
+            data = {'min': player_range.min_game_count, 'max': player_range.max_game_count}
+        else:
+            data = {'min': None, 'max': None}
+            
+        return JsonResponse(data)
+    
+    except Exception as e:
+        print(f"Ошибка: {e}")
+        return JsonResponse({'error': str(e)}, status=500)
+    
 
 @method_decorator(csrf_exempt, name="dispatch")
 class ProcessOrderView(View):
