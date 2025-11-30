@@ -7,6 +7,9 @@
     opacity: 0.7;
     font-family: 'Mont', sans-serif;
 }
+select.form-control {
+    height: 35px;
+}
 .form-control:active {
     background: rgba(59, 55, 55, 1);
     border: none;
