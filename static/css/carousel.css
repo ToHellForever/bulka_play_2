@@ -14,20 +14,15 @@
 }
 .swiper-button-prev,
 .swiper-button-next {
-  background-image: none ;
-  width: 50px;
-  height: 50px;
-  background-size: contain ;
-  background-repeat: no-repeat ;
-  background-position: center ;
+  width: 10px;
+  height: 10px;
+  color: rgba(33, 33, 33, 1);
 }
-
 .swiper-button-prev {
-  background-image: url('/media/photo/left_photo.jpg');
+  margin-left: 10px;
 }
-
 .swiper-button-next {
-  background-image: url('/media/photo/right_photo.png');
+  margin-right: 10px;
 }
 
 .news_card_image {
