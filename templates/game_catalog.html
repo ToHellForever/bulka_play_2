@@ -62,16 +62,23 @@
 
   <div class='container mt-1'>
     <div class='row mt-1'>
-      {% for product in products %}
-        <div class='col-3 mt-5'>
-          <div class="game-card">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="game_catalog_card">
-            <h1 class='product_card_name'>{{ product.name }}</h1>
-            <p class="product_card_price">{{ product.price|floatformat }} руб.</p>
-            <a href="{% url 'product_detail' product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
+      {% if products %}
+        {% for product in products %}
+          <div class='col-3 mt-5'>
+            <div class="game-card">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" class="game_catalog_card">
+              <h1 class='product_card_name'>{{ product.name }}</h1>
+              <p class="product_card_price">{{ product.price|floatformat }} руб.</p>
+              <a href="{% url 'product_detail' product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
+            </div>
           </div>
+        {% endfor %}
+      {% else %}
+        <div class="col-12 text-center mt-5">
+          <img src="/media/icon/no_result.jfif" alt="" class="no_result_img mt-5">
+          <h3 class='no_result_h'>По вашему запросу ничего не нашлось</h3>
         </div>
-      {% endfor %}
+      {% endif %}
     </div>
   </div>
 

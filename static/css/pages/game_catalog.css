@@ -41,7 +41,12 @@ border-color: #ced4da;
     object-fit: cover;
     border-radius: 22.66px;
 }
-
+.no_result_img {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 22.66px;
+}
 
 .product_card_button {
     width: 95%;
