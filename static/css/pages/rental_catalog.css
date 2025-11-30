@@ -47,6 +47,28 @@
     text-align: right;
 }
 
+/* стили для видео */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Соотношение сторон 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+    border-radius: 46px;
+    background-color: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+}
+
 /* стили для ползунка */
 .form-range {
     appearance: none;
