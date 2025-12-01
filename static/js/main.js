@@ -134,7 +134,10 @@ function updateTotalPrice() {
   const totalElement = document.getElementById('total-price');
   const summaryElement = document.getElementById('order-summary');
 
-  if (!totalElement || !summaryElement) return;
+  if (!totalElement || !summaryElement) {
+    console.error("Элемент итоговой суммы или элемент сводки не найден");
+    return;
+  }
 
   let total = 0;
 
@@ -143,11 +146,13 @@ function updateTotalPrice() {
     const selectedGoods = document.querySelectorAll('#additional-goods-container input[type="checkbox"]:checked');
 
     selectedGames.forEach(game => {
-      total += parseFloat(game.dataset.price) || 0;
+      const price = parseFloat(game.dataset.price.replace(',', '.')) || 0;
+      total += price;
     });
 
     selectedGoods.forEach(good => {
-      total += parseFloat(good.dataset.price) || 0;
+      const price = parseFloat(good.dataset.price.replace(',', '.')) || 0;
+      total += price;
     });
 
     summaryElement.style.display = total > 0 ? 'block' : 'none';
@@ -169,7 +174,8 @@ function updateTotalPrice() {
     summaryElement.style.display = 'none';
   }
 
-  totalElement.textContent = total.toFixed(2);
+  totalElement.textContent = formatPrice(total);
+  console.log("Итоговая сумма обновлена:", total);
 }
 
 // Отправка формы
@@ -326,6 +332,11 @@ window.closeSuccessModal = function() {
   }
 };
 
+// Функция для форматирования цены
+function formatPrice(price) {
+  return parseFloat(price).toFixed(2).replace('.', ',');
+}
+
 // Инициализация формы при загрузке
 document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('orderModal');
@@ -339,15 +350,16 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   window.openOrderModal = function() {
-    if (modal) {
-      modal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-      const summaryElement = document.getElementById('order-summary');
-      if (summaryElement) {
-        summaryElement.style.display = 'none';
-      }
+  if (modal) {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    const summaryElement = document.getElementById('order-summary');
+    if (summaryElement) {
+      summaryElement.style.display = 'none';
     }
-  };
+    updateTotalPrice();
+  }
+};
 
   window.addEventListener('click', function(event) {
     if (event.target === modal) {
@@ -360,6 +372,24 @@ document.addEventListener('DOMContentLoaded', function() {
       closeModal();
     }
   });
+
+  const buyGamesContainer = document.getElementById('buy-games-container');
+  if (buyGamesContainer) {
+    buyGamesContainer.addEventListener('change', function(e) {
+      if (e.target.type === 'checkbox') {
+        updateTotalPrice();
+      }
+    });
+  }
+
+  const additionalGoodsContainer = document.getElementById('additional-goods-container');
+  if (additionalGoodsContainer) {
+    additionalGoodsContainer.addEventListener('change', function(e) {
+      if (e.target.type === 'checkbox') {
+        updateTotalPrice();
+      }
+    });
+  }
 
   const rentGamesContainer = document.getElementById('rent-games-container');
   if (rentGamesContainer) {

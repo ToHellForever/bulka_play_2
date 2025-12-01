@@ -1,7 +1,8 @@
 from django.contrib import admin
 from .models import (
     Product, Arenda, Order, News, ProductImage,
-    Size, PlayerCount, GameType, PlayerAge, NewsImage, PlayerRange, AdditionalProducts, AdditionalProductsImage, GameKitItem, OrderedGameKitItem
+    Size, PlayerCount, GameType, PlayerAge, NewsImage, PlayerRange, AdditionalProducts,
+    AdditionalProductsImage, GameKitItem, OrderedGameKitItem, Discount
 )
 admin.site.register(ProductImage)
 class ProductImageInline(admin.TabularInline):
@@ -149,3 +150,24 @@ class AdditionalProducts(admin.ModelAdmin):
     inlines = [
         AdditionalProductsImageInline,
     ]
+
+@admin.register(Discount)
+class DiscountAdmin(admin.ModelAdmin):
+    list_display = ('name', 'get_discount_type', 'value', 'start_date', 'end_date', 'is_active')
+    list_editable = ('is_active',)
+    list_filter = ('is_active', 'discount_type', 'start_date', 'end_date')
+    search_fields = ('name',)
+    filter_horizontal = ('products', 'arendas', 'additional_products')
+
+    fieldsets = (
+        ("Основные поля", {
+            'fields': ('name', 'discount_type', 'value', 'start_date', 'end_date', 'is_active'),
+        }),
+        ("Применение", {
+            'fields': ('products', 'arendas', 'additional_products'),
+        }),
+    )
+
+    def get_discount_type(self, obj):
+        return obj.get_discount_type_display()
+    get_discount_type.short_description = "Тип скидки"

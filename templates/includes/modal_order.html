@@ -38,12 +38,21 @@
           {% for product in products %}
           <div class="game-card-modal">
             <div class="game-checkbox">
-              <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.price|floatformat }}">
+              <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.get_discounted_price }}">
             </div>
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
             <div class="game-info">
               <h4>{{ product.name }}</h4>
-              <p class="game-price">{{ product.price|floatformat }} руб.</p>
+              <p class="game-price">
+                {% with discounted_price=product.get_discounted_price %}
+                  {% if discounted_price != product.price %}
+                    <span class="original-price">{{ product.price|floatformat }} руб.</span>
+                    <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+                  {% else %}
+                    {{ product.price|floatformat }} руб.
+                  {% endif %}
+                {% endwith %}
+              </p>
             </div>
           </div>
           {% endfor %}
@@ -55,12 +64,21 @@
           {% for additional in additional_products %}
           <div class="game-card-modal">
             <div class="game-checkbox">
-              <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.price }}">
+              <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.get_discounted_price }}">
             </div>
             <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
             <div class="game-info">
               <h4>{{ additional.name }}</h4>
-              <p class="game-price">{{ additional.price }} руб.</p>
+              <p class="game-price">
+                {% with discounted_price=additional.get_discounted_price %}
+                  {% if discounted_price != additional.price %}
+                    <span class="original-price">{{ additional.price|floatformat }} руб.</span>
+                    <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+                  {% else %}
+                    {{ additional.price|floatformat }} руб.
+                  {% endif %}
+                {% endwith %}
+              </p>
             </div>
           </div>
           {% endfor %}

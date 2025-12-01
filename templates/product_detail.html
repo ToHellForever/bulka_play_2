@@ -27,7 +27,16 @@
                         </div>
                     {% endfor %}
                 </div>
-            <p class='product_detail_price'>{{ product.price|floatformat }} руб.</p>
+            <p class='product_detail_price'>
+              {% with discounted_price=product.get_discounted_price %}
+                {% if discounted_price != product.price %}
+                  <span class="original-price">{{ product.price|floatformat }} руб.</span>
+                  <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+                {% else %}
+                  {{ product.price|floatformat }} руб.
+                {% endif %}
+              {% endwith %}
+            </p>
             <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
         </div>
     </div>
@@ -90,7 +99,16 @@
         <div class="game-card">
           <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
           <h1 class='product_card_name'>{{ additional_product.name }}</h1>
-          <p class="product_card_price">{{ additional_product.price|floatformat }} руб.</p>
+          <p class="product_card_price">
+            {% with discounted_price=additional_product.get_discounted_price %}
+              {% if discounted_price != additional_product.price %}
+                <span class="original-price">{{ additional_product.price|floatformat }} руб.</span>
+                <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+              {% else %}
+                {{ additional_product.price|floatformat }} руб.
+              {% endif %}
+            {% endwith %}
+          </p>
           <a href="#" class="product_card_button">ПОДРОБНЕЕ</a>
         </div>
       </div>

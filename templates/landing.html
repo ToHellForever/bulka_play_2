@@ -46,7 +46,7 @@
       <p class="block-text">Собственное производство в г.Красноясрк</p>
     </div>
     <div class="col-3">
-      <img src="media/icon/car.svg" alt="Картинка 4" class="block-img">
+      <img src="media/icon/car.svg" alt="Картинка 4" class="block-img">и
       <h3 class="block-title">Доставка</h3>
       <p class="block-text">Отправляем по всей России</p>
     </div>
@@ -66,7 +66,16 @@
         <img src="{{ product.image.url }}" alt="{{ product.name }}" class='product_card_image'>
         </a>
         <h1 class="product-card-title">{{ product.name }}</h1>
-        <p class="product-card-price">{{ product.price| floatformat }} руб.</p>
+        <p class="product-card-price">
+          {% with discounted_price=product.get_discounted_price %}
+            {% if discounted_price != product.price %}
+              <span class="original-price">{{ product.price|floatformat }} руб.</span>
+              <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+            {% else %}
+              {{ product.price|floatformat }} руб.
+            {% endif %}
+          {% endwith %}
+        </p>
       </div>
     </div>
     {% endfor %}

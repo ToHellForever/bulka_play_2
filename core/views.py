@@ -15,6 +15,7 @@ from .models import (
     PlayerAge,
     GameType,
     AdditionalProducts,
+    Discount,
 )
 
 

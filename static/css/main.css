@@ -2,7 +2,22 @@ body {
     background: rgba(0, 0, 0, 1);
 }
 
-/* Переопределение стилей Bootstrap для контейнера */
+/* Стили для цен со скидками */
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-family: 'Unbounded', sans-serif;
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.discounted-price {
+    color: #e63946;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 @media (max-width: 1400px) {
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 100% !important;
