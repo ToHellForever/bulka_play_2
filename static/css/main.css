@@ -142,3 +142,55 @@ body {
         padding-right: 15px !important;
     }
 }
+
+
+
+
+
+/* Стили для скидок в аренде */
+.arend-original-price {
+  color: #cccccc;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+.arend-discounted-price {
+  color: #c0392b;
+    font-size: 1.7rem;
+}
+
+/* Стили для скидок в альтернативном стиле аренды */
+div.game-card-rental.style-2 .arend-original-price {
+  color: #cccccc;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+div.game-card-rental.style-2 .arend-discounted-price {
+  color: #c0392b;
+    font-size: 1.7rem;
+}
+
+/* Стили для скидок в аренде */
+.arend-original-price {
+  color: #cccccc;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+.arend-discounted-price {
+  color: #c0392b;
+    font-size: 1.7rem;
+}
+
+/* Стили для скидок в альтернативном стиле аренды */
+.arend-card.style-2 .arend-original-price {
+  color: #cccccc;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+.arend-card.style-2 .arend-discounted-price {
+  color: #c0392b;
+    font-size: 1.7rem;
+}
