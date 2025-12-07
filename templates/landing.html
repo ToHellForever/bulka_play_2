@@ -69,8 +69,8 @@
         <p class="product-card-price">
           {% with discounted_price=product.get_discounted_price %}
             {% if discounted_price != product.price %}
-              <span class="original-price">{{ product.price|floatformat }} руб.</span>
-              <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+<span class="landing-original-price">{{ product.price|floatformat }} руб.</span>
+<span class="landing-discounted-price">{{ discounted_price|floatformat }} руб.</span>
             {% else %}
               {{ product.price|floatformat }} руб.
             {% endif %}

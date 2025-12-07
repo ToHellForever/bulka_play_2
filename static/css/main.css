@@ -18,6 +18,123 @@ body {
     font-weight: bold;
 }
 
+/* Стили для скидок на лендинге */
+.landing-discount-badge {
+    background-color: #e63946;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.landing-original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-family: 'Unbounded', sans-serif;
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.landing-discounted-price {
+    color: #e63946;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Стили для скидок в модальном окне */
+.modal-discount-badge {
+    background-color: #457b9d;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.modal-original-price {
+    text-decoration: line-through;
+    color: #aaa;
+    font-family: 'Unbounded', sans-serif;
+    margin-right: 8px;
+    font-size: 0.7rem;
+}
+
+.modal-discounted-price {
+    color: #e63946;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Стили для скидок в каталоге */
+.catalog-discount-badge {
+    background-color: #f1c40f;
+    color: #1d3557;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.catalog-original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-family: 'Unbounded', sans-serif;
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.catalog-discounted-price {
+    color: #e67e22;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Стили для скидок на странице деталей продукта */
+.product-detail-original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-family: 'Unbounded', sans-serif;
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.product-detail-discounted-price {
+    color: #2a9d8f;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Стили для скидок в каталоге аренды */
+.rental-catalog-original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-family: 'Unbounded', sans-serif;
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.rental-catalog-discounted-price {
+    color: #e76f51;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Общий класс для блока со скидками */
+.discount-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 @media (max-width: 1400px) {
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 100% !important;

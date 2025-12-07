@@ -30,8 +30,8 @@
             <p class='product_detail_price'>
               {% with discounted_price=product.get_discounted_price %}
                 {% if discounted_price != product.price %}
-                  <span class="original-price">{{ product.price|floatformat }} руб.</span>
-                  <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+<span class="product-detail-original-price">{{ product.price|floatformat }} руб.</span>
+<span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
                 {% else %}
                   {{ product.price|floatformat }} руб.
                 {% endif %}
@@ -102,8 +102,8 @@
           <p class="product_card_price">
             {% with discounted_price=additional_product.get_discounted_price %}
               {% if discounted_price != additional_product.price %}
-                <span class="original-price">{{ additional_product.price|floatformat }} руб.</span>
-                <span class="discounted-price">{{ discounted_price|floatformat }} руб.</span>
+<span class="product-detail-original-price">{{ additional_product.price|floatformat }} руб.</span>
+<span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
               {% else %}
                 {{ additional_product.price|floatformat }} руб.
               {% endif %}
