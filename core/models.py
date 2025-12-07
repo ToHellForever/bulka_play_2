@@ -170,6 +170,7 @@ class Arenda(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название аренды")
     game_count = models.PositiveIntegerField(verbose_name="Количество игр в аренде", default=6)
     description = models.TextField(verbose_name="Описание")
+    time = models.CharField(verbose_name="Время в часах", default=2)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to='products/', verbose_name="Изображение")
     ranges = models.ManyToManyField(PlayerRange, verbose_name="Диапазоны игроков и игр", blank=True)
@@ -205,6 +206,10 @@ class Arenda(models.Model):
                 best_price = discounted_price
 
         return best_price
+
+    def get_time_in_hours(self):
+        """Возвращает время аренды в часах"""
+        return self.time // 60
 
 class News(models.Model):
     """Модель новости"""

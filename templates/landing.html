@@ -93,7 +93,10 @@
     <div class="swiper-slide">
       <div class="arend-card">
         <a href="{% url 'rental_catalog' %}">
-        <img src="{{ arend.image.url }}" alt="{{ arend.name }}" class='arend_card_image'>
+        <h1 class="arend-card-title"><b>{{ arend.name }}</b></h1>
+        <p class="arend-card-description">В стоимость аренды входит:</p>
+        <p class="arend-card-description">{{ arend.description|linebreaks }}</p>
+        <p class="arend-card-price"><b>{{ arend.time }}</b><span><b>{{ arend.price|floatformat }} руб.</b></span></p>
         </a>
       </div>
     </div>

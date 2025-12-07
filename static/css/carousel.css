@@ -45,3 +45,22 @@
   padding: 7px;
   margin-top: 10px;
 }
+
+
+
+.arend-card {
+  background: rgba(248, 128, 5, 1);
+  width: 25rem;
+  height: 25rem;
+  padding: 2rem;
+  border-radius: 35.3px;
+}
+.arend-card-price {
+    color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
