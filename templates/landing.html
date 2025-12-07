@@ -91,7 +91,7 @@
   <div class="swiper-wrapper">
     {% for arend in arenda %}
     <div class="swiper-slide">
-      <div class="arend-card">
+      <div class="arend-card{% if arend.card_style == 2 %} style-2{% endif %}">
         <a href="{% url 'rental_catalog' %}">
         <h1 class="arend-card-title">{{ arend.name }} </h1>
         <p class="arend-card-description">В стоимость аренды входит:</p>

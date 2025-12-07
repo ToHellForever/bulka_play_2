@@ -167,12 +167,22 @@ class PlayerRange(models.Model):
 
 class Arenda(models.Model):
     """Модель аренды"""
+    CARD_STYLE_CHOICES = [
+        (1, 'Стиль 1 (оранжевый)'),
+        (2, 'Стиль 2 (альтернативный)'),
+    ]
+
     name = models.CharField(max_length=200, verbose_name="Название аренды")
     game_count = models.PositiveIntegerField(verbose_name="Количество игр в аренде", default=6)
     description = models.TextField(verbose_name="Описание")
     time = models.CharField(verbose_name="Время в часах", default=2)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to='products/', verbose_name="Изображение")
+    card_style = models.PositiveSmallIntegerField(
+        verbose_name="Стиль карточки",
+        choices=CARD_STYLE_CHOICES,
+        default=1
+    )
     ranges = models.ManyToManyField(PlayerRange, verbose_name="Диапазоны игроков и игр", blank=True)
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")

@@ -131,19 +131,25 @@
 
 .game-card-rental {
     background: rgba(248, 128, 5, 1);
-  width: 25rem;
-  height: 25rem;
-  padding: 2rem;
-  border-radius: 35.3px;
-  display: flex;
-  align-items: center;
-      flex-direction: column; /* Добавляем, чтобы содержимое тоже центрировалось по вертикали */
+    width: 25rem;
+    height: 25rem;
+    padding: 2rem;
+    border-radius: 35.3px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Добавляем, чтобы содержимое тоже центрировалось по вертикали */
     margin: 0 auto; /* Центрирование по горизонтали */
+    color: white;
+    transition: transform 0.3s ease;
 }
 
-.rental-price {
-    font-size: 1.4rem;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
+/* Альтернативный стиль для карточек аренды - более специфичный и заметный */
+div.game-card-rental.style-2 {
+    background: white;
 }
+
+
+/* Стили для описания в альтернативном стиле */
+div.game-card-rental.style-2 p.arend-card-description {
+    color: black;
+}   

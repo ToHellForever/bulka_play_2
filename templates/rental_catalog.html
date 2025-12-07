@@ -51,7 +51,7 @@
   <div class='row'>
     {% for arend in arenda %}
     <div class='col-4 mt-5'>
-      <div class="game-card-rental">
+      <div class="game-card-rental{% if arend.card_style == 2 %} style-2{% endif %}">
         <a href="#" onclick="openOrderModal()">
         <h1 class="arend-card-title">{{ arend.name }} </h1>
         <p class="arend-card-description">В стоимость аренды входит:</p>
