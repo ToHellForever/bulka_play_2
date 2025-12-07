@@ -100,41 +100,41 @@
       </div>
 
       <!-- Секция аренды -->
-      <div id="rent-section" class="order-section" style="display: none;">
-<div class="form-group">
-  <label for="order-type">Количество игр</label>
-  <select id="rent-options" name="rent_type" onchange="updateRentLimits()">
-    <option value="">Количество игр</option>
-    {% for arenda in arenda %}
-      <option value="{{ arenda.id }}" data-game-count="{{ arenda.game_count }}" data-price="{{ arenda.price }}">
-        {{ arenda.name }} -
-        {% with discounted_price=arenda.get_discounted_price %}
-          {% if discounted_price != arenda.price %}
-            <span class="rent-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-          {% else %}
-            {{ arenda.price|floatformat }} руб.
-          {% endif %}
-        {% endwith %}
-      </option>
-    {% endfor %}
-  </select>
-  <div id="rent-options-error" class="error-message">Пожалуйста, выберите тип аренды</div>
-</div>
+        <div id="rent-section" class="order-section" style="display: none;">
+          <div class="form-group">
+            <label for="order-type">Количество игр</label>
+            <select id="rent-options" name="rent_type" onchange="updateRentLimits()">
+              <option value="">Количество игр</option>
+              {% for arenda in arenda %}
+                <option value="{{ arenda.id }}" data-game-count="{{ arenda.game_count }}" data-price="{{ arenda.price }}" data-is-specific="{{ arenda.is_specific_game }}" data-specific-game="{{ arenda.specific_game.id|default:'' }}">
+                  {{ arenda.name }} -
+                  {% with discounted_price=arenda.get_discounted_price %}
+                    {% if discounted_price != arenda.price %}
+                      <span class="rent-discounted-price">{{ discounted_price|floatformat }} руб.</span>
+                    {% else %}
+                      {{ arenda.price|floatformat }} руб.
+                    {% endif %}
+                  {% endwith %}
+                </option>
+              {% endfor %}
+            </select>
+            <div id="rent-options-error" class="error-message">Пожалуйста, выберите тип аренды</div>
+          </div>
 
         <h3 class="modal-title-section">Выбор игр для аренды</h3>
 
         <div class="games-grid" id="rent-games-container">
           <!-- Игры для аренды будут загружены динамически -->
           {% for product in products %}
-          <div class="game-card-modal">
-            <div class="game-checkbox">
-              <input type="checkbox" name="selected_rent_game" value="{{ product.id }}">
+            <div class="game-card-modal" data-game-id="{{ product.id }}">
+              <div class="game-checkbox">
+                <input type="checkbox" name="selected_rent_game" value="{{ product.id }}">
+              </div>
+              <img src="{{ product.image.url }}" alt="{{ product.name }}">
+              <div class="game-info">
+                <h4>{{ product.name }}</h4>
+              </div>
             </div>
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            <div class="game-info">
-              <h4>{{ product.name }}</h4>
-            </div>
-          </div>
           {% endfor %}
         </div>
 

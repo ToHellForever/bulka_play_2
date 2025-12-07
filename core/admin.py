@@ -91,11 +91,29 @@ class RangeInline(admin.TabularInline):
 
 @admin.register(Arenda)
 class ArendaAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_active', 'created_at')
-    list_editable = ('is_active',)
-    list_filter = ('is_active', 'created_at')
+    list_display = ('name', 'price', 'is_active', 'is_specific_game', 'specific_game', 'created_at')
+    list_editable = ('is_active', 'is_specific_game')
+    list_filter = ('is_active', 'is_specific_game', 'created_at')
     search_fields = ('name', 'description')
     inlines = [RangeInline]
+
+    fieldsets = (
+        ("Основные поля", {
+            'fields': ('name', 'description', 'price', 'image'),
+        }),
+        ("Конкретная игра", {
+            'fields': ('is_specific_game', 'specific_game'),
+            'description': 'Если выбрано "Конкретная игра", укажите игру, которую можно арендовать.'
+        }),
+        ("Дополнительно", {
+            'fields': ('is_active',),
+        })
+    )
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "specific_game":
+            kwargs["queryset"] = Product.objects.filter(is_active=True)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 @admin.register(PlayerRange)
 class PlayerRangeAdmin(admin.ModelAdmin):

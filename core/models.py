@@ -185,6 +185,8 @@ class Arenda(models.Model):
     )
     ranges = models.ManyToManyField(PlayerRange, verbose_name="Диапазоны игроков и игр", blank=True)
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
+    is_specific_game = models.BooleanField(default=False, verbose_name="Аренда конкретной игры")
+    specific_game = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
 

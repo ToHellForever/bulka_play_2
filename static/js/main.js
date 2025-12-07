@@ -111,24 +111,70 @@ function updateRentLimits() {
 
   const option = select.options[select.selectedIndex];
   maxSelectableGames = option ? parseInt(option.dataset.gameCount) || 0 : 0;
+  const isSpecificGame = option ? option.dataset.isSpecific === 'True' : false;
+  const specificGameId = option ? option.dataset.specificGame : '';
 
-  const checkedGames = document.querySelectorAll('#rent-games-container input[type="checkbox"]:checked');
-  if (checkedGames.length > maxSelectableGames) {
-    checkedGames.forEach((game, index) => {
-      if (index >= maxSelectableGames) {
-        game.checked = false;
+  const gameCards = document.querySelectorAll('#rent-games-container .game-card-modal');
+
+  gameCards.forEach(card => {
+    if (isSpecificGame) {
+      if (card.dataset.gameId === specificGameId) {
+        card.style.display = 'block';
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        if (checkbox) {
+          checkbox.checked = true;
+          checkbox.disabled = true;
+        }
+      } else {
+        card.style.display = 'none';
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        if (checkbox) {
+          checkbox.checked = false;
+          checkbox.disabled = true;
+        }
       }
-    });
-  }
+    } else {
+      card.style.display = 'block';
+      const checkbox = card.querySelector('input[type="checkbox"]');
+      if (checkbox) {
+        checkbox.disabled = false;
+      }
+    }
+  });
 
   updateTotalPrice();
 }
 
 // Ограничение выбора игр при аренде
 function limitGameSelection() {
+  const select = document.getElementById('rent-options');
+  if (!select) return;
+
+  const option = select.options[select.selectedIndex];
+  const isSpecificGame = option ? option.dataset.isSpecific === 'True' : false;
+
+  if (isSpecificGame) {
+    const checkedGames = document.querySelectorAll('#rent-games-container input[type="checkbox"]:checked');
+    if (checkedGames.length > 1) {
+      checkedGames.forEach((game, index) => {
+        if (index > 0) {
+          game.checked = false;
+        }
+      });
+    }
+  } else {
+    const checkedGames = document.querySelectorAll('#rent-games-container input[type="checkbox"]:checked');
+    if (checkedGames.length > maxSelectableGames) {
+      checkedGames.forEach((game, index) => {
+        if (index >= maxSelectableGames) {
+          game.checked = false;
+        }
+      });
+    }
+  }
+
   updateTotalPrice();
 }
-
 // Обновление итоговой суммы
 function updateTotalPrice() {
   const totalElement = document.getElementById('total-price');
