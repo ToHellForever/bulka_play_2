@@ -52,5 +52,17 @@
   height: 25rem;
   padding: 2rem;
   border-radius: 35.3px;
+  color: white;
+  transition: transform 0.3s ease;
+  position: relative;
 }
 
+/* Альтернативный стиль для карточек аренды на главной странице */
+.arend-card.style-2 {
+  background: white; 
+}
+
+/* Стили для описания в альтернативном стиле */
+.arend-card.style-2 .arend-card-description {
+  color: black;
+}
