@@ -189,6 +189,7 @@ class ProcessOrderView(View):
                 phone=data.get("phone"),
                 order_type=data.get("order_type"),
                 comment=data.get("comment", ""),
+                double_game_count=data.get("double_game_count", 1),
             )
 
             # Обработка в зависимости от типа заказа
@@ -208,6 +209,26 @@ class ProcessOrderView(View):
 
                 # Сохранение информации о гравировке
                 order.engraving = data.get("engraving", "no")
+
+            elif data.get("order_type") == "double_buy":
+                # Сохранение выбранных игр для покупки 2 игр на одной доске
+                if "buy_games" in data:
+                    games = data.getlist("buy_games")
+                    order.products.set(games)
+
+                # Сохранение дополнительных товаров
+                if "additional_goods" in data:
+                    additional_goods = data.getlist("additional_goods")
+                    order.additional_products.set(additional_goods)
+
+                # Сохранение адреса доставки
+                order.delivery_address = data.get("delivery_address")
+
+                # Сохранение информации о гравировке
+                order.engraving = data.get("engraving", "no")
+
+                # Установка количества игр на одной доске
+                order.double_game_count = 2
 
             elif data.get("order_type") == "rent":
                 # Сохранение выбранных игр для аренды

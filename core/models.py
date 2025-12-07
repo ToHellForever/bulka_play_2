@@ -321,7 +321,7 @@ class Order(models.Model):
     phone = models.CharField(max_length=15, verbose_name="Телефон")
     order_type = models.CharField(
         max_length=10,
-        choices=[('buy', 'Купить'), ('rent', 'Аренда')],
+        choices=[('buy', 'Купить'), ('rent', 'Аренда'), ('double_buy', 'Купить 2 игры на одной доске')],
         verbose_name="Тип заказа",
     )
     products = models.ManyToManyField(
@@ -357,6 +357,11 @@ class Order(models.Model):
         default='no',
         verbose_name="Гравировка",
     )
+    double_game_count = models.PositiveSmallIntegerField(
+        verbose_name="Количество игр на одной доске",
+        choices=[(1, '1 игра'), (2, '2 игры')],
+        default=1,
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
 
     class Meta:
@@ -372,7 +377,11 @@ class Order(models.Model):
 
         # Товары
         for product in self.products.all():
-            total += product.get_discounted_price()
+            # Если выбрано 2 игры на одной доске, то цена за каждую игру уменьшается на 10%
+            if self.double_game_count == 2:
+                total += product.get_discounted_price() * 0.9 * 2
+            else:
+                total += product.get_discounted_price()
 
         # Дополнительные товары
         for additional_product in self.additional_products.all():

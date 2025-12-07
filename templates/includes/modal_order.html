@@ -21,11 +21,12 @@
 
       <div class="form-group">
         <label for="order-type">Что вас заинтересовало?</label>
-        <select id="order-type" name="order_type" onchange="toggleOrderType(this.value)" required>
-          <option value="">Выберите тип заказа</option>
-          <option value="buy">Купить игру</option>
-          <option value="rent">Арендовать игру</option>
-        </select>
+          <select id="order-type" name="order_type" onchange="toggleOrderType(this.value)" required>
+            <option value="">Выберите тип заказа</option>
+            <option value="buy">Купить игру</option>
+            <option value="double_buy">Купить 2 игры на одной доске</option>
+            <option value="rent">Арендовать игру</option>
+          </select>
         <div id="order-type-error" class="error-message">Пожалуйста, выберите тип заказа</div>
       </div>
 

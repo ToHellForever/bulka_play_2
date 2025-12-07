@@ -93,9 +93,9 @@ function toggleOrderType(type) {
   buySection.style.display = 'none';
   rentSection.style.display = 'none';
 
-  if (type === 'buy') {
+  if (type === 'buy' || type === 'double_buy') {
     buySection.style.display = 'block';
-    currentOrderType = 'buy';
+    currentOrderType = type;
   } else if (type === 'rent') {
     rentSection.style.display = 'block';
     currentOrderType = 'rent';
@@ -175,6 +175,22 @@ function limitGameSelection() {
 
   updateTotalPrice();
 }
+
+// Ограничение выбора игр для покупки 2 игр на одной доске
+function limitDoubleGameSelection() {
+  if (currentOrderType !== 'double_buy') return;
+
+  const checkedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
+  if (checkedGames.length > 2) {
+    checkedGames.forEach((game, index) => {
+      if (index >= 2) {
+        game.checked = false;
+      }
+    });
+  }
+
+  updateTotalPrice();
+}
 // Обновление итоговой суммы
 function updateTotalPrice() {
   const totalElement = document.getElementById('total-price');
@@ -187,13 +203,18 @@ function updateTotalPrice() {
 
   let total = 0;
 
-  if (currentOrderType === 'buy') {
+  if (currentOrderType === 'buy' || currentOrderType === 'double_buy') {
     const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
     const selectedGoods = document.querySelectorAll('#additional-goods-container input[type="checkbox"]:checked');
+    const doubleGameCountSelect = document.getElementById('double-game-count');
 
     selectedGames.forEach(game => {
       const price = parseFloat(game.dataset.price.replace(',', '.')) || 0;
-      total += price;
+      if (currentOrderType === 'double_buy' || (doubleGameCountSelect && doubleGameCountSelect.value === '2')) {
+        total += price * 0.9 * 2; // Скидка 10% за покупку двух игр
+      } else {
+        total += price;
+      }
     });
 
     selectedGoods.forEach(good => {
@@ -266,6 +287,22 @@ function submitOrder(event) {
       isValid = false;
     }
   }
+  else if (orderType.value === 'double_buy') {
+    const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
+    const selectedGoods = document.querySelectorAll('#additional-goods-container input[type="checkbox"]:checked');
+
+    // Проверка на наличие ровно двух выбранных игр
+    if (selectedGames.length !== 2) {
+      showError('form-error', 'Пожалуйста, выберите ровно 2 игры для покупки на одной доске');
+      isValid = false;
+    }
+
+    const address = document.getElementById('delivery-address');
+    if (!address.value.trim()) {
+      showError('address-error', 'Пожалуйста, введите адрес доставки');
+      isValid = false;
+    }
+  }
   else if (orderType.value === 'rent') {
     const rentOption = document.getElementById('rent-options');
     if (!rentOption.value) {
@@ -311,7 +348,7 @@ function submitFormData() {
   const submitBtn = document.getElementById('submit-btn');
 
   // Добавляем выбранные игры в зависимости от типа заказа
-  if (currentOrderType === 'buy') {
+  if (currentOrderType === 'buy' || currentOrderType === 'double_buy') {
     const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
     selectedGames.forEach(game => {
       formData.append('buy_games', game.value);
@@ -423,6 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (buyGamesContainer) {
     buyGamesContainer.addEventListener('change', function(e) {
       if (e.target.type === 'checkbox') {
+        limitDoubleGameSelection();
         updateTotalPrice();
       }
     });
