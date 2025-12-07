@@ -1,0 +1,105 @@
+/* Стили для страницы "2 игры на одной доске" */
+.two-games-content {
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.two-games-section {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    gap: 30px;
+}
+
+.two-games-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.two-games-video {
+    flex: 1;
+}
+
+.two-games-video video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.two-games-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.two-games-text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+        color: #e67e22;
+}
+
+.two-games-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.two-games-text ul {
+    margin: 10px 0 20px 20px;
+}
+
+.two-games-text li {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.two-games-final {
+    text-align: center;
+    margin: 50px 0;
+    padding: 20px;
+}
+
+.two-games-final h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #e67e22;
+}
+
+.two-games-final p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.order-button {
+    background-color:#e67e22;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-button:hover {
+    background-color:#e67e22;;
+}
+
+@media (max-width: 768px) {
+    .two-games-section {
+        flex-direction: column;
+    }
+
+    .two-games-section.reverse {
+        flex-direction: column;
+    }
+}
+
+.page-title {
+    color: #e67e22;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}

@@ -160,6 +160,13 @@ class RentalCatalogView(TemplateView):
         )
         context["news"] = News.objects.filter(is_active=True).order_by("-created_at")
         return context
+
+class TwoGamesOnOneBoardView(TemplateView):
+    template_name = "two_games_on_one_board.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 def calculate_games(request):
     guests = int(request.GET.get('guests'))
     try:

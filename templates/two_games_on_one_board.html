@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}2 игры на одной доске{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">ДВЕ ИГРЫ НА ОДНОЙ ПОДЛОЖКЕ</h1>
+
+    <div class="two-games-content">
+        <!-- Блок 1: Слева видео, справа текст -->
+        <div class="two-games-section">
+            <div class="two-games-video">
+                <video controls width="100%" height="auto">
+                    <source src="/static/videos/two_games_demo.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+            <div class="two-games-text">
+                <h2>Что такое 2 игры на одной доске?</h2>
+                <p>
+                    Теперь у вас есть возможность приобрести две игры на одной доске! Это удобно, если вы хотите разнообразить игровой процесс или сэкономить место.
+                </p>
+                <ul>
+                    <li>Вы выбираете две игры из нашего каталога.</li>
+                    <li>Мы объединяем их на одной доске.</li>
+                    <li>Вы получаете уникальную возможность играть в две игры одновременно.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Блок 2: Слева текст, справа видео -->
+        <div class="two-games-section">
+            <div class="two-games-text">
+                <h2>Преимущества</h2>
+                <ul>
+                    <li>Экономия места.</li>
+                    <li>Удобство использования.</li>
+                    <li>Скидка 10% на каждую игру при покупке двух игр на одной доске.</li>
+                </ul>
+            </div>
+            <div class="two-games-video">
+                <video controls width="100%" height="auto">
+                    <source src="/static/videos/two_games_benefits.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>
+
+        <!-- Блок с красивым текстом и кнопкой -->
+        <div class="two-games-final">
+            <h2>Готовы попробовать?</h2>
+            <p>
+                Оформите заказ прямо сейчас и получите две игры на одной доске с выгодной скидкой!
+            </p>
+            <button class="order-button" onclick="openOrderModal()">Заказать сейчас</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
