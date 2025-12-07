@@ -51,9 +51,12 @@
   <div class='row'>
     {% for arend in arenda %}
     <div class='col-4 mt-5'>
-      <div class="game-card">
+      <div class="game-card-rental">
         <a href="#" onclick="openOrderModal()">
-          <img src="{{ arend.image.url }}" alt="{{ arend.name }}" class="arenda_card_image">
+        <h1 class="arend-card-title">{{ arend.name }} </h1>
+        <p class="arend-card-description">В стоимость аренды входит:</p>
+        <p class="arend-card-description">{{ arend.description|linebreaksbr }}</p>
+        <p class="arend-card-price"><b>{{ arend.time }}</b><span><b>{{ arend.price|floatformat }} руб.</b></span></p>
         </a>
       </div>
     </div>
