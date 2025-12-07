@@ -233,7 +233,7 @@ function submitOrder(event) {
       isValid = false;
     }
     else if (selectedGames.length !== maxSelectableGames) {
-      showError('form-error', `Вы выбрали ${selectedGames.length} игр, но ваш тип аренды требует выбрать ровно ${maxSelectableGames} игр.`);
+      showError('form-error', `Вы выбрали ${selectedGames.length} игру(ы), но ваш тип аренды требует выбрать ровно ${maxSelectableGames} игру(ы).`);
       isValid = false;
     }
 

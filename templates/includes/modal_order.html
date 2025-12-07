@@ -101,18 +101,25 @@
 
       <!-- Секция аренды -->
       <div id="rent-section" class="order-section" style="display: none;">
-        <div class="form-group">
-          <label for="order-type">Количество игр</label>
-          <select id="rent-options" name="rent_type" onchange="updateRentLimits()">
-            <option value="">Количество игр</option>
-            {% for arenda in arenda %}
-              <option value="{{ arenda.id }}" data-game-count="{{ arenda.game_count }}" data-price="{{ arenda.price }}">
-                {{ arenda.name }} ({{ arenda.game_count }} игр) - {{ arenda.price }} руб.
-              </option>
-            {% endfor %}
-          </select>
-          <div id="rent-options-error" class="error-message">Пожалуйста, выберите тип аренды</div>
-        </div>
+<div class="form-group">
+  <label for="order-type">Количество игр</label>
+  <select id="rent-options" name="rent_type" onchange="updateRentLimits()">
+    <option value="">Количество игр</option>
+    {% for arenda in arenda %}
+      <option value="{{ arenda.id }}" data-game-count="{{ arenda.game_count }}" data-price="{{ arenda.price }}">
+        {{ arenda.name }} -
+        {% with discounted_price=arenda.get_discounted_price %}
+          {% if discounted_price != arenda.price %}
+            <span class="rent-discounted-price">{{ discounted_price|floatformat }} руб.</span>
+          {% else %}
+            {{ arenda.price|floatformat }} руб.
+          {% endif %}
+        {% endwith %}
+      </option>
+    {% endfor %}
+  </select>
+  <div id="rent-options-error" class="error-message">Пожалуйста, выберите тип аренды</div>
+</div>
 
         <h3 class="modal-title-section">Выбор игр для аренды</h3>
 
