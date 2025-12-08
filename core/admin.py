@@ -159,7 +159,7 @@ class AdditionalProducts(admin.ModelAdmin):
     search_fields = ('name', 'description')
     fieldsets = (
         ("Основные поля", {
-            'fields': ('name', 'description', 'description_2', 'price', 'image', 'game_kit_items_additional' ),
+            'fields': ('name', 'description', 'description_2', 'material', 'price', 'image', 'game_kit_items_additional' ),
         }),
         ("Дополнительно", {
             'fields': ('is_active',),

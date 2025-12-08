@@ -281,6 +281,7 @@ class AdditionalProducts(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     description_2 = models.TextField(verbose_name="Описание_2" , default="")
+    material = models.TextField(max_length=200, verbose_name="Материал", default="")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to='products/', verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
