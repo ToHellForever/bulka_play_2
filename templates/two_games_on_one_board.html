@@ -1,57 +1,79 @@
 {% extends "base.html" %}
 
-{% block title %}2 игры на одной доске{% endblock %}
+{% block title %}2 в 1{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class='title_h mt-5'>ДВЕ ИГРЫ <span class='wood_h'>НА ОДНОЙ ДОСКЕ</span></h1>
-
-    <div class="two-games-content">
-        <!-- Блок 1: Слева видео, справа текст -->
-        <div class="two-games-section">
-            <div class="two-games-video">
-                <video controls width="100%" height="auto">
-                    <source src="/static/videos/two_games_demo.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
-            </div>
-            <div class="two-games-text">
-                <h2>Что такое 2 игры на одной доске?</h2>
-                <p>
-                    Теперь у вас есть возможность приобрести две игры на одной доске! Это удобно, если вы хотите разнообразить игровой процесс или сэкономить место.
-                </p>
-                <ul>
-                    <li>Вы выбираете две игры из нашего каталога.</li>
-                    <li>Мы объединяем их на одной доске.</li>
-                    <li>Вы получаете уникальную возможность играть в две игры одновременно.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Блок 2: Слева текст, справа видео -->
-        <div class="two-games-section">
-            <div class="two-games-text">
-                <h2>Преимущества</h2>
-                <ul>
-                    <li>Экономия места.</li>
-                    <li>Удобство использования.</li>
-                    <li>Скидка 10% на каждую игру при покупке двух игр на одной доске.</li>
-                </ul>
-            </div>
-            <div class="two-games-video">
-                <video controls width="100%" height="auto">
-                    <source src="/static/videos/two_games_benefits.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
-            </div>
-        </div>
-
-        <!-- Блок с красивым текстом и кнопкой -->
-            <div class="center-block mt-5">
-                <h1 class='center-block_h'>ОСТАЛИСЬ ВОПРОСЫ?</h1>
-                <p class='center-block_text'>Отправь заявку, мы свяжемся с тобой в ближайшее время</p>
-                <button class='center-block_button' onclick="openOrderModal()">ЗАПОЛНИТЬ ЗАЯВКУ</button>
-            </div>
+<div class='container mt-5'>
+    <h1 class='title_h_2_in_1 mt-5'>ДВЕ ИГРЫ <span class='wood_h'>НА ОДНОЙ ДОСКЕ</span></h1>
+    <div class='row mt-5'>
+    <div class='col-4'>
+        <iframe src="https://vkvideo.ru/video_ext.php?oid=-226618368&id=456239243&hash=477ca71ff53686a1" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" class='video_title'></iframe>
+    </div>
+    <div class='col-8'>
+        <h1 class='exlusive_h'>ТВОЯ ИГРА — ЭКСКЛЮЗИВНАЯ И ИНДИВИДУАЛЬНАЯ НА 100%</h1>
+        <p class='exlusive_p mt-3'>Зачем выбирать одну, если можно взять сразу две? Мы объединим твои любимые игры BUL.K.A-PLAY на одной доске — удобно, компактно и невероятно красиво.</p>
+        <h1 class='exlusive_h mt-5'>ПРЕИМУЩЕСТВА</h1>
+  <div class="container-block">
+    <div class="block1">
+        <h1 class='advantage-block-h'>Удобство использования</h1>
+        <p class='advantage-block-p'>— просто переворачивай и играй.</p>
+    </div>
+    <div class="block2">
+        <h1 class='advantage-block-h-2'>100% индивидуальность</h1>
+        <p class='advantage-block-p-2'>— каждая доска создаётся под тебя</p>
+    </div>
+    <div class="block3">
+        <h1 class='advantage-block-h'>Экономия места</h1>
+        <p class='advantage-block-p'>— одна доска вместо двух.</p>
+    </div>
+  </div>
+        <h1 class='exlusive_h mt-5'>КАК ПОЛУЧИТЬ СВОЮ УНИКАЛЬНУЮ ДОСКУ?</h1>
+          <div class="container-block-2 mt-2">
+    <div class="block">
+        <h1 class='opacity_h'>1</h1>
+        <h1 class='advantage-block-h'>Выбери любые две игры BUL.K.A-PLAY, </h1>
+        <p class='advantage-block-p'>которые хочешь совместить.</p>
+    </div>
+    <div class="block">
+        <h1 class='opacity_h'>2</h1>
+        <h1 class='advantage-block-h'>Скажи нам,</h1>
+        <p class='advantage-block-p'>если хочешь добавить индивидуальную гравировку или памятную надпись.</p>
+    </div>
+  </div>
+    </div>
     </div>
 </div>
-{% endblock %}
+<div class='container mt-5'>
+    <div class='row'>
+        <div class='col-3'>
+            <h1>qweqw</h1>
+        </div>
+                <div class='col-3'>
+            <h1>qweqw</h1>
+        </div>
+                <div class='col-3'>
+            <h1>qweqw</h1>
+        </div>
+                <div class='col-3'>
+            <h1>qweqw</h1>
+        </div>
+    </div>
+</div>
+<div class='container mt-5'>
+    <div class='row'>
+        <div class='col-5'>
+            <p>qweqweqweqwe</p>
+        </div>
+        <div class='col-7'>
+            <p>qweqweqweqwe</p>
+        </div>
+    </div>
+</div>
+<div class='container mt-5'>
+    <div class='row'>
+        <div class='col-5'>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

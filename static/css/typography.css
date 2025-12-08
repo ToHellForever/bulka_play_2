@@ -350,3 +350,59 @@ h4 {
     justify-content: space-between;
     margin-top: 2rem;
 }
+
+
+
+
+
+/* для 2 в 1  */
+.title_h_2_in_1 {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 4.4rem;
+    text-align: center;
+}
+.exlusive_h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+.exlusive_p {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+.advantage-block-h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.advantage-block-p {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+.advantage-block-h-2 {
+    color: black;
+        font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.advantage-block-p-2 {
+    color: black;
+        font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.opacity_h {
+    position: relative;
+    color: rgba(49, 47, 47, 1);
+}
