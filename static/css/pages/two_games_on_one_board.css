@@ -1,6 +1,6 @@
 .video_title {
     width: 100%;
-    height: 45rem;
+    height: 50rem;
 }
 
 .advantage-block {
@@ -46,7 +46,7 @@ grid-template-rows: 1fr 1fr;
 .container-block-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto; /* Изменено на auto */
     gap: 10px;
     
 }
@@ -78,4 +78,48 @@ grid-template-rows: 1fr 1fr;
     z-index: 2;
     color: white;
     text-align: left;
+}
+a.button_1_1 {
+    color: rgba(33, 33, 33, 1) !important;
+    font-family: 'Unbounded' , sans-serif;
+        font-size: 1.5rem;
+}
+.button_1 {
+    background-color: rgba(248, 128, 5, 1);
+    color: rgba(33, 33, 33, 1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20.45px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.button_2 {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(33, 33, 33, 1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20.45px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.left_button {
+    text-align: center;
+    background: rgba(33, 33, 33, 1);
+    border-radius: 33px;
+    padding: 20px;
+}
+.right_button {
+    text-align: center;
+    background: rgba(248, 128, 5, 1);
+    border-radius: 33px;
+    padding: 20px;
 }

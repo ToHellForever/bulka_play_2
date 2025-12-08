@@ -44,36 +44,39 @@
     </div>
 </div>
 <div class='container mt-5'>
-    <div class='row'>
+    <h1 class='examples'>ПРИМЕРЫ СОВМЕЩЁННЫХ ИГР</h1>
+    <div class='row mt-5'>
         <div class='col-3'>
-            <h1>qweqw</h1>
+            <h1>video</h1>
         </div>
                 <div class='col-3'>
-            <h1>qweqw</h1>
+            <h1>video</h1>
         </div>
                 <div class='col-3'>
-            <h1>qweqw</h1>
+            <h1>video</h1>
         </div>
                 <div class='col-3'>
-            <h1>qweqw</h1>
+            <h1>video</h1>
         </div>
     </div>
 </div>
 <div class='container mt-5'>
-    <div class='row'>
+    <div class='row mt-5'>
         <div class='col-5'>
-            <p>qweqweqweqwe</p>
+            <div class='left_button'>
+                <h1 class='h_button'>ВЫБЕРИ ИГРЫ</h1>
+                <p class='p_button'>Выбери 2 любые игры и отправь заявку</p>
+                <button class='button_1'><a href="{% url 'game_catalog' %}" class='button_1_1'>ПЕРЕЙТИ В КАТАЛОГ</a></button>
+            </div>
         </div>
         <div class='col-7'>
-            <p>qweqweqweqwe</p>
+            <div class='right_button'>
+                <h1 class='h_button-2'>УЖЕ ВЫБРАЛ?</h1>
+                <p class='p_button-2'>Отправь заявку, мы свяжемся с тобой в ближайшее время </p>
+                <button onclick="openOrderModal()" class='button_2'>ЗАПОЛНИТЬ  ЗАЯВКУ</button>
+            </div>
         </div>
     </div>
 </div>
-<div class='container mt-5'>
-    <div class='row'>
-        <div class='col-5'>
-
-        </div>
-    </div>
 </div>
 {% endblock content %}
