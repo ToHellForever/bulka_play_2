@@ -40,6 +40,25 @@ class PlayerAge(models.Model):
 
     def __str__(self):
         return self.age
+class GameKitItemAdditional(models.Model):
+    """Модель элемента комплектации игры чтобы разделить комплектацию на разные блоки"""
+    highlighted_text = models.TextField(
+        max_length=50,
+        verbose_name="Выделенный текст",
+        help_text="Текст, который будет отображаться крупным шрифтом (например, '46x46см')",
+    )
+    normal_text = models.TextField(
+        max_length=200,
+        verbose_name="Обычный текст",
+        help_text="Текст, который будет отображаться обычным шрифтом (например, 'игровое поле')",
+    )
+
+    class Meta:
+        verbose_name = "Элемент комплектации для допов"
+        verbose_name_plural = "Элементы комплектации для допов"
+
+    def __str__(self):
+        return f"{self.highlighted_text} {self.normal_text}"
 
 class GameKitItem(models.Model):
     """Модель элемента комплектации игры чтобы разделить комплектацию на разные блоки"""
@@ -261,6 +280,7 @@ class AdditionalProducts(models.Model):
     """Модель подставки и сумок"""
     name = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
+    description_2 = models.TextField(verbose_name="Описание_2" , default="")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to='products/', verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
@@ -270,7 +290,13 @@ class AdditionalProducts(models.Model):
     class Meta:
         verbose_name = "Дополнительное к товарам"
         verbose_name_plural = "Дополнительные к товарам"
-
+    # ком
+    game_kit_items_additional = models.ManyToManyField(
+        GameKitItemAdditional,
+        verbose_name="Элементы комплектации для допов",
+        blank=True,
+        related_name='products',
+    )
     def __str__(self):
         return self.name
 

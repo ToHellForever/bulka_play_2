@@ -18,15 +18,16 @@
             <p class='product_detail_description'>{{ additional_product.description }}</p>
             <p class='product_detail_set'>Описание</p>
                 <div class="kit-container">
-                    {% for item in additional_product.ordered_game_kits.all %}
+                    {% for item in additional_product.ordered_game_kits_additional.all %}
                         <div class="kit-item">
                             <div class="kit-content">
-                                <span class="highlighted-text">{{ item.game_kit_item.highlighted_text }}</span>
-                                <span class="normal-text">{{ item.game_kit_item.normal_text }}</span>
+                                <span class="highlighted-text">{{ item.game_kit_item_additional.highlighted_text }}</span>
+                                <span class="normal-text">{{ item.game_kit_item_additional.normal_text }}</span>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
+              <p class='product_detail_description'>{{ additional_product.description_2 }}</p>
             <p class='product_detail_price'>
               {% with discounted_price=additional_product.get_discounted_price %}
                 {% if discounted_price != additional_product.price %}

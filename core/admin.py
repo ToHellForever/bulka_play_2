@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (
     Product, Arenda, Order, News, ProductImage,
     Size, PlayerCount, GameType, PlayerAge, NewsImage, PlayerRange, AdditionalProducts,
-    AdditionalProductsImage, GameKitItem, OrderedGameKitItem, Discount
+    AdditionalProductsImage, GameKitItem, OrderedGameKitItem, Discount,GameKitItemAdditional
 )
 admin.site.register(ProductImage)
 class ProductImageInline(admin.TabularInline):
@@ -159,7 +159,7 @@ class AdditionalProducts(admin.ModelAdmin):
     search_fields = ('name', 'description')
     fieldsets = (
         ("Основные поля", {
-            'fields': ('name', 'description', 'price', 'image'),
+            'fields': ('name', 'description', 'description_2', 'price', 'image', 'game_kit_items_additional' ),
         }),
         ("Дополнительно", {
             'fields': ('is_active',),
@@ -168,7 +168,17 @@ class AdditionalProducts(admin.ModelAdmin):
     inlines = [
         AdditionalProductsImageInline,
     ]
-
+@admin.register(GameKitItemAdditional)
+class GameKitItemAdditionalAdmin(admin.ModelAdmin):
+    list_display = ('highlighted_text', 'normal_text')
+    search_fields = ('highlighted_text', 'normal_text', 'description')
+    
+    def full_item(self, obj):
+        """
+        Для более удобного просмотра полных элементов комплектации в админке
+        """
+        return f"{obj.highlighted_text} {obj.normal_text}"
+    full_item.short_description = "Полный элемент"
 @admin.register(Discount)
 class DiscountAdmin(admin.ModelAdmin):
     list_display = ('name', 'get_discount_type', 'value', 'start_date', 'end_date', 'is_active')
