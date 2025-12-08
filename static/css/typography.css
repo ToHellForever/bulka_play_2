@@ -402,7 +402,18 @@ h4 {
     font-size: 1rem;
 }
 
-.opacity_h {
-    position: relative;
-    color: rgba(49, 47, 47, 1);
+.block-h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    left: 15%;
+}
+.block-p {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+        left: 15%;
 }
