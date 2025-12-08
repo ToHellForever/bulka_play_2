@@ -141,11 +141,13 @@ body {
   color: #cccccc;
   text-decoration: line-through;
   font-size: 1.2rem;
+  vertical-align: middle;
 }
 
 .arend-discounted-price {
   color: #c0392b;
-    font-size: 1.7rem;
+  font-size: 1.7rem;
+  vertical-align: middle;
 }
 
 /* Стили для скидок в альтернативном стиле аренды */
@@ -183,3 +185,17 @@ div.game-card-rental.style-2 .arend-discounted-price {
   color: #c0392b;
     font-size: 1.7rem;
 }
+.arend-original-price {
+    margin-top: 10px;
+}
+
+/* Альтернативный стиль для карточек аренды - более специфичный и заметный */
+div.game-card-rental.style-2 {
+    background: white;
+}
+
+
+/* Стили для описания в альтернативном стиле */
+div.game-card-rental.style-2 p.arend-card-description {
+    color: black;
+}   
