@@ -143,7 +143,33 @@ class ProductDetailView(TemplateView):
         context["additional_products"] = additional_products
         return context
 
+class AdditionalProductsView(TemplateView):
+    template_name = "additional_products.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        current_product = Product.objects.get(pk=self.kwargs.get("pk"))
+        context["additional_product"] = current_product
+        context["additional_product"] = Product.objects.filter(is_active=True).order_by(
+            "-created_at"
+        )
+        context["additional_images"] = current_product.additional_images.all()
+
+        random_products = list(
+            Product.objects.filter(is_active=True)
+            .exclude(pk=current_product.pk)
+            .order_by("?")[:4]
+        )
+        context["random_products"] = random_products
+        # Добавьте передачу данных аренды
+        context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
+            "-created_at"
+        )
+        additional_products = list(
+            AdditionalProducts.objects.filter(is_active=True).order_by("-created_at")
+        )
+        context["additional_products"] = additional_products
+        return context
 class RentalCatalogView(TemplateView):
     template_name = "rental_catalog.html"
 

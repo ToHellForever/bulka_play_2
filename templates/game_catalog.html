@@ -109,7 +109,7 @@
                 {% endif %}
               {% endwith %}
             </p>
-            <a href="#" class="product_card_button">ПОДРОБНЕЕ</a>
+            <a href="{% url 'additional_product_detail' additional_product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
           </div>
         </div>
       {% endfor %}
