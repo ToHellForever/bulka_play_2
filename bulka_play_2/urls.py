@@ -11,7 +11,8 @@ from core.views import (
     ProcessOrderView,
     calculate_games,
     TwoGamesOnOneBoardView,
-    AdditionalProductsView
+    AdditionalProductsView,
+    AdditionalProductDetailView
 )
 from debug_toolbar.toolbar import debug_toolbar_urls
 
@@ -25,7 +26,7 @@ urlpatterns = [
     path('two-games-on-one-board/', TwoGamesOnOneBoardView.as_view(), name='two_games_on_one_board'),
     path('process_order/', ProcessOrderView.as_view(), name='process_order'),
     path('calculate_games/', calculate_games, name='calculate_games'),
-    path('additional_product_detail/<int:pk>/', AdditionalProductsView.as_view(template_name='additional_product_detail.html'), name='additional_product_detail'),
+    path('additional_product_detail/<int:pk>/', AdditionalProductDetailView.as_view(), name='additional_product_detail'),
 ] + debug_toolbar_urls()
 
 if settings.DEBUG:

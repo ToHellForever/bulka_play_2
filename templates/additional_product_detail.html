@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+{% comment %} название игры {% endcomment %}
+{% block title %}{{ additional_product.name }}{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+<div class='row mt-5' style='flex-wrap: nowrap'>
+        <div class='col-1'>
+            {% for image in additional_product.additional_images.all %}
+                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ additional_product.id }}')">
+            {% endfor %}
+        </div>
+<div class='col-6'>
+            <img src="{{ additional_product.image.url }}" alt="Main Image" class="additional_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
+        </div>
+        <div class='col-5'>
+            <h1 class='product_detail_name'>{{ additional_product.name }}</h1>
+            <p class='product_detail_description'>{{ additional_product.description }}</p>
+            <p class='product_detail_set'>Описание</p>
+                <div class="kit-container">
+                    {% for item in additional_product.ordered_game_kits.all %}
+                        <div class="kit-item">
+                            <div class="kit-content">
+                                <span class="highlighted-text">{{ item.game_kit_item.highlighted_text }}</span>
+                                <span class="normal-text">{{ item.game_kit_item.normal_text }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            <p class='product_detail_price'>
+              {% with discounted_price=additional_product.get_discounted_price %}
+                {% if discounted_price != additional_product.price %}
+<span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
+<span class="product-detail-original-price">{{ additional_product.price|floatformat }} руб.</span>
+                {% else %}
+                  {{ additional_product.price|floatformat }} руб.
+                {% endif %}
+              {% endwith %}
+            </p>
+            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+        </div>
+    </div>
+</div>
+
+
+<div class='container mt-3'>
+    <div class="button-container">
+        <button class="button" onclick="showInfo('info1')">МАТЕРИАЛ <img src="/media/icon/select_arrow.svg" alt="" class='arrow_accorderon'></button>
+        <button class="button" onclick="showInfo('info3')">ДОСТАВКА <img src="/media/icon/select_arrow.svg" alt="" class='arrow_accorderon'></button>
+    </div>
+<div id="info1" class="info-block">
+        <p>{{ additional_product.game_rules }}</p>
+    </div>
+    <div id="info2" class="info-block">
+        <ul>
+          <li>Натуральное дерево твердых пород. </li>
+          <li>Ручная работа</li>
+          <li>Гипоаллергенное покрытие (высококачественные масла, воск и пропитки).</li>
+        </ul>
+    </div>
+    <div id="info3" class="info-block">
+        <p><b>Мы осуществляем доставку по всей территории России.</b></p>
+        <ul>
+          <li>Обратите внимание, что стоимость доставки оплачивается заказчиком отдельно.</li>
+          <li>Мы сотрудничаем с надежной курьерскими службами, что позволяет обеспечить своевременное получение вами заказа.</li>
+          <li>Стоимость и сроки доставки зависят от вашего местоположения. После отправки заказа мы предоставим вам трек-номер для отслеживания статуса доставки в режиме онлайн. </li>
+          <li>Для оформления доставки добавьте соответствующую услугу в корзину при оформлении заказа и укажите точный адрес доставки. Наш сотрудник свяжется с вами для уточнения всех необходимых деталей.</li>
+        </ul>
+    </div>
+<div id="info4" class="info-block">
+        <p>{{ additional_product.additional_info }}</p>
+    </div>
+</div>
+
+
+<div class='container mt-5'>
+  <h1 class='game_catalog_h'>СМОТРИТЕ ТАКЖЕ</h1>
+  <div class='row'>
+    {% for product in random_products %}
+      <div class='col-3 mt-5'>
+        <div class="game-card">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
+          <h1 class='product_card_name'>{{ product.name }}</h1>
+          <p class="product_card_price">{{ product.price|floatformat }} руб.</p>
+          <a href="{% url 'product_detail' pk=product.pk %}" class="product_card_button">ПОДРОБНЕЕ</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class='container mt-5'>
+  <h1 class='game_catalog_h'>С ЭТИМ ТОВАРОМ ПОКУПАЮТ</h1>
+  <div class='row'>
+    {% for additional_product  in additional_products  %}
+      <div class='col-3 mt-5'>
+        <div class="game-card">
+          <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
+          <h1 class='product_card_name'>{{ additional_product.name }}</h1>
+          <p class="product_card_price">
+            {% with discounted_price=additional_product.get_discounted_price %}
+              {% if discounted_price != additional_product.price %}
+<span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
+<span class="product-detail-original-price">{{ additional_product.price|floatformat }} руб.</span>
+              {% else %}
+                {{ additional_product.price|floatformat }} руб.
+              {% endif %}
+            {% endwith %}
+          </p>
+          <a href="#" class="product_card_button">ПОДРОБНЕЕ</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{ block.super }}
+<!-- Модальное окно для продукта -->
+<div id="productModal" class="news-modal">
+  <span class="news-close" onclick="closeProductModal()">&times;</span>
+  <div class="news-modal-content">
+    <div class="news-carousel">
+      <div class="product-carousel-inner">
+        <!-- Слайды будут добавляться динамически -->
+      </div>
+      <button class="news-carousel-control prev" onclick="productPrevSlide()">&#10094;</button>
+      <button class="news-carousel-control next" onclick="productNextSlide()">&#10095;</button>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="{% static 'css/product_modal.css' %}">
+<script src="{% static 'js/product_modal.js' %}"></script>
+{% endblock scripts %}
