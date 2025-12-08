@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="page-title">ДВЕ ИГРЫ НА ОДНОЙ ПОДЛОЖКЕ</h1>
+    <h1 class='title_h mt-5'>ДВЕ ИГРЫ <span class='wood_h'>НА ОДНОЙ ДОСКЕ</span></h1>
 
     <div class="two-games-content">
         <!-- Блок 1: Слева видео, справа текст -->
@@ -47,13 +47,11 @@
         </div>
 
         <!-- Блок с красивым текстом и кнопкой -->
-        <div class="two-games-final">
-            <h2>Готовы попробовать?</h2>
-            <p>
-                Оформите заказ прямо сейчас и получите две игры на одной доске с выгодной скидкой!
-            </p>
-            <button class="order-button" onclick="openOrderModal()">Заказать сейчас</button>
-        </div>
+            <div class="center-block mt-5">
+                <h1 class='center-block_h'>ОСТАЛИСЬ ВОПРОСЫ?</h1>
+                <p class='center-block_text'>Отправь заявку, мы свяжемся с тобой в ближайшее время</p>
+                <button class='center-block_button' onclick="openOrderModal()">ЗАПОЛНИТЬ ЗАЯВКУ</button>
+            </div>
     </div>
 </div>
 {% endblock %}
