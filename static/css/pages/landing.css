@@ -1,32 +1,109 @@
 .landing-container {
     width: 90%;
     display: flex;
-    justify-content: center; 
-    align-items: center;     
-    flex-wrap: wrap;         
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
+
+/* Десктопные стили */
 .left_photo {
     width: 27rem;
     height: auto;
     border-radius: 31px;
 }
+
 .right_photo {
     width: 100%;
     height: auto;
 }
+
 .catalog_game_icon {
-    position: absolute; 
-    top: 0; 
-    right: 0; 
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 20rem;
     z-index: 10;
 }
+
 .arend_icon {
     width: 20rem;
     position: absolute;
-    bottom: 20px; 
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+/* Скрытие мобильной версии на десктопе */
+.mobile-layout {
+    display: none;
+}
+
+/* Мобильные стили */
+@media (max-width: 992px) {
+    /* Скрываем десктопную версию */
+    .desktop-layout {
+        display: none !important;
+    }
+
+    .landing-container {
+        flex-direction: column;
+    }
+
+    .left_photo {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .right_photo {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .mobile-top-section {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-bottom-section {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .mobile-left-column {
+        width: 50%;
+        padding-right: 0.5rem;
+    }
+
+    .mobile-right-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .flex-fill {
+        width: 100% !important;
+        height: auto;
+        padding: 10px !important;
+        font-size: 1rem;
+    }
+
+    .arend_icon {
+        width: 15rem;
+    }
+
+    .catalog_game_icon {
+        width: 15rem;
+    }
 }
 a {
   white-space: normal; /* Разрешает перенос текста */
@@ -60,9 +137,49 @@ a {
 /* Блок с двумя блоками в строку */
 .row-blocks {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   gap: 3rem;
   margin-bottom: 20px;
+}
+
+/* Адаптация контактных блоков для мобильных */
+@media (max-width: 992px) {
+  .row-blocks {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-block {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .center-block {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+/* Стили для блоков с иконками */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row > .col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 15px;
+}
+
+@media (max-width: 992px) {
+  .row > .col-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Стандартный стиль контактов */

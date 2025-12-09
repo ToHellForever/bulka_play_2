@@ -4,28 +4,56 @@
 {% block content %}
 <div class='container mt-5'>
     <h1 class='title_h'>НАСТОЛЬНЫЕ ИГРЫ <span class='wood_h'>ИЗ ДЕРЕВА</span></h1>
-<div class="d-flex mt-4">
-  <!-- Левая часть с фото -->
-  <div class="me-3 position-relative">
-    <img src="media/photo/left_photo.jpg" alt="Левое фото" class="left_photo">
-    <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="" class='arend_icon'></a>
-  </div>
-  <!-- Правая часть: фото над тремя блоками -->
-  <div>
-    <!-- Фото сверху -->
-    <div class="mb-3 position-relative">
-      <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
-      <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'></a>
-      <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
+
+    <!-- Десктопная версия -->
+    <div class="d-flex mt-4 desktop-layout">
+      <!-- Левая часть с фото -->
+      <div class="me-3 position-relative">
+        <img src="media/photo/left_photo.jpg" alt="Левое фото" class="left_photo">
+        <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="" class='arend_icon'></a>
+      </div>
+      <!-- Правая часть: фото над тремя блоками -->
+      <div>
+        <!-- Фото сверху -->
+        <div class="mb-3 position-relative">
+          <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
+          <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'></a>
+          <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
+        </div>
+        <!-- Три блока -->
+        <div class="d-flex">
+          <button class="p-5 me-3 flex-fill" onclick="openOrderModal()">ОСТАВИТЬ ЗАЯВКУ</button>
+          <a href="{% url 'two_games_on_one_board' %}" class="p-3 me-3 flex-fill">2 В 1</a>
+          <a href="{% url 'about' %}" class="p-3 flex-fill">О НАС</a>
+        </div>
+      </div>
     </div>
-    <!-- Три блока -->
-    <div class="d-flex">
-      <button class="p-5 me-3 flex-fill" onclick="openOrderModal()">ОСТАВИТЬ ЗАЯВКУ</button>
-      <a href="{% url 'two_games_on_one_board' %}" class="p-3 me-3 flex-fill">2 В 1</a>
-      <a href="{% url 'about' %}" class="p-3 flex-fill">О НАС</a>
+
+    <!-- Мобильная версия -->
+    <div class="mobile-layout">
+      <!-- Верхняя секция с right_photo -->
+      <div class="mobile-top-section position-relative">
+        <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
+        <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'></a>
+        <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
+      </div>
+
+      <!-- Нижняя секция с left_photo и тремя блоками -->
+      <div class="mobile-bottom-section">
+        <!-- Левая колонка с фото -->
+        <div class="mobile-left-column position-relative">
+          <img src="media/photo/left_photo.jpg" alt="Левое фото" class="left_photo">
+          <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="" class='arend_icon'></a>
+        </div>
+
+        <!-- Правая колонка с тремя блоками -->
+        <div class="mobile-right-column">
+          <button class="p-3 flex-fill" onclick="openOrderModal()">ОСТАВИТЬ ЗАЯВКУ</button>
+          <a href="{% url 'two_games_on_one_board' %}" class="p-3 flex-fill">2 В 1</a>
+          <a href="{% url 'about' %}" class="p-3 flex-fill">О НАС</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 </div>
 
 <div class="container mt-5">
@@ -46,7 +74,7 @@
       <p class="block-text">Собственное производство в г.Красноясрк</p>
     </div>
     <div class="col-3">
-      <img src="media/icon/car.svg" alt="Картинка 4" class="block-img">и
+      <img src="media/icon/car.svg" alt="Картинка 4" class="block-img">
       <h3 class="block-title">Доставка</h3>
       <p class="block-text">Отправляем по всей России</p>
     </div>
