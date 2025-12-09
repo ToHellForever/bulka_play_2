@@ -556,3 +556,28 @@ if (buttons.length > 0) {
     }
   });
 }
+
+// Бургер-меню функциональность
+document.addEventListener('DOMContentLoaded', function() {
+  // Навигационное меню
+  const burgerMenuNav = document.getElementById('burgerMenuNav');
+  const mobileMenuNav = document.getElementById('mobileMenuNav');
+
+  if (burgerMenuNav && mobileMenuNav) {
+    burgerMenuNav.addEventListener('click', function() {
+      this.classList.toggle('toggle');
+      mobileMenuNav.classList.toggle('active');
+    });
+  }
+
+  // Меню в подвале
+  const burgerMenuFooter = document.getElementById('burgerMenuFooter');
+  const mobileMenuFooter = document.getElementById('mobileMenuFooter');
+
+  if (burgerMenuFooter && mobileMenuFooter) {
+    burgerMenuFooter.addEventListener('click', function() {
+      this.classList.toggle('toggle');
+      mobileMenuFooter.classList.toggle('active');
+    });
+  }
+});

@@ -1,22 +1,57 @@
 <div class='container mt-5 mb-3'>
-  <div class="d-flex align-items-center" style="width: 100%; gap: 4rem;">
-    <!-- Все 6 основных ссылок -->
-    <a href="{% url 'landing' %}"><img src="/media/icon/icon_landing.png" alt="" class='icon_landing'></a>
+  <div class="menu-container">
+    <!-- Лого слева -->
+    <a href="{% url 'landing' %}" class="logo-link">
+      <img src="/media/icon/icon_landing.png" alt="" class='icon_landing'>
+    </a>
+
+    <!-- Бургер-иконка справа -->
+    <button class="burger-menu" id="burgerMenuFooter">
+      <span class="line1"></span>
+      <span class="line2"></span>
+      <span class="line3"></span>
+    </button>
+
+    <!-- Навигационные ссылки -->
+    <div class="nav-links">
+      <a href="{% url 'about' %}" class='menu-text'>О нас</a>
+      <a href="{% url 'game_catalog' %}" class='menu-text'>Каталог игр</a>
+      <a href="{% url 'rental_catalog' %}" class='menu-text'>Аренда</a>
+      <a href="{% url 'two_games_on_one_board' %}" class='menu-text'>2 в 1</a>
+      <a href="#" class='menu-text'>Контакты</a>
+    </div>
+
+    <!-- Социальные ссылки (только для десктопа) -->
+    <div class="social-links desktop-only">
+      <a href="#" class='menu-text'>
+        <img src="/media/icon/vk.svg" alt="" class='footer_icon'>
+      </a>
+      <a href="#" class='menu-text'>
+        <img src="/media/icon/telegram.svg" alt="" class='footer_icon'>
+      </a>
+      <a href="#" class='menu-text'>
+        <img src="/media/icon/instagram.svg" alt="" class='footer_icon'>
+      </a>
+    </div>
+  </div>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenuFooter">
     <a href="{% url 'about' %}" class='menu-text'>О нас</a>
     <a href="{% url 'game_catalog' %}" class='menu-text'>Каталог игр</a>
     <a href="{% url 'rental_catalog' %}" class='menu-text'>Аренда</a>
     <a href="{% url 'two_games_on_one_board' %}" class='menu-text'>2 в 1</a>
     <a href="#" class='menu-text'>Контакты</a>
-    
-    <!-- Правые 3 ссылки, прижаты к правому краю -->
-    <a href="#" class='menu-text' style="margin-left: auto; text-decoration: none;">
-      <img src="/media/icon/vk.svg" alt="" class='footer_icon'>
-    </a>
-    <a href="#" class='menu-text' style="margin-left: -2rem;">
-      <img src="/media/icon/telegram.svg" alt="" class='footer_icon'>
-    </a>
-    <a href="#" class='menu-text' style="margin-left: -2rem;">
-      <img src="/media/icon/instagram.svg" alt="" class='footer_icon'>
-    </a>
+    <div class="social-links">
+      <a href="#" class='menu-text'>
+        <img src="/media/icon/vk.svg" alt="" class='footer_icon'>
+      </a>
+      <a href="#" class='menu-text'>
+        <img src="/media/icon/telegram.svg" alt="" class='footer_icon'>
+      </a>
+      <a href="#" class='menu-text'>
+        <img src="/media/icon/instagram.svg" alt="" class='footer_icon'>
+      </a>
+    </div>
   </div>
 </div>
