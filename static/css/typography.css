@@ -471,4 +471,20 @@ h4 {
     .game_count_text {
         font-size: 1.5rem;
     }
+    .center-block_h {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .contact_catalog_h {
+        font-size: 1.3rem;
+    }
+    .center-block_text {
+        font-size: 0.8rem;
+    }
+    .contact_link a {
+        font-size: 1rem;
+    }
+    .contact_link {
+        font-size: 0.8rem;
+    }
 }
