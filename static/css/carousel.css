@@ -1,6 +1,5 @@
 /* карусель продуктов */
-.product_card_image,
-.arend_card_image {
+.product_card_image {
   width: 25rem;
   height: 25rem;
   border-radius: 31px;
@@ -12,21 +11,11 @@
   justify-content: center;
   width: calc(100% / 3);
 }
-
-/* Мобильные стили для каруселей */
-@media (max-width: 992px) {
-  .product_card_image,
-  .arend_card_image {
-    width: 14rem;
-    height: 14rem;
-  }
-
   .arend-card {
     width: 20rem;
     height: 20rem;
     padding: 1.5rem;
   }
-}
 .swiper-button-prev,
 .swiper-button-next {
   display: none;
@@ -80,4 +69,13 @@
 /* Стили для описания в альтернативном стиле */
 .arend-card.style-2 .arend-card-description {
   color: black;
+}
+/* Мобильные стили для каруселей */
+@media (max-width: 992px) {
+  .product_card_image,
+    .news_card_image {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 9.35px;
+  }
 }
