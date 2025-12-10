@@ -39,72 +39,6 @@
     display: none;
 }
 
-/* Мобильные стили */
-@media (max-width: 992px) {
-    /* Скрываем десктопную версию */
-    .desktop-layout {
-        display: none !important;
-    }
-
-    .landing-container {
-        flex-direction: column;
-    }
-
-    .left_photo {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .right_photo {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .mobile-layout {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .mobile-top-section {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .mobile-bottom-section {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-    }
-
-    .mobile-left-column {
-        width: 50%;
-        padding-right: 0.5rem;
-    }
-
-    .mobile-right-column {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding-left: 0.5rem;
-    }
-
-    .flex-fill {
-        width: 100% !important;
-        height: auto;
-        padding: 10px !important;
-        font-size: 1rem;
-    }
-
-    .arend_icon {
-        width: 15rem;
-    }
-
-    .catalog_game_icon {
-        width: 15rem;
-    }
-}
 a {
   white-space: normal; /* Разрешает перенос текста */
   word-wrap: break-word; /* Разрешает перенос слов */
@@ -218,4 +152,73 @@ padding-left: 2.7rem;
     font-family: 'Unbounded' , sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+/* Мобильные стили */
+@media (max-width: 992px) {
+    /* Скрываем десктопную версию */
+    .desktop-layout {
+        display: none !important;
+    }
+
+    .landing-container {
+        flex-direction: column;
+    }
+
+    .left_photo {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .right_photo {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .mobile-top-section {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-bottom-section {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: -20px;
+    }
+
+    .mobile-left-column {
+        width: 50%;
+        padding-right: 0.5rem;
+    }
+
+    .mobile-right-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .flex-fill {
+        width: 100% !important;
+        height: 6rem;
+        border-radius: 11.63px;
+        font-size: 15px !important;
+    }
+
+    .arend_icon {
+        width: 8.5rem;
+    }
+
+    .catalog_game_icon {
+        width: 8.5rem;
+    }
 }

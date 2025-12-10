@@ -457,3 +457,18 @@ h4 {
     font-size: 1.5rem;
     font-weight: 400;
 }
+
+
+
+
+
+/* мобильная версия */
+@media (max-width: 767px) {
+    .title_h {
+        font-size: 1.9rem;
+        text-align: start;
+    }
+    .game_count_text {
+        font-size: 1.5rem;
+    }
+}
