@@ -52,23 +52,40 @@
         <script src="{% static 'js/news_modal.js' %}"></script>
         <script src="{% static 'js/rental_calculator.js' %}"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const swiper = new Swiper('.swiper', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      slidesPerGroup: 1,
-      {% comment %} autoplay: {% endcomment %}
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      loop: true,
-      navigation: {
+document.addEventListener('DOMContentLoaded', () => {
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 1.5,
+    spaceBetween: 30,
+    slidesPerGroup: 1,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
-        },
-    });
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1.5,
+        spaceBetween: 20
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 40
+      }
+    }
   });
+});
 </script>
     {% endblock scripts %}
 </body>

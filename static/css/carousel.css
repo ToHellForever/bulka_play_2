@@ -17,8 +17,8 @@
 @media (max-width: 992px) {
   .product_card_image,
   .arend_card_image {
-    width: 12rem;
-    height: 12rem;
+    width: 14rem;
+    height: 14rem;
   }
 
   .arend-card {
