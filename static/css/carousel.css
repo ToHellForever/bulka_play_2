@@ -5,6 +5,34 @@
   border-radius: 31px;
 }
 
+/* Затемнение по бокам каруселей (кроме аренды) */
+.swiper:not(.rental-swiper) {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper:not(.rental-swiper)::before,
+.swiper:not(.rental-swiper)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15rem;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.swiper::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.swiper::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
 .swiper-slide {
   flex: 1 0 auto;
   display: flex;
@@ -77,5 +105,11 @@
     width: 12rem;
     height: 12rem;
     border-radius: 9.35px;
+  }
+
+  /* Затемнение по бокам каруселей (кроме аренды) для мобильной версии */
+  .swiper:not(.rental-swiper)::before,
+  .swiper:not(.rental-swiper)::after {
+    width: 5rem;
   }
 }
