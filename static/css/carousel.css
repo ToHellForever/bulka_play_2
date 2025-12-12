@@ -1,36 +1,14 @@
 /* карусель продуктов */
 .product_card_image {
-  width: 25rem;
-  height: 25rem;
+  width: 22rem;
+  height: 22rem;
   border-radius: 31px;
 }
 
-/* Затемнение по бокам каруселей (кроме аренды) */
-.swiper:not(.rental-swiper) {
-  position: relative;
-  overflow: hidden;
-}
-
-.swiper:not(.rental-swiper)::before,
-.swiper:not(.rental-swiper)::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 15rem;
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.swiper::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-}
-
-.swiper::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+/* Удаление затемнения для карусели аренды */
+.swiper.rental-swiper::before,
+.swiper.rental-swiper::after {
+  display: none;
 }
 
 .swiper-slide {
@@ -108,8 +86,30 @@
   }
 
   /* Затемнение по бокам каруселей (кроме аренды) для мобильной версии */
+  .swiper:not(.rental-swiper) {
+    position: relative;
+    overflow: hidden;
+  }
+
   .swiper:not(.rental-swiper)::before,
   .swiper:not(.rental-swiper)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
     width: 5rem;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .swiper:not(.rental-swiper)::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .swiper:not(.rental-swiper)::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
   }
 }
