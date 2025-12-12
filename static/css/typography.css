@@ -464,6 +464,7 @@ h4 {
 
 /* мобильная версия */
 @media (max-width: 767px) {
+    /* landing */
     .title_h {
         font-size: 1.9rem;
         text-align: start;
@@ -494,5 +495,10 @@ h4 {
     .product-card-title {
         font-size: 1.3rem;
         flex-wrap: wrap;
+    }
+    /* о нас  */
+    .about_h {
+        font-size: 5.5rem;
+        text-align: center;
     }
 }
