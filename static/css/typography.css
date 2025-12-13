@@ -14,6 +14,11 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
 }
+.flex-fill {
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+}
 .block-title {
     margin-top: 1rem;
     font-family: 'Unbounded' , sans-serif;
@@ -450,16 +455,17 @@ h4 {
 
 
 
-
-
 /* мобильная версия */
-@media (max-width: 767px) {
+@media (max-width: 992px) {
     /* landing */
     .title_h {
-        font-size: 1.9rem;
+        font-size: 4rem;
         text-align: start;
     }
     .game_count_text {
+        font-size: 3rem;
+    }
+    .flex-fill {
         font-size: 1.5rem;
     }
     .center-block_h {
@@ -490,5 +496,19 @@ h4 {
     .about_h {
         font-size: 5.5rem;
         text-align: center;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .title_h {
+        font-size: 2rem;
+        text-align: start;
+    }
+    .game_count_text {
+        font-size: 1.5rem;
+    }
+    .flex-fill {
+        font-size: 1.2rem;
     }
 }

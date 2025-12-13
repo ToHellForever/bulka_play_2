@@ -22,12 +22,12 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 20rem;
+    width: 39%;
     z-index: 10;
 }
 
 .arend_icon {
-    width: 20rem;
+    width: 70%;
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -48,13 +48,10 @@ a {
     border: none !important;
     background: rgba(26, 26, 26, 1);
     height: 9.8rem;
-    width: 8rem;
+      width: 100%;
     padding: 18px !important;
     flex-wrap: wrap;
     border-radius: 33px;
-    color: rgba(255, 255, 255, 1);
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1.5rem;
     display: flex; /* Добавьте это свойство */
     text-align: start;
 }
@@ -137,6 +134,26 @@ padding-left: 2.7rem;
     font-weight: 600;
 }
 
+
+/* промежуточные стили  */
+@media (max-width: 1400px) {
+      .left_photo {
+        width: 22rem;
+        height: 100%;
+    }
+    .catalog_game_icon {
+      width: 39%;
+    }
+    .right_photo {
+        width: 100%;
+        height: 100%;
+    }
+}
+@media (max-width: 1052px) {
+  .flex-fill {
+    height: 12rem;
+  }
+}
 /* Мобильные стили */
 @media (max-width: 992px) {
     /* Скрываем десктопную версию */
@@ -194,15 +211,11 @@ padding-left: 2.7rem;
         width: 100% !important;
         height: 6rem;
         border-radius: 11.63px;
-        font-size: 15px !important;
     }
 
-    .arend_icon {
-        width: 8.5rem;
-    }
 
     .catalog_game_icon {
-        width: 8.5rem;
+      width: 39%;
     }
       .row-blocks {
     flex-direction: column;
