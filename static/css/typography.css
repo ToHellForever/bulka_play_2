@@ -102,25 +102,15 @@
     font-size: 2.5rem;
     font-weight: 400;
     color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 .about_block_text {
     font-family: 'Unbounded' , sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 20px;
-    margin-top: 20px;
     color: rgba(255, 255, 255, 1);
 }
 
-.about_block_h {
-    font-family: 'Unbounded' , sans-serif;
-    font-size: 2rem;
-    font-weight: 400;
-    color: white;
-    margin-top: 20px;
-}
 
 .news-card-title {
     font-family: 'Unbounded' , sans-serif;
