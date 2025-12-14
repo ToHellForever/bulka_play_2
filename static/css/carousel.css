@@ -1,16 +1,35 @@
 /* карусель продуктов */
 .product_card_image {
   width: 100%;
-  height: 22rem;
+  height: 25rem;
   border-radius: 31px;
 }
-
-/* Удаление затемнения для карусели аренды */
-.swiper.rental-swiper::before,
-.swiper.rental-swiper::after {
-  display: none;
+.swiper:not(.rental-swiper) {
+  position: relative;
+  overflow: hidden;
 }
 
+.swiper::before,
+.swiper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15rem;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.swiper::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.swiper::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
 .swiper-slide {
   flex: 1 0 auto;
   display: flex;
@@ -54,7 +73,7 @@
 .arend-card {
   background: rgba(248, 128, 5, 1);
   width: 100%;
-  height: 33rem;
+  height: auto;
   padding: 2rem;
   border-radius: 35.3px;
   color: white;
@@ -71,15 +90,20 @@
 .arend-card.style-2 .arend-card-description {
   color: black;
 }
+
+@media (max-width: 1200px) {
+  .product_card_image {
+    height: 20rem;
+  }
+}
+
 /* Мобильные стили для каруселей */
 @media (max-width: 992px) {
-  .product_card_image,
-    .news_card_image {
-    width: 100%;
-    height: 12rem;
-    border-radius: 9.35px;
+    .product_card_image {
+    width: 18rem;
+    height: 18rem;
+    border-radius: 15px;
   }
-
   /* Затемнение по бокам каруселей (кроме аренды) для мобильной версии */
   .swiper:not(.rental-swiper) {
     position: relative;
@@ -106,5 +130,39 @@
   .swiper:not(.rental-swiper)::after {
     right: 0;
     background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+}
+
+@media (max-width: 930px) {
+    .product_card_image {
+      width: 15rem;
+    height: 15rem;
+  }
+}
+
+@media (max-width: 780px) {
+    .product_card_image {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+@media (max-width: 640px) {
+    .product_card_image {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+@media (max-width: 515px) {
+    .product_card_image {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+@media (max-width: 435px) {
+    .product_card_image {
+    width: 8rem;
+    height: 8rem;
   }
 }

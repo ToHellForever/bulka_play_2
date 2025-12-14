@@ -140,6 +140,7 @@ padding-left: 2.7rem;
       .left_photo {
         width: 22rem;
         height: 100%;
+        border-radius: 10.92px;
     }
     .catalog_game_icon {
       width: 39%;

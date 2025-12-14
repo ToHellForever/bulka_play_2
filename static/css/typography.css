@@ -489,7 +489,7 @@ h4 {
         flex-wrap: wrap;
     }
     .product-card-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         flex-wrap: wrap;
     }
     /* о нас  */
@@ -510,5 +510,11 @@ h4 {
     }
     .flex-fill {
         font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .arend-card-title {
+        font-size: 1.3rem;  
     }
 }
