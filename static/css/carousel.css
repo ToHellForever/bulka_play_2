@@ -48,8 +48,8 @@
 }
 
 .news_card_image {
-  width: 22rem; 
-  height: 18rem; 
+  width: 22rem;
+  height: 18rem;
   object-fit: cover;
   border-radius: 31px;
 }
@@ -68,8 +68,6 @@
   margin-top: 10px;
 }
 
-
-
 .arend-card {
   background: rgba(248, 128, 5, 1);
   width: 100%;
@@ -83,7 +81,7 @@
 
 /* Альтернативный стиль для карточек аренды на главной странице */
 .arend-card.style-2 {
-  background: white; 
+  background: white;
 }
 
 /* Стили для описания в альтернативном стиле */
@@ -109,28 +107,16 @@
     position: relative;
     overflow: hidden;
   }
-
+    /* Затемнение по бокам каруселей (кроме аренды) для мобильной версии */
   .swiper:not(.rental-swiper)::before,
   .swiper:not(.rental-swiper)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
     width: 5rem;
-    height: 100%;
-    z-index: 10;
-    pointer-events: none;
+  }
+  .rental-swiper::before,
+  .rental-swiper::after {
+    display: none;
   }
 
-  .swiper:not(.rental-swiper)::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-  }
-
-  .swiper:not(.rental-swiper)::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-  }
 }
 
 @media (max-width: 930px) {
