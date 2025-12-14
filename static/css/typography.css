@@ -453,8 +453,32 @@ h4 {
     font-weight: 400;
 }
 
-
-
+@media (max-width: 1325px) {
+    .about_h {
+        font-size: 7rem;
+    }
+    .about_block {
+        font-size:1rem;
+    }
+}
+@media (max-width: 1140px) {
+    .about_h {
+        font-size: 6rem;
+    }
+}
+@media (max-width: 1250px) {
+    .arend-card-title {
+        font-size: 1.3rem;  
+    }
+        .about_block {
+        font-size:0.9rem;
+    }
+}
+@media (max-width: 1174px) {
+    .about_block {
+        font-size:0.8rem;
+    }
+}
 /* мобильная версия */
 @media (max-width: 992px) {
     /* landing */
@@ -495,7 +519,7 @@ h4 {
     /* о нас  */
     .about_h {
         font-size: 5.5rem;
-        text-align: center;
+        text-align: start;
     }
 }
 
@@ -510,11 +534,5 @@ h4 {
     }
     .flex-fill {
         font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 1250px) {
-    .arend-card-title {
-        font-size: 1.3rem;  
     }
 }
