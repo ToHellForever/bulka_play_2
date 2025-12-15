@@ -482,7 +482,15 @@ h4 {
     .arend-card-title {
         font-size: 1.3rem;  
     }
-        .about_block {
+    .about_block {
+        font-size:0.9rem;
+    }
+    .about_block_text {
+        font-size:1rem;
+    }
+}
+@media (max-width: 1050px) {
+    .about_block_text {
         font-size:0.9rem;
     }
 }
