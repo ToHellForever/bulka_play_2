@@ -545,6 +545,12 @@ h4 {
     .news_catalog_h {
         font-size: 1.3rem;
     }
+    .about_block_h {
+        font-size: 1.3rem;
+    }
+    .about_block_text {
+        font-size: 0.8rem;
+    }
 }
 @media (max-width: 725px) {
     .about_block_h_1 {
@@ -562,6 +568,7 @@ h4 {
     .flex-fill {
         font-size: 1.2rem;
     }
+    
 }
 @media (max-width: 550px) {
     .news-card-button {

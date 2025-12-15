@@ -49,24 +49,20 @@
     .row.g-4 {
         flex-wrap: wrap;
     }
-
-    .row.g-4 > div {
-        flex: 0 0 50%;
-        max-width: 50%;
+    .card {
+        height: 100%;
+        padding: 5px;
     }
-
-    .row.g-4 > div:nth-child(odd) {
-        padding-right: 10px;
+    .block-2,
+    .block-3 {
+        flex-basis: calc(40% - 10px);
+        max-width: calc(40% - 10px);
     }
-
-    .row.g-4 > div:nth-child(even) {
-        padding-left: 10px;
+    
+    .block-1,
+    .block-4 {
+        flex-basis: calc(60% + 10px);
+        max-width: calc(60% + 10px);
     }
-}
-/* Стили для экранов меньше 550px */
-@media (max-width: 550px) {
-    .row.g-4 > div {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+    
 }
