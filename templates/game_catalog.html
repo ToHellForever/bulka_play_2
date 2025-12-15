@@ -3,15 +3,15 @@
 {% block title %}Катлог игр{% endblock title %}
 {% block content %}
 <form id="filter-form" method="get">
-  <div class="container mt-5">
+  <div class="container container-menu-catalog mt-5">
     <div class="row mt-5 ms-auto">
       <div class="col-6">
         <h1 class='game_catalog_h'>КАТАЛОГ ИГР</h1>
       </div>
-      <div class="col-3 search-container">
+      <div class="col-12 col-md-3 search-container">
         <input type="text" name="search" class="form-control search-input" placeholder="Поиск" value="{{ request.GET.search }}" style='color: white'>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3 search-container">
         <select name="sort" class="form-control filter-select" onchange="this.form.submit()">
           <option value="">Порядок по:</option>
           <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Цена по возрастанию</option>
@@ -23,9 +23,9 @@
     </div>
   </div>
 
-  <div class='container'>
+  <div class='container container-menu-catalog'>
     <div class="row mt-4">
-      <div class="col-3">
+      <div class="col-3 filter-col">
         <select name="size" class="form-control filter-select custom-select" onchange="this.form.submit()">
           <option value="">Размер</option>
           {% for size in sizes %}
@@ -33,7 +33,7 @@
           {% endfor %}
         </select>
       </div>
-      <div class="col-3">
+      <div class="col-3 filter-col">
         <select name="players" class="form-control filter-select custom-select" onchange="this.form.submit()">
           <option value="">Количество игроков</option>
           {% for player_count in player_counts %}
@@ -41,7 +41,7 @@
           {% endfor %}
         </select>
       </div>
-      <div class="col-3">
+      <div class="col-3 filter-col">
         <select name="age" class="form-control filter-select custom-select" onchange="this.form.submit()">
           <option value="">Возраст игроков</option>
           {% for player_age in player_ages %}
@@ -49,7 +49,7 @@
           {% endfor %}
         </select>
       </div>
-      <div class="col-3">
+      <div class="col-3 filter-col">
         <select name="type" class="form-control filter-select custom-select" onchange="this.form.submit()">
           <option value="">Вид игры</option>
           {% for game_type in game_types %}
