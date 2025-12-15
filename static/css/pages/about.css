@@ -17,7 +17,6 @@
     width: 100%;
     height: 12rem;
     border-radius: 31px;
-    padding-top: 0 !important;
     padding: 10px;
     margin: 0;
     background-color: rgba(26, 26, 26, 1);
@@ -51,20 +50,23 @@
         flex-wrap: wrap;
     }
     .card {
+        width: auto;
         height: 100%;
-        padding: 0px;
         border-radius: 11.69px;
+    }
+    .card-body {
+        padding: 8px;
     }
     .block-2,
     .block-3 {
-        flex-basis: calc(40%);
-        max-width: calc(40%);
+        flex-basis: calc(40% - 5px);
+        max-width: calc(40% - 5px);
     }
 
     .block-1,
     .block-4 {
-        flex-basis: calc(60%);
-        max-width: calc(60%);
+        flex-basis: calc(60% + 5px);
+        max-width: calc(60% + 5px);
     }
     
 }

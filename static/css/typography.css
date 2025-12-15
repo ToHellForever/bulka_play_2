@@ -546,15 +546,15 @@ h4 {
         font-size: 1.3rem;
     }
     .about_block_h {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .about_block_text {
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 }
 @media (max-width: 725px) {
     .about_block_h_1 {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 }
 @media (max-width: 640px) {
@@ -572,6 +572,15 @@ h4 {
 }
 @media (max-width: 550px) {
     .news-card-button {
+        font-size: 0.8rem;
+    }
+    .about_block_h_1 {
+        font-size: 1rem;
+    }
+    .about_block_h {
+        font-size: 1.2rem;
+    }
+    .about_block_text {
         font-size: 0.8rem;
     }
 }
