@@ -516,12 +516,10 @@ h4 {
     .product-card-title {
         font-size: 1rem; 
         white-space: wrap;
-        overflow: hidden; 
-        text-overflow: ellipsis; 
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        line-clamp: 1;
-        -webkit-box-orient:vertical;
+    }
+    .news-card-title {
+        font-size: 0.9rem; 
+        white-space: wrap;
     }
     .product-card-price {
         font-size: 0.8rem;
@@ -530,16 +528,6 @@ h4 {
     .about_h {
         font-size: 5.5rem;
         text-align: start;
-    }
-    .news-card-title {
-        font-size: 1rem; 
-        white-space: wrap;
-        overflow: hidden; 
-        text-overflow: ellipsis; 
-        display: -webkit-box;
-        -webkit-line-clamp: 1; 
-        line-clamp: 1;
-        -webkit-box-orient: vertical;
     }
     .news-card-button {
         font-size: 1.2rem;
