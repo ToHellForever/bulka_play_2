@@ -108,6 +108,13 @@
     font-weight: 400;
     color: white;
 }
+.about_block_h_1 {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+    white-space: nowrap;
+}
 .about_block_text {
     font-family: 'Unbounded' , sans-serif;
     font-size: 1.2rem;
@@ -539,8 +546,11 @@ h4 {
         font-size: 1.3rem;
     }
 }
-
-
+@media (max-width: 725px) {
+    .about_block_h_1 {
+        font-size: 1.3rem;
+    }
+}
 @media (max-width: 640px) {
     .title_h {
         font-size: 2rem;
