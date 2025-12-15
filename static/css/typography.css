@@ -568,6 +568,13 @@ h4 {
     .product_card_button {
         font-size: 1rem;
     }
+    /* каталог аренды */
+    .rental_catalog_h {
+        font-size: 1.8rem;
+    }
+    .rental_catalog_p {
+        font-size: 1rem;
+    }
 }
 @media (max-width: 725px) {
     .about_block_h_1 {
