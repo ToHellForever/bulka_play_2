@@ -99,8 +99,7 @@ a {
 /* Стандартный стиль контактов */
 .contact-block {
   background-color: rgba(26, 26, 26, 1); 
-  padding-top: 2.3rem;
-padding-left: 2.7rem;
+  padding: 20px;
   border-radius: 33px;
   width: 100%;
 }
