@@ -514,8 +514,17 @@ h4 {
         font-size: 0.8rem;
     }
     .product-card-title {
-        font-size: 1.2rem;
-        flex-wrap: wrap;
+        font-size: 1rem; 
+        white-space: wrap;
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient:vertical;
+    }
+    .product-card-price {
+        font-size: 0.8rem;
     }
     /* о нас  */
     .about_h {
@@ -523,8 +532,14 @@ h4 {
         text-align: start;
     }
     .news-card-title {
-        font-size: 1.2rem;
-        flex-wrap: wrap;
+        font-size: 1rem; 
+        white-space: wrap;
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        display: -webkit-box;
+        -webkit-line-clamp: 1; 
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
     }
     .news-card-button {
         font-size: 1.2rem;
@@ -551,9 +566,6 @@ h4 {
     }
 }
 @media (max-width: 550px) {
-    .news-card-title {
-        font-size: 0.8rem;
-    }
     .news-card-button {
         font-size: 0.8rem;
     }

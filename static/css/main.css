@@ -35,6 +35,7 @@ body {
     font-family: 'Unbounded', sans-serif;
     margin-right: 8px;
     font-size: 1rem;
+    white-space: nowrap;
 }
 
 .landing-discounted-price {
@@ -199,3 +200,13 @@ div.game-card-rental.style-2 {
 div.game-card-rental.style-2 p.arend-card-description {
     color: black;
 }   
+
+
+@media (max-width: 992px) {
+    .landing-discounted-price {
+        font-size: 1rem;
+    }
+    .landing-original-price {
+        font-size: 0.8rem;
+    }
+}
