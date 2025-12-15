@@ -67,3 +67,24 @@ border-color: #ced4da;
 .filter-select option {
     padding: 10px; /* Установите нужное вам значение отступа */
 }
+
+@media (max-width: 1400px) {
+    .game_catalog_card {
+        height: 23rem;
+    }
+}
+@media (max-width: 1200px) {
+    .game_catalog_card {
+        height: 20rem;
+    }
+}
+@media (max-width: 992px) {
+    .game_catalog_card {
+        height:auto !important;
+    }
+}
+@media (max-width: 550px) {
+    .game_catalog_card {
+        height:auto !important;
+    }
+}
