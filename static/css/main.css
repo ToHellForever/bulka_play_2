@@ -80,7 +80,7 @@ body {
 }
 
 .catalog-discounted-price {
-    color: #e67e22;
+    color: #e63946;
     font-family: 'Unbounded', sans-serif;
     font-size: 1.4rem;
     font-weight: bold;
@@ -96,7 +96,7 @@ body {
 }
 
 .product-detail-discounted-price {
-    color: #2a9d8f;
+    color: #e63946;
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
@@ -112,7 +112,7 @@ body {
 }
 
 .rental-catalog-discounted-price {
-    color: #e76f51;
+    color: #e63946;
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
@@ -146,7 +146,7 @@ body {
 }
 
 .arend-discounted-price {
-  color: #c0392b;
+  color: #e63946;
   font-size: 1.7rem;
   vertical-align: middle;
 }
@@ -159,7 +159,7 @@ div.game-card-rental.style-2 .arend-original-price {
 }
 
 div.game-card-rental.style-2 .arend-discounted-price {
-  color: #c0392b;
+  color: #e63946;
     font-size: 1.7rem;
 }
 
@@ -171,7 +171,7 @@ div.game-card-rental.style-2 .arend-discounted-price {
 }
 
 .arend-discounted-price {
-  color: #c0392b;
+  color: #e63946;
     font-size: 1.7rem;
 }
 
@@ -183,7 +183,7 @@ div.game-card-rental.style-2 .arend-discounted-price {
 }
 
 .arend-card.style-2 .arend-discounted-price {
-  color: #c0392b;
+  color: #e63946;
     font-size: 1.7rem;
 }
 .arend-original-price {

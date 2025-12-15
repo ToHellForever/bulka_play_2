@@ -49,7 +49,7 @@ border-color: #ced4da;
 }
 
 .product_card_button {
-    width: 95%;
+    width: auto;
     background: rgba(248, 128, 5, 1);
     padding: 10px;
     border-radius: 11.99px;

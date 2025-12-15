@@ -64,23 +64,23 @@
     <div class='row mt-1'>
       {% if products %}
         {% for product in products %}
-            <div class='col-6 col-xxl-3 col-lg-4 mt-5'>
-            <div class="game-card">
-              <img src="{{ product.image.url }}" alt="{{ product.name }}" class="game_catalog_card">
-              <h1 class='product_card_name'>{{ product.name }}</h1>
-              <p class="product_card_price">
-                {% with discounted_price=product.get_discounted_price %}
-                  {% if discounted_price != product.price %}
-<span class="catalog-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-<span class="catalog-original-price">{{ product.price|floatformat }} руб.</span>
-                  {% else %}
-                    {{ product.price|floatformat }} руб.
-                  {% endif %}
-                {% endwith %}
-              </p>
-              <a href="{% url 'product_detail' product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
-            </div>
-          </div>
+<div class='col-6 col-xxl-3 col-lg-4 mt-5'>
+  <div class="game-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="game_catalog_card">
+    <h1 class='product_card_name'>{{ product.name }}</h1>
+    <p class="product_card_price">
+      {% with discounted_price=product.get_discounted_price %}
+        {% if discounted_price != product.price %}
+          <span class="catalog-discounted-price">{{ discounted_price|floatformat }} руб.</span>
+          <span class="catalog-original-price">{{ product.price|floatformat }} руб.</span>
+        {% else %}
+          {{ product.price|floatformat }} руб.
+        {% endif %}
+      {% endwith %}
+    </p>
+    <a href="{% url 'product_detail' product.id %}" class="product_card_button" style="margin-top: auto;">ПОДРОБНЕЕ</a>
+  </div>
+</div>
         {% endfor %}
       {% else %}
         <div class="col-12 text-center mt-5">
@@ -102,8 +102,8 @@
             <p class="product_card_price">
               {% with discounted_price=additional_product.get_discounted_price %}
                 {% if discounted_price != additional_product.price %}
-<span class="catalog-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-<span class="catalog-original-price">{{ additional_product.price|floatformat }} руб.</span>
+<span class="catalog-discounted-price">{{ discounted_price|floatformat:0 }} руб.</span>
+<span class="catalog-original-price">{{ additional_product.price|floatformat:0 }} руб.</span>
                 {% else %}
                   {{ additional_product.price|floatformat }} руб.
                 {% endif %}
