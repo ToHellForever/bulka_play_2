@@ -115,7 +115,12 @@
     line-height: 20px;
     color: rgba(255, 255, 255, 1);
 }
-
+.news-card-button {
+  font-size: 1.2rem;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 400;
+color: rgba(33, 33, 33, 1);
+}
 
 .news-card-title {
     font-family: 'Unbounded' , sans-serif;
@@ -508,10 +513,6 @@ h4 {
     .contact_link {
         font-size: 0.8rem;
     }
-    .news-card-title {
-        font-size: 1rem;
-        flex-wrap: wrap;
-    }
     .product-card-title {
         font-size: 1.2rem;
         flex-wrap: wrap;
@@ -520,6 +521,13 @@ h4 {
     .about_h {
         font-size: 5.5rem;
         text-align: start;
+    }
+    .news-card-title {
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+    }
+    .news-card-button {
+        font-size: 1.2rem;
     }
 }
 
@@ -534,5 +542,13 @@ h4 {
     }
     .flex-fill {
         font-size: 1.2rem;
+    }
+}
+@media (max-width: 550px) {
+    .news-card-title {
+        font-size: 0.8rem;
+    }
+    .news-card-button {
+        font-size: 0.8rem;
     }
 }
