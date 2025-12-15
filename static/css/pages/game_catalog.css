@@ -37,7 +37,7 @@ border-color: #ced4da;
 
 .game_catalog_card {
     width: 95%;
-    height: 18rem;
+    height: auto;
     object-fit: cover;
     border-radius: 22.66px;
 }
