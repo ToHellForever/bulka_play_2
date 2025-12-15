@@ -546,7 +546,7 @@ h4 {
         font-size: 1.3rem;
     }
     .about_block_h {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     .about_block_text {
         font-size: 0.8rem;
@@ -554,7 +554,7 @@ h4 {
 }
 @media (max-width: 725px) {
     .about_block_h_1 {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 }
 @media (max-width: 640px) {
