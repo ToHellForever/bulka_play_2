@@ -54,9 +54,6 @@ border-color: #ced4da;
     padding: 10px;
     border-radius: 11.99px;
     color: black;
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
     margin-top: 10px;
     text-align: center;
     cursor: pointer;
@@ -68,23 +65,8 @@ border-color: #ced4da;
     padding: 10px; /* Установите нужное вам значение отступа */
 }
 
-@media (max-width: 1400px) {
-    .game_catalog_card {
-        height: 23rem;
-    }
-}
-@media (max-width: 1200px) {
-    .game_catalog_card {
-        height: 20rem;
-    }
-}
 @media (max-width: 992px) {
     .game_catalog_card {
-        height:auto !important;
-    }
-}
-@media (max-width: 550px) {
-    .game_catalog_card {
-        height:auto !important;
+        border-radius: 10.51px;
     }
 }

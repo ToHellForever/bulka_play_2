@@ -162,14 +162,12 @@ select.form-control {
     font-size: 1.5rem;
     font-weight: 400;
     margin-top: 1.5rem;
-    margin-left: 1rem;
 }
 .product_card_price {
     color: white;
     font-family: 'Unbounded' , sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
-    margin-left: 1rem;
 }
 .no_result_h {
     color: white;
@@ -178,7 +176,11 @@ select.form-control {
     font-weight: 400;
     margin-top: 1.5rem;
 }
-
+.product_card_button {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
 /* детали товара */
 .highlighted-text {
@@ -559,6 +561,7 @@ h4 {
     .about_block_text {
         font-size: 1.2rem;
     }
+    /* каталог игр */
 }
 @media (max-width: 725px) {
     .about_block_h_1 {
