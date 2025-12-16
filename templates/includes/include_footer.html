@@ -37,6 +37,10 @@
 
   <!-- Мобильное меню -->
   <div class="mobile-menu" id="mobileMenuFooter">
+        <!-- Логотип в мобильном меню -->
+    <a href="{% url 'landing' %}" class="logo-link">
+      <img src="/media/icon/icon_landing.png" alt="" class='icon_landing'>
+    </a>
     <a href="{% url 'about' %}" class='menu-text'>О нас</a>
     <a href="{% url 'game_catalog' %}" class='menu-text'>Каталог игр</a>
     <a href="{% url 'rental_catalog' %}" class='menu-text'>Аренда</a>

@@ -567,6 +567,13 @@ document.addEventListener('DOMContentLoaded', function() {
     burgerMenuNav.addEventListener('click', function() {
       this.classList.toggle('toggle');
       mobileMenuNav.classList.toggle('active');
+
+      // Toggle body scroll
+      if (mobileMenuNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
     });
   }
 
@@ -578,6 +585,13 @@ document.addEventListener('DOMContentLoaded', function() {
     burgerMenuFooter.addEventListener('click', function() {
       this.classList.toggle('toggle');
       mobileMenuFooter.classList.toggle('active');
+
+      // Toggle body scroll
+      if (mobileMenuFooter.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
     });
   }
 });
