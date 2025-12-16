@@ -276,7 +276,21 @@ select.form-control {
     font-size: 1.2rem;
     margin-bottom: 0px;
 }
-
+.slider-label-start,
+.slider-label-end {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 25px !important;
+}
+#guestCounts {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    margin-top: 20px !important;
+    margin-left: 0;
+}
 h3 {
     color: white;
     font-family: 'Unbounded', sans-serif;
@@ -574,6 +588,19 @@ h4 {
         font-size: 1.8rem;
     }
     .rental_catalog_p {
+        font-size: 1rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .guest_count_h {
+        font-size: 1.5rem;
+    }
+    .slider-label-start,
+    .slider-label-end {
+        font-size: 1rem !important;
+    }
+    #guestCounts {
         font-size: 1rem;
     }
 }
