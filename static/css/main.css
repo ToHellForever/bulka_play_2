@@ -128,8 +128,6 @@ body {
 @media (max-width: 1400px) {
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
     }
 }
 

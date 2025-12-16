@@ -55,30 +55,30 @@
         border-radius: 11.69px;
     }
     .card-body {
-        padding: 8px;
+        padding: 0px;
     }
     .block-1 {
         order: 1;
-        flex-basis: calc(60% - 5px); /* Большой блок слева */
-        max-width: calc(60% - 5px);
+        flex-basis: calc(70% - 5px); /* Большой блок слева */
+        max-width: calc(70% - 5px);
     }
     
     .block-4 {
         order: 2;
-        flex-basis: calc(40% + 5px); /* Малый блок справа */
-        max-width: calc(40% + 5px);
+        flex-basis: calc(30% + 5px); /* Малый блок справа */
+        max-width: calc(30% + 5px);
     }
     
     .block-2 {
         order: 3;
-        flex-basis: calc(40% - 5px); /* Малый блок слева */
-        max-width: calc(40% - 5px);
+        flex-basis: calc(50% - 5px); /* Малый блок слева */
+        max-width: calc(50% - 5px);
     }
     
     .block-3 {
         order: 4;
-        flex-basis: calc(60% + 5px); /* Большой блок справа */
-        max-width: calc(60% + 5px);
+        flex-basis: calc(50% + 5px); /* Большой блок справа */
+        max-width: calc(50% + 5px);
     }
 }
     

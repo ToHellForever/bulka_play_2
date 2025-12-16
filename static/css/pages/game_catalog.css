@@ -36,10 +36,14 @@ border-color: #ced4da;
 }
 
 .game_catalog_card {
-    width: 95%;
+    width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 22.66px;
+}
+.game_catalog_grid {
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 .no_result_img {
     width: 20rem;
@@ -72,6 +76,20 @@ border-color: #ced4da;
     .search-container {
         width: 100%;
         padding: 10px;
+    }
+    .container-menu-catalog {
+        padding-left: 5px !important;
+    }
+    .game_catalog_row {
+        margin-left: -5px;
+        margin-right: -5px;
+        margin-top: 20px    ;
+    }
+    .game_catalog_grid {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 20px;
+        margin-top: 0px;
     }
     .container-menu-catalog {
         padding-left: 5px !important;
