@@ -134,12 +134,9 @@
         margin: 0 auto;
     }
     .game-card-rental {
-        padding: 10px;
-    }
-    .arend-card-price {
-        margin-right: 10px;
-        /* убираю b */
-        font-weight: normal;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 20px;
     }
 }
 

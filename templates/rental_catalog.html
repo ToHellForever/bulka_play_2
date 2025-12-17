@@ -66,7 +66,7 @@
             <span class="arend-discounted-price">{{ discounted_price|floatformat }} руб.</span>
             <span class="arend-original-price">{{ arend.price|floatformat }} руб.</span>
             {% else %}
-            <b>{{ arend.time }}</b><span><b>{{ arend.price|floatformat }} руб.</b></span>
+            <b class="arend-card-time">{{ arend.time }}</b><span><b class="arend-price">{{ arend.price|floatformat }} руб.</b></span>
             {% endif %}
             {% endwith %}
           </p>
