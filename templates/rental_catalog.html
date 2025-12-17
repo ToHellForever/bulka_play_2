@@ -54,7 +54,7 @@
   <p class='arend_li d-block d-md-none'>• от 2 часов</p>
   <div class='row mt-3'>
     {% for arend in arenda %}
-    <div class='col-12 col-md-4 custom-col-lg-6 mt-2'>
+    <div class='col-12 col-md-4 custom-col-lg-6 mt-1'>
       <div class="game-card-rental{% if arend.card_style == 2 %} style-2{% endif %}">
         <a href="#" onclick="openOrderModal()">
           <h1 class="arend-card-title">{{ arend.name }} </h1>
