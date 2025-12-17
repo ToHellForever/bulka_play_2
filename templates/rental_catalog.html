@@ -33,10 +33,10 @@
 </div>
 
 <div class="row rental_recomendation mt-3">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <h2 class="rental_recomendation_h">Рекомендуемое минимальное количество игр:</h2>
     </div>
-    <div class="col-5">
+    <div class="col-12 col-md-5">
       <p id="guestCounts">
             <span id="guestMinCount"></span>  -  <span id="guestMaxCount"></span> <span id="gamesLabel"></span>
         </p>
@@ -48,6 +48,12 @@
 
 
 <div class='container mt-5'>
+  <h1 class='arend_description_h'>В СТОИМОСТЬ АРЕНДЫ ВХОДИТ:</h1>
+  <ul>
+    <li class='arend_li'>Доставка арендованных игр по г. Красноярску</li>
+    <li class='arend_li'>Выезд игрового мастера, который объяснит правила и поможет вам погрузиться в игру</li>
+    <li class='arend_li'>от 2 часов</li>
+  </ul>
   <div class='row'>
     {% for arend in arenda %}
     <div class='col-6 col-lg-6 col-md-4 mt-5'>
@@ -109,9 +115,11 @@
     </div>
   </div>
 </div>
-<div class="center-block mt-5 mb-5">
-  <h1 class='center-block_h'>ХОЧЕШЬ ТАКЖЕ?</h1>
-  <p class='center-block_text'>Отправь заявку, мы свяжемся с тобой в ближайшее время</p>
-  <button class='center-block_button' onclick="openOrderModal()">ЗАПОЛНИТЬ ЗАЯВКУ</button>
+  <div class='container'>
+  <div class="center-block mt-5 mb-5">
+    <h1 class='center-block_h'>ХОЧЕШЬ ТАКЖЕ?</h1>
+    <p class='center-block_text'>Отправь заявку, мы свяжемся с тобой в ближайшее время</p>
+    <button class='center-block_button' onclick="openOrderModal()">ЗАПОЛНИТЬ ЗАЯВКУ</button>
+  </div>
 </div>
 {% endblock content %}

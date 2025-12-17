@@ -261,7 +261,6 @@ select.form-control {
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
-    margin-top: -1rem;
 }
 .wood_p {
     color: rgba(248, 128, 5, 1);
@@ -599,9 +598,31 @@ h4 {
     .slider-label-start,
     .slider-label-end {
         font-size: 1rem !important;
+        margin-top: 10px;
     }
     #guestCounts {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    .rental_recomendation_h {
+        text-align: center;
+    }
+    .rental_text {
         font-size: 1rem;
+    }
+    .arend_description_h {
+        color: rgba(248, 128, 5, 1);
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+    .arend_li {
+        color: white;
+        font-family: 'Mont', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        padding-bottom: 5px;
+        font-size: 0.9rem;
     }
 }
 @media (max-width: 725px) {
