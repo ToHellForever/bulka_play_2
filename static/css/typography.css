@@ -306,7 +306,6 @@ h3 {
     margin-right: 2rem;
 }
 
-
 /* модальное окно для заказа */
 .modal-title {
     color: white;
@@ -615,14 +614,19 @@ h4 {
         font-family: 'Unbounded', sans-serif;
         font-weight: 400;
         font-size: 1.2rem;
+        /* показываю на мобилке */
     }
     .arend_li {
         color: white;
         font-family: 'Mont', sans-serif;
         font-weight: 400;
         font-style: normal;
-        padding-bottom: 5px;
-        font-size: 0.9rem;
+        margin-left: 10px;
+        font-size: 1rem;
+    }
+    .arend-card-price {
+        font-size: 1.2rem;
+        margin-top: 1rem;
     }
 }
 @media (max-width: 725px) {
