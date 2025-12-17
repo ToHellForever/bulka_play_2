@@ -625,8 +625,9 @@ h4 {
         font-size: 1rem;
     }
     .arend-card-price {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-top: 1rem;
+        margin-bottom: 0px;
     }
 }
 @media (max-width: 725px) {

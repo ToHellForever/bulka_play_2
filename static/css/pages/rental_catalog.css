@@ -15,7 +15,9 @@
     font-weight: 400;
     padding: 5px;
 }
-
+.custom-col-lg-6 {
+    margin-bottom: 30px;
+}
 /* стили для подписи под ползунком  */
 .slider-container {
     position: relative;
@@ -131,12 +133,21 @@
         width: 95%;
         margin: 0 auto;
     }
+    .game-card-rental {
+        padding: 10px;
+    }
+    .arend-card-price {
+        margin-right: 10px;
+        /* убираю b */
+        font-weight: normal;
+    }
 }
 
 @media (max-width: 1150px) {
       .custom-col-lg-6 {
     flex: 0 0 50%;
     max-width: 50%;
+    margin-bottom: 0px;
     padding: 5px;
   }
 }
