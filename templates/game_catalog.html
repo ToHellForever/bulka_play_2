@@ -9,7 +9,10 @@
         <h1 class='game_catalog_h'>КАТАЛОГ ИГР</h1>
       </div>
       <div class="col-12 col-md-3 search-container">
-        <input type="text" name="search" class="form-control search-input" placeholder="Поиск" value="{{ request.GET.search }}" style='color: white'>
+        <div style="position: relative;">
+          <input type="text" name="search" class="form-control search-input" placeholder="Поиск" value="{{ request.GET.search }}" style='color: white; padding-right: 30px;'>
+          <img src="/media/icon/lupa.png" alt="Поиск" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; cursor: pointer;" onclick="document.querySelector('form').submit()">
+        </div>
       </div>
       <div class="col-12 col-md-3 search-container">
         <select name="sort" class="form-control filter-select" onchange="this.form.submit()">
