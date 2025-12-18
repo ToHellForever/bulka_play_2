@@ -86,18 +86,20 @@
     border-radius: 15px;
   }
   /* Затемнение по бокам каруселей (кроме аренды) для мобильной версии */
-  .swiper:not(.rental-swiper) {
+  .swiper:not(.rental-swiper, .product-main-swiper-mobile) {
     position: relative;
     overflow: hidden;
   }
 
-    /* Затемнение по бокам каруселей (кроме аренды) для мобильной версии */
-  .swiper:not(.rental-swiper)::before,
-  .swiper:not(.rental-swiper)::after {
+    /* Затемнение по бокам каруселей (кроме аренды и доп товаров) для мобильной версии */
+  .swiper:not(.rental-swiper, .product-main-swiper-mobile)::before,
+  .swiper:not(.rental-swiper, product-main-swiper-mobile)::after {
     width: 5rem;
   }
   .rental-swiper::before,
-  .rental-swiper::after {
+  .rental-swiper::after,
+  .product-main-swiper-mobile::before,
+  .product-main-swiper-mobile::after {
     display: none;
   }
 }

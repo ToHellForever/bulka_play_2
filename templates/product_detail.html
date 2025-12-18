@@ -49,12 +49,12 @@
                 <div class="swiper-wrapper">
                     <!-- Основное изображение -->
                     <div class="swiper-slide">
-                        <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}')">
+                        <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image">
                     </div>
                     <!-- Дополнительные изображения -->
                     {% for image in product.additional_images.all %}
                         <div class="swiper-slide">
-                            <img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}')">
+                            <img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image">
                         </div>
                     {% endfor %}
                 </div>
