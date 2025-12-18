@@ -99,6 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       };
+      swiperParams.breakpoints = {
+        320: { slidesPerView: 1, spaceBetween: 10 },
+        650: { slidesPerView: 2, spaceBetween: 20 },
+        992: { slidesPerView: 2, spaceBetween: 40 },
+        1200: { slidesPerView: 3, spaceBetween: 40 }
+      };
     } else {
       swiperParams.slidesPerView = 1.5;
       swiperParams.centeredSlides = true;

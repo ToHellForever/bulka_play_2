@@ -65,34 +65,33 @@
         </div>
     </div>
 
-    <!-- Описание и кнопка заказа для мобильной версии -->
-    <div class="row mt-3 d-md-none">
-        <div class="col-12">
-            <h1 class='product_detail_name'>{{ product.name }}</h1>
-            <p class='product_detail_description'>{{ product.description }}</p>
-            <p class='product_detail_set'>КОМПЛЕКТ</p>
-            <div class="kit-container">
-                {% for item in product.ordered_game_kits.all %}
-                    <div class="kit-item">
-                        <div class="kit-content">
-                            <span class="highlighted-text">{{ item.game_kit_item.highlighted_text }}</span>
-                            <span class="normal-text">{{ item.game_kit_item.normal_text }}</span>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <p class='product_detail_price'>
-              {% with discounted_price=product.get_discounted_price %}
+<!-- Описание и кнопка заказа для мобильной версии -->
+<div class="row mt-3 d-md-none">
+    <div class="col-12">
+        <h1 class='product_detail_name'>{{ product.name }}</h1>
+        <p class='product_detail_price'>
+            {% with discounted_price=product.get_discounted_price %}
                 {% if discounted_price != product.price %}
-<span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-<span class="product-detail-original-price">{{ product.price|floatformat }} руб.</span>
+                    <span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
+                    <span class="product-detail-original-price">{{ product.price|floatformat }} руб.</span>
                 {% else %}
-                  {{ product.price|floatformat }} руб.
+                    {{ product.price|floatformat }} руб.
                 {% endif %}
-              {% endwith %}
-            </p>
-            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+            {% endwith %}
+        </p>
+        <p class='product_detail_description'>{{ product.description }}</p>
+        <p class='product_detail_set'>КОМПЛЕКТ</p>
+        <div class="kit-container-mobile">
+            {% for item in product.ordered_game_kits.all %}
+                <div class="kit-item-mobile">
+                    <div class="kit-content">
+                        <span class="highlighted-text">{{ item.game_kit_item.highlighted_text }}</span>
+                        <span class="normal-text">{{ item.game_kit_item.normal_text }}</span>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
+        <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
     </div>
 </div>
 

@@ -239,6 +239,11 @@ select.form-control {
     font-size: 1.5rem;
     font-weight: 400;
 }
+.product_detail_button {
+    font-size: 1.5rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+}
 
 /* каталог аренды */
 .rental_catalog_h {
@@ -477,6 +482,9 @@ h4 {
     font-weight: 400;
 }
 
+
+
+
 @media (max-width: 1325px) {
     .about_h {
         font-size: 7rem;
@@ -512,6 +520,8 @@ h4 {
         font-size:0.8rem;
     }
 }
+
+
 /* мобильная версия */
 @media (max-width: 992px) {
     /* landing */
@@ -633,15 +643,17 @@ h4 {
         font-size: 1rem;
     }
     .normal-text {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     .button {
         font-size: 1rem;
     }
-    .product_detail_butto {
+    .product_detail_button {
         font-size: 1rem;
     }
 }
+
+
 @media (max-width: 767px) {
     .arend-card-time {
         margin-right: 15px !important;
@@ -663,11 +675,15 @@ h4 {
         margin: 0;
     }
 }
+
+
 @media (max-width: 725px) {
     .about_block_h_1 {
         font-size: 1.5rem;
     }
 }
+
+
 @media (max-width: 640px) {
     .title_h {
         font-size: 2rem;
@@ -681,6 +697,8 @@ h4 {
     }
     
 }
+
+
 @media (max-width: 550px) {
     .news-card-button {
         font-size: 0.8rem;
