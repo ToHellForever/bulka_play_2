@@ -4,29 +4,45 @@
 {% block title %}{{ product.name }}{% endblock title %}
 {% block content %}
 <div class="container mt-5">
-<div class='row mt-5' style='flex-wrap: nowrap'>
-        <div class='col-1'>
-            {% for image in product.additional_images.all %}
-                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ product.id }}')">
-            {% endfor %}
-        </div>
-<div class='col-6'>
-            <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}')">
-        </div>
-        <div class='col-5'>
-            <h1 class='product_detail_name'>{{ product.name }}</h1>
-            <p class='product_detail_description'>{{ product.description }}</p>
-            <p class='product_detail_set'>КОМПЛЕКТ</p>
-                <div class="kit-container">
-                    {% for item in product.ordered_game_kits.all %}
-                        <div class="kit-item">
-                            <div class="kit-content">
-                                <span class="highlighted-text">{{ item.game_kit_item.highlighted_text }}</span>
-                                <span class="normal-text">{{ item.game_kit_item.normal_text }}</span>
-                            </div>
+    <!-- Единая карусель для основного и дополнительных изображений -->
+    <div class="row">
+        <div class="col-12">
+            <div class="swiper product-main-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Основное изображение -->
+                    <div class="swiper-slide">
+                        <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}')">
+                    </div>
+                    <!-- Дополнительные изображения -->
+                    {% for image in product.additional_images.all %}
+                        <div class="swiper-slide">
+                            <img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}')">
                         </div>
                     {% endfor %}
                 </div>
+                <!-- Кнопки навигации -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Описание и кнопка заказа -->
+    <div class="row mt-3">
+        <div class="col-12 col-md-5 mx-auto">
+            <h1 class='product_detail_name'>{{ product.name }}</h1>
+            <p class='product_detail_description'>{{ product.description }}</p>
+            <p class='product_detail_set'>КОМПЛЕКТ</p>
+            <div class="kit-container">
+                {% for item in product.ordered_game_kits.all %}
+                    <div class="kit-item">
+                        <div class="kit-content">
+                            <span class="highlighted-text">{{ item.game_kit_item.highlighted_text }}</span>
+                            <span class="normal-text">{{ item.game_kit_item.normal_text }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
             <p class='product_detail_price'>
               {% with discounted_price=product.get_discounted_price %}
                 {% if discounted_price != product.price %}
