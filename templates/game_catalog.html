@@ -26,42 +26,42 @@
     </div>
   </div>
 
-  <div class='container container-menu-catalog'>
-    <div class="row mt-4">
-      <div class="col-3 filter-col">
-        <select name="size" class="form-control filter-select custom-select" onchange="this.form.submit()">
-          <option value="">Размер</option>
-          {% for size in sizes %}
-            <option value="{{ size.name }}" {% if request.GET.size == size.name %}selected{% endif %}>{{ size.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="col-3 filter-col">
-        <select name="players" class="form-control filter-select custom-select" onchange="this.form.submit()">
-          <option value="">Количество игроков</option>
-          {% for player_count in player_counts %}
-            <option value="{{ player_count.count }}" {% if request.GET.players == player_count.count|stringformat:"s" %}selected{% endif %}>{{ player_count.count }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="col-3 filter-col">
-        <select name="age" class="form-control filter-select custom-select" onchange="this.form.submit()">
-          <option value="">Возраст игроков</option>
-          {% for player_age in player_ages %}
-            <option value="{{ player_age.age }}" {% if request.GET.age == player_age.age %}selected{% endif %}>{{ player_age.age }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="col-3 filter-col">
-        <select name="type" class="form-control filter-select custom-select" onchange="this.form.submit()">
-          <option value="">Вид игры</option>
-          {% for game_type in game_types %}
-            <option value="{{ game_type.name }}" {% if request.GET.type == game_type.name %}selected{% endif %}>{{ game_type.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
+<div class='container container-menu-catalog'>
+  <div class="row mt-4 filter-row">
+    <div class="col-auto filter-col">
+      <select name="size" class="form-control filter-select custom-select" onchange="this.form.submit()">
+        <option value="">Размер</option>
+        {% for size in sizes %}
+          <option value="{{ size.name }}" {% if request.GET.size == size.name %}selected{% endif %}>{{ size.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-auto filter-col">
+      <select name="players" class="form-control filter-select custom-select" onchange="this.form.submit()">
+        <option value="">Количество игроков</option>
+        {% for player_count in player_counts %}
+          <option value="{{ player_count.count }}" {% if request.GET.players == player_count.count|stringformat:"s" %}selected{% endif %}>{{ player_count.count }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-auto filter-col">
+      <select name="age" class="form-control filter-select custom-select" onchange="this.form.submit()">
+        <option value="">Возраст игроков</option>
+        {% for player_age in player_ages %}
+          <option value="{{ player_age.age }}" {% if request.GET.age == player_age.age %}selected{% endif %}>{{ player_age.age }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-auto filter-col">
+      <select name="type" class="form-control filter-select custom-select" onchange="this.form.submit()">
+        <option value="">Вид игры</option>
+        {% for game_type in game_types %}
+          <option value="{{ game_type.name }}" {% if request.GET.type == game_type.name %}selected{% endif %}>{{ game_type.name }}</option>
+        {% endfor %}
+      </select>
     </div>
   </div>
+</div>
 
   <div class='container mt-1'>
     <div class='row mt-1 game_catalog_row'>
