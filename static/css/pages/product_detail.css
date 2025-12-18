@@ -126,19 +126,19 @@
 }
 
 @media (max-width: 992px) {
-    /* Стили для единой карусели */
-    .product-main-swiper {
+    /* Стили для мобильной карусели */
+    .product-main-swiper-mobile {
         width: 100%;
         height: auto;
         margin: 0 auto;
     }
 
-    .product-main-swiper .swiper-wrapper {
+    .product-main-swiper-mobile .swiper-wrapper {
         display: flex;
         align-items: center;
     }
 
-    .product-main-swiper .swiper-slide {
+    .product-main-swiper-mobile .swiper-slide {
         display: flex;
         justify-content: center;
         align-items: center;
