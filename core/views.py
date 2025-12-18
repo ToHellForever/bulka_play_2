@@ -74,7 +74,13 @@ class GameCatalogView(TemplateView):
         # Обработка поискового запроса
         search_query = self.request.GET.get("search", "")
         if search_query:
-            products = products.filter(name__icontains=search_query)
+            from django.db.models import Q
+            products = products.filter(
+                Q(name__icontains=search_query) |
+                Q(name__icontains=search_query.capitalize()) |
+                Q(name__icontains=search_query.upper()) |
+                Q(name__icontains=search_query.lower())
+            )
 
         # Обработка фильтров
         if "size" in self.request.GET and self.request.GET["size"]:
