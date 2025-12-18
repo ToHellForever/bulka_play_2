@@ -203,8 +203,9 @@ select.form-control {
 .button {
     color: white;
     font-family: 'Unbounded', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 300;
+    white-space: nowrap;
 }
 .info-block {
     color: white;
@@ -238,6 +239,7 @@ select.form-control {
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
+    margin-bottom: 0px;
 }
 .product_detail_button {
     font-size: 1.5rem;
