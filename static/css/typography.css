@@ -231,7 +231,6 @@ select.form-control {
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 3rem;
 }
 
 .product_detail_price {
@@ -239,7 +238,6 @@ select.form-control {
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 7rem;
 }
 
 /* каталог аренды */
@@ -635,6 +633,12 @@ h4 {
         font-size: 1rem;
     }
     .normal-text {
+        font-size: 1rem;
+    }
+    .button {
+        font-size: 1rem;
+    }
+    .product_detail_butto {
         font-size: 1rem;
     }
 }

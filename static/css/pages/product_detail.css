@@ -66,7 +66,7 @@
 
 .product_detail_button {
     width: 100%;
-    height: 4rem;
+    padding: 1rem;
     border-radius: 10px;
     background-color: rgba(248, 128, 5, 1);
     color: rgba(33, 33, 33, 1);
@@ -190,5 +190,8 @@
     }
     .kit-item {
         padding: 0px;
+    }
+    .product_detail_button {
+        padding: 0.5rem;
     }
 }
