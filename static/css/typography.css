@@ -203,7 +203,7 @@ select.form-control {
 .button {
     color: white;
     font-family: 'Unbounded', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 300;
 }
 .info-block {
@@ -650,6 +650,12 @@ h4 {
     }
     .product_detail_button {
         font-size: 1rem;
+    }
+    .info-block {
+        font-size: 0.8rem;
+    }
+    .product_detail_name {
+        font-size: 1.4rem;
     }
 }
 
