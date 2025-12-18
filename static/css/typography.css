@@ -629,6 +629,14 @@ h4 {
         margin-top: 1rem;
         margin-bottom: 0px;
     }
+
+    /* детали товара */
+    .highlighted-text {
+        font-size: 1rem;
+    }
+    .normal-text {
+        font-size: 1rem;
+    }
 }
 @media (max-width: 767px) {
     .arend-card-time {

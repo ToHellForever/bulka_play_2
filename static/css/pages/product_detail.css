@@ -188,4 +188,7 @@
         flex: 0 0 auto;
         white-space: nowrap;
     }
+    .kit-item {
+        padding: 0px;
+    }
 }
