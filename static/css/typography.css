@@ -572,7 +572,6 @@ h4 {
     .news-card-button {
         font-size: 1.2rem;
     }
-    .game_catalog_h,
     .rental_catalog_landing_h,
     .contact_catalog_h,
     .news_catalog_h {
@@ -591,6 +590,11 @@ h4 {
     .product_card_button {
         font-size: 1rem;
     }
+    .game_catalog_h {
+        margin-top: 10px;
+    }
+
+
     /* каталог аренды */
     .rental_catalog_h {
         font-size: 1.8rem;
@@ -687,6 +691,9 @@ h4 {
     }
     .arend-card-time, .arend-price {
         margin: 0;
+    }
+    .game_catalog_h {
+        font-size: 1.3rem;
     }
 }
 
