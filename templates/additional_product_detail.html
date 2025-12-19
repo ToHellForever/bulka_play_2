@@ -11,7 +11,7 @@
             {% endfor %}
         </div>
 <div class='col-6'>
-            <img src="{{ additional_product.image.url }}" alt="Main Image" class="additional_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
+            <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
         </div>
         <div class='col-5'>
             <h1 class='product_detail_name'>{{ additional_product.name }}</h1>
@@ -42,7 +42,6 @@
         </div>
     </div>
 </div>
-
 
 <div class='container'>
     <div class="button-container">

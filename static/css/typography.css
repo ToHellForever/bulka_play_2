@@ -223,7 +223,7 @@ select.form-control {
 .product_detail_description {
     color: white;
     font-family: 'Unbounded', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 300;
     margin-top: 1rem;
 }
@@ -382,11 +382,18 @@ h4 {
 
 
 /* для 2 в 1  */
+.additional_detail_price {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 2.5rem
+}
 .title_h_2_in_1 {
     color: white;
     font-family: 'Unbounded', sans-serif;
     font-weight: 500;
-    font-size: 4.4rem;
+    font-size: 4.3rem;
     text-align: center;
 }
 .exlusive_h {
