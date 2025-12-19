@@ -1,36 +1,11 @@
 /* карусель продуктов */
 .product_card_image,
-.news_card_image {
+.news_card_image  {
   width: 100%;
   height: auto;
   border-radius: 31px;
 }
-.swiper:not(.rental-swiper) {
-  position: relative;
-  overflow: hidden;
-}
 
-.swiper::before,
-.swiper::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 15rem;
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.swiper::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-}
-
-.swiper::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-}
 .swiper-slide {
   flex: 1 0 auto;
   display: flex;
@@ -85,22 +60,11 @@
     .news_card_image {
     border-radius: 15px;
   }
-  /* Затемнение по бокам каруселей (кроме аренды) для мобильной версии */
-  .swiper:not(.rental-swiper, .product-main-swiper-mobile) {
-    position: relative;
-    overflow: hidden;
+  .swiper-button-next {
+    margin-right: -5px;
   }
-
-    /* Затемнение по бокам каруселей (кроме аренды и доп товаров) для мобильной версии */
-  .swiper:not(.rental-swiper, .product-main-swiper-mobile)::before,
-  .swiper:not(.rental-swiper, product-main-swiper-mobile)::after {
-    width: 5rem;
-  }
-  .rental-swiper::before,
-  .rental-swiper::after,
-  .product-main-swiper-mobile::before,
-  .product-main-swiper-mobile::after {
-    display: none;
+  .swiper-button-prev {
+    margin-left: -5px;
   }
 }
 
@@ -117,6 +81,12 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
+}
+
+/* Поднимаем стрелки только для каруселей товаров и новостей */
+.swiper:not(.rental-swiper) .swiper-button-next,
+.swiper:not(.rental-swiper) .swiper-button-prev {
+    top: 35%;
 }
 
 .swiper-button-next::after,
