@@ -92,6 +92,14 @@
     margin-bottom: 10px;
 }
 
+.button-info-container:nth-child(1) .button {
+    flex: 0 0 30%;
+}
+
+.button-info-container:nth-child(2) .button {
+    flex: 0 0 70%;
+}
+
 .button-info-container {
     display: flex;
     flex-direction: column;
