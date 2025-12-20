@@ -10,8 +10,7 @@
     height: calc(100% / 5 - 1.6rem); /* Adjust the height to match the main image and ensure equal spacing */
     border-radius: 15px;
     margin-bottom: 2.1rem;
-    object-fit: cover;
-        cursor: pointer;
+    cursor: pointer;
 }
 
 .product_detail_image_list {
@@ -94,13 +93,6 @@
     margin-bottom: 10px;
 }
 
-.button-info-container:nth-child(1) .button {
-    flex: 0 0 30%;
-}
-
-.button-info-container:nth-child(2) .button {
-    flex: 0 0 70%;
-}
 
 .button-info-container {
     display: flex;
