@@ -533,7 +533,7 @@ window.showInfo = function(id) {
     let activeButton = null;
 
     buttons.forEach(button => {
-      if (button.onclick && button.onclick.toString().includes(`showInfo('${id}')`)) {
+      if (button.getAttribute('onclick') && button.getAttribute('onclick').includes(`showInfo('${id}')`)) {
         activeButton = button;
       }
     });
@@ -563,18 +563,6 @@ window.showInfo = function(id) {
   }
 };
 
-// Обработчики для кнопок с классом .button
-const buttons = document.querySelectorAll(".button");
-if (buttons.length > 0) {
-  buttons.forEach(button => {
-    const img = button.querySelector(".arrow_accorderon");
-    if (img) {
-      button.addEventListener("click", () => {
-        img.classList.toggle("active");
-      });
-    }
-  });
-}
 
 // Бургер-меню функциональность
 document.addEventListener('DOMContentLoaded', function() {
