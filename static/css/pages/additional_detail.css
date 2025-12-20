@@ -8,16 +8,10 @@
 .additional-kit-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Добавьте промежуток между элементами, если нужно */
+    gap: 10px; 
 }
 
-.additional-kit-item {
-    background: #1A1A1A;
-    border-radius: 15px;
-    padding: 15px;
-    color: white;
-    flex: 1 1; 
-}
+.additional-kit-item,
 .additional-kit-item-mobile {
     background: #1A1A1A;
     border-radius: 15px;
@@ -32,14 +26,24 @@
 .additional-kit-item:nth-child(3n+2) {
     flex: 1 1 auto;
 }
-@media (max-width: 768px) {
+
+.additional-kit-container-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+@media (max-width: 992px) {
     .additional-button-row {
         gap: 5px
     }
+    .additional-kit-item-mobile {
+        padding: 10px;
+    }
     .additional-kit-item-mobile:nth-child(3n+1) {
-        flex: 1 1 20rem;
+        flex: 1 1 30%;
     }
     .additional-kit-item-mobile:nth-child(3n+2) {
-        flex: 1 1 50%;
+        flex: 1 1 60%;
     }
 }

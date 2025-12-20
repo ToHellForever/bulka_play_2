@@ -22,7 +22,7 @@
                 {% for item in additional_product.game_kit_items_additional.all %}
                     <div class="additional-kit-item">
                         <div class="kit-content">
-                            <span class="normal-text">{{ item.normal_text|linebreaks }}</span>
+                            <span class="normal-text">{{ item.normal_text }}</span>
                             <span class="highlighted-text">{{ item.highlighted_text|linebreaks }}</span>
                         </div>
                     </div>
@@ -82,11 +82,11 @@
             </p>
             <p class='product_detail_description'>{{ additional_product.description }}</p>
             <p class='additional_detail_set'>ОПИСАНИЕ</p>
-            <div class="kit-container-mobile">
+            <div class="additional-kit-container-mobile">
                 {% for item in additional_product.game_kit_items_additional.all %}
                     <div class="additional-kit-item-mobile">
                         <div class="kit-content">
-                            <span class="normal-text">{{ item.normal_text|linebreaks }}</span>
+                            <span class="normal-text">{{ item.normal_text }}</span>
                             <span class="highlighted-text">{{ item.highlighted_text|linebreaks }}</span>
                         </div>
                     </div>
