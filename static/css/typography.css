@@ -506,6 +506,9 @@ h4 {
     .about_h {
         font-size: 6rem;
     }
+    .highlighted-text {
+        font-size: 1.1rem;
+    }
 }
 @media (max-width: 1250px) {
     .arend-card-title {
