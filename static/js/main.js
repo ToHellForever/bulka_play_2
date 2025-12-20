@@ -529,8 +529,20 @@ document.addEventListener('DOMContentLoaded', function() {
 window.showInfo = function(id) {
   const selectedBlock = document.getElementById(id);
   if (selectedBlock) {
+    const buttons = document.querySelectorAll('.button');
+    let activeButton = null;
+
+    buttons.forEach(button => {
+      if (button.onclick && button.onclick.toString().includes(`showInfo('${id}')`)) {
+        activeButton = button;
+      }
+    });
+
+    const arrow = activeButton ? activeButton.querySelector('.arrow_accorderon') : null;
+
     if (selectedBlock.style.display === 'block') {
       selectedBlock.style.display = 'none';
+      if (arrow) arrow.classList.remove('active');
     } else {
       // Hide all info blocks
       const infoBlocks = document.querySelectorAll('.info-block');
@@ -538,8 +550,15 @@ window.showInfo = function(id) {
         block.style.display = 'none';
       });
 
+      // Remove active class from all arrows
+      const arrows = document.querySelectorAll('.arrow_accorderon');
+      arrows.forEach(arr => {
+        arr.classList.remove('active');
+      });
+
       // Show the selected info block
       selectedBlock.style.display = 'block';
+      if (arrow) arrow.classList.add('active');
     }
   }
 };
