@@ -341,7 +341,12 @@ h3 {
     font-weight: 400;
     font-size: 1.2rem;
 }
-
+.modal-total-price {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
 h4 {
     color: white;
     font-family: 'Unbounded', sans-serif;
@@ -677,6 +682,11 @@ h4 {
         margin-top: 0px;
     }
     .product_detail_description {
+        font-size: 1rem;
+    }
+
+    /* модальное окно заказа */
+    .submit-button {
         font-size: 1rem;
     }
 }

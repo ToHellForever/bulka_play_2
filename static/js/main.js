@@ -226,7 +226,7 @@ function updateTotalPrice() {
 
     selectedGames.forEach(game => {
       const price = parseFloat(game.dataset.price.replace(',', '.')) || 0;
-      total += price * 0.9 * 2; // Скидка 10% за покупку двух игр
+      total += price;
     });
 
     selectedGoods.forEach(good => {
@@ -429,7 +429,7 @@ window.closeSuccessModal = function() {
 
 // Функция для форматирования цены
 function formatPrice(price) {
-  return parseFloat(price).toFixed(2).replace('.', ',');
+  return parseInt(price).toLocaleString('ru-RU');
 }
 
 // Инициализация формы при загрузке

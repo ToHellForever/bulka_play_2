@@ -241,14 +241,14 @@
 
   /* Стили для кнопки отправки */
   .submit-button {
-    width: 50%;
+    width: auto;
     /* кнопка по центру формы */
     display: block;
     margin: 0 auto;
-    padding: 15px;
+    padding: 18px;
     background-color: rgba(248, 128, 5, 1);
     border: none;
-    border-radius: 9.54px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
