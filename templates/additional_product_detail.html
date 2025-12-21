@@ -33,10 +33,10 @@
             <p class='additional_detail_price'>
               {% with discounted_price=additional_product.get_discounted_price %}
                 {% if discounted_price != additional_product.price %}
-<span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-<span class="product-detail-original-price">{{ additional_product.price|floatformat }} руб.</span>
+<span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
+<span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
                 {% else %}
-                  {{ additional_product.price|floatformat }} руб.
+                  {{ additional_product.price|format_price }} руб.
                 {% endif %}
               {% endwith %}
             </p>
@@ -74,10 +74,10 @@
             <p class='product_detail_price'>
                 {% with discounted_price=additional_product.get_discounted_price %}
                     {% if discounted_price != additional_product.price %}
-                        <span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-                        <span class="product-detail-original-price">{{ additional_product.price|floatformat }} руб.</span>
+                        <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
+                        <span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
                     {% else %}
-                        {{ additional_product.price|floatformat }} руб.
+                        {{ additional_product.price|format_price }} руб.
                     {% endif %}
                 {% endwith %}
             </p>
@@ -129,7 +129,7 @@
             <div class="game-card">
               <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
               <h1 class='product_card_name'>{{ product.name }}</h1>
-              <p class="product_card_price">{{ product.price|floatformat }} руб.</p>
+              <p class="product_card_price">{{ product.price|format_price }} руб.</p>
               <a href="{% url 'product_detail' pk=product.pk %}" class="product_card_button">ПОДРОБНЕЕ</a>
             </div>
           </div>
@@ -148,10 +148,10 @@
               <p class="product_card_price">
                 {% with discounted_price=additional_product.get_discounted_price %}
                   {% if discounted_price != additional_product.price %}
-<span class="product-detail-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-<span class="product-detail-original-price">{{ additional_product.price|floatformat }} руб.</span>
+<span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
+<span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
                   {% else %}
-                    {{ additional_product.price|floatformat }} руб.
+                    {{ additional_product.price|format_price }} руб.
                   {% endif %}
                 {% endwith %}
               </p>

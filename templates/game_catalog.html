@@ -75,10 +75,10 @@
     <p class="product_card_price">
       {% with discounted_price=product.get_discounted_price %}
         {% if discounted_price != product.price %}
-          <span class="catalog-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-          <span class="catalog-original-price">{{ product.price|floatformat }} руб.</span>
+          <span class="catalog-discounted-price">{{ discounted_price|format_price }} руб.</span>
+          <span class="catalog-original-price">{{ product.price|format_price }} руб.</span>
         {% else %}
-          {{ product.price|floatformat }} руб.
+          {{ product.price|format_price }} руб.
         {% endif %}
       {% endwith %}
     </p>
@@ -106,10 +106,10 @@
             <p class="product_card_price">
               {% with discounted_price=additional_product.get_discounted_price %}
                 {% if discounted_price != additional_product.price %}
-<span class="catalog-discounted-price">{{ discounted_price|floatformat:0 }} руб.</span>
-<span class="catalog-original-price">{{ additional_product.price|floatformat:0 }} руб.</span>
+<span class="catalog-discounted-price">{{ discounted_price|format_price }} руб.</span>
+<span class="catalog-original-price">{{ additional_product.price|format_price }} руб.</span>
                 {% else %}
-                  {{ additional_product.price|floatformat }} руб.
+                  {{ additional_product.price|format_price }} руб.
                 {% endif %}
               {% endwith %}
             </p>

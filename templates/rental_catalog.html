@@ -64,8 +64,8 @@
           <p class="arend-card-price">
             {% with discounted_price=arend.get_discounted_price %}
             {% if discounted_price != arend.price %}
-            <span class="arend-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-            <span class="arend-original-price">{{ arend.price|floatformat }} руб.</span>
+            <span class="arend-discounted-price">{{ discounted_price|format_price }} руб.</span>
+            <span class="arend-original-price">{{ arend.price|format_price }} руб.</span>
             {% else %}
             <b class="arend-card-time">{{ arend.time }}</b><span><b class="arend-price">{{ arend.price|format_price }} руб.</b></span>
             {% endif %}
