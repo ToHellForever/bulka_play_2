@@ -191,6 +191,7 @@ function limitDoubleGameSelection() {
 
   updateTotalPrice();
 }
+
 // Обновление итоговой суммы
 function updateTotalPrice() {
   const totalElement = document.getElementById('total-price');
@@ -433,27 +434,52 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   window.openOrderModal = function() {
-  if (modal) {
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    const summaryElement = document.getElementById('order-summary');
-    if (summaryElement) {
-      summaryElement.style.display = 'none';
+    if (modal) {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      const summaryElement = document.getElementById('order-summary');
+      if (summaryElement) {
+        summaryElement.style.display = 'none';
+      }
+      updateTotalPrice();
     }
-    updateTotalPrice();
-  }
-};
+  };
 
-  window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-      closeModal();
-    }
+  // Обработчик клика на изображения в разделе покупки
+  const buyGameImages = document.querySelectorAll('#buy-games-container .game-card-modal img');
+  buyGameImages.forEach(img => {
+    img.addEventListener('click', function() {
+      const checkbox = this.closest('.game-card-modal').querySelector('input[type="checkbox"]');
+      if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+        limitDoubleGameSelection();
+        updateTotalPrice();
+      }
+    });
   });
 
-  window.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && modal && modal.style.display === 'block') {
-      closeModal();
-    }
+  // Обработчик клика на изображения в разделе аренды
+  const rentGameImages = document.querySelectorAll('#rent-games-container .game-card-modal img');
+  rentGameImages.forEach(img => {
+    img.addEventListener('click', function() {
+      const checkbox = this.closest('.game-card-modal').querySelector('input[type="checkbox"]');
+      if (checkbox && !checkbox.disabled) {
+        checkbox.checked = !checkbox.checked;
+        limitGameSelection();
+        updateTotalPrice();
+      }
+    });
+  });
+
+  const additionalGoodsImages = document.querySelectorAll('#additional-goods-container .game-card-modal img');
+  additionalGoodsImages.forEach(img => {
+    img.addEventListener('click', function() {
+      const checkbox = this.closest('.game-card-modal').querySelector('input[type="checkbox"]');
+      if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+        updateTotalPrice();
+      }
+    });
   });
 
   const buyGamesContainer = document.getElementById('buy-games-container');
