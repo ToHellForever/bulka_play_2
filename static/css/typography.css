@@ -527,6 +527,11 @@ h4 {
         margin-bottom: 0px;
     }
 }
+@media (max-width: 1280px) {
+        .title_h {
+        font-size: 2.8rem;
+    }
+}
 @media (max-width: 1050px) {
     .about_block_text {
         font-size:0.9rem;
@@ -543,7 +548,7 @@ h4 {
 @media (max-width: 992px) {
     /* landing */
     .title_h {
-        font-size: 4rem;
+        font-size: 3.5rem;
         text-align: start;
     }
     .game_count_text {
@@ -727,7 +732,7 @@ h4 {
 
 @media (max-width: 640px) {
     .title_h {
-        font-size: 2rem;
+        font-size: 1.8rem;
         text-align: start;
     }
     .game_count_text {
