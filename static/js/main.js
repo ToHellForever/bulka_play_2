@@ -254,7 +254,6 @@ function updateTotalPrice() {
   }
 
   totalElement.textContent = formatPrice(total);
-  console.log("Итоговая сумма обновлена:", total);
 }
 
 // Отправка формы
