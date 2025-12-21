@@ -192,7 +192,7 @@ function limitDoubleGameSelection() {
   updateTotalPrice();
 }
 
-// Обновление итоговой суммы
+  // Обновление итоговой суммы
 function updateTotalPrice() {
   const totalElement = document.getElementById('total-price');
   const summaryElement = document.getElementById('order-summary');
@@ -204,18 +204,13 @@ function updateTotalPrice() {
 
   let total = 0;
 
-  if (currentOrderType === 'buy' || currentOrderType === 'double_buy') {
+  if (currentOrderType === 'buy') {
     const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
     const selectedGoods = document.querySelectorAll('#additional-goods-container input[type="checkbox"]:checked');
-    const doubleGameCountSelect = document.getElementById('double-game-count');
 
     selectedGames.forEach(game => {
       const price = parseFloat(game.dataset.price.replace(',', '.')) || 0;
-      if (currentOrderType === 'double_buy' || (doubleGameCountSelect && doubleGameCountSelect.value === '2')) {
-        total += price * 0.9 * 2; // Скидка 10% за покупку двух игр
-      } else {
-        total += price;
-      }
+      total += price;
     });
 
     selectedGoods.forEach(good => {
@@ -223,7 +218,23 @@ function updateTotalPrice() {
       total += price;
     });
 
-    summaryElement.style.display = total > 0 ? 'block' : 'none';
+    summaryElement.style.display = 'block';
+  }
+  else if (currentOrderType === 'double_buy') {
+    const selectedGames = document.querySelectorAll('#buy-games-container input[type="checkbox"]:checked');
+    const selectedGoods = document.querySelectorAll('#additional-goods-container input[type="checkbox"]:checked');
+
+    selectedGames.forEach(game => {
+      const price = parseFloat(game.dataset.price.replace(',', '.')) || 0;
+      total += price * 0.9 * 2; // Скидка 10% за покупку двух игр
+    });
+
+    selectedGoods.forEach(good => {
+      const price = parseFloat(good.dataset.price.replace(',', '.')) || 0;
+      total += price;
+    });
+
+    summaryElement.style.display = 'block';
   }
   else if (currentOrderType === 'rent') {
     const rentOption = document.getElementById('rent-options');
@@ -506,6 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rentGamesContainer.addEventListener('change', function(e) {
       if (e.target.type === 'checkbox') {
         limitGameSelection.call(e.target);
+        updateTotalPrice();
       }
     });
   }
