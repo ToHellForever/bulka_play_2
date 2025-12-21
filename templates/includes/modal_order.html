@@ -1,3 +1,4 @@
+{% load custom_filters %}
 <div id="orderModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
@@ -47,10 +48,10 @@
               <p class="game-price">
                 {% with discounted_price=product.get_discounted_price %}
                   {% if discounted_price != product.price %}
-<span class="modal-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-<span class="modal-original-price">{{ product.price|floatformat }} руб.</span>
+<span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
+<span class="modal-original-price">{{ product.price|format_price }} руб.</span>
                   {% else %}
-                    {{ product.price|floatformat }} руб.
+                    {{ product.price|format_price }} руб.
                   {% endif %}
                 {% endwith %}
               </p>
@@ -73,10 +74,10 @@
               <p class="game-price">
                 {% with discounted_price=additional.get_discounted_price %}
                   {% if discounted_price != additional.price %}
-<span class="modal-discounted-price">{{ discounted_price|floatformat }} руб.</span>
-<span class="modal-original-price">{{ additional.price|floatformat }} руб.</span>
+<span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
+<span class="modal-original-price">{{ additional.price|format_price }} руб.</span>
                   {% else %}
-                    {{ additional.price|floatformat }} руб.
+                    {{ additional.price|format_price }} руб.
                   {% endif %}
                 {% endwith %}
               </p>
@@ -111,9 +112,9 @@
                   {{ arenda.name }} -
                   {% with discounted_price=arenda.get_discounted_price %}
                     {% if discounted_price != arenda.price %}
-                      <span class="rent-discounted-price">{{ discounted_price|floatformat }} руб.</span>
+                      <span class="rent-discounted-price">{{ discounted_price|format_price }} руб.</span>
                     {% else %}
-                      {{ arenda.price|floatformat }} руб.
+                      {{ arenda.price|format_price }} руб.
                     {% endif %}
                   {% endwith %}
                 </option>

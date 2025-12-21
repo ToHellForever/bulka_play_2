@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 {% block title %}Каталог аренды{% endblock title %}
 {% block content %}
 <div class='container mt-5'>
@@ -66,7 +67,7 @@
             <span class="arend-discounted-price">{{ discounted_price|floatformat }} руб.</span>
             <span class="arend-original-price">{{ arend.price|floatformat }} руб.</span>
             {% else %}
-            <b class="arend-card-time">{{ arend.time }}</b><span><b class="arend-price">{{ arend.price|floatformat }} руб.</b></span>
+            <b class="arend-card-time">{{ arend.time }}</b><span><b class="arend-price">{{ arend.price|format_price }} руб.</b></span>
             {% endif %}
             {% endwith %}
           </p>
