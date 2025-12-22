@@ -2,7 +2,7 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 2000;
   left: 0;
   top: 0;
   width: 100%;
@@ -151,8 +151,9 @@
   }
 
   #games-list-buy li,
-  #games-list-rent li {
-    flex: 1 1 100%;
+  #games-list-rent li,
+  .game-card-modal {
+    flex: 1 1 calc(50% - 15px);
   }
 
   .modal-content input[type="text"],
@@ -161,7 +162,6 @@
   .modal-content select,
   .modal-content textarea {
     padding: 10px;
-    
   }
 }
 
@@ -183,22 +183,52 @@
   border-color: #d32f2f !important;
 }
   /* Стили для карточек игр */
-  .games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 25px;
-  }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+  margin-bottom: 25px;
+}
 
-  .game-card-modal {
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
+.col-md-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.game-card-modal {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Адаптивность */
+@media (min-width: 769px) {
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
 
   .game-card-modal img {
-    width: 13rem;
-    height: 13rem;
+    width: 100%;
+    height: auto;
     border-radius: 20px;
   }
 
@@ -357,4 +387,22 @@
 
 .success-close:hover {
     color: #000;
+}
+
+
+.modal-row {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .modal-content input[type="text"],
+  .modal-content input[type="tel"],
+  .modal-content input[type="date"],
+  .modal-content select,
+  .modal-content textarea {
+    border-radius: 8px;
+  }
+  .submit-button {
+    width: 100%;
+  }
 }

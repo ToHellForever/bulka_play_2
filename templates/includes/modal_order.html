@@ -35,52 +35,56 @@
       <div id="buy-section" class="order-section" style="display: none;">
         <h3 class="modal-title-section">Выбор игр для покупки</h3>
 
-        <div class="games-grid" id="buy-games-container">
+        <div class="row modal-row" id="buy-games-container">
           <!-- Игры будут загружены динамически -->
           {% for product in products %}
-          <div class="game-card-modal">
-            <div class="game-checkbox">
-              <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.get_discounted_price }}">
-            </div>
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            <div class="game-info">
-              <h4>{{ product.name }}</h4>
-              <p class="game-price">
-                {% with discounted_price=product.get_discounted_price %}
-                  {% if discounted_price != product.price %}
+          <div class="col-md-4 col-6">
+            <div class="game-card-modal">
+              <div class="game-checkbox">
+                <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.get_discounted_price }}">
+              </div>
+              <img src="{{ product.image.url }}" alt="{{ product.name }}">
+              <div class="game-info">
+                <h4>{{ product.name }}</h4>
+                <p class="game-price">
+                  {% with discounted_price=product.get_discounted_price %}
+                    {% if discounted_price != product.price %}
 <span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
 <span class="modal-original-price">{{ product.price|format_price }} руб.</span>
-                  {% else %}
-                    {{ product.price|format_price }} руб.
-                  {% endif %}
-                {% endwith %}
-              </p>
+                    {% else %}
+                      {{ product.price|format_price }} руб.
+                    {% endif %}
+                  {% endwith %}
+                </p>
+              </div>
             </div>
           </div>
           {% endfor %}
         </div>
 
         <h3 class="modal-title-section">Дополнительные товары</h3>
-        <div class="games-grid" id="additional-goods-container">
+        <div class="row modal-row" id="additional-goods-container">
           <!-- Дополнительные товары будут загружены динамически -->
           {% for additional in additional_products %}
-          <div class="game-card-modal">
-            <div class="game-checkbox">
-              <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.get_discounted_price }}">
-            </div>
-            <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
-            <div class="game-info">
-              <h4>{{ additional.name }}</h4>
-              <p class="game-price">
-                {% with discounted_price=additional.get_discounted_price %}
-                  {% if discounted_price != additional.price %}
+          <div class="col-md-4 col-6">
+            <div class="game-card-modal">
+              <div class="game-checkbox">
+                <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.get_discounted_price }}">
+              </div>
+              <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
+              <div class="game-info">
+                <h4>{{ additional.name }}</h4>
+                <p class="game-price">
+                  {% with discounted_price=additional.get_discounted_price %}
+                    {% if discounted_price != additional.price %}
 <span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
 <span class="modal-original-price">{{ additional.price|format_price }} руб.</span>
-                  {% else %}
-                    {{ additional.price|format_price }} руб.
-                  {% endif %}
-                {% endwith %}
-              </p>
+                    {% else %}
+                      {{ additional.price|format_price }} руб.
+                    {% endif %}
+                  {% endwith %}
+                </p>
+              </div>
             </div>
           </div>
           {% endfor %}
@@ -125,9 +129,10 @@
 
         <h3 class="modal-title-section">Выбор игр для аренды</h3>
 
-        <div class="games-grid" id="rent-games-container">
+        <div class="row modal-row" id="rent-games-container">
           <!-- Игры для аренды будут загружены динамически -->
           {% for product in products %}
+          <div class="col-md-4 col-6">
             <div class="game-card-modal" data-game-id="{{ product.id }}">
               <div class="game-checkbox">
                 <input type="checkbox" name="selected_rent_game" value="{{ product.id }}">
@@ -137,6 +142,7 @@
                 <h4>{{ product.name }}</h4>
               </div>
             </div>
+          </div>
           {% endfor %}
         </div>
 
