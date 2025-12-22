@@ -35,9 +35,9 @@
 }
 
 .logo-link {
-    margin-right: auto;
     display: flex;
     align-items: center;
+    gap: 3rem;
 }
 
 .burger-menu {
@@ -52,22 +52,11 @@
 }
 
 .social-links {
-    margin-left: auto;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.social-links a {
-    margin-left: 0 !important;
-}
-
-a {
-    color: rgba(255, 255, 255, 1);
-    text-decoration: none;
-    font-family: 'Mont', sans-serif;
-    white-space: nowrap;
-}
 
 /* Анимация для бургер-иконки */
 .burger-menu.toggle .line1 {
@@ -111,23 +100,18 @@ a {
     margin: 1rem 0;
 }
 
-.mobile-menu .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 0px;
-    width: 100%;
-}
-
-.desktop-only {
-    display: block;
-}
 
 @media (max-width: 992px) {
     .burger-menu {
         display: flex;
     }
-
+    .mobile-menu .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0px;
+        width: 100%;
+    }
     .menu-container {
         flex-wrap: wrap;
     }
@@ -145,6 +129,6 @@ a {
     }
 
     .social-links {
-        gap: 1rem;
+        gap: 0rem;
     }
 }

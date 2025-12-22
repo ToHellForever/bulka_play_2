@@ -102,6 +102,21 @@
 }
 
 
+/* ссылки для футер и нав меню */
+.menu-text {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-family: 'Mont', sans-serif;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
 /* о нас  */
 .about_h {
     font-family: 'Unbounded' , sans-serif;
