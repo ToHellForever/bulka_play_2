@@ -11,35 +11,35 @@
 .game_count_text {
     font-family: 'Mont' , sans-serif;
     font-size: 3rem;
-    font-weight: 500;
+    font-weight: 400;
     color: rgba(255, 255, 255, 1);
 }
 .flex-fill {
     color: rgba(255, 255, 255, 1);
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
+    font-weight: 400;
 }
 .block-title {
     margin-top: 1rem;
     font-family: 'Unbounded' , sans-serif;
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(255, 255, 255, 1);
 }
 .block-text {
     margin-top: 10px;
     font-family: 'Unbounded' , sans-serif;
     font-size: 1rem;
-    font-weight: 100;
+    font-weight: 200;
     color: rgba(255, 255, 255, 1);
 }
 .game_catalog_h,
 .rental_catalog_landing_h,
-.contact_catalog_h,
 .news_catalog_h {
     font-family: 'Unbounded' , sans-serif;
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 500;
     color: rgba(255, 255, 255, 1);
     text-align: start !important;
 }
@@ -54,35 +54,52 @@
 .product-card-price {
     font-family: 'Mont' , sans-serif;
     font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+.rental-description {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
 }
 
-.contact_link {
+.contact_catalog_h {
     font-family: 'Unbounded' , sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+.contact_text {
+    font-family: 'Mont' , sans-serif;
     font-size: 1rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
 }
 .contact_link a {
-    font-family: 'Unbounded' , sans-serif;
+    font-family: 'Mont' , sans-serif;
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 700;
 }
 .center-block_h {
     font-family: 'Unbounded' , sans-serif;
-    font-size: 2.8rem;
-    font-weight: 400;
+    font-size: 2.3rem;
+    font-weight: 500;
     color: black;
 }
 .center-block_text {
-    font-family: 'Unbounded' , sans-serif;
+    font-family: 'Mont' , sans-serif;
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 600;
     color: black;
 }
 
-
+.center-block_button {
+    color: rgba(33, 33, 33, 1);
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
 
 
 /* о нас  */
@@ -526,6 +543,11 @@ h4 {
         font-size:1rem;
         margin-bottom: 0px;
     }
+}
+@media (max-width: 1080px) {
+  .contact_catalog_h {
+    font-size: 1.5rem;
+  }
 }
 @media (max-width: 1050px) {
     .about_block_text {
