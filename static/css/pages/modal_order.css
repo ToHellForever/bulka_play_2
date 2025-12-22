@@ -183,28 +183,11 @@
   border-color: #d32f2f !important;
 }
   /* Стили для карточек игр */
-.row {
+.modal-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -10px;
-  margin-left: -10px;
-  margin-bottom: 25px;
+  margin-top: 20px;
 }
-
-.col-md-4 {
-  flex: 0 0 33.333333%;
-  max-width: 33.333333%;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.col-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
 .game-card-modal {
   border-radius: 8px;
   overflow: hidden;
@@ -390,9 +373,6 @@
 }
 
 
-.modal-row {
-  margin-top: 20px;
-}
 
 @media (max-width: 768px) {
   .modal-content input[type="text"],
