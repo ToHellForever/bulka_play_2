@@ -490,14 +490,16 @@ h4 {
     font-weight: 400;
     font-size: 1.2rem;
     margin-top: 1rem;
-    left: 15%;
+    left: 10%;
+    text-align: left;
 }
 .block-p {
     color: white;
     font-family: 'Unbounded', sans-serif;
     font-weight: 300;
     font-size: 1rem;
-        left: 15%;
+    left: 10%;
+    text-align: left;
 }
 .examples {
     color: white;
@@ -529,6 +531,22 @@ h4 {
     font-family: 'Unbounded', sans-serif;
     font-weight: 300;
     font-size: 1rem;
+}
+.opacity_h {
+    color: rgba(49, 47, 47, 1);
+    font-family: 'Unbounded', sans-serif;
+}
+.button_2 {
+    color: rgba(33, 33, 33, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.button_1 {
+    color: rgba(33, 33, 33, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 
@@ -563,6 +581,8 @@ h4 {
     font-weight: 500;
 }
 
+
+
 @media (max-width: 1325px) {
     .about_h {
         font-size: 7rem;
@@ -573,6 +593,10 @@ h4 {
     .exlusive_h {
         font-size: 1.4rem;
     }
+    .advantage-block-h,
+    .advantage-block-h-2 {
+        font-size: 1.3rem;
+    }
 }
 @media (max-width: 1140px) {
     .about_h {
@@ -580,6 +604,11 @@ h4 {
     }
     .highlighted-text {
         font-size: 1.1rem;
+    }
+}
+@media (max-width: 1110px) {
+    .block-p {
+        font-size: 0.9rem;
     }
 }
 @media (max-width: 1250px) {
