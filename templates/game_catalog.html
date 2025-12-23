@@ -87,9 +87,11 @@
 </div>
         {% endfor %}
       {% else %}
-        <div class="col-12 text-center mt-5">
-          <img src="/media/icon/no_result.jfif" alt="" class="no_result_img mt-5">
-          <h3 class='no_result_h'>По вашему запросу ничего не нашлось</h3>
+        <div class="col-12 text-center">
+          <img src="/media/icon/no_result.png" alt="" class="no_result_img">
+          <h3 class='no_result_h'>По вашему запросу ничего не нашлось.</h3>
+          <p class='no_result_text'>Попробуйте другой вариант или перейдите в каталог.</p>
+          <button class='no_result_button'><a href="{% url 'game_catalog' %}" class='no_result_a'>КАТАЛОГ ИГР</a></button>
         </div>
       {% endif %}
     </div>

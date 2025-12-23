@@ -206,7 +206,19 @@ select.form-control {
     font-family: 'Unbounded' , sans-serif;
     font-size: 2rem;
     font-weight: 400;
-    margin-top: 1.5rem;
+}
+
+.no_result_text {
+    color: white;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.no_result_a {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
 }
 .product_card_button {
     font-family: 'Unbounded', sans-serif;
@@ -635,6 +647,8 @@ h4 {
     .about_block_text {
         font-size: 1.2rem;
     }
+
+
     /* каталог игр */
     .product_card_name {
         font-size: 1.2rem;
@@ -644,6 +658,15 @@ h4 {
     }
     .game_catalog_h {
         margin-top: 10px;
+    }
+    .no_result_a {
+        font-size: 1rem;
+    }
+    .no_result_h {
+        font-size: 1.2rem;
+    }
+    .no_result_text {
+        font-size: 1rem;
     }
 
 
