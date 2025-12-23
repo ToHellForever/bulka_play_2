@@ -570,6 +570,9 @@ h4 {
     .about_block {
         font-size:1rem;
     }
+    .exlusive_h {
+        font-size: 1.4rem;
+    }
 }
 @media (max-width: 1140px) {
     .about_h {
@@ -785,6 +788,23 @@ h4 {
     .title_h_2_in_1  {
         font-size: 2rem;
         text-align: start;
+    }
+    .exlusive_h {
+        font-size: 1.1rem;
+    }
+    .exlusive_p {
+        font-size: 1rem;
+    }
+    .advantage-block-h,
+    .advantage-block-h-2 {
+        font-size: 1.2rem;
+        margin-bottom: 0px;
+    }
+    .advantage-block-p,
+    .advantage-block-p-2,
+    .advantage-block-p-3 {
+        font-size: 1rem;
+        margin-bottom: 0px;
     }
 }
 
