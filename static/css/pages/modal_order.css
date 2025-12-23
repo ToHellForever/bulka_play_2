@@ -195,19 +195,6 @@
 }
 
 /* Адаптивность */
-@media (min-width: 769px) {
-  .col-md-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
-}
-
-@media (max-width: 768px) {
-  .col-md-4 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
 
   .game-card-modal img {
     width: 100%;
