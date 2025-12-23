@@ -542,6 +542,26 @@ h4 {
 
 
 
+/* для сообщения об успешном заказе */
+.success-title {
+    color: #f88005;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+.success-message {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 0px;
+}
+.success-ok-button {
+    color: rgba(1, 1, 1, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
 
 @media (max-width: 1325px) {
     .about_h {
@@ -670,6 +690,7 @@ h4 {
     }
 
 
+
     /* каталог аренды */
     .rental_catalog_h {
         font-size: 1.8rem;
@@ -747,6 +768,15 @@ h4 {
 
     /* модальное окно заказа */
     .submit-button {
+        font-size: 1rem;
+    }
+
+
+    /* модальное окно для успешной отправки заказа */
+    .success-title {
+        font-size: 1.3rem;
+    }
+    .success-ok-button {
         font-size: 1rem;
     }
 }
