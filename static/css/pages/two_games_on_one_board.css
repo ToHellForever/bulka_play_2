@@ -129,7 +129,8 @@ a.button_1_1 {
 }
 @media (max-width: 992px) {
     .container-block {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
     }
 
     .block1, .block2, .block3 {
@@ -143,5 +144,18 @@ a.button_1_1 {
 
     .block {
         width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .block1, .block2, .block3 {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .block1, .block2, .block3 {
+        padding: 10px;
     }
 }
