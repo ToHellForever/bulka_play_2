@@ -238,9 +238,9 @@ select.form-control {
 
 .normal-text {
     color: white;
-    font-family: 'Unbounded', sans-serif;
+    font-family: 'Mont', sans-serif;
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
     line-height: 1.2;
 }
@@ -248,14 +248,14 @@ select.form-control {
     color: white;
     font-family: 'Unbounded', sans-serif;
     font-size: 1.1rem;
-    font-weight: 300;
+    font-weight: 400;
     white-space: nowrap;
 }
 .info-block {
     color: white;
-    font-family: 'Unbounded', sans-serif;
+    font-family: 'Mont', sans-serif;
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 .product_detail_name {
     color: rgba(248, 128, 5, 1);
@@ -266,9 +266,9 @@ select.form-control {
 
 .product_detail_description {
     color: white;
-    font-family: 'Unbounded', sans-serif;
+    font-family: 'Mont', sans-serif;
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 1rem;
 }
 .product_detail_set {
