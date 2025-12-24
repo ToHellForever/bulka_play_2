@@ -300,8 +300,8 @@ select.form-control {
 }
 .rental_catalog_p {
     color: white;
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 300;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
     font-size: 1.1rem;
 }
 
@@ -313,13 +313,13 @@ select.form-control {
 }
 .wood_p {
     color: rgba(248, 128, 5, 1);
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 500;
+    font-family: 'Mont', sans-serif;
+    font-weight: 700;
     font-size: 1.5rem;
 }
 .rental_recomendation_h {
     color: white;
-    font-family: 'Unbounded', sans-serif;
+    font-family: 'Mont', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
     margin-bottom: 0px;
@@ -327,7 +327,7 @@ select.form-control {
 .slider-label-start,
 .slider-label-end {
     color: white;
-    font-family: 'Unbounded', sans-serif;
+    font-family: 'Mont', sans-serif;
     font-weight: 400;
     font-size: 25px !important;
 }
@@ -335,14 +335,14 @@ select.form-control {
     color: white;
     font-family: 'Unbounded', sans-serif;
     font-size: 35px;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 20px !important;
     margin-left: 0;
 }
 h3 {
     color: white;
     font-family: 'Unbounded', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.7rem;
     margin-top: 1rem;
 }
@@ -412,14 +412,14 @@ h4 {
 }
 .arend-card-description {
     color: black !important;
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 300;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
     font-size: 1rem;
 }
 .arend-card-price {
     color: black;
     font-family: 'Unbounded', sans-serif;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
@@ -614,6 +614,7 @@ h4 {
 @media (max-width: 1250px) {
     .arend-card-title {
         font-size: 1.3rem;  
+        margin-left: 10px;
     }
     .about_block {
         font-size:0.9rem;
@@ -853,13 +854,15 @@ h4 {
     .arend-card-time {
         margin-right: 15px !important;
         white-space: nowrap;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        font-family: 'Unbounded', sans-serif;
         font-weight: 400;
     }
     .arend-price {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        font-family: 'Unbounded', sans-serif;
         white-space: nowrap;
-        font-weight: 500;
+        font-weight: 400;
     }
     .arend-card-price {
     display: flex;
