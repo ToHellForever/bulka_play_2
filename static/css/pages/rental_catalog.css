@@ -1,6 +1,12 @@
 .row {
     margin-top: -40px;
-}   
+}  
+.arend_description_h {
+    display: none;
+}
+.arend_li {
+    display: none;
+}
 /* для белого инпута с гстями */
 #guestValueDisplay {
     width: 10rem;
@@ -147,4 +153,12 @@
     margin-bottom: 0px;
     padding: 5px;
   }
+}
+@media (max-width: 767px) {
+    .arend_description_h {
+        display: block;
+    }
+    .arend_li {
+        display: block;
+    }
 }
