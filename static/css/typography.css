@@ -838,6 +838,10 @@ h4 {
     .examples {
         font-size: 1.3rem;
     }
+    .p_button,
+    .p_button-2 {
+        font-size: 0.9rem;
+    }
 }
 
 
