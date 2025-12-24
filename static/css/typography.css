@@ -175,14 +175,14 @@ color: rgba(33, 33, 33, 1);
 /* для placeholder */
 select.form-control {
     color: white !important;
-    font-family: 'Unbounded' , sans-serif;
+    font-family: 'Mont' , sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 20px;
 }
 .form-control::-webkit-input-placeholder {
     color: white !important;
-    font-family: 'Unbounded' , sans-serif;
+    font-family: 'Mont' , sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 20px;
@@ -197,9 +197,9 @@ select.form-control {
 }
 .product_card_price {
     color: white;
-    font-family: 'Unbounded' , sans-serif;
+    font-family: 'Mont' , sans-serif;
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 .no_result_h {
     color: white;
