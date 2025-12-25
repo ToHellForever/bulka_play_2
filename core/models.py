@@ -299,6 +299,7 @@ class AdditionalProducts(models.Model):
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
+    price_prefix = models.CharField(max_length=10, verbose_name="Приставка к цене", default="от", blank=True, null=True)  # Новое поле
 
     class Meta:
         verbose_name = "Дополнительное к товарам"
