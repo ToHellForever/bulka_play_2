@@ -137,7 +137,7 @@
 </div>
 
 
-<div class='container mt-5'>
+<div class='container mt-5' id='look-also-section'>
   <h1 class='game_catalog_h'>СМОТРИТЕ ТАКЖЕ</h1>
   <div class='row row_detail'>
     {% for product in products %}
@@ -181,6 +181,42 @@
 
 {% block scripts %}
 {{ block.super }}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function adjustVisibleProducts() {
+      // Находим раздел "СМОТРИТЕ ТАКЖЕ" по уникальному идентификатору
+      const lookAlsoSection = document.getElementById('look-also-section');
+      if (!lookAlsoSection) return;
+
+      const products = lookAlsoSection.querySelectorAll('.row_detail .col-6');
+      const windowWidth = window.innerWidth;
+
+      // Определяем количество отображаемых товаров в зависимости от ширины экрана
+      let visibleCount;
+      if (windowWidth >= 992) { // Десктоп
+        visibleCount = 4;
+      } else if (windowWidth >= 768) { // Планшет
+        visibleCount = 3;
+      } else { // Мобильные устройства
+        visibleCount = 2;
+      }
+
+      // Скрываем лишние товары
+      products.forEach((product, index) => {
+        if (index < visibleCount) {
+          product.style.display = '';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    // Вызываем функцию при загрузке страницы и при изменении размера окна
+    adjustVisibleProducts();
+    window.addEventListener('resize', adjustVisibleProducts);
+  });
+</script>
+
 <!-- Модальное окно для продукта -->
 <div id="productModal" class="news-modal">
   <span class="news-close" onclick="closeProductModal()">&times;</span>
