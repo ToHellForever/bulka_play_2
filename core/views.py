@@ -135,12 +135,6 @@ class ProductDetailView(TemplateView):
         )
         context["additional_images"] = current_product.additional_images.all()
 
-        random_products = list(
-            Product.objects.filter(is_active=True)
-            .exclude(pk=current_product.pk)
-            .order_by("?")[:4]
-        )
-        context["random_products"] = random_products
         # Добавьте передачу данных аренды
         context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
             "-created_at"
@@ -173,11 +167,6 @@ class AdditionalProductDetailView(TemplateView):
         context["additional_product"] = current_additional_product
         context["additional_images"] = current_additional_product.additional_images.all()
 
-        random_products = list(
-            Product.objects.filter(is_active=True)
-            .order_by("?")[:4]
-        )
-        context["random_products"] = random_products
         context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
             "-created_at"
         )

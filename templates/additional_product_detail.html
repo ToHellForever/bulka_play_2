@@ -133,7 +133,7 @@
     <div class='container mt-5'>
       <h1 class='game_catalog_h'>СМОТРИТЕ ТАКЖЕ</h1>
       <div class='row'>
-        {% for product in random_products %}
+        {% for product in products %}
           <div class='col-3 mt-5'>
             <div class="game-card">
               <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
