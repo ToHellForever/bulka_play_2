@@ -162,12 +162,11 @@ class AdditionalProductDetailView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["products"] = Product.objects.filter(is_active=True).order_by(
-            "-created_at"
-        )
+        context["products"] = Product.objects.filter(is_active=True).order_by("-created_at")
         current_additional_product = AdditionalProducts.objects.get(pk=self.kwargs.get("pk"))
         context["additional_product"] = current_additional_product
         context["additional_images"] = current_additional_product.additional_images.all()
+
 
         context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
             "-created_at"
@@ -176,7 +175,12 @@ class AdditionalProductDetailView(TemplateView):
             AdditionalProducts.objects.filter(is_active=True).order_by("-created_at")
         )
         context["additional_products"] = additional_products
+        # Список дополнительных продуктов, исключая текущий
+        context["similar_additional_products"] = AdditionalProducts.objects.filter(
+            is_active=True
+        ).exclude(pk=current_additional_product.pk).order_by("-created_at")
         return context
+    
 class RentalCatalogView(TemplateView):
     template_name = "rental_catalog.html"
 
