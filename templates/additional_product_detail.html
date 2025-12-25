@@ -130,11 +130,11 @@
             </div>
     </div>
 
-    <div class='container mt-5'>
+<div class='container mt-5'>
       <h1 class='game_catalog_h'>СМОТРИТЕ ТАКЖЕ</h1>
       <div class='row'>
         {% for product in products %}
-          <div class='col-3 mt-5'>
+          <div class='col-6 col-md-4 col-lg-3 mt-5'>
             <div class="game-card">
               <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
               <h1 class='product_card_name'>{{ product.name }}</h1>
@@ -149,8 +149,8 @@
     <div class='container mt-5'>
       <h1 class='game_catalog_h'>С ЭТИМ ТОВАРОМ ПОКУПАЮТ</h1>
       <div class='row'>
-        {% for additional_product  in additional_products  %}
-          <div class='col-3 mt-5'>
+        {% for additional_product in additional_products %}
+          <div class='col-6 col-md-4 col-lg-3 mt-5'>
             <div class="game-card">
               <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
               <h1 class='product_card_name'>{{ additional_product.name }}</h1>
@@ -164,7 +164,7 @@
                   {% endif %}
                 {% endwith %}
               </p>
-              <a href="#" class="product_card_button">ПОДРОБНЕЕ</a>
+              <a href="{% url 'product_detail' pk=additional_product.pk %}" class="product_card_button">ПОДРОБНЕЕ</a>
             </div>
           </div>
         {% endfor %}

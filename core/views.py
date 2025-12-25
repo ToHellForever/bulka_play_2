@@ -130,9 +130,9 @@ class ProductDetailView(TemplateView):
         context = super().get_context_data(**kwargs)
         current_product = Product.objects.get(pk=self.kwargs.get("pk"))
         context["product"] = current_product
-        context["products"] = Product.objects.filter(is_active=True).order_by(
+        context["products"] = Product.objects.filter(is_active=True).exclude(pk=current_product.pk).order_by(
             "-created_at"
-        )
+        )[:4]
         context["additional_images"] = current_product.additional_images.all()
 
         # Добавьте передачу данных аренды
@@ -160,9 +160,9 @@ class AdditionalProductDetailView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["products"] = Product.objects.filter(is_active=True).order_by(
+        context["products"] = Product.objects.filter(is_active=True).exclude(pk=self.kwargs.get("pk")).order_by(
             "-created_at"
-        )
+        )[:4]
         current_additional_product = AdditionalProducts.objects.get(pk=self.kwargs.get("pk"))
         context["additional_product"] = current_additional_product
         context["additional_images"] = current_additional_product.additional_images.all()
