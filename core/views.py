@@ -130,15 +130,17 @@ class ProductDetailView(TemplateView):
         context = super().get_context_data(**kwargs)
         current_product = Product.objects.get(pk=self.kwargs.get("pk"))
         context["product"] = current_product
-        context["products"] = Product.objects.filter(is_active=True).order_by(
-            "-created_at"
-        )
+
+        # Оставляем существующий список продуктов без изменений
+        context["products"] = Product.objects.filter(is_active=True).order_by("-created_at")
+
+        # Добавляем новый список продуктов для блока "СМОТРИТЕ ТАКЖЕ", исключая текущий продукт
+        context["similar_products"] = Product.objects.filter(is_active=True).exclude(pk=current_product.pk).order_by("-created_at")
+
         context["additional_images"] = current_product.additional_images.all()
 
         # Добавьте передачу данных аренды
-        context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
-            "-created_at"
-        )
+        context["arenda"] = Arenda.objects.filter(is_active=True).order_by("-created_at")
         additional_products = list(
             AdditionalProducts.objects.filter(is_active=True).order_by("-created_at")
         )
