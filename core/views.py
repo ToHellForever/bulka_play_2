@@ -64,7 +64,9 @@ class GameCatalogView(TemplateView):
         context["additional_products"] = AdditionalProducts.objects.filter(
             is_active=True
         ).order_by("-created_at")
-
+        context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
+            "-created_at"
+        )
         # Получаем все возможные значения для фильтров
         sizes = Size.objects.all()
         player_counts = PlayerCount.objects.all()
@@ -164,6 +166,9 @@ class AdditionalProductDetailView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["products"] = Product.objects.filter(is_active=True).order_by(
+            "-created_at"
+        )
         current_additional_product = AdditionalProducts.objects.get(pk=self.kwargs.get("pk"))
         context["additional_product"] = current_additional_product
         context["additional_images"] = current_additional_product.additional_images.all()
@@ -173,7 +178,9 @@ class AdditionalProductDetailView(TemplateView):
             .order_by("?")[:4]
         )
         context["random_products"] = random_products
-
+        context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
+            "-created_at"
+        )
         additional_products = list(
             AdditionalProducts.objects.filter(is_active=True)
             .exclude(pk=current_additional_product.pk)
@@ -203,6 +210,16 @@ class TwoGamesOnOneBoardView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
+            "-created_at"
+        )
+        context["products"] = Product.objects.filter(is_active=True).order_by(
+            "-created_at"
+        )
+        context["additional_products"] = AdditionalProducts.objects.filter(
+            is_active=True).order_by(
+            "-created_at"
+        )
         return context
 def calculate_games(request):
     guests = int(request.GET.get('guests'))

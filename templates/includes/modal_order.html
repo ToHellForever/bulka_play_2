@@ -77,10 +77,10 @@
                 <p class="game-price">
                   {% with discounted_price=additional.get_discounted_price %}
                     {% if discounted_price != additional.price %}
-<span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
-<span class="modal-original-price">{{ additional.price|format_price }} руб.</span>
+<span class="modal-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+<span class="modal-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.</span>
                     {% else %}
-                      {{ additional.price|format_price }} руб.
+                      {{ additional_product.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.
                     {% endif %}
                   {% endwith %}
                 </p>
