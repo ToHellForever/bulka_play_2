@@ -235,3 +235,14 @@
         border-radius: 10px;
     }
 }
+
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.game-card > a.product_card_button {
+    margin-top: auto;
+}
