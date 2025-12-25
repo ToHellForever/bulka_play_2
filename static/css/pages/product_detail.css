@@ -228,4 +228,7 @@
     .d-md-flex {
         display: none !important;
     }
+    .product_detail_image_list {
+        border-radius: 10px;
+    }
 }
