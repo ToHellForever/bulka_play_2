@@ -278,10 +278,22 @@ class NewsImage(models.Model):
 
 class AdditionalProducts(models.Model):
     """Модель подставки и сумок"""
+    BUTTON_TEXT_CHOICES = [
+        ('material', 'МАТЕРИАЛ'),
+        ('additional', 'ДОПОЛНИТЕЛЬНО'),
+    ]
+
     name = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     description_2 = models.TextField(verbose_name="Описание_2" , default="")
     material = models.TextField(max_length=200, verbose_name="Материал", default="")
+    button_text_type = models.CharField(
+        max_length=10,
+        choices=BUTTON_TEXT_CHOICES,
+        default='material',
+        verbose_name="Тип текста кнопки",
+        help_text="Выберите текст для кнопки: 'МАТЕРИАЛ' или 'ДОПОЛНИТЕЛЬНО'"
+    )
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to='products/', verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
