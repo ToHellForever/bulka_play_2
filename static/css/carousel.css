@@ -1,11 +1,25 @@
 /* карусель продуктов */
-.product_card_image,
-.news_card_image  {
+.product_card_image  {
   width: 100%;
   height: auto;
   border-radius: 31px;
 }
- 
+.news-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.news-card > .news-card-button {
+  margin-top: auto;
+}
+.news_card_image {
+  width: 100%;
+  height: 300px; 
+  border-radius: 31px;
+  flex-shrink: 0; 
+}
 .swiper-slide {
   flex: 1 0 auto;
   display: flex;
@@ -29,8 +43,7 @@
   background-color: rgba(248, 128, 5, 1);
   border-radius: 10px;
   border: none;
-  padding: 15px;
-  margin-top: 10px;
+  padding: 10px;
 }
 
 .arend-card {
@@ -66,6 +79,9 @@
   .swiper-button-prev {
     margin-left: -5px;
   }
+  .news_card_image {
+  height: 200px; /* Установите фиксированную высоту для изображения */
+}
 }
 
 
