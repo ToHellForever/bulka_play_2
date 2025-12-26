@@ -113,7 +113,7 @@
         </div>
     </div>
     <div id="info1" class="info-block">
-        <p>{{ product.game_rules|linebreaks }}</p>
+        <p>{{ product.game_rules|safe|linebreaks }}</p>
     </div>
     <div id="info2" class="info-block">
         <ul>
@@ -132,7 +132,7 @@
         </ul>
     </div>
     <div id="info4" class="info-block">
-        <p>{{ product.additional_info }}</p>
+        <p>{{ product.additional_info|safe|linebreaks }}</p>
     </div>
 </div>
 

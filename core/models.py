@@ -294,8 +294,7 @@ class AdditionalProducts(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     description_2 = models.TextField(verbose_name="Описание_2", default="")
-    material = models.TextField(max_length=200, verbose_name="Материал", default="")
-    material_html = models.TextField(verbose_name="HTML-материал", blank=True, null=True)
+    material_html = models.TextField(verbose_name="HTML-материал", blank=True, null=True, default="")
     button_text_type = models.CharField(
         max_length=10,
         choices=BUTTON_TEXT_CHOICES,
