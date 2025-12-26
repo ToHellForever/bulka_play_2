@@ -27,6 +27,11 @@ def send_telegram_notification(instance):
         arenda_list = [arenda.name for arenda in instance.arenda.all()]
         games_for_rent_list = [game.name for game in instance.games_for_rent.all()]
 
+        # Формируем список игр для 2 в 1, если это соответствующий тип заказа
+        double_buy_games_list = []
+        if instance.order_type == 'double_buy' and products_list:
+            double_buy_games_list = products_list.copy()
+
         # Формируем сообщение
         tg_markdown_message = f"""
 📦 *Новый заказ!* 📦
@@ -40,6 +45,7 @@ def send_telegram_notification(instance):
 🎮 **Дополнительные товары:** {', '.join(additional_products_list) if additional_products_list else "Нет"}
 🎮 **Аренды:** {', '.join(arenda_list) if arenda_list else "Нет"}
 🎮 **Игры для аренды:** {', '.join(games_for_rent_list) if games_for_rent_list else "Нет"}
+🎮 **Игры для 2 в 1:** {', '.join(double_buy_games_list) if double_buy_games_list else "Нет"}
 
 💬 **Комментарий:** {instance.comment if instance.comment else "Нет"}
 
