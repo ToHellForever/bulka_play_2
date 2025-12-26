@@ -24,12 +24,12 @@
                     <div class="additional-kit-item">
                         <div class="kit-content">
                             <span class="normal-text">{{ item.normal_text }}</span>
-                            <span class="highlighted-text">{{ item.highlighted_text|linebreaks }}</span>
+                            <span class="highlighted-text">{{ item.highlighted_text|safe|linebreaks }}</span>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-            <p class='product_detail_description'>{{ additional_product.description_2 }}</p>
+            <p class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</p>
 <p class='additional_detail_price'>
   {% with discounted_price=additional_product.get_discounted_price %}
     {% if discounted_price != additional_product.price %}
@@ -93,7 +93,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <p class='product_detail_description'>{{ additional_product.description_2 }}</p>
+            <p class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</p>
             <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
         </div>
     </div>
