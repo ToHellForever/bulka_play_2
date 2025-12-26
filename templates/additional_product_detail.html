@@ -107,8 +107,8 @@
                     <button class="button" onclick="showInfo('info2')">ДОСТАВКА <img src="/media/icon/select_arrow.svg" alt="" class='arrow_accorderon'></button>
                 </div>
             </div>
-            <div id="info1" class="info-block">
-                <p>{{ additional_product.material|safe|linebreaksbr }}</p>
+<div id="info1" class="info-block">
+                {{ additional_product.material_html|safe|linebreaks }}
             </div>
             <div id="info2" class="info-block">
                 <p><b>Мы осуществляем доставку по всей территории России.</b></p>

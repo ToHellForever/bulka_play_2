@@ -283,7 +283,6 @@ select.form-control {
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 7.5rem
 }
 .product_detail_button {
     font-size: 1.5rem;
@@ -436,7 +435,6 @@ h4 {
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 5rem
 }
 .title_h_2_in_1 {
     color: white;
@@ -794,9 +792,6 @@ h4 {
     }
     .product_detail_name {
         font-size: 1.4rem;
-    }
-    .product_detail_price {
-        margin-top: 0px;
     }
     .product_detail_description {
         font-size: 1rem;

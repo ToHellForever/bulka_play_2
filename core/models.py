@@ -40,8 +40,10 @@ class PlayerAge(models.Model):
 
     def __str__(self):
         return self.age
+
 class GameKitItemAdditional(models.Model):
     """Модель элемента комплектации игры чтобы разделить комплектацию на разные блоки"""
+
     highlighted_text = models.TextField(
         max_length=50,
         verbose_name="Выделенный текст",
@@ -62,6 +64,7 @@ class GameKitItemAdditional(models.Model):
 
 class GameKitItem(models.Model):
     """Модель элемента комплектации игры чтобы разделить комплектацию на разные блоки"""
+
     highlighted_text = models.CharField(
         max_length=50,
         verbose_name="Выделенный текст",
@@ -82,10 +85,11 @@ class GameKitItem(models.Model):
 
 class Product(models.Model):
     """Модель товара"""
+
     name = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
-    image = models.ImageField(upload_to='products/', verbose_name="Изображение")
+    image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
@@ -95,7 +99,7 @@ class Product(models.Model):
         GameKitItem,
         verbose_name="Элементы комплектации",
         blank=True,
-        related_name='products',
+        related_name="products",
     )
 
     # Правила игры
@@ -122,7 +126,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = "Товар"
         verbose_name_plural = "Товары"
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.name
@@ -132,7 +136,7 @@ class Product(models.Model):
         active_discounts = self.discounts.filter(
             is_active=True,
             start_date__lte=datetime.now().date(),
-            end_date__gte=datetime.now().date()
+            end_date__gte=datetime.now().date(),
         )
 
         if not active_discounts.exists():
@@ -152,11 +156,11 @@ class ProductImage(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
-        related_name='additional_images',
+        related_name="additional_images",
         verbose_name="Товар",
     )
     image = models.ImageField(
-        upload_to='product_images/additional/',
+        upload_to="product_images/additional/",
         verbose_name="Дополнительное изображение",
     )
     is_main = models.BooleanField(default=False, verbose_name="Основное изображение")
@@ -166,12 +170,13 @@ class ProductImage(models.Model):
         verbose_name_plural = "Дополнительные изображения товаров"
 
     def __str__(self):
-        return f'Фото {self.product}'
+        return f"Фото {self.product}"
 
 class PlayerRange(models.Model):
     """
     Диапазоны количества игроков и соответствующее количество игр.
     """
+
     min_players = models.PositiveIntegerField(verbose_name="Минимальное количество игроков")
     max_players = models.PositiveIntegerField(verbose_name="Максимальное количество игроков")
     min_game_count = models.PositiveIntegerField(verbose_name="Минимальное количество игр")
@@ -182,13 +187,14 @@ class PlayerRange(models.Model):
         verbose_name_plural = "Диапазоны игроков"
 
     def __str__(self):
-        return f'{self.min_players}-{self.max_players}: {self.min_game_count}-{self.max_game_count} игр'
+        return f"{self.min_players}-{self.max_players}: {self.min_game_count}-{self.max_game_count} игр"
 
 class Arenda(models.Model):
     """Модель аренды"""
+
     CARD_STYLE_CHOICES = [
-        (1, 'Стиль 1 (оранжевый)'),
-        (2, 'Стиль 2 (альтернативный)'),
+        (1, "Стиль 1 (оранжевый)"),
+        (2, "Стиль 2 (альтернативный)"),
     ]
 
     name = models.CharField(max_length=200, verbose_name="Название аренды")
@@ -196,7 +202,7 @@ class Arenda(models.Model):
     description = models.TextField(verbose_name="Описание")
     time = models.CharField(verbose_name="Время в часах", default=2)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
-    image = models.ImageField(upload_to='products/', verbose_name="Изображение")
+    image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     card_style = models.PositiveSmallIntegerField(
         verbose_name="Стиль карточки",
         choices=CARD_STYLE_CHOICES,
@@ -212,7 +218,7 @@ class Arenda(models.Model):
     class Meta:
         verbose_name = "Аренда"
         verbose_name_plural = "Аренды"
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.name
@@ -222,7 +228,7 @@ class Arenda(models.Model):
         active_discounts = self.discounts.filter(
             is_active=True,
             start_date__lte=datetime.now().date(),
-            end_date__gte=datetime.now().date()
+            end_date__gte=datetime.now().date(),
         )
 
         if not active_discounts.exists():
@@ -244,8 +250,9 @@ class Arenda(models.Model):
 
 class News(models.Model):
     """Модель новости"""
+
     name = models.CharField(max_length=200, verbose_name="Название мероприятия")
-    image = models.ImageField(upload_to='news/', verbose_name="Изображение")
+    image = models.ImageField(upload_to="news/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
@@ -261,11 +268,11 @@ class NewsImage(models.Model):
     news = models.ForeignKey(
         News,
         on_delete=models.CASCADE,
-        related_name='additional_images',
+        related_name="additional_images",
         verbose_name="Новость",
     )
     image = models.ImageField(
-        upload_to='news_images/additional/', verbose_name="Дополнительное изображение"
+        upload_to="news_images/additional/", verbose_name="Дополнительное изображение"
     )
     is_main = models.BooleanField(default=False, verbose_name="Основное изображение")
 
@@ -274,43 +281,48 @@ class NewsImage(models.Model):
         verbose_name_plural = "Дополнительные изображения новостей"
 
     def __str__(self):
-        return f'Фото {self.news}'
+        return f"Фото {self.news}"
 
 class AdditionalProducts(models.Model):
     """Модель подставки и сумок"""
+
     BUTTON_TEXT_CHOICES = [
-        ('material', 'МАТЕРИАЛ'),
-        ('additional', 'ДОПОЛНИТЕЛЬНО'),
+        ("material", "МАТЕРИАЛ"),
+        ("additional", "ДОПОЛНИТЕЛЬНО"),
     ]
 
     name = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
-    description_2 = models.TextField(verbose_name="Описание_2" , default="")
+    description_2 = models.TextField(verbose_name="Описание_2", default="")
     material = models.TextField(max_length=200, verbose_name="Материал", default="")
+    material_html = models.TextField(verbose_name="HTML-материал", blank=True, null=True)
     button_text_type = models.CharField(
         max_length=10,
         choices=BUTTON_TEXT_CHOICES,
-        default='material',
+        default="material",
         verbose_name="Тип текста кнопки",
-        help_text="Выберите текст для кнопки: 'МАТЕРИАЛ' или 'ДОПОЛНИТЕЛЬНО'"
+        help_text="Выберите текст для кнопки: 'МАТЕРИАЛ' или 'ДОПОЛНИТЕЛЬНО'",
     )
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
-    image = models.ImageField(upload_to='products/', verbose_name="Изображение")
+    image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
-    price_prefix = models.CharField(max_length=10, verbose_name="Приставка к цене", default="от", blank=True, null=True)  # Новое поле
+    price_prefix = models.CharField(
+        max_length=10, verbose_name="Приставка к цене", default="от", blank=True, null=True
+    )
 
     class Meta:
         verbose_name = "Дополнительное к товарам"
         verbose_name_plural = "Дополнительные к товарам"
-    # ком
+
     game_kit_items_additional = models.ManyToManyField(
         GameKitItemAdditional,
         verbose_name="Элементы комплектации для допов",
         blank=True,
-        related_name='products',
+        related_name="products",
     )
+
     def __str__(self):
         return self.name
 
@@ -319,7 +331,7 @@ class AdditionalProducts(models.Model):
         active_discounts = self.discounts.filter(
             is_active=True,
             start_date__lte=datetime.now().date(),
-            end_date__gte=datetime.now().date()
+            end_date__gte=datetime.now().date(),
         )
 
         if not active_discounts.exists():
@@ -339,11 +351,11 @@ class AdditionalProductsImage(models.Model):
     additional_product = models.ForeignKey(
         AdditionalProducts,
         on_delete=models.CASCADE,
-        related_name='additional_images',
+        related_name="additional_images",
         verbose_name="Допы к товару",
     )
     image = models.ImageField(
-        upload_to='additional_product_images/additional/',
+        upload_to="additional_product_images/additional/",
         verbose_name="Дополнительное изображение",
     )
     is_main = models.BooleanField(default=False, verbose_name="Основное изображение")
@@ -353,37 +365,38 @@ class AdditionalProductsImage(models.Model):
         verbose_name_plural = "Дополнительные изображения допов товара"
 
     def __str__(self):
-        return f'Фото {self.additional_product}'
+        return f"Фото {self.additional_product}"
 
 class Order(models.Model):
     """Модель заказа"""
+
     name = models.CharField(max_length=100, verbose_name="Имя")
     phone = models.CharField(max_length=15, verbose_name="Телефон")
     order_type = models.CharField(
         max_length=10,
-        choices=[('buy', 'Купить'), ('rent', 'Аренда'), ('double_buy', 'Купить 2 игры на одной доске')],
+        choices=[("buy", "Купить"), ("rent", "Аренда"), ("double_buy", "Купить 2 игры на одной доске")],
         verbose_name="Тип заказа",
     )
     products = models.ManyToManyField(
         Product,
         blank=True,
         verbose_name="Выбранные товары",
-        related_name='order_products',
+        related_name="order_products",
     )
     additional_products = models.ManyToManyField(
         AdditionalProducts,
         blank=True,
         verbose_name="Дополнительные товары",
-        related_name='order_additional_products',
+        related_name="order_additional_products",
     )
     arenda = models.ManyToManyField(
-        Arenda, blank=True, verbose_name="Выбранные аренды", related_name='order_arenda'
+        Arenda, blank=True, verbose_name="Выбранные аренды", related_name="order_arenda"
     )
     games_for_rent = models.ManyToManyField(
         Product,
         blank=True,
         verbose_name="Игры для аренды",
-        related_name='order_games_for_rent',
+        related_name="order_games_for_rent",
     )
     date = models.DateField(verbose_name="Дата заказа", default=datetime.now)
     time = models.TimeField(verbose_name="Время заказа", default=datetime.now)
@@ -393,13 +406,13 @@ class Order(models.Model):
     )
     engraving = models.CharField(
         max_length=3,
-        choices=[('yes', 'Да'), ('no', 'Нет')],
-        default='no',
+        choices=[("yes", "Да"), ("no", "Нет")],
+        default="no",
         verbose_name="Гравировка",
     )
     double_game_count = models.PositiveSmallIntegerField(
         verbose_name="Количество игр на одной доске",
-        choices=[(1, '1 игра'), (2, '2 игры')],
+        choices=[(1, "1 игра"), (2, "2 игры")],
         default=1,
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
@@ -439,20 +452,21 @@ class Order(models.Model):
 
 class OrderedGameKitItem(models.Model):
     product = models.ForeignKey(
-        'Product', on_delete=models.CASCADE, related_name='ordered_game_kits'
+        "Product", on_delete=models.CASCADE, related_name="ordered_game_kits"
     )
-    game_kit_item = models.ForeignKey('GameKitItem', on_delete=models.CASCADE)
+    game_kit_item = models.ForeignKey("GameKitItem", on_delete=models.CASCADE)
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
-        ordering = ['order']
+        ordering = ["order"]
 
 class DiscountType(models.TextChoices):
-    PERCENTAGE = 'percentage', 'Процентная'
-    FIXED = 'fixed', 'Фиксированная'
+    PERCENTAGE = "percentage", "Процентная"
+    FIXED = "fixed", "Фиксированная"
 
 class Discount(models.Model):
     """Модель скидки"""
+
     name = models.CharField(max_length=200, verbose_name="Название скидки")
     discount_type = models.CharField(
         max_length=10,
@@ -468,25 +482,22 @@ class Discount(models.Model):
         Product,
         blank=True,
         verbose_name="Товары",
-        related_name='discounts'
+        related_name="discounts"
     )
     arendas = models.ManyToManyField(
-        Arenda,
-        blank=True,
-        verbose_name="Аренды",
-        related_name='discounts'
+        Arenda, blank=True, verbose_name="Аренды", related_name="discounts"
     )
     additional_products = models.ManyToManyField(
         AdditionalProducts,
         blank=True,
         verbose_name="Дополнительные товары",
-        related_name='discounts',
+        related_name="discounts",
     )
 
     class Meta:
         verbose_name = "Скидка"
         verbose_name_plural = "Скидки"
-        ordering = ['-start_date']
+        ordering = ["-start_date"]
 
     def __str__(self):
         return f"{self.name} ({self.get_discount_type_display()}: {self.value})"

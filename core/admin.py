@@ -250,6 +250,7 @@ class AdditionalProductsAdmin(admin.ModelAdmin):
                     "game_kit_items_additional",
                     "button_text_type",  # Добавляем новое поле
                     "price_prefix",  # Добавляем новое поле
+                    "material_html",  # Добавляем новое поле
                 ),
             },
         ),
