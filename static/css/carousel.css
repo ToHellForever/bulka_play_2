@@ -7,12 +7,19 @@
 .news-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto; /* Фиксированная высота для всех карточек */
   width: 100%;
 }
 
-.news-card > .news-card-button {
-  margin-top: auto;
+.news-card-button {
+  width: auto;
+  max-width: 70%;
+  height: auto;
+  background-color: rgba(248, 128, 5, 1);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin-top: auto; /* Прижимаем кнопку к низу */
 }
 .news_card_image {
   width: 100%;
@@ -37,14 +44,6 @@
   margin-right: 10px;
 }
 
-.news-card-button {
-  width: auto;
-  height: auto;
-  background-color: rgba(248, 128, 5, 1);
-  border-radius: 10px;
-  border: none;
-  padding: 10px;
-}
 
 .arend-card {
   background: rgba(248, 128, 5, 1);

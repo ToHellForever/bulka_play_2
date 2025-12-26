@@ -628,6 +628,9 @@ h4 {
   .contact_catalog_h {
     font-size: 1.5rem;
   }
+  .news-card-button {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 1050px) {
     .about_block_text {
@@ -687,7 +690,7 @@ h4 {
         text-align: start;
     }
     .news-card-button {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
     .rental_catalog_landing_h,
     .contact_catalog_h,
