@@ -100,18 +100,9 @@
 
     <div class='container button-container'>
             <div class="button-row additional-button-row">
-<div class="button-info-container">
-    <button class="button" onclick="showInfo('info1')">
-        {% if additional_product.button_text_type == 'additional' %}
-            ДОПОЛНИТЕЛЬНО
-        {% elif additional_product.name == 'СЕРТИФИКАТЫ' %}
-            ДОПОЛНИТЕЛЬНО
-        {% else %}
-            МАТЕРИАЛ
-        {% endif %}
-        <img src="/media/icon/select_arrow.svg" alt="" class='arrow_accorderon'>
-    </button>
-</div>
+                <div class="button-info-container">
+                    <button class="button" onclick="showInfo('info1')">МАТЕРИАЛ <img src="/media/icon/select_arrow.svg" alt="" class='arrow_accorderon'></button>
+                </div>
                 <div class="button-info-container">
                     <button class="button" onclick="showInfo('info2')">ДОСТАВКА <img src="/media/icon/select_arrow.svg" alt="" class='arrow_accorderon'></button>
                 </div>
