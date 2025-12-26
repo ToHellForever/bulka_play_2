@@ -17,7 +17,7 @@
         </div>
         <div class='col-5'>
             <h1 class='product_detail_name'>{{ product.name }}</h1>
-            <p class='product_detail_description'>{{ product.description }}</p>
+            <div class='product_detail_description'>{{ product.description|safe }}</div>
             <p class='product_detail_set'>КОМПЛЕКТ</p>
             <div class="kit-container">
                 {% for item in product.ordered_game_kits.all %}
@@ -80,7 +80,7 @@
                 {% endif %}
             {% endwith %}
         </p>
-        <p class='product_detail_description'>{{ product.description }}</p>
+        <div class='product_detail_description'>{{ product.description|safe }}</div>
         <p class='product_detail_set'>КОМПЛЕКТ</p>
         <div class="kit-container-mobile">
             {% for item in product.ordered_game_kits.all %}
@@ -113,7 +113,7 @@
         </div>
     </div>
     <div id="info1" class="info-block">
-        <p>{{ product.game_rules|safe|linebreaks }}</p>
+        {{ product.game_rules|safe|linebreaks }}
     </div>
     <div id="info2" class="info-block">
         <ul>
@@ -132,8 +132,8 @@
         </ul>
     </div>
     <div id="info4" class="info-block">
-        <p>{{ product.additional_info|safe|linebreaks }}</p>
-    </div>
+        {{ product.additional_info|safe|linebreaks }}
+    </div>  
 </div>
 
 

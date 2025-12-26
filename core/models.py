@@ -87,7 +87,7 @@ class Product(models.Model):
     """Модель товара"""
 
     name = models.CharField(max_length=200, verbose_name="Название")
-    description = models.TextField(verbose_name="Описание")
+    description = models.TextField(verbose_name="Описание", blank=True, null=True, default="")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
@@ -107,6 +107,7 @@ class Product(models.Model):
         verbose_name="Правила игры",
         blank=True,
         null=True,
+        default="",
         help_text="Введите правила игры. Каждый новый пункт будет отображаться с новой строки.",
     )
 
@@ -117,6 +118,7 @@ class Product(models.Model):
         null=True,
         help_text="Введите дополнительную информацию. Каждый новый пункт будет отображаться с новой строки.",
     )
+
     # Связи с атрибутами
     sizes = models.ManyToManyField(Size, verbose_name="Размеры", blank=True)
     player_counts = models.ManyToManyField(PlayerCount, verbose_name="Количество игроков", blank=True)
@@ -292,16 +294,9 @@ class AdditionalProducts(models.Model):
     ]
 
     name = models.CharField(max_length=200, verbose_name="Название")
-    description = models.TextField(verbose_name="Описание")
-    description_2 = models.TextField(verbose_name="Описание_2", default="")
-    material_html = models.TextField(verbose_name="HTML-материал", blank=True, null=True, default="")
-    button_text_type = models.CharField(
-        max_length=10,
-        choices=BUTTON_TEXT_CHOICES,
-        default="material",
-        verbose_name="Тип текста кнопки",
-        help_text="Выберите текст для кнопки: 'МАТЕРИАЛ' или 'ДОПОЛНИТЕЛЬНО'",
-    )
+    description = models.TextField(verbose_name="Описание", blank=True, null=True, default="")
+    description_2 = models.TextField(verbose_name="Описание_2", blank=True, null=True, default="")
+    material = models.TextField(max_length=200, verbose_name="Материал", default="", blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
