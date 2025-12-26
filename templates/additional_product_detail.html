@@ -29,7 +29,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <p class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</p>
+            <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
 <p class='additional_detail_price'>
   {% with discounted_price=additional_product.get_discounted_price %}
     {% if discounted_price != additional_product.price %}
@@ -93,7 +93,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <p class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</p>
+            <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
             <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
         </div>
     </div>
@@ -108,7 +108,7 @@
                 </div>
             </div>
 <div id="info1" class="info-block">
-                {{ additional_product.material_html|safe|linebreaks }}
+                {{ additional_product.material|safe|linebreaks }}
             </div>
             <div id="info2" class="info-block">
                 <p><b>Мы осуществляем доставку по всей территории России.</b></p>
