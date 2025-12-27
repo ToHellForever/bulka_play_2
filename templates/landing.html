@@ -169,3 +169,134 @@
   </div>
 </div>
 {% endblock content%}
+
+{% block scripts %}
+{{ block.super }}
+
+<!-- Модальное окно уведомления о скидках -->
+<div id="discountModal" class="discount-modal">
+  <div class="discount-modal-content">
+    <span class="discount-close" onclick="closeDiscountModal()">&times;</span>
+    <div class="discount-icon"><img src="/media/icon/success_icon.png" alt=""></div>
+    <h2 class="discount-title">У нас действуют скидки!</h2>
+    <p class="discount-message">Спешите воспользоваться выгодными предложениями.</p>
+    <button class="discount-ok-button" onclick="closeDiscountModal()">ХОРОШО</button>
+  </div>
+</div>
+
+<style>
+  .discount-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .discount-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+
+  .discount-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .discount-close:hover {
+    color: black;
+  }
+
+  .discount-icon {
+    margin: 20px auto;
+    width: 80px;
+    height: 80px;
+  }
+
+  .discount-icon img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .discount-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .discount-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .discount-ok-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .discount-ok-button:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<script>
+  // Функция для проверки наличия скидок на странице
+  function checkForDiscounts() {
+    const discountedElements = document.querySelectorAll('.landing-discounted-price, .arend-discounted-price');
+    return discountedElements.length > 0;
+  }
+
+  // Функция для показа модального окна скидок
+  function showDiscountModal() {
+    const discountModal = document.getElementById('discountModal');
+    if (discountModal) {
+      discountModal.style.display = 'block';
+    }
+  }
+
+  // Функция для закрытия модального окна скидок
+  function closeDiscountModal() {
+    const discountModal = document.getElementById('discountModal');
+    if (discountModal) {
+      discountModal.style.display = 'none';
+      // Сохраняем в sessionStorage, что окно было закрыто
+      sessionStorage.setItem('discountModalClosed', 'true');
+    }
+  }
+
+  // Проверка скидок при загрузке страницы
+  document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем, было ли окно уже закрыто в текущей сессии
+    const isModalClosed = sessionStorage.getItem('discountModalClosed');
+    if (isModalClosed !== 'true') {
+      // Проверяем скидки сразу
+      if (checkForDiscounts()) {
+        showDiscountModal();
+      } else {
+        // Если скидки не найдены, проверяем снова через 1 секунду (для динамически загружаемых элементов)
+        setTimeout(function() {
+          if (checkForDiscounts()) {
+            showDiscountModal();
+          }
+        }, 1000);
+      }
+    }
+  });
+</script>
+{% endblock scripts %}

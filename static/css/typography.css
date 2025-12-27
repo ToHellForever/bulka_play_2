@@ -42,6 +42,8 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     text-align: start !important;
+}
+.game_catalog_h {
     margin-left: -10px;
 }
 
@@ -394,7 +396,7 @@ h4 {
     color: white;
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .game-price {
     color: white;
