@@ -175,7 +175,11 @@
 <div class='col-6' style="display: flex; flex-direction: column; justify-content: space-between;">
             <h1 class='product_detail_name'>{{ additional_product.name }}</h1>
             <p class='product_detail_description'>{{ additional_product.description }}</p>
-            <p class='additional_detail_set'>ОПИСАНИЕ</p>
+            {% if additional_product.name == 'ГРАВИРОВКА' %}
+                <p class='additional_detail_set'>МЫ МОЖЕМ НАНЕСТИ:</p>
+            {% else %}
+                <p class='additional_detail_set'>ОПИСАНИЕ</p>
+            {% endif %}
             <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
 <p class='additional_detail_price'>
   {% with discounted_price=additional_product.get_discounted_price %}
@@ -211,7 +215,11 @@
                 {% endwith %}
             </p>
             <p class='product_detail_description'>{{ additional_product.description }}</p>
-            <p class='additional_detail_set'>ОПИСАНИЕ</p>
+            {% if additional_product.name == 'ГРАВИРОВКА' %}
+                <p class='additional_detail_set'>МЫ МОЖЕМ НАНЕСТИ:</p>
+            {% else %}
+                <p class='additional_detail_set'>ОПИСАНИЕ</p>
+            {% endif %}
             <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
             <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
         </div>
