@@ -18,10 +18,12 @@
     height: auto;
     border-radius: 22.66px;
 }
+
 .row_detail {
     margin-left: -22px;
     margin-right: -22px;
 }
+
 .kit-container {
     display: grid;
     grid-gap: 10px;
@@ -69,13 +71,16 @@
 }
 
 .product_detail_button {
-    width: 100%;
+    width: 98%;
     padding: 1rem;
     border-radius: 10px;
     background-color: rgba(248, 128, 5, 1);
     color: rgba(33, 33, 33, 1);
     border: none;
     cursor: pointer;
+    margin-left: -10px;
+    position: absolute;
+    bottom: 0;
 }
 
 .button-container {
@@ -96,12 +101,12 @@
     margin-bottom: 10px;
 }
 
-
 .button-info-container {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .button {
     flex: 1;
     padding: 15px 20px;
@@ -137,13 +142,12 @@
     transform: rotate(180deg);
 }
 
-
-
 @media (max-width: 1200px) {
     .kit-item {
         padding: 10px;
     }
 }
+
 @media (max-width: 992px) {
     /* Стили для мобильной карусели */
     .product-main-swiper-mobile {
@@ -187,6 +191,7 @@
         flex: 0 0 auto;
         white-space: nowrap;
     }
+
     .kit-container-mobile {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
@@ -222,8 +227,11 @@
     .product_detail_button {
         width: 100%;
         padding: 10px;
+        position: relative;
         margin-top: 20px;
+        margin-left: 2px;
     }
+
     .d-md-none {
         display: block !important;
     }
@@ -231,11 +239,11 @@
     .d-md-flex {
         display: none !important;
     }
+
     .product_detail_image_list {
         border-radius: 10px;
     }
 }
-
 
 .game-card {
     display: flex;
