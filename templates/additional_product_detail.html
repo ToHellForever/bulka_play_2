@@ -4,6 +4,7 @@
 {% comment %} название игры {% endcomment %}
 {% block title %}{{ additional_product.name }}{% endblock title %}
 {% block content %}
+{% if 'СУМКА' in additional_product.name or additional_product.name == 'ПОДСТАВКА ДЛЯ ИГР' %}
 <div class="container mt-5">
     <!-- Десктопная версия -->
 <div class="row mt-5 d-none d-md-flex" style='display: flex; flex-direction: row;'>
@@ -161,6 +162,102 @@
         {% endfor %}
       </div>
     </div>
+
+
+{% comment %} версия для ГРАВИРОВКИ И ПОДАРОЧНОГО СЕРТИФИКАТА {% endcomment %}
+{% elif additional_product.name == 'ГРАВИРОВКА' or 'ПОДАРОЧНЫЙ СЕРТИФИКАТ' in additional_product.name %}
+<div class="container mt-5">
+    <!-- Десктопная версия -->
+<div class="row mt-5 d-none d-md-flex" style='display: flex; flex-direction: row;'>
+  <div class='col-6'>
+      <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
+  </div>
+<div class='col-6' style="display: flex; flex-direction: column; justify-content: space-between;">
+            <h1 class='product_detail_name'>{{ additional_product.name }}</h1>
+            <p class='product_detail_description'>{{ additional_product.description }}</p>
+            <p class='additional_detail_set'>ОПИСАНИЕ</p>
+            <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
+<p class='additional_detail_price'>
+  {% with discounted_price=additional_product.get_discounted_price %}
+    {% if discounted_price != additional_product.price %}
+<span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+<span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.</span>
+    {% else %}
+      {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
+    {% endif %}
+  {% endwith %}
+</p>
+            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+        </div>
+    </div>
+
+<!-- Мобильная версия -->
+<div class="row mt-5 d-md-none">
+    <div class="col-12">
+  <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
+</div>
+    <!-- Описание и кнопка заказа для мобильной версии -->
+    <div class="row mt-3 d-md-none">
+        <div class="col-12">
+            <h1 class='product_detail_name'>{{ additional_product.name }}</h1>
+            <p class='product_detail_price'>
+                {% with discounted_price=additional_product.get_discounted_price %}
+                    {% if discounted_price != additional_product.price %}
+                        <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+                        <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.</span>
+                    {% else %}
+                        {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
+                    {% endif %}
+                {% endwith %}
+            </p>
+            <p class='product_detail_description'>{{ additional_product.description }}</p>
+            <p class='additional_detail_set'>ОПИСАНИЕ</p>
+            <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
+            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+        </div>
+    </div>
+</div>
+<div class='container mt-5' id='look-also-section'>
+      <h1 class='game_catalog_h'>СМОТРИТЕ ТАКЖЕ</h1>
+      <div class='row row_detail'>
+        {% for product in products %}
+          <div class='col-6 col-md-4 col-lg-3 mt-5'>
+            <div class="game-card">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
+              <h1 class='product_card_name'>{{ product.name }}</h1>
+              <p class="product_card_price">{{ product.price|format_price }} руб.</p>
+              <a href="{% url 'product_detail' pk=product.pk %}" class="product_card_button">ПОДРОБНЕЕ</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class='container mt-5' id='bought-together-section'>
+      <h1 class='game_catalog_h'>С ЭТИМ ТОВАРОМ ПОКУПАЮТ</h1>
+      <div class='row row_detail'>
+        {% for additional_product in similar_additional_products %}
+          <div class='col-6 col-md-4 col-lg-3 mt-5'>
+            <div class="game-card">
+              <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
+              <h1 class='product_card_name'>{{ additional_product.name }}</h1>
+              <p class="product_card_price">
+                {% with discounted_price=additional_product.get_discounted_price %}
+                  {% if discounted_price != additional_product.price %}
+<span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
+<span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
+                  {% else %}
+                    {{ additional_product.price|format_price }} руб.
+                  {% endif %}
+                {% endwith %}
+              </p>
+              <a href="{% url 'additional_product_detail' pk=additional_product.pk %}" class="product_card_button">ПОДРОБНЕЕ</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+{% endif %}
 {% endblock content %}
 
 {% block scripts %}
