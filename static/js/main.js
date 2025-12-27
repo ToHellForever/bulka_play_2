@@ -639,3 +639,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+// Функция для проверки наличия скидок на странице
+function checkForDiscounts() {
+  const discountedElements = document.querySelectorAll('.landing-discounted-price, .arend-discounted-price');
+  return discountedElements.length > 0;
+}
+
+// Функция для показа модального окна скидок
+function showDiscountModal() {
+  const discountModal = document.getElementById('discountModal');
+  if (discountModal) {
+    discountModal.style.display = 'block';
+  }
+}
+
+// Функция для закрытия модального окна скидок
+function closeDiscountModal() {
+  const discountModal = document.getElementById('discountModal');
+  if (discountModal) {
+    discountModal.style.display = 'none';
+    // Сохраняем в sessionStorage, что окно было закрыто
+    sessionStorage.setItem('discountModalClosed', 'true');
+  }
+}
+
+// Проверка скидок при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+  // Проверяем, было ли окно уже закрыто в текущей сессии
+  const isModalClosed = sessionStorage.getItem('discountModalClosed');
+  if (isModalClosed !== 'true') {
+    // Проверяем скидки сразу
+    if (checkForDiscounts()) {
+      showDiscountModal();
+    } else {
+      // Если скидки не найдены, проверяем снова через 1 секунду (для динамически загружаемых элементов)
+      setTimeout(function() {
+        if (checkForDiscounts()) {
+          showDiscountModal();
+        }
+      }, 1000);
+    }
+  }
+});

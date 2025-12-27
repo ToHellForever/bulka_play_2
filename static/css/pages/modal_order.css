@@ -290,7 +290,8 @@
 }
 
 /* Модальное окно поздравления */
-.success-modal {
+.success-modal,
+.discount-modal {
     display: none;
     position: fixed;
     z-index: 2000;
@@ -302,7 +303,8 @@
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.success-modal-content {
+.success-modal-content,
+.discount-modal-content {
     background-color: rgba(33, 33, 33, 1);
     margin: 15% auto;
     padding: 30px;
@@ -331,7 +333,8 @@
     cursor: pointer;
     margin-top: 20px;
 }
-.success-close {
+.success-close,
+.discount-close {
     color: #aaa;
     position: absolute;
     right: 20px;
@@ -353,7 +356,8 @@
   .submit-button {
     width: 100%;
   }
-  .success-icon {
+  .success-icon,
+  .discount-close {
     width: 50%;
     height: auto;
   }
