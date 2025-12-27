@@ -639,6 +639,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+
 // Функция для проверки наличия скидок на странице
 function checkForDiscounts() {
   const discountedElements = document.querySelectorAll('.landing-discounted-price, .arend-discounted-price');

@@ -462,6 +462,13 @@ class Discount(models.Model):
     """Модель скидки"""
 
     name = models.CharField(max_length=200, verbose_name="Название скидки")
+    description = models.TextField(
+        verbose_name="Описание скидки",
+        blank=True,
+        null=True,
+        default="",
+        help_text="Описание скидки, которое будет отображаться на сайте"
+    )
     discount_type = models.CharField(
         max_length=10,
         choices=DiscountType.choices,

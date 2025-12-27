@@ -299,6 +299,7 @@ class DiscountAdmin(admin.ModelAdmin):
             {
                 "fields": (
                     "name",
+                    "description",
                     "discount_type",
                     "value",
                     "start_date",
