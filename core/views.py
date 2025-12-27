@@ -34,6 +34,18 @@ class LandingView(TemplateView):
         context["additional_products"] = AdditionalProducts.objects.filter(
             is_active=True
         ).order_by("-created_at")
+
+        # Get the active discount
+        from datetime import datetime
+        active_discount = Discount.objects.filter(
+            is_active=True,
+            start_date__lte=datetime.now().date(),
+            end_date__gte=datetime.now().date()
+        ).first()
+
+        # Add the active discount to the context
+        context["active_discount"] = active_discount
+
         return context
 
 

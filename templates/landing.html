@@ -175,7 +175,7 @@
     <span class="discount-close" onclick="closeDiscountModal()">&times;</span>
     <div class="success-icon"><img src="/media/icon/discaunt.png" alt=""></div>
     <h2 class="success-title">{{ active_discount.name }}</h2>
-    <p class="success-message">{{ active_discount.description|safe|linebreaks }}</p>
+    <div class="success-message">{{ active_discount.description|safe|linebreaks }}</div>
     <button class="success-ok-button" onclick="closeDiscountModal()">ХОРОШО</button>
   </div>
 </div>
