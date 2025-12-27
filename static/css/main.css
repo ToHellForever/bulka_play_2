@@ -163,26 +163,36 @@ div.game-card-rental.style-2 .arend-discounted-price {
 
 /* Стили для скидок в аренде */
 .arend-original-price {
-  color: #cccccc;
-  text-decoration: line-through;
-  font-size: 1.2rem;
+    margin-top: 10px;
 }
 
-.arend-discounted-price {
-  color: #e63946;
-    font-size: 1.7rem;
+/* Альтернативный стиль для карточек аренды - более специфичный и заметный */
+div.game-card-rental.style-2 {
+    background: white;
 }
 
-/* Стили для скидок в альтернативном стиле аренды */
-.arend-card.style-2 .arend-original-price {
-  color: #cccccc;
-  text-decoration: line-through;
-  font-size: 1.2rem;
+/* Стили для описания в альтернативном стиле */
+div.game-card-rental.style-2 p.arend-card-description {
+    color: black;
 }
 
-.arend-card.style-2 .arend-discounted-price {
-  color: #e63946;
-    font-size: 1.7rem;
+/* Стили для плашки скидки на фото товара */
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(247, 55, 5, 1);
+    color: white;
+    padding: 5px 5px 5px 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    z-index: 10;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Unbounded', sans-serif;
 }
 .arend-original-price {
     margin-top: 10px;

@@ -91,17 +91,24 @@
     {% for product in products %}
     <div class="swiper-slide">
       <div class="product-card">
-        <a href="{% url 'product_detail' pk=product.pk %}">
-        <img src="{{ product.image.url }}" alt="{{ product.name }}" class='product_card_image'>
+        <a href="{% url 'product_detail' pk=product.pk %}" class="product-image-container">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" class='product_card_image'>
+          {% with discount_percentage=product.get_discount_percentage %}
+            {% if discount_percentage %}
+              <div class="discount-badge">
+                -{{ discount_percentage|format_price }}%
+              </div>
+            {% endif %}
+          {% endwith %}
         </a>
         <h1 class="product-card-title">{{ product.name }}</h1>
         <p class="product-card-price">
           {% with discounted_price=product.get_discounted_price %}
             {% if discounted_price != product.price %}
-<span class="landing-discounted-price">{{ discounted_price|format_price }} руб.</span>
-<span class="landing-original-price">{{ product.price|format_price }} руб.</span>
+              <span class="landing-discounted-price">{{ discounted_price|format_price }} руб.</span>
+              <span class="landing-original-price">{{ product.price|format_price }} руб.</span>
             {% else %}
-{{ product.price|format_price }} руб.
+              {{ product.price|format_price }} руб.
             {% endif %}
           {% endwith %}
         </p>
@@ -141,7 +148,6 @@
     </div>
     {% endfor %}
   </div>
-</div>
 </div>
 
 <div class="container contacts-container mt-5">

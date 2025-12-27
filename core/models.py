@@ -154,6 +154,37 @@ class Product(models.Model):
 
         return best_price
 
+    def get_discount_percentage(self):
+        """Возвращает процент скидки, если она активна"""
+        active_discounts = self.discounts.filter(
+            is_active=True,
+            start_date__lte=datetime.now().date(),
+            end_date__gte=datetime.now().date(),
+        )
+
+        if not active_discounts.exists():
+            return None
+
+        # Находим самую выгодную скидку
+        best_discount = None
+        best_price = self.price
+
+        for discount in active_discounts:
+            discounted_price = discount.apply_discount(self.price)
+            if discounted_price < best_price:
+                best_price = discounted_price
+                best_discount = discount
+
+        if best_discount:
+            if best_discount.discount_type == "percentage":
+                return best_discount.value
+            else:  # FIXED
+                # Вычисляем эквивалентный процент скидки для фиксированной суммы
+                discount_amount = self.price - best_price
+                discount_percentage = (discount_amount / self.price) * 100
+                return round(discount_percentage)
+        return None
+
 class ProductImage(models.Model):
     product = models.ForeignKey(
         Product,
