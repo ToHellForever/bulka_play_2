@@ -280,7 +280,31 @@ class Arenda(models.Model):
     def get_time_in_hours(self):
         """Возвращает время аренды в часах"""
         return self.time // 60
+    def get_total_price(self):
+        """Возвращает общую сумму заказа с учетом скидок"""
+        total = 0
 
+        # Товары
+        for product in self.products.all():
+            # Если выбрано 2 игры на одной доске, то цена за каждую игру уменьшается на 10%
+            if self.double_game_count == 2:
+                total += product.get_discounted_price() * 0.9 * 2
+            else:
+                total += product.get_discounted_price()
+
+        # Дополнительные товары
+        for additional_product in self.additional_products.all():
+            total += additional_product.get_discounted_price()
+
+        # Аренды
+        for arenda in self.arenda.all():
+            total += arenda.get_discounted_price()
+
+        # Игры для аренды
+        for game in self.games_for_rent.all():
+            total += game.get_discounted_price()
+
+        return total
 class News(models.Model):
     """Модель новости"""
 
@@ -371,7 +395,31 @@ class AdditionalProducts(models.Model):
                 best_price = discounted_price
 
         return best_price
+    def get_total_price(self):
+        """Возвращает общую сумму заказа с учетом скидок"""
+        total = 0
 
+        # Товары
+        for product in self.products.all():
+            # Если выбрано 2 игры на одной доске, то цена за каждую игру уменьшается на 10%
+            if self.double_game_count == 2:
+                total += product.get_discounted_price() * 0.9 * 2
+            else:
+                total += product.get_discounted_price()
+
+        # Дополнительные товары
+        for additional_product in self.additional_products.all():
+            total += additional_product.get_discounted_price()
+
+        # Аренды
+        for arenda in self.arenda.all():
+            total += arenda.get_discounted_price()
+
+        # Игры для аренды
+        for game in self.games_for_rent.all():
+            total += game.get_discounted_price()
+
+        return total
 class AdditionalProductsImage(models.Model):
     additional_product = models.ForeignKey(
         AdditionalProducts,
