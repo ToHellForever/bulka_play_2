@@ -42,6 +42,7 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     text-align: start !important;
+    margin-left: -10px;
 }
 
 .product-card-title {

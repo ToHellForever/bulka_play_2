@@ -265,6 +265,7 @@
       </div>
     </div>
 
+    {% if not 'ПОДАРОЧНЫЙ СЕРТИФИКАТ' in additional_product.name %}
     <div class='container mt-5' id='bought-together-section'>
       <h1 class='game_catalog_h'>С ЭТИМ ТОВАРОМ ПОКУПАЮТ</h1>
       <div class='row row_detail'>
@@ -289,6 +290,7 @@
         {% endfor %}
       </div>
     </div>
+    {% endif %}
 {% endif %}
 {% endblock content %}
 
