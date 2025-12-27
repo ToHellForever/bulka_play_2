@@ -98,7 +98,7 @@
 <span class="modal-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
 <span class="modal-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.</span>
                     {% else %}
-                      {{ additional_product.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.
+                      {{ additional.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.
                     {% endif %}
                   {% endwith %}
                 </p>

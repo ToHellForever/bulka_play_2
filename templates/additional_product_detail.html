@@ -152,7 +152,7 @@
 <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
 <span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
                   {% else %}
-                    {{ additional_product.price|format_price }} руб.
+                    {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
                   {% endif %}
                 {% endwith %}
               </p>
@@ -255,7 +255,7 @@
 <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
 <span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
                   {% else %}
-                    {{ additional_product.price|format_price }} руб.
+                    {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
                   {% endif %}
                 {% endwith %}
               </p>
