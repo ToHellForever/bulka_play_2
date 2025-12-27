@@ -71,16 +71,13 @@
 }
 
 .product_detail_button {
-    width: 98%;
+    width: 100%;
     padding: 1rem;
     border-radius: 10px;
     background-color: rgba(248, 128, 5, 1);
     color: rgba(33, 33, 33, 1);
     border: none;
     cursor: pointer;
-    margin-left: -10px;
-    position: absolute;
-    bottom: 0;
 }
 
 .button-container {

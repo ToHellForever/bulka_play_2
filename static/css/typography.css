@@ -795,6 +795,7 @@ h4 {
     }
     .product_detail_description {
         font-size: 1rem;
+        margin-bottom: 1rem;
     }
 
     /* модальное окно заказа */
