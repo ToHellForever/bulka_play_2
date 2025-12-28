@@ -54,7 +54,7 @@
   <h3 class="modal-title-section">Выбор игр для покупки</h3>
   <div class="row modal-row" id="buy-games-container">
     {% for product in products %}
-    <div class="col-md-4 col-6">
+    <div class="col-md-4 col-6 modal-col">
       <div class="game-card-modal">
         <div class="position-relative">
           <div class="game-checkbox">
@@ -90,7 +90,7 @@
   <h3 class="modal-title-section">Дополнительные товары</h3>
   <div class="row modal-row" id="additional-goods-container">
     {% for additional in additional_products %}
-    <div class="col-md-4 col-6">
+    <div class="col-md-4 col-6 modal-col">
       <div class="game-card-modal">
         <div class="position-relative">
           <div class="game-checkbox">
@@ -165,7 +165,7 @@
         <div class="row modal-row" id="rent-games-container">
           <!-- Игры для аренды будут загружены динамически -->
           {% for product in products %}
-          <div class="col-md-4 col-6">
+          <div class="col-md-4 col-6 modal-col mt-3">
             <div class="game-card-modal" data-game-id="{{ product.id }}">
               <div class="game-checkbox">
                 <input type="checkbox" name="selected_rent_game" value="{{ product.id }}">

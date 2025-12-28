@@ -43,9 +43,6 @@
     color: rgba(255, 255, 255, 1);
     text-align: start !important;
 }
-.game_catalog_h {
-    margin-left: -10px;
-}
 
 .product-card-title {
     font-family: 'Unbounded' , sans-serif;
@@ -893,6 +890,7 @@ h4 {
 @media (max-width: 767px) {
     .arend-card-time {
         font-size: 1.4rem;
+        margin-bottom: -10px !important;
     }
     .arend-card-price {
     display: flex;

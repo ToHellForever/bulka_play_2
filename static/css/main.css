@@ -25,7 +25,6 @@ body {
     font-family: 'Mont', sans-serif;
     font-weight: 400;
     font-size: 1.8rem;
-    margin-right: 10px;
 }
 .modal-discounted-price {
     font-size: 1.4rem;
@@ -144,7 +143,7 @@ div.game-card-rental.style-2 p.arend-card-description {
     .catalog-original-price,
     .modal-original-price,
     .product-detail-original-price {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     
 

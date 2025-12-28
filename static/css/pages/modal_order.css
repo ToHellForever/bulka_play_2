@@ -187,6 +187,12 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.modal-col {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
 }
 .game-card-modal {
   border-radius: 8px;
