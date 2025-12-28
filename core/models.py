@@ -307,27 +307,6 @@ class Arenda(models.Model):
 
         return best_price
 
-    def get_discounted_price(self):
-        """Возвращает цену дополнительного товара с учетом активных скидок"""
-        active_discounts = self.discounts.filter(
-            is_active=True,
-            start_date__lte=datetime.now().date(),
-            end_date__gte=datetime.now().date(),
-        )
-
-        if not active_discounts.exists():
-            return self.price
-
-        # Применяем самую выгодную скидку
-        best_price = self.price
-
-        for discount in active_discounts:
-            discounted_price = discount.apply_discount(self.price)
-            if discounted_price < best_price:
-                best_price = discounted_price
-
-        return best_price
-
     def get_discount_percentage(self):
         """Возвращает процент скидки, если она активна"""
         active_discounts = self.discounts.filter(
@@ -529,7 +508,26 @@ class AdditionalProducts(models.Model):
 
         return total
 
+    def get_discounted_price(self):
+        """Возвращает цену дополнительного товара с учетом активных скидок"""
+        active_discounts = self.discounts.filter(
+            is_active=True,
+            start_date__lte=datetime.now().date(),
+            end_date__gte=datetime.now().date(),
+        )
 
+        if not active_discounts.exists():
+            return self.price
+
+        # Применяем самую выгодную скидку
+        best_price = self.price
+
+        for discount in active_discounts:
+            discounted_price = discount.apply_discount(self.price)
+            if discounted_price < best_price:
+                best_price = discounted_price
+
+        return best_price
 class AdditionalProductsImage(models.Model):
     additional_product = models.ForeignKey(
         AdditionalProducts,
