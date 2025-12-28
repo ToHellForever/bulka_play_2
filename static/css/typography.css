@@ -771,13 +771,13 @@ h4 {
         font-size: 1.8rem;
     }
     .rental_catalog_p {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
     .guest_count_h {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .slider-label-start,
     .slider-label-end {
@@ -792,7 +792,7 @@ h4 {
         font-size: 0.9rem;
     }
     .rental_text {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .arend_description_h {
         color: rgba(248, 128, 5, 1);
