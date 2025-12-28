@@ -62,7 +62,7 @@
             <h1 class="arend-card-title">{{ arend.name }}</h1>
             {% with discount_percentage=arend.get_discount_percentage %}
               {% if discount_percentage %}
-                <div class="discount-badge">
+                <div class="discount-badge-2">
                   -{{ discount_percentage|format_price }}%
                 </div>
               {% endif %}

@@ -177,12 +177,14 @@ div.game-card-rental.style-2 p.arend-card-description {
 }
 
 /* Стили для плашки скидки на фото товара */
-.discount-badge {
+.discount-badge,
+.discount-badge-2 {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 0;
+    right: 0;
     background-color: rgba(247, 55, 5, 1);
     color: white;
+    margin: 15px;
     padding: 5px 5px 5px 10px;
     border-radius: 10px;
     font-size: 1rem;
@@ -193,6 +195,9 @@ div.game-card-rental.style-2 p.arend-card-description {
     align-items: center;
     justify-content: center;
     font-family: 'Unbounded', sans-serif;
+}
+.discount-badge-2 {
+    margin: -10px;
 }
 .arend-original-price {
     margin-top: 10px;
