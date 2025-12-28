@@ -421,7 +421,7 @@ h4 {
     color: black;
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -439,7 +439,7 @@ h4 {
     color: black;
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
 .price-container {
@@ -459,7 +459,9 @@ h4 {
   justify-content: flex-end;
 }
 
-
+.arend-price {
+    font-size: 1.8rem;
+}
 
 
 
@@ -628,6 +630,12 @@ h4 {
     .advantage-block-h,
     .advantage-block-h-2 {
         font-size: 1.3rem;
+    }
+    .arend-card-time {
+        font-size: 1.5rem;
+    }
+    .arend-price {
+        font-size: 1.5rem;
     }
 }
 @media (max-width: 1160px) {
@@ -801,11 +809,10 @@ h4 {
         margin-left: 10px;
         font-size: 1rem;
     }
-    .arend-card-price {
-        font-size: 1rem;
-        margin-top: 1rem;
-        margin-bottom: 0px;
+        .arend-price {
+        font-size: 1.4rem;
     }
+    
 
     /* детали товара */
     .highlighted-text {
@@ -884,17 +891,7 @@ h4 {
 
 @media (max-width: 767px) {
     .arend-card-time {
-        margin-right: 15px !important;
-        white-space: nowrap;
-        font-size: 0.9rem;
-        font-family: 'Unbounded', sans-serif;
-        font-weight: 400;
-    }
-    .arend-price {
-        font-size: 1.2rem;
-        font-family: 'Unbounded', sans-serif;
-        white-space: nowrap;
-        font-weight: 400;
+        font-size: 1.4rem;
     }
     .arend-card-price {
     display: flex;

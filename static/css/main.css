@@ -8,7 +8,6 @@ body {
 .modal-original-price,
 .catalog-original-price,
 .product-detail-original-price,
-.arend-original-price,
 .product-detail-original-price {
     text-decoration: line-through;
     color: gray;
@@ -24,7 +23,6 @@ body {
 .landing-discounted-price,
 .modal-discounted-price,
 .catalog-discounted-price,
-.arend-discounted-price,
 .product-detail-discounted-price {
     color: rgba(247, 55, 5, 1);
     font-family: 'Mont', sans-serif;
@@ -38,8 +36,20 @@ body {
 .modal-original-price {
     font-size: 1rem;
 }
+
+/* для аренды */
+.arend-original-price {
+    text-decoration: line-through;
+    color: black;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
 .arend-discounted-price {
-    margin-right: 0px;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
 }
 /* Общий класс для блока со скидками */
 .discount-block {
@@ -98,7 +108,11 @@ div.game-card-rental.style-2 p.arend-card-description {
 }
 
 
-
+@media (max-width: 1325px) {
+.arend-discounted-price {
+    font-size: 1.5rem;
+}
+}
 
 
 @media (max-width: 992px) {
@@ -132,5 +146,10 @@ div.game-card-rental.style-2 p.arend-card-description {
     .modal-original-price,
     .product-detail-original-price {
         font-size: 0.8rem;
+    }
+    
+
+    .arend-discounted-price {
+        font-size: 1.4rem;
     }
 }
