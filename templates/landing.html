@@ -141,7 +141,7 @@
           <p class="arend-card-description">В стоимость аренды входит:</p>
           <p class="arend-card-description">{{ arend.description|linebreaksbr }}</p>
           <div class="arend-card-price">
-            <span class="arend-card-time">{{ arend.rental_time }} часов</span>
+            <span class="arend-card-time">{{ arend.time }} </span>
             <div class="price-container">
               {% with discounted_price=arend.get_discounted_price %}
                 {% if discounted_price != arend.price %}

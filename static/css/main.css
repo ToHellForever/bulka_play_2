@@ -105,16 +105,24 @@ div.game-card-rental.style-2 p.arend-card-description {
     }
     .discounted-price,
     .landing-discounted-price,
-    .modal-discounted-price,
     .catalog-discounted-price,
     .arend-discounted-price {
         font-size: 1.2rem;
+        margin-right: 0px;
+    }
+    .catalog-discounted-price,
+    .modal-discounted-price {
+        font-size: 1rem;
+        
     }
     .original-price,
     .landing-original-price,
-    .modal-original-price,
     .catalog-original-price,
     .arend-original-price {
         font-size: 1rem;
+    }
+    .catalog-original-price,
+    .modal-original-price {
+        font-size: 0.8rem;
     }
 }
