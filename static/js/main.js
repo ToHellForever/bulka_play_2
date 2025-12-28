@@ -566,8 +566,16 @@ document.addEventListener('DOMContentLoaded', function() {
 window.showInfo = function(id) {
   const selectedBlock = document.getElementById(id);
   if (selectedBlock) {
-    const activeButton = event.currentTarget;
-    const arrow = activeButton.querySelector('.arrow_accorderon');
+    const buttons = document.querySelectorAll('.button');
+    let activeButton = null;
+
+    buttons.forEach(button => {
+      if (button.getAttribute('onclick') && button.getAttribute('onclick').includes(`showInfo('${id}')`)) {
+        activeButton = button;
+      }
+    });
+
+    const arrow = activeButton ? activeButton.querySelector('.arrow_accorderon') : null;
 
     if (selectedBlock.style.display === 'block') {
       selectedBlock.style.display = 'none';
@@ -588,9 +596,6 @@ window.showInfo = function(id) {
       // Show the selected info block
       selectedBlock.style.display = 'block';
       if (arrow) arrow.classList.add('active');
-
-      // Плавный скролл к блоку информации
-      selectedBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 };
