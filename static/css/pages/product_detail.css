@@ -129,7 +129,9 @@
     display: none;
     margin-top: 5px;
 }
-
+.info-block:nth-child(1) {
+    margin-left: 10px;
+}
 .arrow_accorderon {
     margin-left: 5px;
     transition: transform 0.3s ease-in-out;
@@ -179,6 +181,7 @@
         scrollbar-width: none;
         gap: 10px;
         padding-bottom: 15px;
+        padding-left: 0;
     }
 
     .button-container::-webkit-scrollbar {
@@ -189,7 +192,8 @@
         display: flex;
         gap: 10px;
         width: max-content;
-        padding: 0 15px;
+        padding: 0;
+        margin-left: 0;
     }
 
     .button {
@@ -209,7 +213,7 @@
         width: calc(100vw - 30px);
         padding: 20px;
         margin-top: 10px;
-        margin-left: -15px;
+        margin-left: 0;
         border-radius: 13px;
         background-color: rgba(33, 33, 33, 1);
         animation: fadeIn 0.3s ease-in-out;
