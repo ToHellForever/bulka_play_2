@@ -50,63 +50,78 @@
       </div>
 
       <!-- Секция покупки -->
-      <div id="buy-section" class="order-section" style="display: none;">
-        <h3 class="modal-title-section">Выбор игр для покупки</h3>
-
-        <div class="row modal-row" id="buy-games-container">
-          <!-- Игры будут загружены динамически -->
-          {% for product in products %}
-          <div class="col-md-4 col-6">
-            <div class="game-card-modal">
-              <div class="game-checkbox">
-                <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.get_discounted_price }}">
-              </div>
-              <img src="{{ product.image.url }}" alt="{{ product.name }}">
-              <div class="game-info">
-                <h4>{{ product.name }}</h4>
-                <p class="game-price">
-                  {% with discounted_price=product.get_discounted_price %}
-                    {% if discounted_price != product.price %}
-<span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
-<span class="modal-original-price">{{ product.price|format_price }} руб.</span>
-                    {% else %}
-                      {{ product.price|format_price }} руб.
-                    {% endif %}
-                  {% endwith %}
-                </p>
-              </div>
-            </div>
+<div id="buy-section" class="order-section" style="display: none;">
+  <h3 class="modal-title-section">Выбор игр для покупки</h3>
+  <div class="row modal-row" id="buy-games-container">
+    {% for product in products %}
+    <div class="col-md-4 col-6">
+      <div class="game-card-modal">
+        <div class="position-relative">
+          <div class="game-checkbox">
+            <input type="checkbox" name="selected_game" value="{{ product.id }}" data-price="{{ product.get_discounted_price }}">
           </div>
-          {% endfor %}
+          <img src="{{ product.image.url }}" alt="{{ product.name }}">
+          {% with discount_percentage=product.get_discount_percentage %}
+            {% if discount_percentage %}
+              <div class="discount-badge">
+                -{{ discount_percentage|format_price }}%
+              </div>
+            {% endif %}
+          {% endwith %}
         </div>
+        <div class="game-info">
+          <h4>{{ product.name }}</h4>
+          <p class="game-price">
+            {% with discounted_price=product.get_discounted_price %}
+              {% if discounted_price != product.price %}
+                <span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
+                <span class="modal-original-price">{{ product.price|format_price }} руб.</span>
+              {% else %}
+                {{ product.price|format_price }} руб.
+              {% endif %}
+            {% endwith %}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
-        <h3 class="modal-title-section">Дополнительные товары</h3>
-        <div class="row modal-row" id="additional-goods-container">
-          <!-- Дополнительные товары будут загружены динамически -->
-          {% for additional in additional_products %}
-          <div class="col-md-4 col-6">
-            <div class="game-card-modal">
-              <div class="game-checkbox">
-                <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.get_discounted_price }}">
-              </div>
-              <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
-              <div class="game-info">
-                <h4>{{ additional.name }}</h4>
-                <p class="game-price">
-                  {% with discounted_price=additional.get_discounted_price %}
-                    {% if discounted_price != additional.price %}
-<span class="modal-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
-<span class="modal-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.</span>
-                    {% else %}
-                      {{ additional.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.
-                    {% endif %}
-                  {% endwith %}
-                </p>
-              </div>
-            </div>
+  <h3 class="modal-title-section">Дополнительные товары</h3>
+  <div class="row modal-row" id="additional-goods-container">
+    {% for additional in additional_products %}
+    <div class="col-md-4 col-6">
+      <div class="game-card-modal">
+        <div class="position-relative">
+          <div class="game-checkbox">
+            <input type="checkbox" name="selected_good" value="{{ additional.id }}" data-price="{{ additional.get_discounted_price }}">
           </div>
-          {% endfor %}
+          <img src="{{ additional.image.url }}" alt="{{ additional.name }}">
+          {% with discount_percentage=additional.get_discount_percentage %}
+            {% if discount_percentage %}
+              <div class="discount-badge">
+                -{{ discount_percentage|format_price }}%
+              </div>
+            {% endif %}
+          {% endwith %}
         </div>
+        <div class="game-info">
+          <h4>{{ additional.name }}</h4>
+          <p class="game-price">
+            {% with discounted_price=additional.get_discounted_price %}
+              {% if discounted_price != additional.price %}
+                <span class="modal-discounted-price">{{ additional.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+                <span class="modal-original-price">{{ additional.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.</span>
+              {% else %}
+                {{ additional.price_prefix|default_if_none:"" }} {{ additional.price|format_price }} руб.
+              {% endif %}
+            {% endwith %}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
         <div class="form-group">
           <label for="engraving">Нужна гравировка?</label>

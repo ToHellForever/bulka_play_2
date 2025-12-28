@@ -64,38 +64,47 @@
   </div>
 </div>
 
-  <div class='container mt-1'>
-    <div class='row mt-1 game_catalog_row'>
-      {% if products %}
-        {% for product in products %}
-  <div class='col-6 col-xxl-3 col-lg-4 game_catalog_grid'>
-  <div class="game-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="game_catalog_card">
-    <h1 class='product_card_name'>{{ product.name }}</h1>
-    <p class="product_card_price">
-      {% with discounted_price=product.get_discounted_price %}
-        {% if discounted_price != product.price %}
-          <span class="catalog-discounted-price">{{ discounted_price|format_price }} руб.</span>
-          <span class="catalog-original-price">{{ product.price|format_price }} руб.</span>
-        {% else %}
-          {{ product.price|format_price }} руб.
-        {% endif %}
-      {% endwith %}
-    </p>
-    <a href="{% url 'product_detail' product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
+<div class='container mt-1'>
+  <div class='row mt-1 game_catalog_row'>
+    {% if products %}
+      {% for product in products %}
+        <div class='col-6 col-xxl-3 col-lg-4 game_catalog_grid'>
+          <div class="game-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+            <div class="position-relative">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" class="game_catalog_card">
+              {% with discount_percentage=product.get_discount_percentage %}
+                {% if discount_percentage %}
+                  <div class="discount-badge">
+                    -{{ discount_percentage|format_price }}%
+                  </div>
+                {% endif %}
+              {% endwith %}
+            </div>
+            <h1 class='product_card_name'>{{ product.name }}</h1>
+            <p class="product_card_price">
+              {% with discounted_price=product.get_discounted_price %}
+                {% if discounted_price != product.price %}
+                  <span class="catalog-discounted-price">{{ discounted_price|format_price }} руб.</span>
+                  <span class="catalog-original-price">{{ product.price|format_price }} руб.</span>
+                {% else %}
+                  {{ product.price|format_price }} руб.
+                {% endif %}
+              {% endwith %}
+            </p>
+            <a href="{% url 'product_detail' product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="col-12 text-center">
+        <img src="/media/icon/no_result.png" alt="" class="no_result_img">
+        <h3 class='no_result_h'>По вашему запросу ничего не нашлось.</h3>
+        <p class='no_result_text'>Попробуйте другой вариант или перейдите в каталог.</p>
+        <button class='no_result_button'><a href="{% url 'game_catalog' %}" class='no_result_a'>КАТАЛОГ ИГР</a></button>
+      </div>
+    {% endif %}
   </div>
 </div>
-        {% endfor %}
-      {% else %}
-        <div class="col-12 text-center">
-          <img src="/media/icon/no_result.png" alt="" class="no_result_img">
-          <h3 class='no_result_h'>По вашему запросу ничего не нашлось.</h3>
-          <p class='no_result_text'>Попробуйте другой вариант или перейдите в каталог.</p>
-          <button class='no_result_button'><a href="{% url 'game_catalog' %}" class='no_result_a'>КАТАЛОГ ИГР</a></button>
-        </div>
-      {% endif %}
-    </div>
-  </div>
 
 <div class='container mt-5'>
   <h1 class='game_catalog_h mb-5'>ДОПОЛНИТЕЛЬНО</h1>
