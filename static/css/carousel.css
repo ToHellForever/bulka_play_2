@@ -32,6 +32,7 @@
   display: flex;
   justify-content: center;
   width: calc(100% / 3);
+  height: auto; /* Автоматическая высота слайда */
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -48,12 +49,14 @@
 .arend-card {
   background: rgba(248, 128, 5, 1);
   width: 100%;
-  height: auto;
   padding: 2rem;
   border-radius: 35.3px;
   color: white;
   transition: transform 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Полная высота внутри слайдера */
 }
 
 /* Альтернативный стиль для карточек аренды на главной странице */

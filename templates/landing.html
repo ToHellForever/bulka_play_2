@@ -125,10 +125,10 @@
 <div class="swiper rental-swiper">
   <div class="swiper-button-prev custom-prev"></div>
   <div class="swiper-button-next custom-next"></div>
-  <div class="swiper-wrapper">
-    {% for arend in arenda %}
-    <div class="swiper-slide">
-      <div class="arend-card{% if arend.card_style == 2 %} style-2{% endif %}">
+  <div class="swiper-wrapper" style="align-items: stretch;">
+      {% for arend in arenda %}
+      <div class="swiper-slide" style="height: auto;">
+        <div class="arend-card{% if arend.card_style == 2 %} style-2{% endif %}" style="height: 100%;">
         <a href="{% url 'rental_catalog' %}">
           <h1 class="arend-card-title">{{ arend.name }}</h1>
           {% with discount_percentage=arend.get_discount_percentage %}
@@ -140,16 +140,21 @@
           {% endwith %}
           <p class="arend-card-description">В стоимость аренды входит:</p>
           <p class="arend-card-description">{{ arend.description|linebreaksbr }}</p>
-          <p class="arend-card-price">
-          {% with discounted_price=arend.get_discounted_price %}
-            {% if discounted_price != arend.price %}
-              <span class="landing-discounted-price">{{ discounted_price|format_price }} руб.</span>
-              <span class="landing-original-price">{{ arend.price|format_price }} руб.</span>
-            {% else %}
-              {{ arend.price|format_price }} руб.
-            {% endif %}
-          {% endwith %}
-          </p>
+          <div class="arend-card-price">
+            <span class="arend-card-time">{{ arend.rental_time }} часов</span>
+            <div class="price-container">
+              {% with discounted_price=arend.get_discounted_price %}
+                {% if discounted_price != arend.price %}
+                  <span class="original-price-container">
+                    <span class="landing-original-price">{{ arend.price|format_price }} руб.</span>
+                  </span>
+                  <span class="landing-discounted-price">{{ discounted_price|format_price }} руб.</span>
+                {% else %}
+                  <span class="arend-price">{{ arend.price|format_price }} руб.</span>
+                {% endif %}
+              {% endwith %}
+            </div>
+          </div>
         </a>
       </div>
     </div>

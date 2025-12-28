@@ -424,7 +424,39 @@ h4 {
     font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    align-items: center;
+    margin-top: auto; /* Отступ сверху автоматически, чтобы контент не обрезался */
+}
+
+.time-with-discount {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.arend-card-time {
+    color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  min-height: 40px; /* Минимальная высота для контейнера с ценой, чтобы выравнять карточки */
+}
+
+.original-price-container {
+  position: absolute;
+  top: -20px; /* Поднимаем старую цену выше */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
