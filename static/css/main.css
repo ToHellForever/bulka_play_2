@@ -3,106 +3,11 @@ body {
 }
 
 /* Стили для цен со скидками */
-.original-price {
-    text-decoration: line-through;
-    color: #888;
-    font-family: 'Unbounded', sans-serif;
-    margin-right: 8px;
-    font-size: 1rem;
-}
-
-.discounted-price {
-    color: #e63946;
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Стили для скидок на лендинге */
-.landing-discount-badge {
-    background-color: #e63946;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-.landing-original-price {
-    text-decoration: line-through;
-    color: #888;
-    font-family: 'Unbounded', sans-serif;
-    margin-right: 8px;
-    font-size: 1rem;
-    white-space: nowrap;
-}
-
-.landing-discounted-price {
-    color: #e63946;
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Стили для скидок в модальном окне */
-.modal-discount-badge {
-    background-color: #457b9d;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-.modal-original-price {
-    text-decoration: line-through;
-    color: #aaa;
-    font-family: 'Unbounded', sans-serif;
-    margin-right: 8px;
-    font-size: 0.7rem;
-}
-
-.modal-discounted-price {
-    color: #e63946;
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-.catalog-original-price {
-    text-decoration: line-through;
-    color: #888;
-    font-family: 'Unbounded', sans-serif;
-    margin-right: 8px;
-    font-size: 1rem;
-}
-
-.catalog-discounted-price {
-    color: #e63946;
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-/* Стили для скидок на странице деталей продукта */
-.product-detail-original-price {
-    text-decoration: line-through;
-    color: #888;
-    font-family: 'Unbounded', sans-serif;
-    margin-right: 8px;
-    font-size: 1rem;
-}
-
-.product-detail-discounted-price {
-    color: #e63946;
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Стили для скидок в каталоге аренды */
+.original-price,
+.landing-original-price,
+.modal-original-price,
+.catalog-original-price,
+.product-detail-original-price,
 .rental-catalog-original-price {
     text-decoration: line-through;
     color: #888;
@@ -111,7 +16,13 @@ body {
     font-size: 1rem;
 }
 
+.discounted-price,
+.landing-discounted-price,
+.modal-discounted-price,
+.catalog-discounted-price,
 .rental-catalog-discounted-price {
+    color: #e63946;
+    font-family: 'Unbounded', sans-serif;
     color: #e63946;
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
@@ -129,51 +40,6 @@ body {
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 100% !important;
     }
-}
-
-
-
-
-
-/* Стили для скидок в аренде */
-.arend-original-price {
-  color: #cccccc;
-  text-decoration: line-through;
-  font-size: 1.2rem;
-  vertical-align: middle;
-}
-
-.arend-discounted-price {
-  color: #e63946;
-  font-size: 1.7rem;
-  vertical-align: middle;
-}
-
-/* Стили для скидок в альтернативном стиле аренды */
-div.game-card-rental.style-2 .arend-original-price {
-  color: #cccccc;
-  text-decoration: line-through;
-  font-size: 1.2rem;
-}
-
-div.game-card-rental.style-2 .arend-discounted-price {
-  color: #e63946;
-    font-size: 1.7rem;
-}
-
-/* Стили для скидок в аренде */
-.arend-original-price {
-    margin-top: 10px;
-}
-
-/* Альтернативный стиль для карточек аренды - более специфичный и заметный */
-div.game-card-rental.style-2 {
-    background: white;
-}
-
-/* Стили для описания в альтернативном стиле */
-div.game-card-rental.style-2 p.arend-card-description {
-    color: black;
 }
 
 /* Стили для плашки скидки на фото товара */
@@ -199,27 +65,22 @@ div.game-card-rental.style-2 p.arend-card-description {
 .discount-badge-2 {
     margin: -10px;
 }
-.arend-original-price {
-    margin-top: 10px;
-}
+
 
 /* Альтернативный стиль для карточек аренды - более специфичный и заметный */
 div.game-card-rental.style-2 {
     background: white;
 }
-
-
 /* Стили для описания в альтернативном стиле */
 div.game-card-rental.style-2 p.arend-card-description {
     color: black;
 }   
+/* Альтернативный стиль для карточек аренды - более специфичный и заметный */
+div.game-card-rental.style-2 {
+    background: white;
+}
 
-
-@media (max-width: 992px) {
-    .landing-discounted-price {
-        font-size: 1rem;
-    }
-    .landing-original-price {
-        font-size: 0.8rem;
-    }
+/* Стили для описания в альтернативном стиле */
+div.game-card-rental.style-2 p.arend-card-description {
+    color: black;
 }
