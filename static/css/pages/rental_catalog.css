@@ -128,7 +128,6 @@
     padding: 2rem;
     border-radius: 35.3px;
     display: flex;
-    align-items: center;
     flex-direction: column;
     margin: 0 auto;
     color: white;
@@ -190,5 +189,9 @@
     }
     .arend_li {
         display: block;
+    }
+    .original-price-container,
+    .arend-discounted-price {
+        margin-top: 10px;
     }
 }

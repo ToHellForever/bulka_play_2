@@ -71,16 +71,16 @@
           <p class="arend-card-description d-none d-md-block">В стоимость аренды входит:</p>
           <p class="arend-card-description d-none d-md-block">{{ arend.description|linebreaksbr }}</p>
           <div class="arend-card-price">
-            <span class="arend-card-time">{{ arend.time }}</span>
+            <span class="arend-card-time d-none d-md-block">{{ arend.time }}</span>
             <div class="price-container">
               {% with discounted_price=arend.get_discounted_price %}
                 {% if discounted_price != arend.price %}
                   <span class="original-price-container">
-                    <span class="arend-original-price">{{ arend.price|format_price }} руб.</span>
+                    <span class="rental-original-price">{{ arend.price|format_price }} руб.</span>
                   </span>
-                  <span class="arend-discounted-price">{{ discounted_price|format_price }} руб.</span>
+                  <span class="rental-discounted-price">{{ discounted_price|format_price }} руб.</span>
                 {% else %}
-                  <span class="arend-price">{{ arend.price|format_price }} руб.</span>
+                  <span class="rental-price">{{ arend.price|format_price }} руб.</span>
                 {% endif %}
               {% endwith %}
             </div>
