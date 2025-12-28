@@ -97,30 +97,39 @@
     </div>
   </div>
 
-  <div class='container mt-5'>
-    <h1 class='game_catalog_h mb-5'>ДОПОЛНИТЕЛЬНО</h1>
-    <div class='row game_catalog_row'>
-      {% for additional_product in additional_products %}
-            <div class='col-6 col-xxl-3 col-lg-4 game_catalog_grid'>
-          <div class="game-card">
-            <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="game_catalog_card">
-            <h1 class='product_card_name'>{{ additional_product.name }}</h1>
-            <p class="product_card_price">
-              {% with discounted_price=additional_product.get_discounted_price %}
-                {% if discounted_price != additional_product.price %}
-<span class="catalog-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
-<span class="catalog-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.</span>
-                {% else %}
-                  {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
-                {% endif %}
-              {% endwith %}
-            </p>
-            <a href="{% url 'additional_product_detail' additional_product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
-          </div>
+<div class='container mt-5'>
+  <h1 class='game_catalog_h mb-5'>ДОПОЛНИТЕЛЬНО</h1>
+  <div class='row game_catalog_row'>
+    {% for additional_product in additional_products %}
+    <div class='col-6 col-xxl-3 col-lg-4 game_catalog_grid'>
+      <div class="game-card">
+        <div class="position-relative">
+          <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="game_catalog_card">
+          {% with discount_percentage=additional_product.get_discount_percentage %}
+            {% if discount_percentage %}
+              <div class="discount-badge">
+                -{{ discount_percentage|format_price }}%
+              </div>
+            {% endif %}
+          {% endwith %}
         </div>
-      {% endfor %}
+        <h1 class='product_card_name'>{{ additional_product.name }}</h1>
+        <p class="product_card_price">
+          {% with discounted_price=additional_product.get_discounted_price %}
+            {% if discounted_price != additional_product.price %}
+              <span class="catalog-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+              <span class="catalog-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.</span>
+            {% else %}
+              {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
+            {% endif %}
+          {% endwith %}
+        </p>
+        <a href="{% url 'additional_product_detail' additional_product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
+      </div>
     </div>
+    {% endfor %}
   </div>
+</div>
 </form>
   <div class='container'>
   <div class="center-block mt-5 mb-5">

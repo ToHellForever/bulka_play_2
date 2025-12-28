@@ -256,8 +256,8 @@ class Arenda(models.Model):
     def __str__(self):
         return self.name
 
-    def get_discounted_price(self):
-        """Возвращает цену аренды с учетом активных скидок"""
+    def get_discount_percentage(self):
+        """Возвращает процент скидки, если она активна"""
         active_discounts = self.discounts.filter(
             is_active=True,
             start_date__lte=datetime.now().date(),
@@ -265,17 +265,27 @@ class Arenda(models.Model):
         )
 
         if not active_discounts.exists():
-            return self.price
+            return None
 
-        # Применяем самую выгодную скидку
+        # Находим самую выгодную скидку
+        best_discount = None
         best_price = self.price
 
         for discount in active_discounts:
             discounted_price = discount.apply_discount(self.price)
             if discounted_price < best_price:
                 best_price = discounted_price
+                best_discount = discount
 
-        return best_price
+        if best_discount:
+            if best_discount.discount_type == "percentage":
+                return best_discount.value
+            else:  # FIXED
+                # Вычисляем эквивалентный процент скидки для фиксированной суммы
+                discount_amount = self.price - best_price
+                discount_percentage = (discount_amount / self.price) * 100
+                return round(discount_percentage)
+        return None
 
     def get_time_in_hours(self):
         """Возвращает время аренды в часах"""
@@ -375,8 +385,8 @@ class AdditionalProducts(models.Model):
     def __str__(self):
         return self.name
 
-    def get_discounted_price(self):
-        """Возвращает цену дополнительного товара с учетом активных скидок"""
+    def get_discount_percentage(self):
+        """Возвращает процент скидки, если она активна"""
         active_discounts = self.discounts.filter(
             is_active=True,
             start_date__lte=datetime.now().date(),
@@ -384,17 +394,27 @@ class AdditionalProducts(models.Model):
         )
 
         if not active_discounts.exists():
-            return self.price
+            return None
 
-        # Применяем самую выгодную скидку
+        # Находим самую выгодную скидку
+        best_discount = None
         best_price = self.price
 
         for discount in active_discounts:
             discounted_price = discount.apply_discount(self.price)
             if discounted_price < best_price:
                 best_price = discounted_price
+                best_discount = discount
 
-        return best_price
+        if best_discount:
+            if best_discount.discount_type == "percentage":
+                return best_discount.value
+            else:  # FIXED
+                # Вычисляем эквивалентный процент скидки для фиксированной суммы
+                discount_amount = self.price - best_price
+                discount_percentage = (discount_amount / self.price) * 100
+                return round(discount_percentage)
+        return None
     def get_total_price(self):
         """Возвращает общую сумму заказа с учетом скидок"""
         total = 0

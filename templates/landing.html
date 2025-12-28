@@ -130,19 +130,26 @@
     <div class="swiper-slide">
       <div class="arend-card{% if arend.card_style == 2 %} style-2{% endif %}">
         <a href="{% url 'rental_catalog' %}">
-        <h1 class="arend-card-title">{{ arend.name }} </h1>
-        <p class="arend-card-description">В стоимость аренды входит:</p>
-        <p class="arend-card-description">{{ arend.description|linebreaksbr }}</p>
-        <p class="arend-card-price">
-          {% with discounted_price=arend.get_discounted_price %}
-            {% if discounted_price != arend.price %}
-              <span class="arend-discounted-price">{{ discounted_price|format_price }}</span>
-              <span class="arend-original-price">{{ arend.price|format_price }}</span>
-            {% else %}
-              <b>{{ arend.time }}</b><span><b>{{ arend.price|format_price }}</b></span>
+          <h1 class="arend-card-title">{{ arend.name }}</h1>
+          {% with discount_percentage=arend.get_discount_percentage %}
+            {% if discount_percentage %}
+              <div class="discount-badge">
+                -{{ discount_percentage|format_price }}%
+              </div>
             {% endif %}
           {% endwith %}
-        </p>
+          <p class="arend-card-description">В стоимость аренды входит:</p>
+          <p class="arend-card-description">{{ arend.description|linebreaksbr }}</p>
+          <p class="arend-card-price">
+            {% with discounted_price=arend.get_discounted_price %}
+              {% if discounted_price != arend.price %}
+                <span class="arend-discounted-price">{{ discounted_price|format_price }}</span>
+                <span class="arend-original-price">{{ arend.price|format_price }}</span>
+              {% else %}
+                <b>{{ arend.time }}</b><span><b>{{ arend.price|format_price }}</b></span>
+              {% endif %}
+            {% endwith %}
+          </p>
         </a>
       </div>
     </div>
