@@ -563,39 +563,37 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Функция для отображения блоков информации
-window.showInfo = function(id) {
+window.showInfo = function(event, id) {
+  const activeButton = event ? event.currentTarget : null;
+  const arrow = activeButton ? activeButton.querySelector('.arrow_accorderon') : null;
   const selectedBlock = document.getElementById(id);
-  if (selectedBlock) {
-    const buttons = document.querySelectorAll('.button');
-    let activeButton = null;
 
-    buttons.forEach(button => {
-      if (button.getAttribute('onclick') && button.getAttribute('onclick').includes(`showInfo('${id}')`)) {
-        activeButton = button;
-      }
+  if (selectedBlock) {
+    // Проверяем, открыт ли блок
+    const isBlockVisible = selectedBlock.style.display === 'block';
+
+    // Закрываем все блоки и сбрасываем стрелки
+    const allBlocks = document.querySelectorAll('.info-block');
+    allBlocks.forEach(block => {
+      block.style.display = 'none';
     });
 
-    const arrow = activeButton ? activeButton.querySelector('.arrow_accorderon') : null;
+    const allArrows = document.querySelectorAll('.arrow_accorderon');
+    allArrows.forEach(arr => {
+      arr.classList.remove('active');
+    });
 
-    if (selectedBlock.style.display === 'block') {
-      selectedBlock.style.display = 'none';
-      if (arrow) arrow.classList.remove('active');
-    } else {
-      // Hide all info blocks
-      const infoBlocks = document.querySelectorAll('.info-block');
-      infoBlocks.forEach(block => {
-        block.style.display = 'none';
-      });
-
-      // Remove active class from all arrows
-      const arrows = document.querySelectorAll('.arrow_accorderon');
-      arrows.forEach(arr => {
-        arr.classList.remove('active');
-      });
-
-      // Show the selected info block
+    // Если блок был закрыт, открываем его
+    if (!isBlockVisible) {
       selectedBlock.style.display = 'block';
       if (arrow) arrow.classList.add('active');
+
+      // Плавный скролл к блоку на мобильных
+      if (window.innerWidth <= 992) {
+        setTimeout(() => {
+          selectedBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
     }
   }
 };
