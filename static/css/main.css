@@ -32,6 +32,12 @@ body {
     font-size: 1.8rem;
     margin-right: 10px;
 }
+.modal-discounted-price {
+    font-size: 1.4rem;
+}
+.modal-original-price {
+    font-size: 1rem;
+}
 .arend-discounted-price {
     margin-right: 0px;
 }

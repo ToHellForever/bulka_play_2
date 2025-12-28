@@ -169,10 +169,10 @@
         <p class="product_card_price">
           {% with discounted_price=product.get_discounted_price %}
             {% if discounted_price != product.price %}
-              <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
-              <span class="product-detail-original-price">{{ product.price|format_price }} руб.</span>
+              <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+              <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
             {% else %}
-              {{ product.price|format_price }} руб.
+              {{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.
             {% endif %}
           {% endwith %}
         </p>
@@ -203,8 +203,8 @@
         <p class="product_card_price">
           {% with discounted_price=additional_product.get_discounted_price %}
             {% if discounted_price != additional_product.price %}
-              <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
-              <span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
+              <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+              <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.</span>
             {% else %}
               {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
             {% endif %}
@@ -352,10 +352,10 @@
             <p class="product_card_price">
               {% with discounted_price=product.get_discounted_price %}
                 {% if discounted_price != product.price %}
-                  <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
-                  <span class="product-detail-original-price">{{ product.price|format_price }} руб.</span>
+                  <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+                  <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
                 {% else %}
-                  {{ product.price|format_price }} руб.
+                  {{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.
                 {% endif %}
               {% endwith %}
             </p>
@@ -388,8 +388,8 @@
           <p class="product_card_price">
             {% with discounted_price=additional_product.get_discounted_price %}
               {% if discounted_price != additional_product.price %}
-                <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
-                <span class="product-detail-original-price">{{ additional_product.price|format_price }} руб.</span>
+                <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+                <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.</span>
               {% else %}
                 {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
               {% endif %}
