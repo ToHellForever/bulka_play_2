@@ -28,8 +28,11 @@ body {
     font-family: 'Mont', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
+    margin-right: 10px;
 }
-
+.arend-discounted-price {
+    margin-right: 0px;
+}
 /* Общий класс для блока со скидками */
 .discount-block {
     display: flex;
