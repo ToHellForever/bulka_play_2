@@ -94,9 +94,24 @@ div.game-card-rental.style-2 p.arend-card-description {
     .discount-badge,
     .discount-badge-2 {
         font-size: 0.8rem;
-        padding: 0px 15px 0px 15px; 
+        padding: 0px 15px 0px 15px;
+        height: 25px; 
     }
     .discount-badge-2  {
-        margin: -2px;
+        margin: -5px;
+    }
+    .discounted-price,
+    .landing-discounted-price,
+    .modal-discounted-price,
+    .catalog-discounted-price,
+    .arend-discounted-price {
+        font-size: 1.2rem;
+    }
+    .original-price,
+    .landing-original-price,
+    .modal-original-price,
+    .catalog-original-price,
+    .arend-original-price {
+        font-size: 1rem;
     }
 }
