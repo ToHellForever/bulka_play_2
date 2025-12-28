@@ -194,4 +194,8 @@
     .arend-discounted-price {
         margin-top: 10px;
     }
+    .price-container {
+        justify-content: flex-end;
+        margin-left: auto;
+    }
 }

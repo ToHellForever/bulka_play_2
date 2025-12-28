@@ -440,6 +440,7 @@ h4 {
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
     font-size: 1.6rem;
+    text-align: start !important;
 }
 
 .price-container {
