@@ -97,6 +97,8 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name="Описание", blank=True, null=True, default=""
     )
+    is_new = models.BooleanField(default=False, verbose_name="Новинка")
+    is_in_stock = models.BooleanField(default=True, verbose_name="В наличии")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
@@ -265,6 +267,8 @@ class Arenda(models.Model):
     card_style = models.PositiveSmallIntegerField(
         verbose_name="Стиль карточки", choices=CARD_STYLE_CHOICES, default=1
     )
+    is_new = models.BooleanField(default=False, verbose_name="Новинка")
+    is_in_stock = models.BooleanField(default=True, verbose_name="В наличии")
     ranges = models.ManyToManyField(
         PlayerRange, verbose_name="Диапазоны игроков и игр", blank=True
     )
@@ -421,6 +425,8 @@ class AdditionalProducts(models.Model):
     description_2 = models.TextField(
         verbose_name="Описание_2", blank=True, null=True, default=""
     )
+    is_new = models.BooleanField(default=False, verbose_name="Новинка")
+    is_in_stock = models.BooleanField(default=True, verbose_name="В наличии")
     material = models.TextField(
         max_length=200, verbose_name="Материал", default="", blank=True, null=True
     )

@@ -53,9 +53,9 @@ class OrderedGameKitItemInline(admin.TabularInline):
 # Основной класс для регистрации модели Product
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "is_active", "created_at")
-    list_editable = ("is_active",)
-    list_filter = ("is_active", "created_at")
+    list_display = ("name", "price", "is_active", "created_at", "is_new", "is_in_stock")
+    list_editable = ("is_active", "is_new", "is_in_stock")
+    list_filter = ("is_active", "created_at", "is_new", "is_in_stock")
     search_fields = ("name", "description")
     filter_horizontal = ("sizes", "player_counts", "game_types", "player_ages")
 
@@ -83,7 +83,7 @@ class ProductAdmin(admin.ModelAdmin):
         (
             "Дополнительно",
             {
-                "fields": ("is_active",),
+                "fields": ("is_active", "is_new", "is_in_stock"),
             },
         ),
     )
@@ -147,10 +147,11 @@ class ArendaAdmin(admin.ModelAdmin):
         "is_specific_game",
         "specific_game",
         "created_at",
+        "is_new",
+        "is_in_stock",
     )
-    list_editable = ("is_active", "is_specific_game")
-    list_filter = ("is_active", "is_specific_game", "created_at")
-    search_fields = ("name", "description")
+    list_editable = ("is_active", "is_specific_game", "is_new", "is_in_stock")
+    list_filter = ("is_active", "is_specific_game", "created_at", "is_new", "is_in_stock")
     inlines = [RangeInline]
 
     fieldsets = (
@@ -170,7 +171,7 @@ class ArendaAdmin(admin.ModelAdmin):
         (
             "Дополнительно",
             {
-                "fields": ("is_active",),
+                "fields": ("is_active", "is_new", "is_in_stock"),
             },
         ),
     )
@@ -232,10 +233,11 @@ class NewsAdmin(admin.ModelAdmin):
 
 @admin.register(AdditionalProducts)
 class AdditionalProductsAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "is_active", "created_at")
-    list_editable = ("is_active",)
-    list_filter = ("is_active", "created_at")
+    list_display = ("name", "price", "is_active", "created_at", "is_new", "is_in_stock")
+    list_editable = ("is_active", "is_new", "is_in_stock")
+    list_filter = ("is_active", "created_at", "is_new", "is_in_stock")
     search_fields = ("name", "description")
+
     fieldsets = (
         (
             "Основные поля",
@@ -248,17 +250,18 @@ class AdditionalProductsAdmin(admin.ModelAdmin):
                     "price",
                     "image",
                     "game_kit_items_additional",
-                    "price_prefix",  # Добавляем новое поле
+                    "price_prefix",
                 ),
             },
         ),
         (
             "Дополнительно",
             {
-                "fields": ("is_active",),
+                "fields": ("is_active", "is_new", "is_in_stock"),
             },
         ),
     )
+
     inlines = [
         AdditionalProductsImageInline,
     ]
