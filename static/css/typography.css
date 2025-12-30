@@ -746,13 +746,16 @@ h4 {
     /* каталог игр */
     .product_card_name {
         font-size: 1rem;
+        margin-left: 5px;
+    }
+    .product_card_price {
+        margin-left: 5px;
     }
     .product_card_button {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     .game_catalog_h {
         margin-top: 10px;
-        margin-left: -10px;
     }
     .no_result_a {
         font-size: 1rem;
