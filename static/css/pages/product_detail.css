@@ -19,9 +19,10 @@
     border-radius: 22.66px;
 }
 
-.row_detail {
-    margin-left: -22px;
-    margin-right: -22px;
+.detail_row {
+            margin-left: -22px;
+        margin-right: -22px;
+        margin-top: 20px    ;
 }
 
 .kit-container {

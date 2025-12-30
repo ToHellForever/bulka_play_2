@@ -163,14 +163,14 @@
         {{ product.additional_info|safe|linebreaks }}
     </div>  
 </div>
- 
+
 
 <div class='container mt-5' id='look-also-section'>
   <h1 class='game_catalog_h'>СМОТРИТЕ ТАКЖЕ</h1>
-  <div class='row row_detail'>
+  <div class='row detail_row'>
     {% for product in similar_products %}
-    <div class='col-6 col-md-4 col-lg-3 mt-5'>
-      <div class="game-card">
+    <div class='col-6 col-md-4 col-lg-3 mt-1 game_catalog_grid'>
+          <div class="game-card">
         <div class="position-relative">
           <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
           {% with discount_percentage=product.get_discount_percentage %}
@@ -199,11 +199,11 @@
   </div>
 </div>
 
-<div class='container mt-5' id='bought-together-section'>
+<div class='container mt-3' id='bought-together-section'>
   <h1 class='game_catalog_h'>С ЭТИМ ТОВАРОМ ПОКУПАЮТ</h1>
-  <div class='row row_detail'>
+  <div class='row detail_row'>
     {% for additional_product in additional_products %}
-    <div class='col-6 col-md-4 col-lg-3 mt-5'>
+    <div class='col-6 col-md-4 col-lg-3 mt-1 game_catalog_grid'>
       <div class="game-card">
         <div class="position-relative">
           <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
@@ -254,7 +254,7 @@
       // Обрабатываем раздел "СМОТРИТЕ ТАКЖЕ"
       const lookAlsoSection = document.getElementById('look-also-section');
       if (lookAlsoSection) {
-        const lookAlsoProducts = lookAlsoSection.querySelectorAll('.row_detail .col-6');
+        const lookAlsoProducts = lookAlsoSection.querySelectorAll('.detail_row .col-6');
         lookAlsoProducts.forEach((product, index) => {
           if (index < visibleCount) {
             product.style.display = '';
@@ -267,7 +267,7 @@
       // Обрабатываем раздел "С ЭТИМ ТОВАРОМ ПОКУПАЮТ"
       const boughtTogetherSection = document.getElementById('bought-together-section');
       if (boughtTogetherSection) {
-        const boughtTogetherProducts = boughtTogetherSection.querySelectorAll('.row_detail .col-6');
+        const boughtTogetherProducts = boughtTogetherSection.querySelectorAll('.detail_row .col-6');
         boughtTogetherProducts.forEach((product, index) => {
           if (index < visibleCount) {
             product.style.display = '';
