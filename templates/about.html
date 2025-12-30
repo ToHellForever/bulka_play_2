@@ -4,6 +4,43 @@
 {% block title %}О нас{% endblock title %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/pages/about.css' %}">
+
+<!-- Скрипт для приоритетной загрузки видео -->
+<script>
+  // Функция для приоритетной загрузки видео
+  function prioritizeVideoLoad() {
+    const horizontalVideo = document.createElement('video');
+    horizontalVideo.src = "/media/video/about_horizontal.mp4";
+    horizontalVideo.preload = "auto";
+    horizontalVideo.load();
+    
+    const verticalVideo = document.createElement('video');
+    verticalVideo.src = "/media/video/about_vertical.mp4";
+    verticalVideo.preload = "auto";
+    verticalVideo.load();
+    
+    // Дополнительные меры для ускорения загрузки
+    if ('connection' in navigator) {
+      if (navigator.connection.effectiveType.includes('4g') || navigator.connection.effectiveType.includes('3g')) {
+        // Для мобильных сетей загружаем видео с меньшим приоритетом
+        horizontalVideo.preload = "metadata";
+        verticalVideo.preload = "metadata";
+      }
+    }
+  }
+  
+  // Запускаем загрузку видео сразу при загрузке страницы
+  window.addEventListener('load', function() {
+    prioritizeVideoLoad();
+    
+    // Дополнительно загружаем видео в основные элементы
+    const videoElements = document.querySelectorAll('video');
+    videoElements.forEach(video => {
+      video.load();
+    });
+  });
+</script>
+
 <div class="container my-4 mt-5">
     <div class="row justify-content-center" style='flex-wrap: nowrap;'>
         <div class="col-md-5 order-md-1 order-1">
@@ -11,7 +48,7 @@
                 <h1 class='about_h'>О <span class='wood_h'>НАС</span></h1>
             </div>
             <div>
-<video src="/media/video/about_horizontal.mp4" class='video_1' controls preload="auto" muted autoplay playsinline loading="lazy"></video>
+                <video src="/media/video/about_horizontal.mp4" class='video_1' controls preload="auto" muted></video>
             </div>
         </div>
         <div class="col-md-4 order-md-2 order-2">
@@ -25,7 +62,7 @@
             </div>
         </div>
         <div class="col-md-3 order-md-3 order-3">
-<video src="/media/video/about_vertical.mp4" class='video_2' controls preload="auto" muted autoplay playsinline loading="lazy"></video>
+            <video src="/media/video/about_vertical.mp4" class='video_2' controls preload="auto" muted></video>
         </div>
     </div>
 </div>
@@ -66,7 +103,6 @@
             </div>
         </div>
     </div>
-
 
 
 

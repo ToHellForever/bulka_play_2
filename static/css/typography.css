@@ -511,7 +511,7 @@ h4 {
 }
 .advantage-block-p-2 {
     color: black;
-        font-family: 'Unbounded', sans-serif;
+        font-family: 'Mont', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -564,7 +564,8 @@ h4 {
     font-weight: 400;
     font-size: 1rem;
 }
-.opacity_h {
+.opacity_h,
+.opacity_h-1 {
     color: rgba(49, 47, 47, 1);
     font-family: 'Unbounded', sans-serif;
 }
@@ -866,12 +867,14 @@ h4 {
     .advantage-block-h-2 {
         font-size: 1.2rem;
         margin-bottom: 0px;
+        margin-left: 20px;
     }
     .advantage-block-p,
     .advantage-block-p-2,
     .advantage-block-p-3 {
         font-size: 1rem;
         margin-bottom: 0px;
+        margin-left: 20px;
     }
     .examples {
         font-size: 1.3rem;
