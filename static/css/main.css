@@ -152,7 +152,7 @@ div.game-card-rental.style-2 p.arend-card-description {
     }
     .rental-original-price {
         font-size: 0.8rem;
-        margin-top: 30px;
+        margin-top: 55px !important;
         text-align: start !important;
     }
     .rental-discounted-price {

@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% load custom_filters %}
-{% block title %}Главная{% endblock title %}
+{% block title %}Настольные игры из натурального дерева ручной работы | BUL.K.A-PLAY{% endblock title %}
+{% block meta_description %}Настольные игры из натурального дерева ручной работы от производителя в Красноярске. Экологичные деревянные игры для детей и взрослых. Большой выбор эксклюзивных игр из березы, дуба, бука. Доставка по всей России.{% endblock %}
+{% block meta_keywords %}настольные игры из дерева, деревянные игры купить, игры из натурального дерева, экологичные настольные игры, игры ручной работы Красноярск, деревянные шахматы, деревянные шашки, подарочные настольные игры, игры из березы, игры из дуба, развитие логики через деревянные игры{% endblock %}
+{% block og_title %}Настольные игры из натурального дерева ручной работы | BUL.K.A-PLAY{% endblock %}
+{% block og_description %}Эксклюзивные настольные игры из твердых пород дерева. Развивающие игры для детей и семейного отдыха. Доставка по всей России из Красноярска.{% endblock %}
+{% block og_image %}https://bulkaplay.ru/media/photo/right_photo.png{% endblock %}
+{% block twitter_title %}Настольные игры из дерева ручной работы | BUL.K.A-PLAY{% endblock %}
+{% block twitter_description %}Уникальные деревянные игры для развития логики и семейного досуга. Экологичные материалы, ручная работа, доставка по России.{% endblock %}
+{% block twitter_image %}https://bulkaplay.ru/media/photo/right_photo.png{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/pages/landing.css' %}">
 <div class='container mt-5'>
@@ -11,15 +19,15 @@
     <div class="d-flex mt-4 desktop-layout">
       <!-- Левая часть с фото -->
       <div class="me-3 position-relative">
-        <img src="media/photo/left_photo.jpg" alt="Левое фото" class="left_photo">
-        <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="" class='arend_icon'></a>
+    <img src="media/photo/left_photo.jpg" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class="left_photo">
+        <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class='arend_icon'></a>
       </div>
       <!-- Правая часть: фото над тремя блоками -->
       <div>
         <!-- Фото сверху -->
         <div class="mb-3 position-relative">
-          <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
-          <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'></a>
+          <img src="media/photo/right_photo.png" alt="Каталог настольных игр из натурального дерева ручной работы" class="right_photo">
+        <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="Перейти в каталог настольных игр из натурального дерева" class='catalog_game_icon'></a>
           <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
         </div>
         <!-- Три блока -->
@@ -35,8 +43,8 @@
     <div class="mobile-layout">
       <!-- Верхняя секция с right_photo -->
       <div class="mobile-top-section position-relative">
-        <img src="media/photo/right_photo.png" alt="Правое фото" class="right_photo">
-        <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="" class='catalog_game_icon'></a>
+          <img src="media/photo/right_photo.png" alt="Каталог настольных игр из натурального дерева ручной работы" class="right_photo">
+        <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="Перейти в каталог настольных игр из натурального дерева" class='catalog_game_icon'></a>
         <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
       </div>
 
@@ -44,8 +52,8 @@
       <div class="mobile-bottom-section">
         <!-- Левая колонка с фото -->
         <div class="mobile-left-column position-relative">
-          <img src="media/photo/left_photo.jpg" alt="Левое фото" class="left_photo">
-          <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="" class='arend_icon'></a>
+          <img src="media/photo/left_photo.jpg" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class="left_photo">
+        <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class='arend_icon'></a>
         </div>
 
         <!-- Правая колонка с тремя блоками -->
@@ -61,22 +69,22 @@
 <div class="container mt-5">
   <div class="row mt-5">
     <div class="col-3">
-      <img src="media/icon/cube.svg" alt="Картинка 1" class="block-img">
+      <img src="media/icon/cube.svg" alt="Эксклюзивные настольные игры из натурального дерева" class="block-img">
       <h3 class="block-title">ЭКСКЛЮЗИВНЫЕ ИГРЫ</h3>
       <p class="block-text">в нашей коллекции есть игры, аналогов которых нет на рынке</p>
     </div>
     <div class="col-3">
-      <img src="media/icon/star.svg" alt="Картинка 2" class="block-img">
+      <img src="media/icon/star.svg" alt="Персонализация деревянных настольных игр с гравировкой" class="block-img">
       <h3 class="block-title">БРЕНДИРОВАНИЕ</h3>
       <p class="block-text">возможно нанесение индивидуальной гравировки</p>
     </div>
     <div class="col-3">
-      <img src="media/icon/hammer.svg" alt="Картинка 3" class="block-img">
+      <img src="media/icon/hammer.svg" alt="Ручная работа мастеров по изготовлению деревянных настольных игр" class="block-img">
       <h3 class="block-title">РУЧНАЯ РАБОТА</h3>
       <p class="block-text">собственное производство в г.Красноясрк</p>
     </div>
     <div class="col-3">
-      <img src="media/icon/car.svg" alt="Картинка 4" class="block-img">
+      <img src="media/icon/car.svg" alt="Доставка настольных игр из натурального дерева по всей России" class="block-img">
       <h3 class="block-title">ДОСТАВКА</h3>
       <p class="block-text">отправляем по всей России</p>
     </div>
