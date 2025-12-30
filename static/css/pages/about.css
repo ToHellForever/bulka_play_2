@@ -68,11 +68,23 @@
     .video_1  {
         margin-top: 0px;
         max-height: 100%;
+        width: 100%;
     }
     .video_2 {
         display: none;
     }
-    
+
+    .row.justify-content-center[style*='flex-wrap: nowrap'] {
+        flex-wrap: wrap !important;
+    }
+
+    .row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-5,
+    .row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-4 {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 }
 /* Мобильная версия */
 @media (max-width: 992px) {
