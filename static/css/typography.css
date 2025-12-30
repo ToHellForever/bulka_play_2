@@ -483,7 +483,6 @@ h4 {
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
     font-size: 1.8rem;
-    margin-top: 1rem;
 }
 
 .exlusive_p {
@@ -539,6 +538,7 @@ h4 {
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
     font-size: 2rem;
+    margin-bottom: 3rem;
 }
 
 .h_button {
@@ -636,6 +636,9 @@ h4 {
     }
     .arend-price {
         font-size: 1.5rem;
+    }
+    .title_h_2_in_1 {
+        font-size: 3.1rem;
     }
 }
 @media (max-width: 1160px) {
@@ -865,6 +868,7 @@ h4 {
     }
     .exlusive_h {
         font-size: 1.1rem;
+        margin-top: auto;
     }
     .exlusive_p {
         font-size: 1rem;
