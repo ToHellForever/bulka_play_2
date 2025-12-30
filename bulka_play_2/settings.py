@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
     "debug_toolbar",
     'core',
 ]
@@ -124,9 +123,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Настройки для WhiteNoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Настройки кэширования для статических файлов
-WHITENOISE_MAX_AGE = 31536000  # 1 год в секундах
-WHITENOISE_IMMUTABLE_FILE_TEST = lambda path, url: re.match(r'\.[0-9a-f]{8,40}\..+$', url)
