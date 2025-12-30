@@ -35,6 +35,7 @@
     color: rgba(255, 255, 255, 1);
 }
 .game_catalog_h,
+.game_catalog_h-2,
 .rental_catalog_landing_h,
 .news_catalog_h {
     font-family: 'Unbounded' , sans-serif;
@@ -754,7 +755,8 @@ h4 {
     .product_card_button {
         font-size: 0.8rem;
     }
-    .game_catalog_h {
+    .game_catalog_h,
+    .game_catalog_h-2 {
         margin-top: 10px;
     }
     .no_result_a {
@@ -907,8 +909,12 @@ h4 {
     .arend-card-time, .arend-price {
         margin: 0;
     }
-    .game_catalog_h {
+    .game_catalog_h,
+    .game_catalog_h-2 {
         font-size: 1.3rem;
+    }
+    .game_catalog_h-2 {
+        margin-left: -10px;
     }
 }
 
