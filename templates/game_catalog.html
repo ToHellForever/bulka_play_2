@@ -3,6 +3,7 @@
 {% load custom_filters %}
 {% block title %}Катлог игр{% endblock title %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/pages/game_catalog.css' %}">
 <form id="filter-form" method="get">
   <div class="container container-menu-catalog mt-5">
     <div class="row mt-5 ms-auto">
@@ -107,7 +108,7 @@
 </div>
 
 <div class='container mt-5'>
-  <h1 class='game_catalog_h mb-5'>ДОПОЛНИТЕЛЬНО</h1>
+  <h1 class='game_catalog_h'>ДОПОЛНИТЕЛЬНО</h1>
   <div class='row game_catalog_row'>
     {% for additional_product in additional_products %}
     <div class='col-6 col-xxl-3 col-lg-4 game_catalog_grid'>

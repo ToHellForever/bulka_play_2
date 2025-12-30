@@ -4,6 +4,8 @@
 {% comment %} название игры {% endcomment %}
 {% block title %}{{ additional_product.name }}{% endblock title %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/pages/additional_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/product_detail.css' %}">
 {% if 'СУМКА' in additional_product.name or additional_product.name == 'ПОДСТАВКА ДЛЯ ИГР' %}
 <div class="container mt-5">
     <!-- Десктопная версия -->

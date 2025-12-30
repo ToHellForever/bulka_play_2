@@ -1,0 +1,26 @@
+
+/* Центрированный блок */
+.center-block {
+  background-color: rgba(248, 128, 5, 1);
+  padding: 3rem;
+  border-radius: 33px;
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.contact_icon_link {
+    margin-right: 1rem;
+}
+
+.center-block_button {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(33, 33, 33, 1);
+    border: none;
+    padding: 15px;
+    border-radius: 20.45px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+}
