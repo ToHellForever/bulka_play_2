@@ -313,9 +313,10 @@
 .discount-modal-content {
     background-color: rgba(33, 33, 33, 1);
     margin: 15% auto;
+    margin-top: 30px;
     padding: 30px;
     border-radius: 15px;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
