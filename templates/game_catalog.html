@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% load custom_filters %}
-{% block title %}Катлог игр{% endblock title %}
+{% block title %}Каталог настольных игр из натурального дерева | BUL.K.A-PLAY{% endblock title %}
+{% block meta_description %}Каталог эксклюзивных настольных игр из натурального дерева ручной работы. Деревянные игры для детей и взрослых. Доставка по всей России из Красноярска.{% endblock %}
+{% block meta_keywords %}настольные игры из дерева, деревянные игры купить, игры из натурального дерева, экологичные настольные игры, игры ручной работы Красноярск, деревянные шахматы, деревянные шашки, подарочные настольные игры, игры из березы, игры из дуба, развитие логики через деревянные игры, каталог настольных игр{% endblock %}
+{% block og_title %}Каталог настольных игр из натурального дерева | BUL.K.A-PLAY{% endblock %}
+{% block og_description %}Эксклюзивные настольные игры из твердых пород дерева. Развивающие игры для детей и семейного отдыха. Доставка по всей России из Красноярска.{% endblock %}
+{% block og_image %}https://bulkaplay.ru/media/photo/right_photo.png{% endblock %}
+{% block twitter_title %}Каталог настольных игр из дерева | BUL.K.A-PLAY{% endblock %}
+{% block twitter_description %}Уникальные деревянные игры для развития логики и семейного досуга. Экологичные материалы, ручная работа, доставка по России.{% endblock %}
+{% block twitter_image %}https://bulkaplay.ru/media/photo/right_photo.png{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/pages/game_catalog.css' %}">
 <form id="filter-form" method="get">

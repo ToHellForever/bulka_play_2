@@ -2,7 +2,15 @@
 {% load static %}
 {% load custom_filters %}
 {% comment %} название игры {% endcomment %}
-{% block title %}{{ additional_product.name }}{% endblock title %}
+{% block title %}{{ additional_product.name }} | BUL.K.A-PLAY{% endblock title %}
+{% block meta_description %}{{ additional_product.name }} — дополнительные аксессуары для настольных игр из натурального дерева. Ручная работа, экологичные материалы, доставка по всей России.{% endblock %}
+{% block meta_keywords %}{{ additional_product.name }}, дополнительные аксессуары для настольных игр, деревянные аксессуары, игры из натурального дерева, эксклюзивные настольные игры, игры ручной работы, деревянные шахматы, деревянные шашки, подарочные настольные игры, игры из березы, игры из дуба, развитие логики через игры, Красноярск{% endblock %}
+{% block og_title %}{{ additional_product.name }} | BUL.K.A-PLAY{% endblock %}
+{% block og_description %}{{ additional_product.name }} — дополнительные аксессуары для настольных игр из натурального дерева. Ручная работа, экологичные материалы, доставка по всей России.{% endblock %}
+{% block og_image %}{{ additional_product.image.url }}{% endblock %}
+{% block twitter_title %}{{ additional_product.name }} | BUL.K.A-PLAY{% endblock %}
+{% block twitter_description %}{{ additional_product.name }} — дополнительные аксессуары для настольных игр из натурального дерева. Ручная работа, экологичные материалы, доставка по всей России.{% endblock %}
+{% block twitter_image %}{{ additional_product.image.url }}{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/pages/additional_detail.css' %}">
 <link rel="stylesheet" href="{% static 'css/pages/product_detail.css' %}">

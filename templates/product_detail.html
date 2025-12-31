@@ -2,7 +2,15 @@
 {% load static %}
 {% load custom_filters %}
 {% comment %} название игры {% endcomment %}
-{% block title %}{{ product.name }}{% endblock title %}
+{% block title %}{{ product.name }} | BUL.K.A-PLAY{% endblock title %}
+{% block meta_description %}{{ product.name }} — эксклюзивная настольная игра из натурального дерева. Ручная работа, экологичные материалы, доставка по всей России.{% endblock %}
+{% block meta_keywords %}{{ product.name }}, настольные игры из дерева, деревянные игры, игры из натурального дерева, эксклюзивные настольные игры, игры ручной работы, деревянные шахматы, деревянные шашки, подарочные настольные игры, игры из березы, игры из дуба, развитие логики через игры, Красноярск{% endblock %}
+{% block og_title %}{{ product.name }} | BUL.K.A-PLAY{% endblock %}
+{% block og_description %}{{ product.name }} — эксклюзивная настольная игра из натурального дерева. Ручная работа, экологичные материалы, доставка по всей России.{% endblock %}
+{% block og_image %}{{ product.image.url }}{% endblock %}
+{% block twitter_title %}{{ product.name }} | BUL.K.A-PLAY{% endblock %}
+{% block twitter_description %}{{ product.name }} — эксклюзивная настольная игра из натурального дерева. Ручная работа, экологичные материалы, доставка по всей России.{% endblock %}
+{% block twitter_image %}{{ product.image.url }}{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/pages/product_detail.css' %}">
 <div class="container mt-5">
