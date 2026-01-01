@@ -1,0 +1,970 @@
+.title_h {
+    text-align: center;
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+}
+.wood_h {
+    color: rgba(248, 128, 5, 1);
+}
+.game_count_text {
+    font-family: 'Mont' , sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+.flex-fill {
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.block-title {
+    margin-top: 1rem;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+.block-text {
+    margin-top: 10px;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1rem;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 1);
+}
+.game_catalog_h,
+.game_catalog_h-2,
+.rental_catalog_landing_h,
+.news_catalog_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    text-align: start !important;
+}
+
+.product-card-title {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 2rem;
+}
+.product-card-price {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+.rental-description {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+}
+
+.contact_catalog_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+.contact_text {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+}
+.contact_link a {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.center-block_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2.3rem;
+    font-weight: 500;
+    color: black;
+}
+.center-block_text {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}
+
+.center-block_button {
+    color: rgba(33, 33, 33, 1);
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+/* ссылки для футер и нав меню */
+.menu-text {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-family: 'Mont', sans-serif;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+/* о нас  */
+.about_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 8rem;
+    font-weight: 700;
+    color: white;
+}
+.about_block {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.1rem !important;
+    font-weight: 400;
+    line-height: 20px;
+    margin-top: 20px;
+    text-align: justify;
+    color: rgba(255, 255, 255, 1);
+}
+
+.about_block_h {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+}
+.about_block_h_1 {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: white;
+    white-space: nowrap;
+}
+.about_block_text {
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 1);
+}
+.news-card-button {
+  font-size: 1.2rem;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 400;
+color: rgba(33, 33, 33, 1);
+}
+
+.news-card-title {
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    margin-top: 1.5rem;
+}
+
+
+
+/* каталог игр */
+/* для placeholder */
+select.form-control {
+    color: white !important;
+    font-family: 'Mont' , sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 20px;
+}
+.form-control::-webkit-input-placeholder {
+    color: white !important;
+    font-family: 'Mont' , sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.product_card_name {
+    color: white;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1.5rem;
+}
+.product_card_price {
+    color: white;
+    font-family: 'Mont' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.no_result_h {
+    color: white;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.no_result_text {
+    color: white;
+    font-family: 'Unbounded' , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.no_result_a {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
+}
+.product_card_button {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* детали товара */
+.highlighted-text {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.normal-text {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.2;
+}
+.button {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+.info-block {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.product_detail_name {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.product_detail_description {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.product_detail_set {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.product_detail_price {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.product_detail_button {
+    font-size: 1.5rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+}
+
+/* каталог аренды */
+.rental_catalog_h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+}
+.rental_catalog_p {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.rental_text {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.wood_p {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Mont', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.rental_recomendation_h {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+}
+.slider-label-start,
+.slider-label-end {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 25px !important;
+}
+#guestCounts {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 20px !important;
+    margin-left: 0;
+}
+h3 {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+}
+.guest_count_h {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+
+/* модальное окно для заказа */
+.modal-title {
+    color: white;
+    text-align: start;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+.modal-content label {
+    color: rgba(248, 128, 5, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-title-section {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.submit-button {
+     color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.modal-total-price {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+h4 {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.game-price {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.arend-card-title {
+    color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.arend-card-description {
+    color: black !important;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.arend-card-price {
+    color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Отступ сверху автоматически, чтобы контент не обрезался */
+}
+
+.time-with-discount {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.arend-card-time,
+.arend-card-time-2 {
+    color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-align: start !important;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  min-height: 40px; /* Минимальная высота для контейнера с ценой, чтобы выравнять карточки */
+}
+
+.original-price-container {
+  position: absolute;
+  top: -20px; /* Поднимаем старую цену выше */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.arend-price {
+    font-size: 1.8rem;
+}
+
+
+
+/* для 2 в 1  */
+.additional_detail_price {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.title_h_2_in_1 {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 4.3rem;
+    text-align: center;
+}
+.exlusive_h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+.exlusive_p {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.advantage-block-h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.advantage-block-p {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.advantage-block-h-2 {
+    color: black;
+        font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.advantage-block-p-2 {
+    color: black;
+        font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.block-h {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    left: 10%;
+    text-align: left;
+}
+.block-p {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    left: 10%;
+    text-align: left;
+}
+.examples {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.h_button {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.h_button-2 {
+    color: black;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.p_button {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.p_button-2 {
+    color: black;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.opacity_h,
+.opacity_h-1 {
+    color: rgba(49, 47, 47, 1);
+    font-family: 'Unbounded', sans-serif;
+}
+.button_2 {
+    color: rgba(33, 33, 33, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.button_1 {
+    color: rgba(33, 33, 33, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+/* для деталей допов */
+.additional_detail_set {
+    color: white;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+
+
+/* для сообщения об успешном заказе */
+.success-title {
+    color: #f88005;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+.success-message {
+    color: white;
+    font-family: 'Mont', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 0px;
+}
+.success-ok-button {
+    color: rgba(1, 1, 1, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+
+@media (max-width: 1325px) {
+    .about_h {
+        font-size: 7rem;
+    }
+    .about_block {
+        font-size:1rem;
+    }
+    .exlusive_h {
+        font-size: 1.4rem;
+    }
+    .advantage-block-h,
+    .advantage-block-h-2 {
+        font-size: 1.3rem;
+    }
+    .arend-card-time,
+    .arend-card-time-2 {
+        font-size: 1.5rem;
+
+    }
+    .arend-price {
+        font-size: 1.5rem;
+    }
+    .title_h_2_in_1 {
+        font-size: 3.1rem;
+    }
+}
+@media (max-width: 1160px) {
+    .about_h {
+        font-size: 5.5rem;
+    }
+    .highlighted-text {
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 1110px) {
+    .block-p {
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 1250px) {
+    .arend-card-title {
+        font-size: 1.3rem;  
+    }
+    .about_block {
+        font-size:0.9rem;
+    }
+    .about_block_text {
+        font-size:1rem;
+        margin-bottom: 0px;
+    }
+}
+@media (max-width: 1080px) {
+  .contact_catalog_h {
+    font-size: 1.5rem;
+  }
+  .news-card-button {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1050px) {
+    .about_block_text {
+        font-size:0.9rem;
+    }
+}
+@media (max-width: 1174px) {
+    .about_block {
+        font-size:0.8rem;
+    }
+}
+
+
+/* мобильная версия */
+@media (max-width: 992px) {
+    /* landing */
+    .title_h {
+        font-size: 3.5rem;
+        text-align: start;
+    }
+    .game_count_text {
+        font-size: 3rem;
+    }
+    .flex-fill {
+        font-size: 1.5rem;
+    }
+    .center-block_h {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .contact_catalog_h {
+        font-size: 1.3rem;
+    }
+    .center-block_text {
+        font-size: 0.8rem;
+    }
+    .contact_link a {
+        font-size: 1rem;
+    }
+    .contact_link {
+        font-size: 0.8rem;
+    }
+    .product-card-title {
+        font-size: 1rem; 
+        white-space: wrap;
+    }
+    .news-card-title {
+        font-size: 0.9rem; 
+        white-space: wrap;
+    }
+    .product-card-price {
+        font-size: 1rem;
+    }
+    /* о нас  */
+    .about_h {
+        font-size: 5rem;
+        text-align: start;
+    }
+    .news-card-button {
+        font-size: 0.9rem;
+    }
+    .rental_catalog_landing_h,
+    .contact_catalog_h,
+    .news_catalog_h {
+        font-size: 1.3rem;
+    }
+    .about_block_h {
+        font-size: 1.5rem;
+    }
+    .about_block_text {
+        font-size: 1.2rem;
+    }
+
+
+    /* каталог игр */
+    .product_card_name {
+        font-size: 1rem;
+        margin-left: 5px;
+    }
+    .product_card_price {
+        margin-left: 5px;
+    }
+    .product_card_button {
+        font-size: 0.8rem;
+    }
+    .game_catalog_h,
+    .game_catalog_h-2 {
+        margin-top: 10px;
+    }
+    .no_result_a {
+        font-size: 1rem;
+    }
+    .no_result_h {
+        font-size: 1.2rem;
+    }
+    .no_result_text {
+        font-size: 1rem;
+    }
+
+
+
+    /* каталог аренды */
+    .rental_catalog_h {
+        font-size: 1.8rem;
+    }
+    .rental_catalog_p {
+        font-size: 0.8rem;
+    }
+    h3 {
+        font-size: 1.1rem;
+    }
+    .guest_count_h {
+        font-size: 1.2rem;
+    }
+    .slider-label-start,
+    .slider-label-end {
+        font-size: 1rem !important;
+        margin-top: 10px;
+    }
+    #guestCounts {
+        font-size: 1.3rem;
+        text-align: start;
+    }
+    .rental_recomendation_h {
+        font-size: 0.9rem;
+    }
+    .rental_text {
+        font-size: 0.9rem;
+    }
+    .arend_description_h {
+        color: rgba(248, 128, 5, 1);
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+        /* показываю на мобилке */
+    }
+    .arend-card-time-2 {
+        margin-top: 55px !important;
+    }
+    .arend_li {
+        color: white;
+        font-family: 'Mont', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        margin-left: 10px;
+        font-size: 1rem;
+    }
+        .arend-price {
+        font-size: 1.4rem;
+    }
+    
+
+    /* детали товара */
+    .highlighted-text {
+        font-size: 0.9rem;
+    }
+    .normal-text {
+        font-size: 0.8rem;
+    }
+    .button {
+        font-size: 1rem;
+    }
+    .product_detail_button {
+        font-size: 1rem;
+    }
+    .info-block {
+        font-size: 0.8rem;
+    }
+    .product_detail_name {
+        font-size: 1.2rem;
+    }
+    .product_detail_description {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* модальное окно заказа */
+    .submit-button {
+        font-size: 1rem;
+    }
+
+
+    /* модальное окно для успешной отправки заказа */
+    .success-title {
+        font-size: 1.3rem;
+    }
+    .success-ok-button {
+        font-size: 1rem;
+    }
+
+
+    /* 2 в 1 */
+    .title_h_2_in_1  {
+        font-size: 2rem;
+        text-align: start;
+    }
+    .exlusive_h {
+        font-size: 1.1rem;
+        margin-top: auto;
+    }
+    .exlusive_p {
+        font-size: 1rem;
+    }
+    .advantage-block-h,
+    .advantage-block-h-2 {
+        font-size: 1.2rem;
+        margin-bottom: 0px;
+        margin-left: 20px;
+    }
+    .advantage-block-p,
+    .advantage-block-p-2,
+    .advantage-block-p-3 {
+        font-size: 1rem;
+        margin-bottom: 0px;
+        margin-left: 20px;
+    }
+    .examples {
+        font-size: 1.3rem;
+    }
+    .p_button,
+    .p_button-2 {
+        font-size: 0.9rem;
+    }
+    .block-p,
+    .block-h {
+        left: 5%;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .arend-card-time,
+    .arend-card-time-2 {
+        font-size: 1.4rem;
+        margin-bottom: -10px !important;
+    }
+    .arend-card-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .arend-card-time, 
+    .arend-price,
+    .arend-card-time-2 {
+        margin: 0;
+    }
+    .game_catalog_h,
+    .game_catalog_h-2 {
+        font-size: 1.3rem;
+    }
+    .game_catalog_h-2 {
+        margin-left: -10px;
+    }
+}
+
+
+@media (max-width: 725px) {
+    .about_block_h_1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .title_h {
+        font-size: 1.8rem;
+        text-align: start;
+    }
+    .game_count_text {
+        font-size: 1.5rem;
+    }
+    .flex-fill {
+        font-size: 1.2rem;
+    }
+    
+}
+
+
+@media (max-width: 550px) {
+    .news-card-button {
+        font-size: 0.8rem;
+    }
+    .about_block_h_1 {
+        font-size: 1rem;
+    }
+    .about_block_h {
+        font-size: 1.2rem;
+    }
+    .about_block_text {
+        font-size: 0.8rem;
+    }
+}

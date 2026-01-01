@@ -1,0 +1,253 @@
+.product_detail_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 31px;
+    cursor: pointer;
+}
+
+.additional_images {
+    width: 100%;
+    height: calc(100% / 5 - 1.6rem); /* Adjust the height to match the main image and ensure equal spacing */
+    border-radius: 15px;
+    margin-bottom: 2.1rem;
+    cursor: pointer;
+}
+
+.product_detail_image_list {
+    width: 100%;
+    height: auto;
+    border-radius: 22.66px;
+}
+
+.detail_row {
+            margin-left: -22px;
+        margin-right: -22px;
+        margin-top: 20px    ;
+}
+
+.kit-container {
+    display: grid;
+    grid-gap: 10px;
+    justify-items: stretch;
+}
+
+.kit-item {
+    background: #1A1A1A;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    color: white;
+}
+
+.kit-item:nth-child(-n+3) {
+    grid-row-start: 1;
+}
+
+.kit-item:nth-child(n+4) {
+    grid-row-start: 2;
+}
+
+.kit-item:nth-child(1) {
+    grid-column-end: span 3;
+}
+
+.kit-item:nth-child(2),
+.kit-item:nth-child(3) {
+    grid-column-end: span 2;
+}
+
+.kit-item:nth-child(4) {
+    grid-column-end: span 3;
+}
+
+.kit-item:nth-child(5) {
+    grid-column-end: span 4;
+}
+
+.kit-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.product_detail_button {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgba(248, 128, 5, 1);
+    color: rgba(33, 33, 33, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.button {
+    flex: 1;
+    padding: 15px 20px;
+    color: white;
+    border: none;
+    background: rgba(33, 33, 33, 1);
+    border-radius: 13px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: rgba(33, 33, 33, 1);
+}
+
+.info-block {
+    width: 100%;
+    padding: 15px;
+    border-radius: 13px;
+    background-color: rgba(33, 33, 33, 1);
+    display: none;
+    margin-top: 5px;
+}
+
+.arrow_accorderon {
+    margin-left: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.arrow_accorderon.active {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 1200px) {
+    .kit-item {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Стили для мобильной карусели */
+    .product-main-swiper-mobile {
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-main-swiper-mobile .swiper-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-main-swiper-mobile .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product_detail_image {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 15px;
+    }
+
+    .button-container {
+        display: flex;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .button-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .kit-container-mobile {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 10px;
+        justify-items: stretch;
+    }
+
+    .kit-item-mobile {
+        background: #1A1A1A;
+        border-radius: 15px;
+        padding: 15px;
+        display: flex;
+        color: white;
+    }
+
+    .kit-item-mobile:nth-child(1) {
+        grid-column: span 6;
+    }
+
+    .kit-item-mobile:nth-child(2),
+    .kit-item-mobile:nth-child(3) {
+        grid-column: span 4;
+    }
+
+    .kit-item-mobile:nth-child(4) {
+        grid-column: span 6;
+    }
+
+    .kit-item-mobile:nth-child(5) {
+        grid-column: span 10;
+    }
+
+    .product_detail_button {
+        width: 100%;
+        padding: 10px;
+        position: relative;
+        margin-top: 20px;
+        margin-left: 2px;
+    }
+
+    .d-md-none {
+        display: block !important;
+    }
+
+    .d-md-flex {
+        display: none !important;
+    }
+
+    .product_detail_image_list {
+        border-radius: 10px;
+    }
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.game-card > a.product_card_button {
+    margin-top: auto;
+}

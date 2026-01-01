@@ -1,0 +1,114 @@
+/* карусель продуктов */
+.product_card_image  {
+  width: 100%;
+  height: auto;
+  border-radius: 31px;
+}
+.news-card {
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Фиксированная высота для всех карточек */
+  width: 100%;
+}
+
+.news-card-button {
+  width: auto;
+  max-width: 70%;
+  height: auto;
+  background-color: rgba(248, 128, 5, 1);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin-top: auto; /* Прижимаем кнопку к низу */
+}
+.news_card_image {
+  width: 100%;
+  height: 300px; 
+  border-radius: 31px;
+  flex-shrink: 0; 
+}
+.swiper-slide {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  width: calc(100% / 3);
+  height: auto; /* Автоматическая высота слайда */
+}
+.swiper-button-prev,
+.swiper-button-next {
+  display: none;
+}
+.swiper-button-prev {
+  margin-left: 10px;
+}
+.swiper-button-next {
+  margin-right: 10px;
+}
+
+
+.arend-card {
+  background: rgba(248, 128, 5, 1);
+  width: 100%;
+  padding: 2rem;
+  border-radius: 35.3px;
+  color: white;
+  transition: transform 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Полная высота внутри слайдера */
+}
+
+/* Альтернативный стиль для карточек аренды на главной странице */
+.arend-card.style-2 {
+  background: white;
+}
+
+/* Стили для описания в альтернативном стиле */
+.arend-card.style-2 .arend-card-description {
+  color: black;
+}
+
+/* Мобильные стили для каруселей */
+@media (max-width: 992px) {
+    .product_card_image,
+    .news_card_image {
+    border-radius: 15px;
+  }
+  .swiper-button-next {
+    margin-right: -5px;
+  }
+  .swiper-button-prev {
+    margin-left: -5px;
+  }
+  .news_card_image {
+  height: 200px; /* Установите фиксированную высоту для изображения */
+}
+}
+
+
+
+/* Стили для кнопок навигации карусели */
+.swiper-button-next,
+.swiper-button-prev {
+    color: rgba(248, 128, 5, 1) !important;
+    background: rgba(33, 33, 33, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Поднимаем стрелки только для каруселей товаров и новостей */
+.swiper:not(.rental-swiper, .product-main-swiper-mobile) .swiper-button-next,
+.swiper:not(.rental-swiper, .product-main-swiper-mobile) .swiper-button-prev {
+    top: 35%;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: bold;
+}

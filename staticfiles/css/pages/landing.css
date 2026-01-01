@@ -1,0 +1,249 @@
+.landing-container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Десктопные стили */
+.left_photo {
+    width: 27rem;
+    height: auto;
+    border-radius: 31px;
+}
+
+.right_photo {
+    width: 100%;
+    height: auto;
+}
+
+.catalog_game_icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 39%;
+    z-index: 10;
+}
+
+.arend_icon {
+    width: 70%;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Скрытие мобильной версии на десктопе */
+.mobile-layout {
+    display: none;
+}
+
+a {
+  white-space: normal; /* Разрешает перенос текста */
+  word-wrap: break-word; /* Разрешает перенос слов */
+  overflow-wrap: break-word; /* Альтернатива для word-wrap */
+}
+.flex-fill {
+    border: none !important;
+    background: rgba(26, 26, 26, 1);
+    height: 9.8rem;
+      width: 100%;
+    padding: 18px !important;
+    flex-wrap: wrap;
+    border-radius: 33px;
+    display: flex; /* Добавьте это свойство */
+    text-align: start;
+}
+.flex-fill:nth-child(2) {
+    background: rgba(248, 128, 5, 1);
+    color: rgba(33, 33, 33, 1);
+}
+
+.block-img {
+    width: 7rem;
+    height: auto;
+}
+
+/* Блок с двумя блоками в строку */
+.row-blocks {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+/* Стили для блоков с иконками */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row > .col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 15px;
+}
+
+@media (max-width: 992px) {
+  .row > .col-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Стандартный стиль контактов */
+.contact-block {
+  background-color: rgba(26, 26, 26, 1); 
+  padding: 3rem;
+  border-radius: 33px;
+  width: 100%;
+}
+
+
+/* Центрированный блок */
+.center-block {
+  background-color: rgba(248, 128, 5, 1);
+  padding: 3rem;
+  border-radius: 33px;
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.contact_icon_link {
+    margin-right: 1rem;
+}
+
+.center-block_button {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(33, 33, 33, 1);
+    border: none;
+    padding: 15px;
+    border-radius: 20.45px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* промежуточные стили  */
+@media (max-width: 1400px) {
+      .left_photo {
+        width: 22rem;
+        height: 100%;
+    }
+    .catalog_game_icon {
+      width: 39%;
+    }
+    .right_photo {
+        width: 100%;
+        height: 100%;
+    }
+}
+@media (max-width: 1170px) {
+  .contact-block {
+    padding: 1.5rem !important;
+  }
+}
+@media (max-width: 1052px) {
+  .flex-fill {
+    height: 12rem;
+  }
+}
+/* Мобильные стили */
+@media (max-width: 992px) {
+    /* Скрываем десктопную версию */
+    .desktop-layout {
+        display: none !important;
+    }
+
+    .landing-container {
+        flex-direction: column;
+    }
+
+    .left_photo {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+    }
+
+    .right_photo {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .mobile-top-section {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-bottom-section {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: -20px;
+    }
+
+    .mobile-left-column {
+        width: 50%;
+        padding-right: 0.5rem;
+    }
+
+    .mobile-right-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .flex-fill {
+        width: 100% !important;
+        height: 6rem;
+        border-radius: 11.63px;
+    }
+
+
+    .catalog_game_icon {
+      width: 39%;
+    }
+      .row-blocks {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-block {
+    padding: 2rem;
+    margin-bottom: 0px;
+  }
+
+  .center-block {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+  }
+  .center-block_button {
+    font-size: 1rem;
+    border-radius: 8.83px;
+  }
+  .block-img {
+    width: 6rem;
+    height: auto;
+  }
+}
+@media (max-width: 990px) and (min-width: 550px) {
+  .row > .col-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}

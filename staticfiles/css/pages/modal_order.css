@@ -1,0 +1,371 @@
+/* Основные стили модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background-color: rgba(33, 33, 33, 1);
+  margin: 5% auto;
+  padding: 30px;
+  border: none;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+@keyframes modalContentSlide {
+  from { transform: translateY(-50px); }
+  to { transform: translateY(0); }
+}
+
+.close {
+  color: #555;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* Стили для формы */
+.modal-content input[type="text"],
+.modal-content input[type="tel"],
+.modal-content input[type="date"],
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  color: black;
+  padding: 12px;
+  background: white;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  font-size: 16px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.modal-content select {
+  height: 44px;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-content textarea {
+  min-height: 100px;
+  resize: vertical;
+  padding: 12px;
+  border: none;
+}
+
+/* Стили для списков игр */
+#games-list-buy,
+#games-list-rent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+#games-list-buy li,
+#games-list-rent li {
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 200px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#games-list-buy li:hover,
+#games-list-rent li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#games-list-buy img,
+#games-list-rent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+#games-list-buy label,
+#games-list-rent label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#games-list-buy input[type="checkbox"],
+#games-list-rent input[type="checkbox"] {
+  display: block;
+  margin: 0 auto 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  #games-list-buy li,
+  #games-list-rent li {
+    flex: 1 1 calc(50% - 15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    margin: 3% auto;
+    padding: 15px;
+  }
+
+  #games-list-buy li,
+  #games-list-rent li,
+  .game-card-modal {
+    flex: 1 1 calc(50% - 15px);
+  }
+
+  .modal-content input[type="text"],
+  .modal-content input[type="tel"],
+  .modal-content input[type="date"],
+  .modal-content select,
+  .modal-content textarea {
+    padding: 10px;
+  }
+}
+
+/* Стили для скрытых элементов */
+.hidden {
+  display: none !important;
+}
+
+/* Стили для ошибок валидации */
+.error-message {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.input-error {
+  border-color: #d32f2f !important;
+}
+  /* Стили для карточек игр */
+.modal-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.modal-col {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+.game-card-modal {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Адаптивность */
+
+  .game-card-modal img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .game-info {
+    margin-top: 15px;
+  }
+  .game-checkbox {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+  }
+
+  .game-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .game-checkbox input[type="checkbox"]:checked {
+    background-color: #f88005;
+    border-color: #f88005;
+  }
+
+  .game-checkbox input[type="checkbox"]:hover {
+    background-color: #f88005;
+    border-color: #f88005;
+  }
+
+  .game-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  /* Стили для кнопки отправки */
+  .submit-button {
+    width: auto;
+    /* кнопка по центру формы */
+    display: block;
+    margin: 0 auto;
+    padding: 18px;
+    background-color: rgba(248, 128, 5, 1);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+
+  .submit-button:hover {
+    background-color: rgb(211, 111, 12);
+  }
+
+  .submit-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+
+
+
+.toast-body {
+  padding: 10px 15px;
+  font-size: 1rem ;
+  font-family: 'Unbounded' , sans-serif;
+  font-weight: 400 ;
+  background: red;
+  border-radius: 8px;
+  color: white;
+}
+
+.toast-container {
+  right: 20px !important;
+}
+
+.toast {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.toast-header.bg-success {
+  background-color: rgba(248, 128, 5, 1) ;
+  color: white ;
+}
+
+/* Модальное окно поздравления */
+.success-modal,
+.discount-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.success-modal-content,
+.discount-modal-content {
+    background-color: rgba(33, 33, 33, 1);
+    margin: 15% auto;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+.success-icon {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    /* по центру  */
+    margin: 0 auto;
+}
+
+.success-ok-button {
+    background-color: rgba(248, 128, 5, 1);
+    border: none;
+    padding: 10px;
+    width: 70%;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.success-close,
+.discount-close {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .modal-content input[type="text"],
+  .modal-content input[type="tel"],
+  .modal-content input[type="date"],
+  .modal-content select,
+  .modal-content textarea {
+    border-radius: 8px;
+  }
+  .submit-button {
+    width: 100%;
+  }
+  .success-icon,
+  .discount-close {
+    width: 50%;
+    height: auto;
+  }
+}

@@ -1,0 +1,168 @@
+body {
+    background: rgba(0, 0, 0, 1);
+}
+
+/* Стили для цен  */
+.original-price,
+.landing-original-price,
+.modal-original-price,
+.catalog-original-price,
+.product-detail-original-price,
+.product-detail-original-price {
+    text-decoration: line-through;
+    color: gray;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+/* Стили для цен со скидками */
+.discounted-price,
+.landing-discounted-price,
+.modal-discounted-price,
+.catalog-discounted-price,
+.product-detail-discounted-price {
+    color: rgba(247, 55, 5, 1);
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+.modal-discounted-price {
+    font-size: 1.4rem;
+}
+.modal-original-price {
+    font-size: 1rem;
+}
+
+/* для аренды */
+.arend-original-price,
+.rental-original-price {
+    text-decoration: line-through;
+    color: black;
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+.arend-discounted-price,
+.rental-discounted-price {
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+/* Общий класс для блока со скидками */
+.discount-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 1400px) {
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 100% !important;
+    }
+}
+
+/* Стили для плашки скидки на фото товара */
+.discount-badge,
+.discount-badge-2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(247, 55, 5, 1);
+    color: white;
+    margin: 15px;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    z-index: 10;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+}
+.discount-badge-2 {
+    margin: -10px;
+}
+
+
+/* Альтернативный стиль для карточек аренды - более специфичный и заметный */
+div.game-card-rental.style-2 {
+    background: white;
+}
+/* Стили для описания в альтернативном стиле */
+div.game-card-rental.style-2 p.arend-card-description {
+    color: black;
+}   
+/* Альтернативный стиль для карточек аренды - более специфичный и заметный */
+div.game-card-rental.style-2 {
+    background: white;
+}
+
+/* Стили для описания в альтернативном стиле */
+div.game-card-rental.style-2 p.arend-card-description {
+    color: black;
+}
+
+
+@media (max-width: 1325px) {
+.arend-discounted-price {
+    font-size: 1.5rem;
+}
+}
+
+
+@media (max-width: 992px) {
+    .discount-badge,
+    .discount-badge-2 {
+        font-size: 0.8rem;
+        padding: 0px 15px 0px 15px;
+        height: 25px; 
+    }
+    .discount-badge-2  {
+        margin: -10px;
+    }
+    .discounted-price,
+    .landing-discounted-price,
+    .catalog-discounted-price{
+        font-size: 1.2rem;
+        margin-right: 0px;
+    }
+    .catalog-discounted-price,
+    .modal-discounted-price,
+    .product-detail-discounted-price {
+        font-size: 1rem;
+        
+    }
+    .original-price,
+    .landing-original-price,
+    .catalog-original-price {
+        font-size: 1rem;
+    }
+    .catalog-original-price,
+    .modal-original-price,
+    .product-detail-original-price {
+        font-size: 0.7rem;
+    }
+    
+
+    .arend-discounted-price {
+        font-size: 1.4rem;
+    }
+    .rental-original-price {
+        font-size: 0.8rem;
+        margin-top: 55px !important;
+        text-align: start !important;
+    }
+    .rental-discounted-price {
+        font-size: 1.1rem;
+        margin-top: 55px;
+        text-align: start;
+    }
+    .rental-price {
+        font-size: 1.1rem;
+        text-align: start;
+        margin-top: 55px;
+    }
+} 

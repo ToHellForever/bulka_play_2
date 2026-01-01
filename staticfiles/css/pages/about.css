@@ -1,0 +1,157 @@
+.about_block ul {
+  padding-left: 20px;
+}
+
+.video_1 {
+    width: 100%;
+    height: auto;
+    max-height: 250px;  
+    object-fit: cover;
+    border-radius: 31px;
+    margin-top: -40px;
+        border: 2px solid rgba(248, 128, 5, 1); 
+}
+
+.video_2 {
+    width: 100%;
+    max-height: 420px;
+    height: auto;
+    border-radius: 31px;
+    object-fit: cover;
+    border: 2px solid rgba(248, 128, 5, 1);
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 31px;
+    padding: 10px;
+    margin: 0;
+    background-color: rgba(26, 26, 26, 1);
+}
+
+.row .col-md-2:nth-child(2) .card {
+    background-color: rgba(248, 128, 5, 1);
+    color: rgba(26, 26, 26, 1);
+}
+
+.row .col-md-2:nth-child(2) .card .about_block_text,
+.row .col-md-2:nth-child(2) .card .about_block_h {
+    color: rgba(26, 26, 26, 1);
+}
+
+.about_container {
+    margin-top: 50px;
+}
+
+.row.justify-content-center[style*='flex-wrap: nowrap'] {
+    align-items: stretch;
+}
+
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-5,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-4,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-5 > div,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-4 > div,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-3 > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (max-width: 1321px) {
+    .video_1  {
+        margin-top: 0px;
+        max-height: 100%;
+        width: 100%;
+    }
+    .video_2 {
+        display: none;
+    }
+
+    .row.justify-content-center[style*='flex-wrap: nowrap'] {
+        flex-wrap: wrap !important;
+    }
+
+    .row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-5,
+    .row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-4 {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+/* Мобильная версия */
+@media (max-width: 992px) {
+.row.justify-content-center[style*='flex-wrap: nowrap'] {
+    flex-wrap: wrap !important;
+    align-items: stretch;
+}
+
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-5,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-4,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-5 > div,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-4 > div,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-3 > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-5,
+.row.justify-content-center[style*='flex-wrap: nowrap'] > .col-md-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+}
+
+    /* Стили для блоков с карточками */
+    .row.g-2 {
+        flex-wrap: wrap;
+    }
+    .card {
+        width: auto;
+        height: 100%;
+        border-radius: 11.69px;
+    }
+    .card-body {
+        padding: 0px;
+    }
+    .block-1 {
+        order: 1;
+        flex-basis: calc(70% - 5px);
+        max-width: calc(70% - 5px);
+    }
+
+    .block-4 {
+        order: 2;
+        flex-basis: calc(30% + 5px);
+        max-width: calc(30% + 5px);
+    }
+
+    .block-2 {
+        order: 3;
+        flex-basis: calc(50% - 5px);
+        max-width: calc(50% - 5px);
+    }
+
+    .block-3 {
+        order: 4;
+        flex-basis: calc(50% + 5px);
+        max-width: calc(50% + 5px);
+    }
+    .about_container {
+    margin-top: 20px;
+}
+}

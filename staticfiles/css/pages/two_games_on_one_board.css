@@ -1,0 +1,223 @@
+.video_title {
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 13px;
+    margin-top:15px;
+    border: 2px solid rgba(248, 128, 5, 1);
+}
+
+.video_list {
+    width: 100%;
+    height: auto;
+    border-radius: 13px;
+    margin-top: 20px;
+    border: 2px solid rgba(248, 128, 5, 1);
+}
+.video_list:nth-child(1) {
+    margin-top: -25px;
+}
+.video-col {
+    margin-bottom: 40px;
+}
+.advantage-block {
+    background: rgba(33, 33, 33, 1);
+    padding: 20px;
+}
+
+.advantage-block-2 {
+    background: rgba(33, 33, 33, 1);
+    padding: 20px;
+}
+
+.container-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.block1 {
+    width: 100%;
+    grid-column: 1 / 2;
+    background-color: rgba(33, 33, 33, 1);
+    padding: 15px;
+    border-radius: 13px;
+}
+
+.block2 {
+    width: 100%;
+    grid-column: 1 / 2;
+    background-color: rgba(248, 128, 5, 1);
+    padding: 15px;
+    border-radius: 13px;
+}
+
+.block3 {
+    width: 100%;
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    background-color: rgba(33, 33, 33, 1);
+    padding: 15px;
+    border-radius: 13px;
+}
+
+.container-block-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto; /* Изменено на auto */
+    gap: 10px;
+}
+
+.block {
+    background: rgba(33, 33, 33, 1);
+    border-radius: 13px;
+    padding: 25px;
+    position: relative;
+
+}
+
+.opacity_h {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    font-size: 10rem !important;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.opacity_h-1 {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    font-size: 10rem !important;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+
+.block-h {
+    position: relative;
+    z-index: 2;
+}
+
+.block-p {
+    position: relative;
+    z-index: 2;
+}
+
+a.button_1_1 {
+    color: rgba(33, 33, 33, 1) !important;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+}
+
+.button_1 {
+    background-color: rgba(248, 128, 5, 1);
+    color: rgba(33, 33, 33, 1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20.45px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.button_2 {
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20.45px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.left_button {
+    text-align: center;
+    background: rgba(33, 33, 33, 1);
+    border-radius: 33px;
+    padding: 20px;
+    height: 200px; /* Add a fixed height */
+}
+
+.right_button {
+    text-align: center;
+    background: rgba(248, 128, 5, 1);
+    border-radius: 33px;
+    padding: 20px;
+    height: 200px; /* Add a fixed height */
+}
+
+@media (max-width: 1400px) {
+    .block {
+        padding: 35px;
+    }
+}
+@media (max-width: 992px) {
+    .container-block {
+        display: flex;
+        flex-direction: column;
+    }
+    .block1, .block2, .block3 {
+        width: 100%;
+        padding: 20px;
+    }
+    .mobile_2_1 {
+        width: 100%;
+    }
+    .container-block-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .block {
+        width: 100%;
+    }
+    .right_button {
+        margin-top: 20px;
+    }
+    a.button_1_1,
+    .button_2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .block1, .block2, .block3 {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .block1, .block2, .block3 {
+        padding: 10px;
+    }
+}
+.container-block-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container-block-2 .block {
+    flex: 1 1 45%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+    .container-block-2 .block {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 700px) {
+    .container-block-2 {
+        flex-direction: column;
+    }
+
+    .container-block-2 .block {
+        flex: 1 1 100%;
+    }
+}

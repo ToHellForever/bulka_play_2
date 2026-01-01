@@ -1,0 +1,129 @@
+.form-control {
+    background: rgba(59, 55, 55, 1);
+    border: none;
+    height: auto;
+    color: white !important;
+    padding-bottom: 5px;
+    opacity: 0.6;
+}
+select.form-control {
+    height: 35px;
+}
+.form-control:active {
+    background: rgba(59, 55, 55, 1);
+    border: none;
+    color: white !important;
+}
+.form-control:focus {
+    background: rgba(59, 55, 55, 1);
+}
+.search-input:focus, .filter-select:focus {
+outline: none;
+box-shadow: none;
+border-color: #ced4da;
+}
+
+.custom-select {
+    background: black;
+    opacity: 1;
+}
+.custom-select:active {
+    background: black;
+}
+.custom-select:focus {
+    background: rgba(33, 33, 33, 1);
+}
+.filter-col {
+    margin-right: 1rem;
+}
+.game_catalog_card {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 22.66px;
+}
+.game_catalog_grid {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.no_result_img {
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+    border-radius: 22.66px;
+}
+
+.no_result_button {
+    width: auto;
+    background: rgba(248, 128, 5, 1);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.product_card_button {
+    width: auto;
+    background: rgba(248, 128, 5, 1);
+    padding: 10px;
+    border-radius: 11.99px;
+    color: black;
+    margin-top: auto;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+}
+
+
+.filter-select option {
+    padding: 10px;
+}
+
+@media (max-width: 992px) {
+    .game_catalog_card {
+        border-radius: 10.51px;
+    }
+    .search-container {
+        padding: 10px;
+    }
+    .container-menu-catalog {
+        padding-left: 5px !important;
+    }
+    .game_catalog_row {
+        margin-left: -5px;
+        margin-right: -5px;
+        margin-top: 20px    ;
+    }
+    .game_catalog_grid {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 20px;
+        margin-top: 0px;
+    }
+    .container-menu-catalog {
+        padding-left: 5px !important;
+    }
+        .filter-row {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+
+    .filter-col {
+        flex: 0 0 auto;
+        width: auto;
+        padding-left: 15px;
+        padding-right: 5px;
+        margin-bottom: 10px;
+    }
+    .no_result_img {
+        width: 70%;
+        height: auto;
+    }
+    .product_card_button {
+        padding: 7px;
+        margin-top: -10px !important;
+        border-radius: 10px;
+    }
+}
