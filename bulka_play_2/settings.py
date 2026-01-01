@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 TELEGRAM_BOT_API_KEY = os.getenv('TELEGRAM_BOT_API_KEY')
 TELEGRAM_USER_ID = os.getenv('TELEGRAM_USER_ID')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG_MODE", "True") == "True"
+DEBUG = os.getenv("DEBUG_MODE", "False") == "True"
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -129,10 +129,21 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
+# Указали путь к статическим файлам в проекте. Это адрес на сервере, по которому будут доступны статические файлы
+STATIC_URL = "static/"
+# Указали путь к папке, где будут храниться статические файлы при сборке проекта
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# Указали путь к папке, где будут храниться статические файлы
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+# Настройки для медиа-файлов (загружаемые пользователями)
+# URL-путь для доступа к медиа файлам
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# Физический путь хранения файлов на сервере
+MEDIA_ROOT = BASE_DIR / "media"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# Debug Toolbar settings
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
