@@ -261,7 +261,7 @@ class Arenda(models.Model):
         verbose_name="Количество игр в аренде", default=6
     )
     description = models.TextField(verbose_name="Описание")
-    time = models.CharField(verbose_name="Время в часах", default=2)
+    time = models.CharField(verbose_name="Время в часах", default=2, max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     card_style = models.PositiveSmallIntegerField(
@@ -534,6 +534,8 @@ class AdditionalProducts(models.Model):
                 best_price = discounted_price
 
         return best_price
+
+
 class AdditionalProductsImage(models.Model):
     additional_product = models.ForeignKey(
         AdditionalProducts,
