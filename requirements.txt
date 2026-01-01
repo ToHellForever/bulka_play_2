@@ -20,6 +20,9 @@ django-debug-toolbar==4.3.0
 celery==5.3.6
 redis==5.0.1
 
+# Для работы со статикой
+whitenoise==6.6.0
+
 # Для разработки и тестирования
 pytest==8.0.2
 pytest-django==4.8.0
