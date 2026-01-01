@@ -1,0 +1,31 @@
+# Основные зависимости для Django-проекта
+Django==5.0.4
+psycopg2-binary==2.9.9
+Pillow==10.2.0
+python-dotenv==1.0.0
+django-crispy-forms==2.1
+crispy-bootstrap5==2024.2
+django-allauth==0.58.2
+django-filter==23.5
+django-phonenumber-field==7.2.0
+phonenumbers==8.13.30
+
+# Для работы с Telegram-ботом (используется в core/tg_bot.py)
+python-telegram-bot==20.8
+
+# Для отладки (используется в bulka_play_2/urls.py)
+django-debug-toolbar==4.3.0
+
+# Для асинхронных задач (используется в core/signals.py)
+celery==5.3.6
+redis==5.0.1
+
+# Для разработки и тестирования
+pytest==8.0.2
+pytest-django==4.8.0
+black==24.3.0
+flake8==7.0.0
+isort==5.13.2
+
+# Для работы с API (опционально)
+djangorestframework==3.14.0
