@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0008_arenda_time'),
+        ("core", "0008_arenda_time"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='arenda',
-            name='time',
-            field=models.CharField(default=2, verbose_name='Время в часах'),
+            model_name="arenda",
+            name="time",
+            field=models.CharField(
+                default=2, verbose_name="Время в часах", max_length=100
+            ),
         ),
     ]
