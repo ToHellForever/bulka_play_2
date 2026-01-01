@@ -47,7 +47,4 @@ db.sqlite3
 # 환경ные переменные (если есть)
 .env
 db.sqlite3
-db.sqlite3
-db.sqlite3
-db.sqlite3
-db.sqlite3
+
