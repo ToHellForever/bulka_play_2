@@ -27,7 +27,21 @@ TELEGRAM_USER_ID = os.getenv('TELEGRAM_USER_ID')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '195.133.194.40',
+    'bulka-play.ru' 
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+    'http://195.133.194.40',
+    'https://195.133.194.40',
+    'http://bulka-play.ru',
+    'https://bulka-play.ru'
+]
 
 
 # Application definition
