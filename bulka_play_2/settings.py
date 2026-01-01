@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 TELEGRAM_BOT_API_KEY = os.getenv('TELEGRAM_BOT_API_KEY')
 TELEGRAM_USER_ID = os.getenv('TELEGRAM_USER_ID')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG_MODE", "True") == "True"
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -129,11 +129,27 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# Указали URL-путь для доступа к статическим файлам в проекте.
+# Это адрес, по которому Nginx будет отдавать статику в браузере.
+STATIC_URL = "static/"
 
+# Указали абсолютный путь к папке на сервере, куда Django будет собирать все статические файлы
+# при выполнении команды collectstatic. Все CSS, JS и изображения из ваших приложений
+# будут скопированы сюда.
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Указали список дополнительных директорий, где Django должен искать статические файлы
+# помимо тех, что находятся внутри приложений. Обычно здесь указывают общую папку 'static'
+# на уровне проекта.
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+# Настройки для медиа-файлов (файлы, загружаемые пользователями, например, изображения для постов)
+# URL-путь для доступа к медиафайлам через веб-сервер.
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# Физический абсолютный путь на сервере, где будут храниться загруженные медиа-файлы.
+# Nginx также будет настроен на раздачу файлов из этой директории.
+MEDIA_ROOT = BASE_DIR / "media"
 
