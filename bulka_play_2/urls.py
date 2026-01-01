@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+
 from core.views import (
     LandingView,
     AboutView,
@@ -14,7 +15,6 @@ from core.views import (
     AdditionalProductsView,
     AdditionalProductDetailView,
 )
-
 # Защита от случайного доступа к админ-панели
 # Используется сложный путь для предотвращения случайного входа
 admin.site.site_header = "Администрирование Bulka Play 2"
