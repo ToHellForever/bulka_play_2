@@ -57,4 +57,4 @@ jobs:
             /home/v/.local/bin/poetry run python manage.py collectstatic --noinput
 
             # Перезапускаем службу Gunicorn
-            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl start gunicorn_django_consult
+            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl start gunicorn_bulka_play_2
