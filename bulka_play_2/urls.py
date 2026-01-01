@@ -14,7 +14,6 @@ from core.views import (
     AdditionalProductsView,
     AdditionalProductDetailView,
 )
-from debug_toolbar.toolbar import debug_toolbar_urls
 
 # Защита от случайного доступа к админ-панели
 # Используется сложный путь для предотвращения случайного входа
@@ -44,7 +43,7 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
-] + debug_toolbar_urls()
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
