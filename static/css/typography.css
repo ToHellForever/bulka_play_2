@@ -856,6 +856,9 @@ h4 {
     .submit-button {
         font-size: 1rem;
     }
+    .modal-title { 
+        font-size: 1.3rem;
+    }
 
 
     /* модальное окно для успешной отправки заказа */
@@ -902,6 +905,10 @@ h4 {
     .block-p,
     .block-h {
         left: 5%;
+    }
+    .h_button-2,
+    .h_button {
+        font-size: 1.5rem;;
     }
 }
 
