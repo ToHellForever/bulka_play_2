@@ -2,6 +2,7 @@ from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 from blog.models import Product, Arenda, News, AdditionalProducts
 
+
 class ProductSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.9
@@ -13,7 +14,8 @@ class ProductSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return f'/product/{obj.slug}/'
+        return obj.get_absolute_url()
+
 
 class ArendaSitemap(Sitemap):
     changefreq = "weekly"
@@ -26,7 +28,8 @@ class ArendaSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return f'/arenda/{obj.slug}/'
+        return obj.get_absolute_url()
+
 
 class NewsSitemap(Sitemap):
     changefreq = "weekly"
@@ -39,7 +42,8 @@ class NewsSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return f'/news/{obj.slug}/'
+        return obj.get_absolute_url()
+
 
 class AdditionalProductsSitemap(Sitemap):
     changefreq = "weekly"
@@ -52,7 +56,8 @@ class AdditionalProductsSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return f'/additional-products/{obj.slug}/'
+        return obj.get_absolute_url()
+
 
 class StaticViewSitemap(Sitemap):
     # Приоритет для статичных страниц, обычно ниже, чем у динамического контента
@@ -63,7 +68,13 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         # Метод возвращает список имен URL-адресов, определенных в urls.py
         # для статичных страниц.
-        return ['landing', 'about', 'game_catalog', 'rental_catalog', 'two_games_on_one_board']
+        return [
+            "landing",
+            "about",
+            "game_catalog",
+            "rental_catalog",
+            "two_games_on_one_board",
+        ]
 
     def location(self, item):
         # Для статичных страниц используем функцию reverse для получения URL
