@@ -3,13 +3,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from core.sitemaps import (
-    ProductSitemap,
-    ArendaSitemap,
-    NewsSitemap,
-    AdditionalProductsSitemap,
-    StaticViewSitemap,
-)
+from core.sitemaps import ProductSitemap, ArendaSitemap, NewsSitemap, StaticViewSitemap
+
 from core.views import (
     LandingView,
     AboutView,
@@ -22,15 +17,6 @@ from core.views import (
     AdditionalProductsView,
     AdditionalProductDetailView,
 )
-
-sitemaps = {
-    "products": ProductSitemap,
-    "arendas": ArendaSitemap,
-    "news": NewsSitemap,
-    "additional_products": AdditionalProductsSitemap,  # добавляем дополнительную продукцию
-    "static": StaticViewSitemap,
-}
-
 # Защита от случайного доступа к админ-панели
 # Используется сложный путь для предотвращения случайного входа
 admin.site.site_header = "Администрирование Bulka Play 2"
@@ -39,6 +25,13 @@ admin.site.index_title = "Панель управления"
 
 # Сложный путь для админ-панели
 ADMIN_URL = "s3cr3t_4dm1n_bulk4_pl4y2_p4th"
+
+sitemaps = {
+    'products': ProductSitemap,
+    'arendas': ArendaSitemap,
+    'news': NewsSitemap,
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     path(f"{ADMIN_URL}/", admin.site.urls),
@@ -59,16 +52,9 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
-    # Подключение карты сайта
-    path(
-        "sitemap.xml",
-        sitemap,
-        {"sitemaps": sitemaps},
-        name="django.contrib.sitemaps.views.sitemap",
-    ),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
-# Только в режиме разработки включаем статику и медиа-ресурсы
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
