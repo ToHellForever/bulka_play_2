@@ -87,8 +87,9 @@ function validatePhone(phone) {
 function toggleOrderType(type) {
   const buySection = document.getElementById('buy-section');
   const rentSection = document.getElementById('rent-section');
+  const orderTypeSelect = document.getElementById('order-type');
 
-  if (!buySection || !rentSection) return;
+  if (!buySection || !rentSection || !orderTypeSelect) return;
 
   buySection.style.display = 'none';
   rentSection.style.display = 'none';
@@ -96,9 +97,15 @@ function toggleOrderType(type) {
   if (type === 'buy' || type === 'double_buy') {
     buySection.style.display = 'block';
     currentOrderType = type;
+    orderTypeSelect.value = type;
   } else if (type === 'rent') {
     rentSection.style.display = 'block';
     currentOrderType = 'rent';
+    orderTypeSelect.value = 'rent';
+  } else if (type === 'additional') {
+    buySection.style.display = 'block';
+    currentOrderType = 'buy';
+    orderTypeSelect.value = 'buy';
   }
 
   updateTotalPrice();
@@ -443,10 +450,68 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  window.openOrderModal = function() {
+  window.openOrderModal = function(productId = null, productType = 'buy', rentOption = null) {
     if (modal) {
       modal.style.display = 'block';
       document.body.style.overflow = 'hidden';
+
+      // Устанавливаем тип заказа в зависимости от типа товара
+      const orderTypeSelect = document.getElementById('order-type');
+      if (orderTypeSelect) {
+        orderTypeSelect.value = productType;
+        toggleOrderType(productType);
+      }
+
+      // Выбираем текущий товар, если productId предоставлен
+      if (productId) {
+        if (productType === 'buy') {
+          const buyGamesContainer = document.getElementById('buy-games-container');
+          if (buyGamesContainer) {
+            const checkboxes = buyGamesContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+              if (checkbox.value === productId) {
+                checkbox.checked = true;
+              } else {
+                checkbox.checked = false;
+              }
+            });
+          }
+        } else if (productType === 'rent') {
+          const rentGamesContainer = document.getElementById('rent-games-container');
+          if (rentGamesContainer) {
+            const checkboxes = rentGamesContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+              if (checkbox.value === productId) {
+                checkbox.checked = true;
+              } else {
+                checkbox.checked = false;
+              }
+            });
+          }
+
+          // Устанавливаем опцию аренды, если она передана
+          if (rentOption) {
+            const rentOptionsSelect = document.getElementById('rent-options');
+            if (rentOptionsSelect) {
+              rentOptionsSelect.value = rentOption;
+              updateRentLimits();
+            }
+          }
+        } else if (productType === 'additional') {
+          const additionalGoodsContainer = document.getElementById('additional-goods-container');
+          if (additionalGoodsContainer) {
+            const checkboxes = additionalGoodsContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+              if (checkbox.value === productId) {
+                checkbox.checked = true;
+              } else {
+                checkbox.checked = false;
+              }
+            });
+          }
+        }
+      }
+
       const summaryElement = document.getElementById('order-summary');
       if (summaryElement) {
         summaryElement.style.display = 'none';
@@ -454,6 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateTotalPrice();
     }
   };
+
 
   // Обработчик клика на изображения в разделе покупки
   const buyGameImages = document.querySelectorAll('#buy-games-container .game-card-modal img');
@@ -528,6 +594,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Обработчик изменения селекта аренды
+  const rentOptionsSelect = document.getElementById('rent-options');
+  if (rentOptionsSelect) {
+    rentOptionsSelect.addEventListener('change', function() {
+      updateRentLimits();
+    });
+  }
+
   const dateInput = document.getElementById('rent-date');
   if (dateInput) {
     const today = new Date();
@@ -544,11 +618,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const rentDateInput = document.getElementById('rent-date');
   if (rentDateInput) {
     rentDateInput.removeAttribute('required');
-  }
-
-  const rentOptionsSelect = document.getElementById('rent-options');
-  if (rentOptionsSelect) {
-    rentOptionsSelect.removeAttribute('required');
   }
 
   const rentAddressInput = document.getElementById('rent-address');

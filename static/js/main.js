@@ -87,8 +87,9 @@ function validatePhone(phone) {
 function toggleOrderType(type) {
   const buySection = document.getElementById('buy-section');
   const rentSection = document.getElementById('rent-section');
+  const orderTypeSelect = document.getElementById('order-type');
 
-  if (!buySection || !rentSection) return;
+  if (!buySection || !rentSection || !orderTypeSelect) return;
 
   buySection.style.display = 'none';
   rentSection.style.display = 'none';
@@ -96,9 +97,15 @@ function toggleOrderType(type) {
   if (type === 'buy' || type === 'double_buy') {
     buySection.style.display = 'block';
     currentOrderType = type;
+    orderTypeSelect.value = type;
   } else if (type === 'rent') {
     rentSection.style.display = 'block';
     currentOrderType = 'rent';
+    orderTypeSelect.value = 'rent';
+  } else if (type === 'additional') {
+    buySection.style.display = 'block';
+    currentOrderType = 'buy';
+    orderTypeSelect.value = 'buy';
   }
 
   updateTotalPrice();
@@ -481,6 +488,15 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             });
           }
+
+          // Устанавливаем опцию аренды, если она передана
+          if (rentOption) {
+            const rentOptionsSelect = document.getElementById('rent-options');
+            if (rentOptionsSelect) {
+              rentOptionsSelect.value = rentOption;
+              updateRentLimits();
+            }
+          }
         } else if (productType === 'additional') {
           const additionalGoodsContainer = document.getElementById('additional-goods-container');
           if (additionalGoodsContainer) {
@@ -578,6 +594,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Обработчик изменения селекта аренды
+  const rentOptionsSelect = document.getElementById('rent-options');
+  if (rentOptionsSelect) {
+    rentOptionsSelect.addEventListener('change', function() {
+      updateRentLimits();
+    });
+  }
+
   const dateInput = document.getElementById('rent-date');
   if (dateInput) {
     const today = new Date();
@@ -594,11 +618,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const rentDateInput = document.getElementById('rent-date');
   if (rentDateInput) {
     rentDateInput.removeAttribute('required');
-  }
-
-  const rentOptionsSelect = document.getElementById('rent-options');
-  if (rentOptionsSelect) {
-    rentOptionsSelect.removeAttribute('required');
   }
 
   const rentAddressInput = document.getElementById('rent-address');

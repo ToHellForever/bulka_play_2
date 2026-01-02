@@ -368,4 +368,11 @@
     width: 50%;
     height: auto;
   }
+  .close {
+    right: 10px;
+    top: 5px;
+  }
+}
+.modal-row {
+  margin-top: 0px !important;
 }
