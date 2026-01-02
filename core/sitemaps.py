@@ -8,7 +8,7 @@ class ProductSitemap(Sitemap):
     priority = 0.9
 
     def items(self):
-        return Product.objects.filter(is_published=True, slug__isnull=False)
+        return Product.objects.filter(is_active=True, slug__isnull=False)
 
     def lastmod(self, obj):
         return obj.updated_at
@@ -25,7 +25,7 @@ class ArendaSitemap(Sitemap):
     priority = 0.8
 
     def items(self):
-        return Arenda.objects.filter(is_published=True, slug__isnull=False)
+        return Arenda.objects.filter(is_active=True, slug__isnull=False)
 
     def lastmod(self, obj):
         return obj.updated_at
@@ -42,7 +42,7 @@ class NewsSitemap(Sitemap):
     priority = 0.7
 
     def items(self):
-        return News.objects.filter(is_published=True, slug__isnull=False)
+        return News.objects.filter(is_active=True, slug__isnull=False)
 
     def lastmod(self, obj):
         return obj.updated_at
@@ -58,7 +58,7 @@ class AdditionalProductsSitemap(Sitemap):
     priority = 0.6
 
     def items(self):
-        return AdditionalProducts.objects.filter(is_published=True, slug__isnull=False)
+        return AdditionalProducts.objects.filter(is_active=True, slug__isnull=False)
 
     def lastmod(self, obj):
         return obj.updated_at
