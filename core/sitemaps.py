@@ -17,7 +17,7 @@ class ProductSitemap(Sitemap):
         try:
             return obj.get_absolute_url()
         except AttributeError:
-            return ""
+            return ""  # Возвращаем пустую строку, если ссылка отсутствует
 
 
 class ArendaSitemap(Sitemap):
@@ -48,9 +48,10 @@ class NewsSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        if obj is None:
+        try:
+            return obj.get_absolute_url()
+        except AttributeError:
             return ""
-        return obj.get_absolute_url()
 
 
 class AdditionalProductsSitemap(Sitemap):
@@ -71,23 +72,14 @@ class AdditionalProductsSitemap(Sitemap):
 
 
 class StaticViewSitemap(Sitemap):
-    # Приоритет для статичных страниц, обычно ниже, чем у динамического контента
+    # Меняем приоритет и частоту обновления
     priority = 0.5
-    # Частота изменения для статичных страниц, обычно реже
     changefreq = "monthly"
 
     def items(self):
-        # Метод возвращает список имен URL-адресов, определенных в urls.py
-        # для статичных страниц.
-        return [
-            "landing",
-            "about",
-            "game_catalog",
-            "rental_catalog",
-            "two_games_on_one_board",
-        ]
+        # Список URL, которые соответствуют вашим статичным страницам
+        return ["landing", "about", "game_catalog", "rental_catalog"]
 
     def location(self, item):
-        # Для статичных страниц используем функцию reverse для получения URL
-        # по их имени, определенному в urls.py.
+        # Используем reverse для получения URL страницы
         return reverse(item)
