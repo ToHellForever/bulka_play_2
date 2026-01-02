@@ -33,6 +33,8 @@ sitemaps = {
     'static': StaticViewSitemap,
 }
 
+from django.views.decorators.cache import never_cache
+
 urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path(f"{ADMIN_URL}/", admin.site.urls),
@@ -53,7 +55,14 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
-path('sitemap.xml', sitemap, {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemap'}, name='django.contrib.sitemaps.views.sitemap'),
+]
+
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap as sitemap_view
+
+# Отключаем debug_toolbar для sitemap.xml
+urlpatterns += [
+    path('sitemap.xml', never_cache(sitemap_view), {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:

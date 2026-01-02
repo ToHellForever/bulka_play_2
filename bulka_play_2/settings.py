@@ -153,5 +153,5 @@ INTERNAL_IPS = [
 SITE_ID = 1
 
 # Настройки для sitemap
-SITE_DOMAIN = 'bulka-play.ru'
+SITE_DOMAIN = '127.0.0.1:8000'  # Локальный домен для разработки
 SITE_NAME = 'Bulka Play 2'

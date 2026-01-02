@@ -19,9 +19,9 @@ class ProductSitemap(Sitemap):
         # Используется для информирования поисковиков об актуальности контента.
         return obj.updated_at
 
-    def location(self, obj):
+    def location(self, item, request=None):
         # Метод возвращает абсолютный URL для каждого объекта.
-        return reverse('product_detail', kwargs={'pk': obj.pk})
+        return request.build_absolute_uri(reverse('product_detail', kwargs={'pk': item.pk}))
 
 class ArendaSitemap(Sitemap):
     # Частота изменения страницы: "weekly" (еженедельно), "daily" (ежедневно) и т.д.
@@ -39,10 +39,10 @@ class ArendaSitemap(Sitemap):
         # Используется для информирования поисковиков об актуальности контента.
         return obj.updated_at if hasattr(obj, 'updated_at') else None
 
-    def location(self, obj):
+    def location(self, item, request=None):
         # Метод возвращает абсолютный URL для каждого объекта.
         # Для аренды нет отдельной страницы, поэтому возвращаем URL каталога аренд
-        return reverse('rental_catalog')
+        return request.build_absolute_uri(reverse('rental_catalog'))
 
 class NewsSitemap(Sitemap):
     # Частота изменения страницы: "weekly" (еженедельно), "daily" (ежедневно) и т.д.
@@ -60,10 +60,10 @@ class NewsSitemap(Sitemap):
         # Используется для информирования поисковиков об актуальности контента.
         return obj.updated_at if hasattr(obj, 'updated_at') else None
 
-    def location(self, obj):
+    def location(self, item, request=None):
         # Метод возвращает абсолютный URL для каждого объекта.
         # Новости отображаются на главной странице, поэтому возвращаем URL главной
-        return reverse('landing')
+        return request.build_absolute_uri(reverse('landing'))
 
 class StaticViewSitemap(Sitemap):
     # Приоритет для статичных страниц, обычно ниже, чем у динамического контента
@@ -76,7 +76,7 @@ class StaticViewSitemap(Sitemap):
         # для статичных страниц.
         return ['landing', 'about', 'game_catalog', 'rental_catalog', 'two_games_on_one_board']
 
-    def location(self, item):
+    def location(self, item, request=None):
         # Для статичных страниц используем функцию reverse для получения URL
         # по их имени, определенному в urls.py.
-        return reverse(item)
+        return request.build_absolute_uri(reverse(item))
