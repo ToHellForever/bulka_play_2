@@ -14,7 +14,10 @@ class ProductSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return obj.get_absolute_url()
+        try:
+            return obj.get_absolute_url()
+        except AttributeError:
+            return ""
 
 
 class ArendaSitemap(Sitemap):
@@ -28,7 +31,10 @@ class ArendaSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return obj.get_absolute_url()
+        try:
+            return obj.get_absolute_url()
+        except AttributeError:
+            return ""
 
 
 class NewsSitemap(Sitemap):
@@ -58,7 +64,10 @@ class AdditionalProductsSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return obj.get_absolute_url()
+        try:
+            return obj.get_absolute_url()
+        except AttributeError:
+            return ""
 
 
 class StaticViewSitemap(Sitemap):
