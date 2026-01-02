@@ -15,6 +15,13 @@ from core.views import (
     AdditionalProductsView,
     AdditionalProductDetailView,
 )
+sitemaps = {
+    'products': ProductSitemap,
+    'arendas': ArendaSitemap,
+    'news': NewsSitemap,
+    'static': StaticViewSitemap,
+}
+
 # Защита от случайного доступа к админ-панели
 # Используется сложный путь для предотвращения случайного входа
 admin.site.site_header = "Администрирование Bulka Play 2"
