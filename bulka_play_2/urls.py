@@ -34,6 +34,7 @@ sitemaps = {
 }
 
 urlpatterns = [
+    path('__debug__/', include('debug_toolbar.urls')),
     path(f"{ADMIN_URL}/", admin.site.urls),
     path("", LandingView.as_view(), name="landing"),
     path("about/", AboutView.as_view(), name="about"),
