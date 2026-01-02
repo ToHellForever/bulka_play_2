@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from core.sitemaps import ProductSitemap, ArendaSitemap, NewsSitemap, StaticViewSitemap
 
 from core.views import (
     LandingView,
@@ -24,6 +26,13 @@ admin.site.index_title = "Панель управления"
 # Сложный путь для админ-панели
 ADMIN_URL = "s3cr3t_4dm1n_bulk4_pl4y2_p4th"
 
+sitemaps = {
+    'products': ProductSitemap,
+    'arendas': ArendaSitemap,
+    'news': NewsSitemap,
+    'static': StaticViewSitemap,
+}
+
 urlpatterns = [
     path(f"{ADMIN_URL}/", admin.site.urls),
     path("", LandingView.as_view(), name="landing"),
@@ -43,6 +52,7 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:
