@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from blog.models import Product, Arenda, News, AdditionalProducts
+from core.models import Product, Arenda, News, AdditionalProducts
 
 
 class ProductSitemap(Sitemap):

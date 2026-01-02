@@ -3,6 +3,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
+from core.sitemaps import (
+    ProductSitemap,
+    ArendaSitemap,
+    NewsSitemap,
+    AdditionalProductsSitemap,
+    StaticViewSitemap,
+)
 from core.views import (
     LandingView,
     AboutView,
@@ -15,11 +22,12 @@ from core.views import (
     AdditionalProductsView,
     AdditionalProductDetailView,
 )
+
 sitemaps = {
-    'products': ProductSitemap,
-    'arendas': ArendaSitemap,
-    'news': NewsSitemap,
-    'static': StaticViewSitemap,
+    "products": ProductSitemap,
+    "arendas": ArendaSitemap,
+    "news": NewsSitemap,
+    "static": StaticViewSitemap,
 }
 
 # Защита от случайного доступа к админ-панели
@@ -50,7 +58,12 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
 ]
 
 if settings.DEBUG:
