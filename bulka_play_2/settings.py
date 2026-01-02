@@ -150,3 +150,7 @@ SITE_ID = 1
 # Настройки для sitemap
 SITE_DOMAIN = "bulka-play.ru"  # Домен для продакшена
 SITE_NAME = "Bulka Play 2"
+
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20 MB
