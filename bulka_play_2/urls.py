@@ -3,8 +3,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from core.sitemaps import ProductSitemap, ArendaSitemap, NewsSitemap, StaticViewSitemap
-
 from core.views import (
     LandingView,
     AboutView,
@@ -26,17 +24,7 @@ admin.site.index_title = "Панель управления"
 # Сложный путь для админ-панели
 ADMIN_URL = "s3cr3t_4dm1n_bulk4_pl4y2_p4th"
 
-sitemaps = {
-    'products': ProductSitemap,
-    'arendas': ArendaSitemap,
-    'news': NewsSitemap,
-    'static': StaticViewSitemap,
-}
-
-from django.views.decorators.cache import never_cache
-
 urlpatterns = [
-    path('__debug__/', include('debug_toolbar.urls')),
     path(f"{ADMIN_URL}/", admin.site.urls),
     path("", LandingView.as_view(), name="landing"),
     path("about/", AboutView.as_view(), name="about"),
@@ -55,14 +43,7 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
-]
-
-from django.contrib.sitemaps import GenericSitemap
-from django.contrib.sitemaps.views import sitemap as sitemap_view
-
-# Отключаем debug_toolbar для sitemap.xml
-urlpatterns += [
-    path('sitemap.xml', never_cache(sitemap_view), {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:
