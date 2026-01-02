@@ -151,3 +151,7 @@ INTERNAL_IPS = [
 ]
 
 SITE_ID = 1
+
+# Настройки для sitemap
+SITE_DOMAIN = 'bulka-play.ru'
+SITE_NAME = 'Bulka Play 2'

@@ -52,7 +52,7 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+path('sitemap.xml', sitemap, {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemap'}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:

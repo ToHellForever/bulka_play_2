@@ -1,5 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
+from django.conf import settings
 from core.models import Product, Arenda, News
 
 class ProductSitemap(Sitemap):
@@ -36,7 +37,7 @@ class ArendaSitemap(Sitemap):
     def lastmod(self, obj):
         # Метод возвращает дату последнего изменения объекта.
         # Используется для информирования поисковиков об актуальности контента.
-        return obj.updated_at
+        return obj.updated_at if hasattr(obj, 'updated_at') else None
 
     def location(self, obj):
         # Метод возвращает абсолютный URL для каждого объекта.
@@ -57,7 +58,7 @@ class NewsSitemap(Sitemap):
     def lastmod(self, obj):
         # Метод возвращает дату последнего изменения объекта.
         # Используется для информирования поисковиков об актуальности контента.
-        return obj.updated_at
+        return obj.updated_at if hasattr(obj, 'updated_at') else None
 
     def location(self, obj):
         # Метод возвращает абсолютный URL для каждого объекта.
