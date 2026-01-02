@@ -443,10 +443,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  window.openOrderModal = function() {
+  window.openOrderModal = function(productId = null, productType = 'buy', rentOption = null) {
     if (modal) {
       modal.style.display = 'block';
       document.body.style.overflow = 'hidden';
+
+      // Устанавливаем тип заказа в зависимости от типа товара
+      const orderTypeSelect = document.getElementById('order-type');
+      if (orderTypeSelect) {
+        orderTypeSelect.value = productType;
+        toggleOrderType(productType);
+      }
+
+      // Выбираем текущий товар, если productId предоставлен
+      if (productId) {
+        if (productType === 'buy') {
+          const buyGamesContainer = document.getElementById('buy-games-container');
+          if (buyGamesContainer) {
+            const checkboxes = buyGamesContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+              if (checkbox.value === productId) {
+                checkbox.checked = true;
+              } else {
+                checkbox.checked = false;
+              }
+            });
+          }
+        } else if (productType === 'rent') {
+          const rentGamesContainer = document.getElementById('rent-games-container');
+          if (rentGamesContainer) {
+            const checkboxes = rentGamesContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+              if (checkbox.value === productId) {
+                checkbox.checked = true;
+              } else {
+                checkbox.checked = false;
+              }
+            });
+          }
+        } else if (productType === 'additional') {
+          const additionalGoodsContainer = document.getElementById('additional-goods-container');
+          if (additionalGoodsContainer) {
+            const checkboxes = additionalGoodsContainer.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+              if (checkbox.value === productId) {
+                checkbox.checked = true;
+              } else {
+                checkbox.checked = false;
+              }
+            });
+          }
+        }
+      }
+
       const summaryElement = document.getElementById('order-summary');
       if (summaryElement) {
         summaryElement.style.display = 'none';
@@ -454,6 +503,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateTotalPrice();
     }
   };
+
 
   // Обработчик клика на изображения в разделе покупки
   const buyGameImages = document.querySelectorAll('#buy-games-container .game-card-modal img');

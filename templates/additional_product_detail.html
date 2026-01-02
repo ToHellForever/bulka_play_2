@@ -60,7 +60,7 @@
     {% endif %}
   {% endwith %}
 </p>
-            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+<button class='product_detail_button' onclick="openOrderModal('{{ additional_product.id }}', 'additional')">ЗАКАЗАТЬ</button>
         </div>
     </div>
 
@@ -132,7 +132,7 @@
                 {% endfor %}
             </div>
             <div class='product_detail_description mt-3'>{{ additional_product.description_2|safe|linebreaks }}</div>
-            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+<button class='product_detail_button' onclick="openOrderModal('{{ additional_product.id }}', 'additional')">ЗАКАЗАТЬ</button>
         </div>
     </div>
 
@@ -264,7 +264,7 @@
     {% endif %}
   {% endwith %}
 </p>
-            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+<button class='product_detail_button' onclick="openOrderModal('{{ additional_product.id }}', 'additional')">ЗАКАЗАТЬ</button>
         </div>
     </div>
 
@@ -303,7 +303,7 @@
                 <p class='additional_detail_set'>ОПИСАНИЕ</p>
             {% endif %}
             <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
-            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+<button class='product_detail_button' onclick="openOrderModal('{{ additional_product.id }}', 'additional')">ЗАКАЗАТЬ</button>
         </div>
     </div>
 </div>

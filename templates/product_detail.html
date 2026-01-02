@@ -57,7 +57,7 @@
                 {% endif %}
               {% endwith %}
             </p>
-            <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+<button class='product_detail_button' onclick="openOrderModal('{{ product.id }}')">ЗАКАЗАТЬ</button>
         </div>
     </div>
 
@@ -128,7 +128,7 @@
                 </div>
             {% endfor %}
         </div>
-        <button class='product_detail_button' onclick="openOrderModal()">ЗАКАЗАТЬ</button>
+<button class='product_detail_button' onclick="openOrderModal('{{ product.id }}')">ЗАКАЗАТЬ</button>
     </div>
 </div>
 

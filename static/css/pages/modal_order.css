@@ -373,3 +373,6 @@
     top: 5px;
   }
 }
+.modal-row {
+  margin-top: 0px !important;
+}
