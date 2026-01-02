@@ -1,76 +1,58 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from django.conf import settings
-from core.models import Product, Arenda, News
-
+from blog.models import Product, Arenda, News, AdditionalProducts
 
 class ProductSitemap(Sitemap):
-    # Частота изменения страницы: "weekly" (еженедельно), "daily" (ежедневно) и т.д.
     changefreq = "weekly"
-    # Приоритет страницы относительно других страниц на сайте (от 0.0 до 1.0)
     priority = 0.9
 
     def items(self):
-        # Метод возвращает QuerySet объектов, для которых будут сгенерированы URL
-        # В данном случае, это активные товары
-        return Product.objects.filter(is_active=True)
+        return Product.objects.filter(is_published=True)
 
     def lastmod(self, obj):
-        # Метод возвращает дату последнего изменения объекта.
-        # Используется для информирования поисковиков об актуальности контента.
         return obj.updated_at
 
-    def location(self, item, request=None):
-        # Метод возвращает абсолютный URL для каждого объекта.
-        # Используем request для построения абсолютного URI, чтобы избежать дублирования домена
-        return request.build_absolute_uri(
-            reverse("product_detail", kwargs={"pk": item.pk})
-        )
-
+    def location(self, obj):
+        return f'/product/{obj.slug}/'
 
 class ArendaSitemap(Sitemap):
-    # Частота изменения страницы: "weekly" (еженедельно), "daily" (ежедневно) и т.д.
     changefreq = "weekly"
-    # Приоритет страницы относительно других страниц на сайте (от 0.0 до 1.0)
-    priority = 0.9
-
-    def items(self):
-        # Метод возвращает QuerySet объектов, для которых будут сгенерированы URL
-        # В данном случае, это активные аренды
-        return Arenda.objects.filter(is_active=True)
-
-    def lastmod(self, obj):
-        # Метод возвращает дату последнего изменения объекта.
-        # Используется для информирования поисковиков об актуальности контента.
-        return obj.updated_at if hasattr(obj, "updated_at") else None
-
-    def location(self, item, request=None):
-        # Метод возвращает абсолютный URL для каждого объекта.
-        # Для аренды нет отдельной страницы, поэтому возвращаем URL каталога аренд
-        return request.build_absolute_uri(reverse("rental_catalog"))
-
-
-class NewsSitemap(Sitemap):
-    # Частота изменения страницы: "weekly" (еженедельно), "daily" (ежедневно) и т.д.
-    changefreq = "weekly"
-    # Приоритет страницы относительно других страниц на сайте (от 0.0 до 1.0)
     priority = 0.8
 
     def items(self):
-        # Метод возвращает QuerySet объектов, для которых будут сгенерированы URL
-        # В данном случае, это активные новости
-        return News.objects.filter(is_active=True)
+        return Arenda.objects.filter(is_published=True)
 
     def lastmod(self, obj):
-        # Метод возвращает дату последнего изменения объекта.
-        # Используется для информирования поисковиков об актуальности контента.
-        return obj.updated_at if hasattr(obj, "updated_at") else None
+        return obj.updated_at
 
-    def location(self, item, request=None):
-        # Метод возвращает абсолютный URL для каждого объекта.
-        # Новости отображаются на главной странице, поэтому возвращаем URL главной
-        return request.build_absolute_uri(reverse("landing"))
+    def location(self, obj):
+        return f'/arenda/{obj.slug}/'
 
+class NewsSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.7
+
+    def items(self):
+        return News.objects.filter(is_published=True)
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+    def location(self, obj):
+        return f'/news/{obj.slug}/'
+
+class AdditionalProductsSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.6
+
+    def items(self):
+        return AdditionalProducts.objects.filter(is_published=True)
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+    def location(self, obj):
+        return f'/additional-products/{obj.slug}/'
 
 class StaticViewSitemap(Sitemap):
     # Приоритет для статичных страниц, обычно ниже, чем у динамического контента
@@ -81,15 +63,9 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         # Метод возвращает список имен URL-адресов, определенных в urls.py
         # для статичных страниц.
-        return [
-            "landing",
-            "about",
-            "game_catalog",
-            "rental_catalog",
-            "two_games_on_one_board",
-        ]
+        return ['landing', 'about', 'game_catalog', 'rental_catalog', 'two_games_on_one_board']
 
-    def location(self, item, request=None):
+    def location(self, item):
         # Для статичных страниц используем функцию reverse для получения URL
         # по их имени, определенному в urls.py.
-        return request.build_absolute_uri(reverse(item))
+        return reverse(item)
