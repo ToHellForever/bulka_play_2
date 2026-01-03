@@ -859,6 +859,9 @@ h4 {
     .modal-title { 
         font-size: 1.3rem;
     }
+    .modal-total-price {
+        font-size: 1rem;
+    }
 
 
     /* модальное окно для успешной отправки заказа */
