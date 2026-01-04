@@ -19,13 +19,13 @@
     <!-- Десктопная версия -->
 <div class="row mt-5 d-none d-md-flex" style='display: flex; flex-direction: row;'>
 <div class='col-1'>
-            {% for image in additional_product.additional_images.all %}
-                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ additional_product.id }}')">
+{% for image in additional_product.additional_images.all %}
+                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ additional_product.id }}', {{ forloop.counter }})">
             {% endfor %}
         </div>
 <div class='col-6'>
   <div class="position-relative">
-    <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
+<img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}', 0)">
     {% with discount_percentage=additional_product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">
@@ -72,7 +72,7 @@
                     <!-- Основное изображение -->
 <div class="swiper-slide">
   <div class="position-relative">
-    <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image">
+<img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}', 0)">
     {% with discount_percentage=additional_product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">
@@ -86,7 +86,7 @@
 {% for image in additional_product.additional_images.all %}
 <div class="swiper-slide">
   <div class="position-relative">
-    <img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image">
+<img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}', {{ forloop.counter }})">
     {% with discount_percentage=additional_product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">
@@ -235,7 +235,7 @@
 <div class="row mt-5 d-none d-md-flex" style='display: flex; flex-direction: row;'>
 <div class='col-6'>
   <div class="position-relative">
-    <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
+<img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}', 0)">
     {% with discount_percentage=additional_product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">
@@ -272,7 +272,7 @@
 <div class="row mt-5 d-md-none">
 <div class="col-12">
   <div class="position-relative">
-    <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}')">
+<img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}', 0)">
     {% with discount_percentage=additional_product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">

@@ -17,13 +17,13 @@
     <!-- Десктопная версия -->
     <div class="row mt-5 d-none d-md-flex" style='flex-wrap: nowrap'>
         <div class='col-1'>
-            {% for image in product.additional_images.all %}
-                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ product.id }}')">
+{% for image in product.additional_images.all %}
+                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ product.id }}', {{ forloop.counter }})">
             {% endfor %}
         </div>
 <div class='col-6'>
   <div class="position-relative">
-    <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}')">
+<img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}', 0)">
     {% with discount_percentage=product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">
@@ -69,7 +69,7 @@
                     <!-- Основное изображение -->
 <div class="swiper-slide">
   <div class="position-relative">
-    <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image">
+<img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}', 0)">
     {% with discount_percentage=product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">
@@ -83,7 +83,7 @@
 {% for image in product.additional_images.all %}
 <div class="swiper-slide">
   <div class="position-relative">
-    <img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image">
+<img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}', {{ forloop.counter }})">
     {% with discount_percentage=product.get_discount_percentage %}
       {% if discount_percentage %}
         <div class="discount-badge">

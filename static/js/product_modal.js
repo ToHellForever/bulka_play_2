@@ -3,13 +3,13 @@ let productSlideIndex = 0;
 let productSlides = [];
 
 // Открытие модального окна продукта
-function openProductModal(productId) {
+function openProductModal(productId, imageIndex = 0) {
     const modal = document.getElementById('productModal');
     const carouselInner = document.querySelector('.product-carousel-inner');
 
     // Очистка предыдущих слайдов
     carouselInner.innerHTML = '';
-    
+
     // Получаем основное изображение продукта
     const mainImage = document.querySelector(`.product_detail_image`);
     const additionalImages = document.querySelectorAll(`.additional_images`);
@@ -37,7 +37,7 @@ function openProductModal(productId) {
     // Отображение модального окна
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
-    productSlideIndex = 0;
+    productSlideIndex = imageIndex;
     showProductSlide(productSlideIndex);
 }
 
