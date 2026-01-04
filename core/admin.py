@@ -169,6 +169,12 @@ class ArendaAdmin(admin.ModelAdmin):
             },
         ),
         (
+            "Стиль карточки",
+            {
+                "fields": ("card_style",),
+            },
+        ),
+        (
             "Дополнительно",
             {
                 "fields": ("is_active", "is_new", "is_in_stock"),
