@@ -140,10 +140,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 # Физический путь хранения файлов на сервере
 MEDIA_ROOT = BASE_DIR / "media"
-
-MEDIA_FILES_DIRS = [
-    BASE_DIR / "media",
-]
 # Debug Toolbar settings
 INTERNAL_IPS = [
     "127.0.0.1",
