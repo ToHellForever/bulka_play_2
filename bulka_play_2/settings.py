@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
 TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG_MODE", "True") == "True"
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "195.133.194.40", "bulka-play.ru"]
 
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "debug_toolbar",
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "core",
@@ -64,7 +63,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "bulka_play_2.urls"
