@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
 TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG_MODE", "True") == "True"
+DEBUG = os.getenv("DEBUG_MODE", "False") == "True"
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "195.133.194.40", "bulka-play.ru"]
 
@@ -127,40 +127,25 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# Указали URL-путь для доступа к статическим файлам в проекте.
-# Это адрес, по которому Nginx будет отдавать статику в браузере.
+# Указали путь к статическим файлам в проекте. Это адрес на сервере, по которому будут доступны статические файлы
 STATIC_URL = "static/"
-
-# Указали абсолютный путь к папке на сервере, куда Django будет собирать все статические файлы
-# при выполнении команды collectstatic. Все CSS, JS и изображения из ваших приложений
-# будут скопированы сюда.
+# Указали путь к папке, где будут храниться статические файлы при сборке проекта
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
-# Указали список дополнительных директорий, где Django должен искать статические файлы
-# помимо тех, что находятся внутри приложений. Обычно здесь указывают общую папку 'static'
-# на уровне проекта.
+# Указали путь к папке, где будут храниться статические файлы
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-
-# Настройки для медиа-файлов (файлы, загружаемые пользователями, например, изображения для постов)
-# URL-путь для доступа к медиафайлам через веб-сервер.
+# Настройки для медиа-файлов (загружаемые пользователями)
+# URL-путь для доступа к медиа файлам
 MEDIA_URL = "/media/"
-
-# Физический абсолютный путь на сервере, где будут храниться загруженные медиа-файлы.
-# Nginx также будет настроен на раздачу файлов из этой директории.
+# Физический путь хранения файлов на сервере
 MEDIA_ROOT = BASE_DIR / "media"
+
 # Debug Toolbar settings
 INTERNAL_IPS = [
-    "127.0.0.1",
+    '127.0.0.1',
 ]
 
-# Отключаем debug_toolbar, если DEBUG = False
-if not DEBUG:
-    INSTALLED_APPS = [app for app in INSTALLED_APPS if app != "debug_toolbar"]
-    MIDDLEWARE = [
-        middleware for middleware in MIDDLEWARE if "debug_toolbar" not in middleware
-    ]
 
 SITE_ID = 1
 # Настройки для sitemap
