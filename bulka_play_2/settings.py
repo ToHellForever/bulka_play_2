@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
 TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG_MODE", "True") == "True"
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "195.133.194.40", "bulka-play.ru"]
 
@@ -154,6 +154,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# Отключаем debug_toolbar, если DEBUG = False
+if not DEBUG:
+    INSTALLED_APPS = [app for app in INSTALLED_APPS if app != "debug_toolbar"]
+    MIDDLEWARE = [
+        middleware for middleware in MIDDLEWARE if "debug_toolbar" not in middleware
+    ]
 
 SITE_ID = 1
 # Настройки для sitemap

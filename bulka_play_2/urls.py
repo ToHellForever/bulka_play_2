@@ -17,6 +17,7 @@ from core.views import (
     AdditionalProductsView,
     AdditionalProductDetailView,
 )
+
 # Защита от случайного доступа к админ-панели
 # Используется сложный путь для предотвращения случайного входа
 admin.site.site_header = "Администрирование Bulka Play 2"
@@ -27,10 +28,10 @@ admin.site.index_title = "Панель управления"
 ADMIN_URL = "s3cr3t_4dm1n_bulk4_pl4y2_p4th"
 
 sitemaps = {
-    'products': ProductSitemap,
-    'arendas': ArendaSitemap,
-    'news': NewsSitemap,
-    'static': StaticViewSitemap,
+    "products": ProductSitemap,
+    "arendas": ArendaSitemap,
+    "news": NewsSitemap,
+    "static": StaticViewSitemap,
 }
 
 urlpatterns = [
@@ -52,10 +53,19 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
 ]
 
+# Добавление маршрутов для медиафайлов и статики всегда, независимо от DEBUG
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += [path('__debug__/', include('debug_toolbar.urls')),]
+    urlpatterns += [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ]
