@@ -147,11 +147,10 @@ class ArendaAdmin(admin.ModelAdmin):
         "is_specific_game",
         "specific_game",
         "created_at",
-        "is_new",
-        "is_in_stock",
+
     )
-    list_editable = ("is_active", "is_specific_game", "is_new", "is_in_stock")
-    list_filter = ("is_active", "is_specific_game", "created_at", "is_new", "is_in_stock")
+    list_editable = ("is_active", "is_specific_game")
+    list_filter = ("is_active", "is_specific_game", "created_at")
     inlines = [RangeInline]
 
     fieldsets = (
@@ -177,7 +176,7 @@ class ArendaAdmin(admin.ModelAdmin):
         (
             "Дополнительно",
             {
-                "fields": ("is_active", "is_new", "is_in_stock"),
+                "fields": ("is_active",),
             },
         ),
     )
