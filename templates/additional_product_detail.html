@@ -268,15 +268,18 @@
     {% endwith %}
   </div>
 </div>
-<div class='col-6' style="display: flex; flex-direction: column; justify-content: space-between;">
+    <div class='col-6 d-flex flex-column'>
+        <div class="flex-grow-1">
             <h1 class='product_detail_name'>{{ additional_product.name }}</h1>
             <p class='product_detail_description'>{{ additional_product.description }}</p>
             {% if additional_product.name == 'ГРАВИРОВКА' %}
-                <p class='additional_detail_set'>МЫ МОЖЕМ НАНЕСТИ:</p>
+                <p class='product_detail_set'>МЫ МОЖЕМ НАНЕСТИ:</p>
             {% else %}
-                <p class='additional_detail_set'>ОПИСАНИЕ</p>
+                <p class='product_detail_set'>ОПИСАНИЕ</p>
             {% endif %}
             <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
+                      </div>
+<div class="mt-auto">
 <p class='additional_detail_price'>
   {% with discounted_price=additional_product.get_discounted_price %}
     {% if discounted_price != additional_product.price %}
@@ -290,6 +293,7 @@
 <button class='product_detail_button' onclick="openOrderModal('{{ additional_product.id }}', 'additional')">ЗАКАЗАТЬ</button>
         </div>
     </div>
+</div>
 
 <!-- Мобильная версия -->
 <div class="row mt-5 d-md-none">
