@@ -63,7 +63,7 @@
                 {% for item in additional_product.game_kit_items_additional.all %}
                     <div class="additional-kit-item">
                         <div class="kit-content">
-                            <span class="normal-text">{{ item.normal_text|safe|linebreaks }}</span>
+                            <span class="normal-text" style>{{ item.normal_text }}</span>
                             <span class="highlighted-text">{{ item.highlighted_text|safe|linebreaks }}</span>
                         </div>
                     </div>
@@ -148,8 +148,8 @@
                 {% for item in additional_product.game_kit_items_additional.all %}
                     <div class="additional-kit-item-mobile">
                         <div class="kit-content">
-                            <span class="normal-text">{{ item.normal_text|safe|linebreaks }}</span>
-                            <span class="highlighted-text">{{ item.highlighted_text|safe|linebreaks }}</span>
+                            <span class="normal-text">{{ item.normal_text }}</span>
+                            <span class="highlighted-text">{{ item.highlighted_text|linebreaks }}</span>
                         </div>
                     </div>
                 {% endfor %}
@@ -252,7 +252,7 @@
 
 
 {% comment %} версия для ГРАВИРОВКИ И ПОДАРОЧНОГО СЕРТИФИКАТА {% endcomment %}
-{% elif additional_product.name == 'ГРАВИРОВКА' or 'ПОДАРОЧНЫЙ СЕРТИФИКАТ' in additional_product.name %}
+{% elif additional_product.name == 'ГРАВИРОВКА' or 'СЕРТИФИКАТ' in additional_product.name %}
 <div class="container mt-5">
     <!-- Десктопная версия -->
 <div class="row mt-5 d-none d-md-flex" style='display: flex; flex-direction: row;'>
