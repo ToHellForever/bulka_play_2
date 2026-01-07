@@ -112,3 +112,21 @@
     font-size: 16px;
     font-weight: bold;
 }
+
+
+
+/* Стили для кнопок навигации карусели на десктопной версии */
+.product-main-swiper-desktop .swiper-button-next,
+.product-main-swiper-desktop .swiper-button-prev {
+    top: 50% !important; /* Опускаем стрелки пониже */
+}
+.product-main-swiper-desktop .swiper-button-next {
+  margin-right: 25px;
+}
+
+/* Стили для стрелок карусели на десктопной версии */
+.product-detail-next::after,
+.product-detail-prev::after {
+    font-size: 16px;
+    font-weight: bold;
+}

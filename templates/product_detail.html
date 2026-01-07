@@ -14,26 +14,47 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/pages/product_detail.css' %}">
 <div class="container mt-5">
-    <!-- Десктопная версия -->
-    <div class="row mt-5 d-none d-md-flex" style='flex-wrap: nowrap'>
-        <div class='col-1'>
-{% for image in product.additional_images.all %}
-                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ product.id }}', {{ forloop.counter }})">
-            {% endfor %}
+<!-- Десктопная версия -->
+<div class="row mt-5 d-none d-md-flex" style='flex-wrap: nowrap'>
+    <div class='col-6'>
+        <div class="swiper product-main-swiper-desktop">
+            <div class="swiper-wrapper">
+                <!-- Основное изображение -->
+                <div class="swiper-slide">
+                    <div class="position-relative">
+                        <img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image">
+                        {% with discount_percentage=product.get_discount_percentage %}
+                            {% if discount_percentage %}
+                                <div class="discount-badge">
+                                    -{{ discount_percentage|format_price }}%
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+                <!-- Дополнительные изображения -->
+                {% for image in product.additional_images.all %}
+                    <div class="swiper-slide">
+                        <div class="position-relative">
+                            <img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image">
+                            {% with discount_percentage=product.get_discount_percentage %}
+                                {% if discount_percentage %}
+                                    <div class="discount-badge">
+                                        -{{ discount_percentage|format_price }}%
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Кнопки навигации -->
+            <div class="swiper-button-next product-detail-next"></div>
+            <div class="swiper-button-prev product-detail-prev"></div>
         </div>
-<div class='col-6'>
-  <div class="position-relative">
-<img src="{{ product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ product.id }}', 0)">
-    {% with discount_percentage=product.get_discount_percentage %}
-      {% if discount_percentage %}
-        <div class="discount-badge">
-          -{{ discount_percentage|format_price }}%
-        </div>
-      {% endif %}
-    {% endwith %}
-  </div>
-</div>
-<div class='col-5' style="display: flex; flex-direction: column; justify-content: space-between;">
+    </div>
+    <div class='col-6 d-flex flex-column'>
+        <div class="flex-grow-1">
             <h1 class='product_detail_name'>{{ product.name }}</h1>
             <div class='product_detail_description'>{{ product.description|safe }}</div>
             <p class='product_detail_set'>КОМПЛЕКТ</p>
@@ -47,19 +68,22 @@
                     </div>
                 {% endfor %}
             </div>
+          </div>
+        <div class="mt-auto">
             <p class='product_detail_price'>
-              {% with discounted_price=product.get_discounted_price %}
-                {% if discounted_price != product.price %}
-<span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
-<span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
-                {% else %}
-                  {{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.
-                {% endif %}
-              {% endwith %}
+                {% with discounted_price=product.get_discounted_price %}
+                    {% if discounted_price != product.price %}
+                        <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+                        <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
+                    {% else %}
+                        {{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.
+                    {% endif %}
+                {% endwith %}
             </p>
-<button class='product_detail_button' onclick="openOrderModal('{{ product.id }}')">ЗАКАЗАТЬ</button>
+            <button class='product_detail_button' onclick="openOrderModal('{{ product.id }}')">ЗАКАЗАТЬ</button>
         </div>
     </div>
+</div>
 
     <!-- Мобильная версия -->
     <div class="row mt-5 d-md-none">
@@ -290,21 +314,7 @@
     adjustVisibleProducts();
     window.addEventListener('resize', adjustVisibleProducts);
   });
+
 </script>
 
-<!-- Модальное окно для продукта -->
-<div id="productModal" class="news-modal">
-  <span class="news-close" onclick="closeProductModal()">&times;</span>
-  <div class="news-modal-content">
-    <div class="news-carousel">
-      <div class="product-carousel-inner">
-        <!-- Слайды будут добавляться динамически -->
-      </div>
-      <button class="news-carousel-control prev" onclick="productPrevSlide()">&#10094;</button>
-      <button class="news-carousel-control next" onclick="productNextSlide()">&#10095;</button>
-    </div>
-  </div>
-</div>
-<link rel="stylesheet" href="{% static 'css/product_modal.css' %}">
-<script src="{% static 'js/product_modal.js' %}"></script>
 {% endblock scripts %}

@@ -265,17 +265,19 @@ select.form-control {
     font-weight: 400;
 }
 
-.product_detail_description {
+.product_detail_description{
     color: white;
     font-family: 'Mont', sans-serif;
     font-size: 1rem;
     font-weight: 400;
 }
+
 .product_detail_set {
     color: white;
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
+    margin-top: 5rem;
 }
 
 .product_detail_price {
@@ -643,6 +645,10 @@ h4 {
     .title_h_2_in_1 {
         font-size: 3.1rem;
     }
+        
+    .product_detail_set {
+        margin-top: 1rem;
+    }
 }
 @media (max-width: 1160px) {
     .about_h {
@@ -650,6 +656,9 @@ h4 {
     }
     .highlighted-text {
         font-size: 1.1rem;
+    }
+    .product_detail_name {
+        font-size: 1.5rem;
     }
 }
 @media (max-width: 1110px) {
@@ -676,6 +685,9 @@ h4 {
   .news-card-button {
     font-size: 1rem;
   }
+    .product_detail_set {
+        margin-top: 0;
+    }
 }
 @media (max-width: 1050px) {
     .about_block_text {

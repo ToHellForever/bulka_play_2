@@ -16,29 +16,49 @@
 <link rel="stylesheet" href="{% static 'css/pages/product_detail.css' %}">
 {% if 'СУМКА' in additional_product.name or additional_product.name == 'ПОДСТАВКА ДЛЯ ИГР' %}
 <div class="container mt-5">
-    <!-- Десктопная версия -->
-<div class="row mt-5 d-none d-md-flex" style='display: flex; flex-direction: row;'>
-<div class='col-1'>
-{% for image in additional_product.additional_images.all %}
-                <img src="{{ image.image.url }}" alt="Additional Image" class="additional_images" onclick="openProductModal('{{ additional_product.id }}', {{ forloop.counter }})">
-            {% endfor %}
+<div class="row mt-5 d-none d-md-flex" style='flex-wrap: nowrap'>
+    <div class='col-6'>
+        <div class="swiper product-main-swiper-desktop">
+            <div class="swiper-wrapper">
+                <!-- Основное изображение -->
+                <div class="swiper-slide">
+                    <div class="position-relative">
+                        <img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image">
+                        {% with discount_percentage=product.get_discount_percentage %}
+                            {% if discount_percentage %}
+                                <div class="discount-badge">
+                                    -{{ discount_percentage|format_price }}%
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+                <!-- Дополнительные изображения -->
+                {% for image in additional_product.additional_images.all %}
+                    <div class="swiper-slide">
+                        <div class="position-relative">
+                            <img src="{{ image.image.url }}" alt="Additional Image" class="product_detail_image">
+                            {% with discount_percentage=product.get_discount_percentage %}
+                                {% if discount_percentage %}
+                                    <div class="discount-badge">
+                                        -{{ discount_percentage|format_price }}%
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Кнопки навигации -->
+            <div class="swiper-button-next product-detail-next"></div>
+            <div class="swiper-button-prev product-detail-prev"></div>
         </div>
-<div class='col-6'>
-  <div class="position-relative">
-<img src="{{ additional_product.image.url }}" alt="Main Image" class="product_detail_image" onclick="openProductModal('{{ additional_product.id }}', 0)">
-    {% with discount_percentage=additional_product.get_discount_percentage %}
-      {% if discount_percentage %}
-        <div class="discount-badge">
-          -{{ discount_percentage|format_price }}%
-        </div>
-      {% endif %}
-    {% endwith %}
-  </div>
-</div>
-<div class='col-5' style="display: flex; flex-direction: column; justify-content: space-between;">
+    </div>
+    <div class='col-6 d-flex flex-column'>
+        <div class="flex-grow-1">
             <h1 class='product_detail_name'>{{ additional_product.name }}</h1>
-            <p class='product_detail_description'>{{ additional_product.description }}</p>
-            <p class='additional_detail_set'>ОПИСАНИЕ</p>
+            <div class='product_detail_description' style= 'font-size: 0.9rem !important;'>{{ additional_product.description|safe }}</div>
+            <p class='product_detail_set'>ОПИСАНИЕ</p>
             <div class="additional-kit-container">
                 {% for item in additional_product.game_kit_items_additional.all %}
                     <div class="additional-kit-item">
@@ -49,20 +69,23 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class='product_detail_description'>{{ additional_product.description_2|safe|linebreaks }}</div>
-<p class='additional_detail_price'>
-  {% with discounted_price=additional_product.get_discounted_price %}
-    {% if discounted_price != additional_product.price %}
-<span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
-<span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.</span>
-    {% else %}
-      {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
-    {% endif %}
-  {% endwith %}
-</p>
-<button class='product_detail_button' onclick="openOrderModal('{{ additional_product.id }}', 'additional')">ЗАКАЗАТЬ</button>
+            <div class='product_detail_description' style='margin-top: 10px !important; font-size: 0.9rem !important;'>{{ additional_product.description_2|safe|linebreaks }}</div>
+          </div>
+        <div class="mt-auto">
+            <p class='product_detail_price'>
+                {% with discounted_price=additional_product.get_discounted_price %}
+                    {% if discounted_price != additional_product.price %}
+                        <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
+                        <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
+                    {% else %}
+                        {{ additional_product.price_prefix|default_if_none:"" }} {{ additional_product.price|format_price }} руб.
+                    {% endif %}
+                {% endwith %}
+            </p>
+            <button class='product_detail_button' onclick="openOrderModal('{{ additional_product.id }}')">ЗАКАЗАТЬ</button>
         </div>
     </div>
+</div>
 
     <!-- Мобильная версия -->
     <div class="row mt-5 d-md-none">
