@@ -177,6 +177,8 @@
   margin-top: -15px;
   margin-bottom: 15px;
   display: none;
+  position: relative;
+  z-index: 3000;
 }
 
 .input-error {
@@ -279,10 +281,14 @@
   background: red;
   border-radius: 8px;
   color: white;
+  position: relative;
+  z-index: 3000;
 }
 
 .toast-container {
   right: 20px !important;
+  position: fixed;
+  z-index: 3000;
 }
 
 .toast {
@@ -371,6 +377,9 @@
   .close {
     right: 10px;
     top: 5px;
+  }
+  .toast-body {
+    font-size: 0.8rem;
   }
 }
 .modal-row {
