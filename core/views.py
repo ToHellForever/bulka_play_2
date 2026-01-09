@@ -4,6 +4,9 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.utils import timezone
+from datetime import timedelta
+import re
 from .models import (
     Product,
     Arenda,
@@ -248,14 +251,41 @@ class ProcessOrderView(View):
     def post(self, request, *args, **kwargs):
         try:
             data = request.POST
+            ip_address = self.get_client_ip(request)
+
+            # Проверка времени между заявками с одного IP
+            last_order = Order.objects.filter(ip_address=ip_address).order_by('-created_at').first()
+            if last_order:
+                cooldown_period = timedelta(minutes=30)  # Ограничение: 30 минут между заявками
+                time_since_last_order = timezone.now() - last_order.created_at
+                if time_since_last_order < cooldown_period:
+                    return JsonResponse(
+                        {
+                            "success": False,
+                            "message": f"Вы уже отправили заявку, она находится на рассмотрении, перед отправкой следующей, пожалуйста, подождите {cooldown_period.seconds//60 - time_since_last_order.seconds//60} минут.",
+                        },
+                        status=400,
+                    )
+
+            # Проверка комментария на наличие ссылок и спама
+            comment = data.get("comment", "")
+            if self.is_spam_comment(comment):
+                return JsonResponse(
+                    {
+                        "success": False,
+                        "message": "Ваш комментарий содержит запрещенные символы или ссылки. Пожалуйста, удалите их и попробуйте снова.",
+                    },
+                    status=400,
+                )
 
             # Создание заказа
             order = Order.objects.create(
                 name=data.get("name"),
                 phone=data.get("phone"),
                 order_type=data.get("order_type"),
-                comment=data.get("comment", ""),
+                comment=comment,
                 double_game_count=data.get("double_game_count", 1),
+                ip_address=ip_address,
             )
 
             # Обработка в зависимости от типа заказа
@@ -325,3 +355,25 @@ class ProcessOrderView(View):
                 },
                 status=400,
             )
+
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
+
+    def is_spam_comment(self, comment):
+        # Проверка на наличие ссылок
+        url_pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+        if url_pattern.search(comment):
+            return True
+
+        # Проверка на наличие спам-слов (можно расширить список)
+        spam_keywords = ['реклама', 'купить', 'дешево', 'скидка', 'бесплатно', 'заработок']
+        for keyword in spam_keywords:
+            if keyword in comment.lower():
+                return True
+
+        return False

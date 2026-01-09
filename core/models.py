@@ -610,6 +610,8 @@ class Order(models.Model):
         default=1,
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    ip_address = models.GenericIPAddressField(verbose_name="IP-адрес", blank=True, null=True)
+    is_spam = models.BooleanField(default=False, verbose_name="Это спам?")
 
     class Meta:
         verbose_name = "Заказ"
