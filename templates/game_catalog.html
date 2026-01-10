@@ -91,14 +91,18 @@
             </div>
             <h1 class='product_card_name'>{{ product.name }}</h1>
             <p class="product_card_price">
-              {% with discounted_price=product.get_discounted_price %}
-                {% if discounted_price != product.price %}
-                  <span class="catalog-discounted-price">{{ discounted_price|format_price }} руб.</span>
-                  <span class="catalog-original-price">{{ product.price|format_price }} руб.</span>
-                {% else %}
-                  {{ product.price|format_price }} руб.
-                {% endif %}
-              {% endwith %}
+{% with discounted_price=product.get_discounted_price %}
+    {% if product.is_price_negotiable %}
+        Цена по договорённости
+    {% else %}
+        {% if discounted_price != product.price %}
+            <span class="catalog-discounted-price">{{ discounted_price|format_price }} руб.</span>
+            <span class="catalog-original-price">{{ product.price|format_price }} руб.</span>
+        {% else %}
+            {{ product.price|format_price }} руб.
+        {% endif %}
+    {% endif %}
+{% endwith %}
             </p>
             <a href="{% url 'product_detail' product.id %}" class="product_card_button">ПОДРОБНЕЕ</a>
           </div>

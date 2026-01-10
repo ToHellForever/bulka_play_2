@@ -72,14 +72,18 @@
         <div class="game-info">
           <h4>{{ product.name }}</h4>
           <p class="game-price">
-            {% with discounted_price=product.get_discounted_price %}
-              {% if discounted_price != product.price %}
-                <span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
-                <span class="modal-original-price">{{ product.price|format_price }} руб.</span>
-              {% else %}
-                {{ product.price|format_price }} руб.
-              {% endif %}
-            {% endwith %}
+{% with discounted_price=product.get_discounted_price %}
+    {% if product.is_price_negotiable %}
+        Цена по договорённости
+    {% else %}
+        {% if discounted_price != product.price %}
+            <span class="modal-discounted-price">{{ discounted_price|format_price }} руб.</span>
+            <span class="modal-original-price">{{ product.price|format_price }} руб.</span>
+        {% else %}
+            {{ product.price|format_price }} руб.
+        {% endif %}
+    {% endif %}
+{% endwith %}
           </p>
         </div>
       </div>

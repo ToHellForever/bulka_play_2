@@ -99,7 +99,8 @@ class Product(models.Model):
     )
     is_new = models.BooleanField(default=False, verbose_name="Новинка")
     is_in_stock = models.BooleanField(default=True, verbose_name="В наличии")
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена", blank=True, null=True)
+    is_price_negotiable = models.BooleanField(default=False, verbose_name="Цена по договорённости")
     image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
@@ -150,6 +151,9 @@ class Product(models.Model):
 
     def get_discounted_price(self):
         """Возвращает цену товара с учетом активных скидок"""
+        if self.is_price_negotiable:
+            return None
+
         active_discounts = self.discounts.filter(
             is_active=True,
             start_date__lte=datetime.now().date(),
@@ -171,6 +175,9 @@ class Product(models.Model):
 
     def get_discount_percentage(self):
         """Возвращает процент скидки, если она активна"""
+        if self.is_price_negotiable:
+            return None
+
         active_discounts = self.discounts.filter(
             is_active=True,
             start_date__lte=datetime.now().date(),

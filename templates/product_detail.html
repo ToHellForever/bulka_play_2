@@ -71,14 +71,18 @@
           </div>
         <div class="mt-auto">
             <p class='product_detail_price'>
-                {% with discounted_price=product.get_discounted_price %}
-                    {% if discounted_price != product.price %}
-                        <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
-                        <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
-                    {% else %}
-                        {{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.
-                    {% endif %}
-                {% endwith %}
+{% with discounted_price=product.get_discounted_price %}
+    {% if product.is_price_negotiable %}
+        Цена по договорённости
+    {% else %}
+        {% if discounted_price != product.price %}
+            <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
+            <span class="product-detail-original-price">{{ product.price|format_price }} руб.</span>
+        {% else %}
+            {{ product.price|format_price }} руб.
+        {% endif %}
+    {% endif %}
+{% endwith %}
             </p>
             <button class='product_detail_button' onclick="openOrderModal('{{ product.id }}')">ЗАКАЗАТЬ</button>
         </div>
@@ -130,16 +134,20 @@
 <div class="row mt-3 d-md-none">
     <div class="col-12">
         <h1 class='product_detail_name'>{{ product.name }}</h1>
-        <p class='product_detail_price'>
-            {% with discounted_price=product.get_discounted_price %}
-                {% if discounted_price != product.price %}
-                    <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
-                    <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
-                {% else %}
-                    {{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.
-                {% endif %}
-            {% endwith %}
-        </p>
+<p class='product_detail_price'>
+    {% with discounted_price=product.get_discounted_price %}
+        {% if product.is_price_negotiable %}
+            Цена по договорённости
+        {% else %}
+            {% if discounted_price != product.price %}
+                <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
+                <span class="product-detail-original-price">{{ product.price|format_price }} руб.</span>
+            {% else %}
+                {{ product.price|format_price }} руб.
+            {% endif %}
+        {% endif %}
+    {% endwith %}
+</p>
         <div class='product_detail_description'>{{ product.description|safe }}</div>
         <p class='product_detail_set'>КОМПЛЕКТ</p>
         <div class="kit-container-mobile">
@@ -214,16 +222,20 @@
           {% endwith %}
         </div>
         <h1 class='product_card_name'>{{ product.name }}</h1>
-        <p class="product_card_price">
-          {% with discounted_price=product.get_discounted_price %}
+<p class="product_card_price">
+    {% with discounted_price=product.get_discounted_price %}
+        {% if product.is_price_negotiable %}
+            Цена по договорённости
+        {% else %}
             {% if discounted_price != product.price %}
-              <span class="product-detail-discounted-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ discounted_price|format_price }} руб.</span>
-              <span class="product-detail-original-price">{{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.</span>
+                <span class="product-detail-discounted-price">{{ discounted_price|format_price }} руб.</span>
+                <span class="product-detail-original-price">{{ product.price|format_price }} руб.</span>
             {% else %}
-              {{ additional_product.price_prefix|default_if_none:"" }} {{ product.price|format_price }} руб.
+                {{ product.price|format_price }} руб.
             {% endif %}
-          {% endwith %}
-        </p>
+        {% endif %}
+    {% endwith %}
+</p>
         <a href="{% url 'product_detail' pk=product.pk %}" class="product_card_button">ПОДРОБНЕЕ</a>
       </div>
     </div>
