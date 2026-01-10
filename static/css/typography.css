@@ -277,7 +277,7 @@ select.form-control {
     font-family: 'Unbounded', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 5rem;
+    margin-top: 5rem !important;
 }
 
 .product_detail_price {
@@ -647,7 +647,7 @@ h4 {
     }
         
     .product_detail_set {
-        margin-top: 1rem;
+        margin-top: 1rem !important;
     }
 }
 @media (max-width: 1160px) {
@@ -686,7 +686,7 @@ h4 {
     font-size: 1rem;
   }
     .product_detail_set {
-        margin-top: 0;
+        margin-top: 0 !important;
     }
 }
 @media (max-width: 1050px) {
