@@ -79,23 +79,37 @@ function showError(elementId, message) {
 
 // Валидация телефона
 function validatePhone(phone) {
-  const phoneRegex = /^[\d\s\-()+]{10,}$/;
-  return phoneRegex.test(phone);
+  // Удаляем все пробелы, дефисы и скобки для проверки
+  const cleanedPhone = phone.replace(/[\s\-()]/g, '');
+
+  // Проверяем, что номер содержит только цифры и знак плюс
+  const phoneRegex = /^\+?[\d]{10,}$/;
+
+  // Проверяем, что номер содержит хотя бы 10 цифр
+  const digitsOnly = cleanedPhone.replace(/\D/g, '');
+  if (digitsOnly.length < 10) {
+    return false;
+  }
+
+  return phoneRegex.test(cleanedPhone);
 }
 
 // Переключение типа заказа
 function toggleOrderType(type) {
   const buySection = document.getElementById('buy-section');
   const rentSection = document.getElementById('rent-section');
+  const buyCommentSection = document.getElementById('buy-comment-section');
   const orderTypeSelect = document.getElementById('order-type');
 
-  if (!buySection || !rentSection || !orderTypeSelect) return;
+  if (!buySection || !rentSection || !orderTypeSelect || !buyCommentSection) return;
 
   buySection.style.display = 'none';
   rentSection.style.display = 'none';
+  buyCommentSection.style.display = 'none';
 
   if (type === 'buy' || type === 'double_buy') {
     buySection.style.display = 'block';
+    buyCommentSection.style.display = 'block';
     currentOrderType = type;
     orderTypeSelect.value = type;
   } else if (type === 'rent') {
@@ -104,6 +118,7 @@ function toggleOrderType(type) {
     orderTypeSelect.value = 'rent';
   } else if (type === 'additional') {
     buySection.style.display = 'block';
+    buyCommentSection.style.display = 'block';
     currentOrderType = 'buy';
     orderTypeSelect.value = 'buy';
   }
@@ -397,7 +412,7 @@ function submitFormData() {
   })
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      return response.json().then(err => { throw err; });
     }
     return response.json();
   })
@@ -417,7 +432,11 @@ function submitFormData() {
   })
   .catch(error => {
     console.error('Error:', error);
-    showError('form-error', 'Произошла ошибка при отправке заказа. Пожалуйста, попробуйте позже.');
+    if (error.message) {
+      showError('form-error', error.message);
+    } else {
+      showError('form-error', 'Произошла ошибка при отправке заказа. Пожалуйста, попробуйте позже.');
+    }
   })
   .finally(() => {
     submitBtn.disabled = false;

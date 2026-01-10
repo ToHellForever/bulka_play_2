@@ -1,16 +1,7 @@
 .product_detail_image {
-    width: 100%;
+    width: 97%;
     height: 100%;
     border-radius: 31px;
-    cursor: pointer;
-}
-
-.additional_images {
-    width: 100%;
-    height: calc(100% / 5 - 1.6rem); /* Adjust the height to match the main image and ensure equal spacing */
-    border-radius: 15px;
-    margin-bottom: 2.1rem;
-    cursor: pointer;
 }
 
 .product_detail_image_list {
@@ -79,6 +70,7 @@
     color: rgba(33, 33, 33, 1);
     border: none;
     cursor: pointer;
+    
 }
 
 .button-container {
@@ -143,6 +135,9 @@
 @media (max-width: 1200px) {
     .kit-item {
         padding: 10px;
+    }
+    .product_detail_button {
+        padding: 5px;
     }
 }
 
