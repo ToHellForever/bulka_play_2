@@ -118,7 +118,7 @@
 /* Стили для кнопок навигации карусели на десктопной версии */
 .product-main-swiper-desktop .swiper-button-next,
 .product-main-swiper-desktop .swiper-button-prev {
-    top: 50% !important; /* Опускаем стрелки пониже */
+    top: 70% !important; /* Опускаем стрелки пониже */
 }
 .product-main-swiper-desktop .swiper-button-next {
   margin-right: 25px;
