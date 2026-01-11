@@ -164,8 +164,8 @@ a {
         flex-direction: column;
     }
   .arend_icon {
-    width: 90%;
-    margin-left: -5px;
+    width: 100%;
+    margin-left: 10px;
   }
     .left_photo {
         width: 100%;
@@ -248,5 +248,16 @@ a {
   .row > .col-3 {
     flex: 0 0 50%;
     max-width: 50%;
+  }
+}
+
+@media (max-width: 620px) {
+    .arend_icon {
+    margin-left: 5px;
+  }
+}
+@media (max-width: 420px) {
+    .arend_icon {
+    margin-left: 3px;
   }
 }
