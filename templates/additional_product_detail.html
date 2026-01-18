@@ -189,7 +189,9 @@
     <div class='col-6 col-md-4 col-lg-3 mt-1 game_catalog_grid'>
       <div class="game-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
         <div class="position-relative">
+        <a href="{% url 'product_detail' product.id %}">  
           <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
+        </a>
           {% with discount_percentage=product.get_discount_percentage %}
             {% if discount_percentage %}
               <div class="discount-badge">
@@ -227,7 +229,9 @@
     <div class='col-6 col-md-4 col-lg-3 mt-1 game_catalog_grid'>
       <div class="game-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
         <div class="position-relative">
+        <a href="{% url 'additional_product_detail' additional_product.id %}">  
           <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
+        </a>
           {% with discount_percentage=additional_product.get_discount_percentage %}
             {% if discount_percentage %}
               <div class="discount-badge">
@@ -350,7 +354,9 @@
           <div class='col-6 col-md-4 col-lg-3 mt-1 game_catalog_grid'>
       <div class="game-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
               <div class="position-relative">
+            <a href="{% url 'additional_product_detail' additional_product_item.id %}">
                 <img src="{{ additional_product_item.image.url }}" alt="{{ additional_product_item.name }}" class="product_detail_image_list">
+            </a>
                 {% with discount_percentage=additional_product_item.get_discount_percentage %}
                   {% if discount_percentage %}
                     <div class="discount-badge">
@@ -380,7 +386,9 @@
         <div class='col-6 col-md-4 col-lg-3 mt-1 game_catalog_grid'>
       <div class="game-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
             <div class="position-relative">
+            <a href="{% url 'product_detail' product.id %}">
               <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_detail_image_list">
+            </a>
               {% with discount_percentage=product.get_discount_percentage %}
                 {% if discount_percentage %}
                   <div class="discount-badge">
@@ -420,7 +428,9 @@
       <div class='col-6 col-md-4 col-lg-3 mt-1 game_catalog_grid'>
         <div class="game-card">
           <div class="position-relative">
+            <a href="{% url 'additional_product_detail' additional_product.id %}">
             <img src="{{ additional_product.image.url }}" alt="{{ additional_product.name }}" class="product_detail_image_list">
+            </a>
             {% with discount_percentage=additional_product.get_discount_percentage %}
               {% if discount_percentage %}
                 <div class="discount-badge">
