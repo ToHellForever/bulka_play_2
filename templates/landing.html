@@ -26,7 +26,7 @@
       <div>
         <!-- Фото сверху -->
         <div class="mb-3 position-relative">
-          <img src="media/photo/right_photo.png" alt="Каталог настольных игр из натурального дерева ручной работы" class="right_photo">
+          <a href="{% url 'game_catalog' %}"><img src="media/photo/right_photo.png" alt="Каталог настольных игр из натурального дерева ручной работы" class="right_photo"></a>
         <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="Перейти в каталог настольных игр из натурального дерева" class='catalog_game_icon'></a>
           <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
         </div>
@@ -43,7 +43,7 @@
     <div class="mobile-layout">
       <!-- Верхняя секция с right_photo -->
       <div class="mobile-top-section position-relative">
-          <img src="media/photo/right_photo.png" alt="Каталог настольных игр из натурального дерева ручной работы" class="right_photo">
+          <a href="{% url 'game_catalog' %}"><img src="media/photo/right_photo.png" alt="Каталог настольных игр из натурального дерева ручной работы" class="right_photo"></a>
         <a href="{% url 'game_catalog' %}"><img src="media/icon/catalog_game_icon.png" alt="Перейти в каталог настольных игр из натурального дерева" class='catalog_game_icon'></a>
         <p class="position-absolute bottom-0 start-0 m-4 game_count_text">{{ active_product_count }} эксклюзивных игр</p>
       </div>
@@ -52,7 +52,7 @@
       <div class="mobile-bottom-section mt-1">
         <!-- Левая колонка с фото -->
         <div class="mobile-left-column position-relative">
-          <img src="media/photo/left-photo-2.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class="left_photo">
+          <a href="{% url 'rental_catalog' %}"><img src="media/photo/left-photo-2.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class="left_photo"></a>
         <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend-icon.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class='arend_icon'></a>
         </div>
 
@@ -92,7 +92,7 @@
 </div>
 
 <div class="container carousel-container mt-5">
-  <h1 class='game_catalog_h'>КАТАЛОГ ИГР</h1>
+  <a href="{% url 'game_catalog' %}"><h1 class='game_catalog_h'>КАТАЛОГ ИГР</h1></a>
 <div class="swiper">
   <div class="swiper-button-prev custom-prev"></div>
   <div class="swiper-button-next custom-next"></div>
@@ -133,7 +133,7 @@
 </div>
 
 <div class="container carousel-container mt-5">
-  <h1 class='rental_catalog_landing_h'>ВЫЕЗДНАЯ АРЕНДА</h1>
+  <a href="{% url 'rental_catalog' %}"><h1 class='rental_catalog_landing_h'>ВЫЕЗДНАЯ АРЕНДА</h1></a>
   <p class='rental-description'>Мы предлагаем уникальный подход к проведению праздников! Выбирай количество игр в зависимости от количества гостей. В стоимость входит выезд игровых мастеров, которые создадут атмосферу веселья и вовлекут каждого участника. Количество мастеров определяется количеством игр и обговаривается при оформлении заказа.</p>
 <div class="swiper rental-swiper">
   <div class="swiper-button-prev custom-prev"></div>
