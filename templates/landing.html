@@ -19,7 +19,7 @@
     <div class="d-flex mt-4 desktop-layout">
       <!-- Левая часть с фото -->
       <div class="me-3 position-relative">
-    <img src="media/photo/left-photo-2.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class="left_photo">
+        <a href="{% url 'rental_catalog' %}"><img src="media/photo/left-photo-2.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class="left_photo"></a>
         <a href="{% url 'rental_catalog' %}"><img src="media/icon/arend_icon.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class='arend_icon'></a>
       </div>
       <!-- Правая часть: фото над тремя блоками -->
@@ -154,7 +154,7 @@
           <p class="arend-card-description">В стоимость аренды входит:</p>
           <p class="arend-card-description">{{ arend.description|linebreaksbr }}</p>
           <div class="arend-card-price">
-            <span class="arend-card-time">{{ arend.time }} часа</span>
+            <span class="arend-card-time">{{ arend.time }}</span>
             <div class="price-container">
               {% with discounted_price=arend.get_discounted_price %}
                 {% if discounted_price != arend.price %}
