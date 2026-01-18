@@ -97,6 +97,11 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name="Описание", blank=True, null=True, default=""
     )
+    order = models.PositiveIntegerField(
+        verbose_name="Порядок отображения",
+        default=0,
+        help_text="Чем меньше число, тем выше позиция в каталоге"
+    )
     is_new = models.BooleanField(default=False, verbose_name="Новинка")
     is_in_stock = models.BooleanField(default=True, verbose_name="В наличии")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена", blank=True, null=True)
@@ -443,6 +448,11 @@ class AdditionalProducts(models.Model):
         max_length=200, verbose_name="Материал", default="", blank=True, null=True
     )
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    order = models.PositiveIntegerField(
+        verbose_name="Порядок отображения",
+        default=0,
+        help_text="Чем меньше число, тем выше позиция в каталоге"
+    )
     image = models.ImageField(upload_to="products/", verbose_name="Изображение")
     is_active = models.BooleanField(default=True, verbose_name="Отображать на сайте")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")

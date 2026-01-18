@@ -78,7 +78,7 @@ class GameCatalogView(TemplateView):
         products = Product.objects.filter(is_active=True)
         context["additional_products"] = AdditionalProducts.objects.filter(
             is_active=True
-        ).order_by("-created_at")
+        ).order_by("order", "-created_at")
         context["arenda"] = Arenda.objects.filter(is_active=True).order_by(
             "-created_at"
         )
@@ -125,7 +125,7 @@ class GameCatalogView(TemplateView):
         elif sort == "name_desc":
             products = products.order_by("-name")
         else:
-            products = products.order_by("-created_at")
+            products = products.order_by("order", "-created_at")
 
         context["products"] = products
 

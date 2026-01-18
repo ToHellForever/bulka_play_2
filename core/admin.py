@@ -53,8 +53,8 @@ class OrderedGameKitItemInline(admin.TabularInline):
 # Основной класс для регистрации модели Product
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "is_active", "created_at", "is_new", "is_in_stock", "is_price_negotiable")
-    list_editable = ("is_active", "is_new", "is_in_stock", "is_price_negotiable")
+    list_display = ("name", "price", "is_active", "created_at", "is_new", "is_in_stock", "is_price_negotiable", "order")
+    list_editable = ("is_active", "is_new", "is_in_stock", "is_price_negotiable", "order")
     list_filter = ("is_active", "created_at", "is_new", "is_in_stock")
     search_fields = ("name", "description")
     filter_horizontal = ("sizes", "player_counts", "game_types", "player_ages")
@@ -240,8 +240,8 @@ class NewsAdmin(admin.ModelAdmin):
 
 @admin.register(AdditionalProducts)
 class AdditionalProductsAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "is_active", "created_at", "is_new", "is_in_stock")
-    list_editable = ("is_active", "is_new", "is_in_stock")
+    list_display = ("name", "price", "is_active", "created_at", "is_new", "is_in_stock", "order")
+    list_editable = ("is_active", "is_new", "is_in_stock", "order")
     list_filter = ("is_active", "created_at", "is_new", "is_in_stock")
     search_fields = ("name", "description")
 
