@@ -18,7 +18,7 @@
     <div class="video-container">
         <iframe
         src="https://vk.com/video_ext.php?oid=-226618368&id=456239230&hd=2&"
-        allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+        allow="autoplay; encrypted-media; picture-in-picture; screen-wake-lock;"
         frameborder="0"
         allowfullscreen
         ></iframe>
@@ -110,3 +110,8 @@
   </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/rental_calculator.js' %}"></script>
+{% endblock scripts %}
