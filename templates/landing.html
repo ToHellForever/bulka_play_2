@@ -49,7 +49,7 @@
       </div>
 
       <!-- Нижняя секция с left_photo и тремя блоками -->
-      <div class="mobile-bottom-section">
+      <div class="mobile-bottom-section mt-1">
         <!-- Левая колонка с фото -->
         <div class="mobile-left-column position-relative">
           <img src="media/photo/left-photo-2.png" alt="Аренда настольных игр из натурального дерева для праздников и корпоративов" class="left_photo">
@@ -154,7 +154,7 @@
           <p class="arend-card-description">В стоимость аренды входит:</p>
           <p class="arend-card-description">{{ arend.description|linebreaksbr }}</p>
           <div class="arend-card-price">
-            <span class="arend-card-time">{{ arend.time }} </span>
+            <span class="arend-card-time">{{ arend.time }} часа</span>
             <div class="price-container">
               {% with discounted_price=arend.get_discounted_price %}
                 {% if discounted_price != arend.price %}

@@ -270,7 +270,12 @@ class Arenda(models.Model):
     description = models.TextField(verbose_name="Описание")
     time = models.CharField(verbose_name="Время в часах", default=2, max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
-    image = models.ImageField(upload_to="products/", verbose_name="Изображение")
+    image = models.ImageField(
+        upload_to="products/",
+        verbose_name="Изображение",
+        blank=True,
+        null=True
+    )
     card_style = models.PositiveSmallIntegerField(
         verbose_name="Стиль карточки", choices=CARD_STYLE_CHOICES, default=1
     )

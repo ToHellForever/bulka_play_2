@@ -143,6 +143,7 @@ class ArendaAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "price",
+        "time",
         "is_active",
         "is_specific_game",
         "specific_game",
@@ -150,15 +151,15 @@ class ArendaAdmin(admin.ModelAdmin):
         "is_new",
         "is_in_stock",
     )
-    list_editable = ("is_active", "is_specific_game", "is_new", "is_in_stock")
-    list_filter = ("is_active", "is_specific_game", "created_at", "is_new", "is_in_stock")
+    list_editable = ("is_active", "is_specific_game", "is_new", "is_in_stock","time")
+    list_filter = ("is_active", "is_specific_game", "created_at", "is_new", "is_in_stock", "time")
     inlines = [RangeInline]
 
     fieldsets = (
         (
             "Основные поля",
             {
-                "fields": ("name", "description", "price", "image"),
+                "fields": ("name", "description", "price", "image", "time"),
             },
         ),
         (
