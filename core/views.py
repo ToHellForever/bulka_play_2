@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 from django.utils import timezone
 from datetime import timedelta
 import re
+from django.db.models import Max
 from .models import (
     Product,
     Arenda,
@@ -211,6 +212,11 @@ class RentalCatalogView(TemplateView):
             "-created_at"
         )
         context["news"] = News.objects.filter(is_active=True).order_by("-created_at")
+
+        # Получаем максимальное значение max_players из всех записей PlayerRange
+        max_players = PlayerRange.objects.aggregate(Max('max_players'))['max_players__max']
+        context["max_players"] = max_players if max_players is not None else 25
+
         return context
 
 class TwoGamesOnOneBoardView(TemplateView):

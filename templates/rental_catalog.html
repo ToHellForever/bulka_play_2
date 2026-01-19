@@ -35,10 +35,10 @@
 </div>
 
 <div class="row mt-3 slider-container">
-    <input type="range" class="form-range" id="guestSlider" min="2" max="25" step="1" value="2"/>
+    <input type="range" class="form-range" id="guestSlider" min="2" max="{{ max_players }}" step="1" value="2"/>
       <div class="slider-labels">
         <span class="slider-label slider-label-start">2 чел</span>
-        <span class="slider-label slider-label-end">более 25 чел</span>
+        <span class="slider-label slider-label-end">{{ max_players }} чел</span>
     </div>
 </div>
 
@@ -113,5 +113,8 @@
 
 {% block scripts %}
     {{ block.super }}
+    <script>
+        const maxPlayers = {{ max_players }};
+    </script>
     <script src="{% static 'js/rental_calculator.js' %}"></script>
 {% endblock scripts %}

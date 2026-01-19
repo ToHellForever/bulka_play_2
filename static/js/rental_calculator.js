@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const guestMinCount = document.getElementById("guestMinCount");
     const guestMaxCount = document.getElementById("guestMaxCount");
 
+    // Устанавливаем максимальное значение слайдера
+    guestSlider.max = maxPlayers;
+
     function updateRecommendedGames(guests) {
         if (guests < 2) {
             guestMinCount.textContent = '';
