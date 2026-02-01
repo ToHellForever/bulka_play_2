@@ -173,6 +173,7 @@
         width: 100%;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        position: relative;
     }
 
     .button-container::-webkit-scrollbar {
@@ -235,8 +236,42 @@
     .product_detail_image_list {
         border-radius: 10px;
     }
-}
+    
+    /* Стили для стрелок на мобильной версии */
+    .mobile-arrows-container {
+        display: none;
+    }
+    
+    .mobile-arrows-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0px;
+        margin-bottom: 3px;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background-color: transparent;
+        padding: 5px 20px;
+        background: rgba(33, 33, 33, 0.8);
+        border-radius: 10px;
+    }
+    
+    .mobile-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 10%;
+        cursor: pointer;
+    }
 
+    .mobile-arrows-container {
+        display: flex !important;
+    }
+}
 .game-card {
     display: flex;
     flex-direction: column;

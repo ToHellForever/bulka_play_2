@@ -180,6 +180,16 @@
             <button class="button" onclick="showInfo(event,'info4')">ДОПОЛНИТЕЛЬНО <img src="/media/icon/select_arrow.svg" alt="" class='arrow_accorderon'></button>
         </div>
     </div>
+    
+    <!-- Стрелки навигации на одной странице -->
+    <div class="mobile-arrows-container d-md-none">
+        <div class="mobile-arrow" onclick="scrollButtons('left')">
+            <img src="/media/icon/select_arrow.svg" alt="Left" class="arrow-icon" style="transform: rotate(90deg);">
+        </div>
+        <div class="mobile-arrow" onclick="scrollButtons('right')">
+            <img src="/media/icon/select_arrow.svg" alt="Right" class="arrow-icon" style="transform: rotate(-90deg);">
+        </div>
+    </div>
     <div id="info1" class="info-block">
         {{ product.game_rules|safe|linebreaks }}
     </div>
@@ -325,6 +335,51 @@
         });
       }
     }
+
+    // Функция для прокрутки кнопок
+    function scrollButtons(direction) {
+      const buttonContainer = document.querySelector('.button-container');
+      const buttonRow = document.querySelector('.button-row');
+      const buttons = buttonRow.querySelectorAll('.button-info-container');
+      
+      // Находим текущий видимый блок
+      let currentIndex = 0;
+      for (let i = 0; i < buttons.length; i++) {
+        const rect = buttons[i].getBoundingClientRect();
+        if (rect.left >= 0 && rect.right <= window.innerWidth) {
+          currentIndex = i;
+          break;
+        }
+      }
+      
+      if (direction === 'left') {
+        // Прокрутка на один блок влево
+        if (currentIndex > 0) {
+          buttons[currentIndex - 1].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+          });
+        }
+      } else if (direction === 'right') {
+        // Прокрутка на один блок вправо
+        if (currentIndex < buttons.length - 1) {
+          const scrollOptions = {
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+          };
+          
+          // Используем анимацию с большей продолжительностью
+          buttons[currentIndex + 1].scrollIntoView(
+            new Object({...scrollOptions, duration: 1000})
+          );
+        }
+      }
+    }
+    
+    // Присваиваем функцию глобально для использования в HTML
+    window.scrollButtons = scrollButtons;
 
     // Вызываем функцию при загрузке страницы и при изменении размера окна
     adjustVisibleProducts();
