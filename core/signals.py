@@ -49,7 +49,7 @@ def send_telegram_notification(instance):
 
 💬 **Комментарий:** {instance.comment if instance.comment else "Нет"}
 
-🔗 **Подробнее:** [Ссылка на заказ](http://127.0.0.1:8000/admin/core/order/{instance.id}/change/)
+🔗 **Подробнее:** [Ссылка на заказ](http://bulka-play.ru/s3cr3t_4dm1n_bulk4_pl4y2_p4th/core/order/{instance.id}/change/)
         """
 
         # Отправляем сообщение в Telegram

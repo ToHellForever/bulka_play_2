@@ -260,15 +260,16 @@ class ProcessOrderView(View):
             ip_address = self.get_client_ip(request)
 
             # Проверка времени между заявками с одного IP
-            last_order = Order.objects.filter(ip_address=ip_address).order_by('-created_at').first()
-            if last_order:
-                cooldown_period = timedelta(minutes=30)  # Ограничение: 30 минут между заявками
+            recent_orders = Order.objects.filter(ip_address=ip_address).order_by('-created_at')[:3]
+            if recent_orders.count() >= 3:
+                last_order = recent_orders.first()
+                cooldown_period = timedelta(minutes=30)  # Ограничение: 30 минут после 3 заявок
                 time_since_last_order = timezone.now() - last_order.created_at
                 if time_since_last_order < cooldown_period:
                     return JsonResponse(
                         {
                             "success": False,
-                            "message": f"Вы уже отправили заявку, она находится на рассмотрении, перед отправкой следующей, пожалуйста, подождите {cooldown_period.seconds//60 - time_since_last_order.seconds//60} минут.",
+                            "message": f"Вы отправили 3 заявки подряд. Пожалуйста, подождите {cooldown_period.seconds//60 - time_since_last_order.seconds//60} минут перед отправкой следующей заявки.",
                         },
                         status=400,
                     )
