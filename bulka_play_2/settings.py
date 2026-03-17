@@ -28,13 +28,13 @@ TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "195.133.194.40", "bulka-play.ru"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "147.45.161.66", "bulka-play.ru"]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
     "http://127.0.0.1",
-    "http://195.133.194.40",
-    "https://195.133.194.40",
+    "http://147.45.161.66",
+    "https://147.45.161.66",
     "http://bulka-play.ru",
     "https://bulka-play.ru",
 ]
@@ -143,7 +143,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # Debug Toolbar settings
 INTERNAL_IPS = [
-    '127.0.0.1',
+    "127.0.0.1",
 ]
 
 
