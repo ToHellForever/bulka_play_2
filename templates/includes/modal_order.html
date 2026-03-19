@@ -204,13 +204,13 @@
       </div>
 
     <!-- Чекбокс согласия с политикой конфиденциальности -->
-    <div class="form-group privacy-policy-group">
+    <div class="form-group privacy-policy-group" style="margin-bottom: 10px;">
       <label class="privacy-checkbox-container">
-        <input type="checkbox" id="privacy-policy" name="privacy_policy" required>
+        <input type="checkbox" id="privacy-policy" name="privacy_policy">
         <span class="privacy-checkmark"></span>
-        <span class="privacy-text">Нажимая кнопку “Оформить заказ”, вы соглашаетесь с <a href="/privacy-policy/" target="_blank">Политикой конфиденциальности</a></span>
+        <span class="privacy-text">Нажимая кнопку "Оформить заказ", вы соглашаетесь с <a href="/privacy-policy/" target="_blank">Политикой конфиденциальности</a></span>
       </label>
-      <div id="privacy-error" class="error-message" style="display: none;">Вы должны согласиться с политикой конфиденциальности</div>
+      <div id="privacy-error" class="error-message" style="display: none; color: red; font-size: 14px; margin-top: 5px; text-align: left;">Вы должны согласиться с политикой конфиденциальности</div>
     </div>
 
       <button type="submit" id="submit-btn" class="submit-button">ОФОРМИТЬ ЗАКАЗ</button>

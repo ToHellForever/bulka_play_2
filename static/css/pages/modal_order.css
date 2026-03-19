@@ -171,8 +171,9 @@
 }
 
 /* Стили для ошибок валидации */
-.error-message {
-  color: #d32f2f;
+.error-message,
+.privacy-error {
+  color: #d32f2f !important;
   font-size: 14px;
   margin-top: -15px;
   margin-bottom: 15px;

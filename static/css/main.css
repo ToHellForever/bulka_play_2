@@ -134,7 +134,6 @@ body {
     position: absolute;
     display: none;
 }
-
 .privacy-checkbox-container input:checked ~ .privacy-checkmark:after {
     display: block;
 }
