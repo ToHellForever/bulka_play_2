@@ -621,6 +621,20 @@ h4 {
 
 
 @media (max-width: 1325px) {
+    .about_block {
+        margin-top: 5px;
+    }
+    .about_text,
+    .about_li {
+        text-align: left;
+    }
+    .about_li:nth-child(1) {
+        margin-top: -10px !important;
+        margin-bottom: 5px;
+    }
+    .about_li:nth-child(2) {
+        margin-bottom: -10px !important;
+    }
     .about_h {
         font-size: 7rem;
     }
@@ -752,7 +766,7 @@ h4 {
     .rental_catalog_landing_h,
     .contact_catalog_h,
     .news_catalog_h {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     .about_block_h {
         font-size: 1.5rem;
@@ -836,7 +850,7 @@ h4 {
         font-size: 1rem;
     }
         .arend-price {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
     
 

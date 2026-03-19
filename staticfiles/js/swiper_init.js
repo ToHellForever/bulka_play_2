@@ -32,10 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         disableOnInteraction: false,
       },
       loop: true,
+      speed: 800,
+      easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      touchRatio: 0.5,
       breakpoints: {}
     };
     // Устанавливаем разные параметры для карусели аренды, мобильной карусели товара и остальных каруселей
@@ -46,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
       swiperParams.loop = true;
       swiperParams.grabCursor = true;
       swiperParams.effect = 'coverflow';
+      swiperParams.speed = 800;
+      swiperParams.easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
+      swiperParams.touchRatio = 0.5;
       swiperParams.coverflowEffect = {
         rotate: 0,
         stretch: 0,
@@ -122,12 +128,17 @@ document.addEventListener('DOMContentLoaded', () => {
         prevEl: '.swiper-button-prev',
       };
       swiperParams.effect = 'slide';
-      swiperParams.speed = 500;
+      swiperParams.speed = 800;
+      swiperParams.easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
       swiperParams.allowTouchMove = false;
+      swiperParams.touchRatio = 0.5;
     } else {
       swiperParams.slidesPerView = 1.5;
       swiperParams.centeredSlides = true;
       swiperParams.spaceBetween = 30;
+      swiperParams.speed = 800;
+      swiperParams.easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
+      swiperParams.touchRatio = 0.5;
       swiperParams.breakpoints = {
         320: { slidesPerView: 1.5, spaceBetween: 10 },
         480: { slidesPerView: 2.5, spaceBetween: 20 },

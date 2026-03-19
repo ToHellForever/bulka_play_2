@@ -44,11 +44,23 @@
     position: relative;
     z-index: 1001;
 }
-
+.nav-links > div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
 .nav-links {
     display: flex;
+    flex-direction: column; /* Меняем направление на вертикальное */
+}
+.top-menu,
+.bottom-menu {
+    display: flex;
     align-items: center;
+    justify-content: space-evenly; /* Равномерно распределяем элементы */
     gap: 4rem;
+    margin-top: 10px;
+    width: 100%; /* Важно задать полную ширину родителя */
 }
 
 .social-links {
@@ -95,9 +107,9 @@
 }
 
 .mobile-menu a {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: white;
-    margin: 1rem 0;
+    margin: 0rem 0;
 }
 
 
@@ -127,7 +139,6 @@
     .mobile-menu {
         display: flex;
     }
-
     .social-links {
         gap: 0rem;
     }

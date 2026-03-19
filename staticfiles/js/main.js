@@ -40,25 +40,43 @@ function clearErrorMessages() {
 
 // Показ ошибки
 function showError(elementId, message) {
+  // Проверяем, есть ли элемент с ошибкой, и отображаем его
+  const errorElement = document.getElementById(elementId);
+  if (errorElement) {
+    errorElement.style.display = 'block';
+  }
+
+  // Прокручиваем к элементу, если он существует
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
   // Создаем контейнер для toast уведомлений, если его нет
   let toastContainer = document.querySelector('.toast-container');
   if (!toastContainer) {
     toastContainer = document.createElement('div');
     toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
+    toastContainer.style.zIndex = '9999';
     document.body.appendChild(toastContainer);
   }
 
   // Создаем элемент toast
   const toast = document.createElement('div');
-  toast.className = 'toast';
+  toast.className = 'toast align-items-center text-white bg-danger border-0';
   toast.setAttribute('role', 'alert');
   toast.setAttribute('aria-live', 'assertive');
   toast.setAttribute('aria-atomic', 'true');
 
   // Создаем тело toast
   const toastBody = document.createElement('div');
-  toastBody.className = 'toast-body';
-  toastBody.textContent = message;
+  toastBody.className = 'd-flex';
+  toastBody.innerHTML = `
+    <div class="toast-body">
+      ${message}
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  `;
 
   // Собираем toast
   toast.appendChild(toastBody);
@@ -67,14 +85,13 @@ function showError(elementId, message) {
   toastContainer.appendChild(toast);
 
   // Показываем toast
-  const bootstrapToast = new bootstrap.Toast(toast, { delay: 3000 });
-  bootstrapToast.show();
-
-  // Прокручиваем к элементу, если он существует
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+  setTimeout(() => {
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }, 100);
 }
 
 // Валидация телефона
@@ -283,6 +300,17 @@ function submitOrder(event) {
   event.preventDefault();
   clearErrorMessages();
   let isValid = true;
+
+  // Проверка чекбокса политики конфиденциальности
+  const privacyCheckbox = document.getElementById('privacy-policy');
+  if (!privacyCheckbox || !privacyCheckbox.checked) {
+    const privacyError = document.getElementById('privacy-error');
+    if (privacyError) {
+      privacyError.style.display = 'block';
+    }
+    showError('privacy-error', 'Вы должны согласиться с политикой конфиденциальности');
+    isValid = false;
+  }
 
   // Валидация основных полей
   const name = document.getElementById('name');

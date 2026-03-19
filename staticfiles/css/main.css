@@ -26,6 +26,7 @@ body {
     font-weight: 400;
     font-size: 1.8rem;
 }
+
 .modal-discounted-price {
     font-size: 1.4rem;
 }
@@ -81,6 +82,92 @@ body {
     align-items: center;
     justify-content: center;
     font-family: 'Unbounded', sans-serif;
+}
+
+/* Стили для чекбокса политики конфиденциальности */
+.privacy-policy-group {
+    margin: 15px 0;
+    display: block;
+}
+
+.privacy-checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    margin-top: 20px;
+}
+
+.privacy-checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.privacy-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.privacy-checkbox-container:hover input ~ .privacy-checkmark {
+    background-color: #eee;
+}
+
+.privacy-checkbox-container input:checked ~ .privacy-checkmark {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.privacy-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.privacy-checkbox-container input:checked ~ .privacy-checkmark:after {
+    display: block;
+}
+
+.privacy-checkbox-container .privacy-checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.privacy-text {
+    font-family: 'Mont', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+.privacy-text a {
+    color: rgba(25, 103, 210, 1);
+    text-decoration: none;
+}
+
+.privacy-text a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .privacy-text {
+        font-size: 0.8rem;
+    }
 }
 .discount-badge-2 {
     margin: -10px;
