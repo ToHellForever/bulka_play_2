@@ -86,6 +86,25 @@
 }
 }
 
+/* Стили для мобильной версии в портретной ориентации */
+@media (max-width: 555px) and (orientation: portrait) {
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        opacity: 0.7;
+    }
+
+    .swiper-slide-active {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    .swiper-slide-prev, .swiper-slide-next {
+        transform: scale(0.9);
+    }
+}
+
 
 
 /* Стили для кнопок навигации карусели */
