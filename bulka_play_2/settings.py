@@ -38,7 +38,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://bulka-play.ru",
     "https://bulka-play.ru",
 ]
-
+ 
 
 # Application definition
 
