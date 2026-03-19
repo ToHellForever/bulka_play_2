@@ -12,14 +12,20 @@
       <span class="line3"></span>
     </button>
 
-    <!-- Навигационные ссылки -->
-    <div class="nav-links">
-      <a href="{% url 'about' %}" class='menu-text'>О нас</a>
-      <a href="{% url 'game_catalog' %}" class='menu-text'>Каталог игр</a>
-      <a href="{% url 'rental_catalog' %}" class='menu-text'>Аренда</a>
-      <a href="{% url 'two_games_on_one_board' %}" class='menu-text'>2 в 1</a>
-      <a href="{% url 'landing' %}#contacts" class='menu-text'>Контакты</a>
+<div class="nav-links">
+    <div class="top-menu">
+        <a href="{% url 'about' %}" class='menu-text'>О нас</a>
+        <a href="{% url 'game_catalog' %}" class='menu-text'>Каталог игр</a>
+        <a href="{% url 'rental_catalog' %}" class='menu-text'>Аренда</a>
+        <a href="{% url 'two_games_on_one_board' %}" class='menu-text'>2 в 1</a>
+        <a href="{% url 'landing' %}#contacts" class='menu-text'>Контакты</a>
     </div>
+    <div class="bottom-menu">
+        <!-- Новые ссылки -->
+        <a href="{% url 'privacy_policy' %}" class='menu-text'>Политика конфиденциальности</a>
+        <a href="{% url 'public_offer' %}" class='menu-text'>Публичная оферта</a>
+    </div>
+</div>
 
     <!-- Социальные ссылки (только для десктопа) -->
     <div class="social-links desktop-only">
@@ -46,6 +52,8 @@
     <a href="{% url 'rental_catalog' %}" class='menu-text'>Аренда</a>
     <a href="{% url 'two_games_on_one_board' %}" class='menu-text'>2 в 1</a>
     <a href="{% url 'landing' %}#contacts" class='menu-text'>Контакты</a>
+    <a href="{% url 'public_offer' %}" class='menu-text'>Публичная оферта</a>
+    <a href="{% url 'privacy_policy' %}" class='menu-text'>Политика конфиденциальности</a>
     <div class="social-links">
       <a href="https://vk.com/bul.k.a.play?from=groups" class='menu-text'>
         <img src="/media/icon/vk.svg" alt="" class='footer_icon'>
