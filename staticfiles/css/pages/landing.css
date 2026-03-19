@@ -187,7 +187,7 @@ a {
 
     .mobile-top-section {
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: -0.7rem;
     }
 
     .mobile-bottom-section {
@@ -198,22 +198,23 @@ a {
     }
 
     .mobile-left-column {
-        width: 50%;
+        width: 55%;
         padding-right: 0.5rem;
     }
 
     .mobile-right-column {
-        width: 50%;
+        width: 45%;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        padding-left: 0.5rem;
+        padding-left: 0rem;
     }
 
     .flex-fill {
         width: 100% !important;
         height: 6rem;
         border-radius: 11.63px;
+        padding: 10px !important;
     }
 
 
