@@ -384,3 +384,18 @@ class ProcessOrderView(View):
                 return True
 
         return False
+
+
+class PrivacyPolicyView(TemplateView):
+    template_name = 'privacy_policy.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class OfferView(TemplateView):
+    template_name = 'public_offer.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

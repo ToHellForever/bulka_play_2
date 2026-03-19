@@ -17,6 +17,8 @@ from core.views import (
     TwoGamesOnOneBoardView,
     AdditionalProductsView,
     AdditionalProductDetailView,
+    PrivacyPolicyView,
+    OfferView
 )
 
 # Защита от случайного доступа к админ-панели
@@ -54,6 +56,8 @@ urlpatterns = [
         AdditionalProductDetailView.as_view(),
         name="additional_product_detail",
     ),
+    path("privacy-policy/", PrivacyPolicyView.as_view(), name="privacy_policy"),
+    path("public_offer/", OfferView.as_view(), name="public_offer"),
     path(
         "sitemap.xml",
         sitemap,
