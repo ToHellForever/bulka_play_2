@@ -1,0 +1,114 @@
+/* Стили для страниц "Политика конфиденциальности" и "Публичная оферта" */
+
+.legal-page {
+    background-color: rgba(33, 33, 33, 1);
+    padding: 2rem;
+    color: white;
+    font-family: 'Mont', sans-serif;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+.legal-page h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: rgba(248, 128, 5, 1);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.legal-page h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(248, 128, 5, 1);
+    padding-bottom: 0.5rem;
+}
+
+.legal-page p {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.legal-page strong {
+    font-weight: 600;
+    color: white;
+}
+
+.legal-page a {
+    color: rgba(248, 128, 5, 1);
+    text-decoration: underline;
+}
+
+.legal-page a:hover {
+    color: rgba(247, 55, 5, 1);
+}
+
+.legal-page ol,
+.legal-page ul {
+    margin-left: 0px;
+    margin-bottom: 1.5rem;
+    padding-left: 1.2rem;
+}
+
+.legal-page li {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    padding-left: 0;
+}
+
+.legal-page address {
+    font-style: normal;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Адаптивные стили */
+@media (max-width: 992px) {
+    .legal-page h1 {
+        font-size: 2rem;
+    }
+    .legal-page h2 {
+        font-size: 1.5rem;
+    }
+    .legal-page p,
+    .legal-page li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .legal-page {
+        padding: 1rem;
+        border-radius: 0px;
+    }
+    .legal-page h1 {
+        font-size: 1.4rem !important; 
+    }
+    .legal-page h2 {
+        font-size: 1.3rem;
+    }
+    .legal-page p,
+    .legal-page li {
+        font-size: 0.85rem;
+    }
+    .legal-page ol,
+    .legal-page ul {
+        padding-left: 0.8rem;
+    }
+}
