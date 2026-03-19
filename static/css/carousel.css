@@ -123,7 +123,7 @@
 /* Поднимаем стрелки только для каруселей товаров и новостей */
 .swiper:not(.rental-swiper, .product-main-swiper-mobile) .swiper-button-next,
 .swiper:not(.rental-swiper, .product-main-swiper-mobile) .swiper-button-prev {
-    top: 35%;
+    top: 40%;
 }
 
 .swiper-button-next::after,
