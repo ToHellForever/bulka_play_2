@@ -621,6 +621,20 @@ h4 {
 
 
 @media (max-width: 1325px) {
+    .about_block {
+        margin-top: 5px;
+    }
+    .about_text,
+    .about_li {
+        text-align: left;
+    }
+    .about_li:nth-child(1) {
+        margin-top: -10px !important;
+        margin-bottom: 5px;
+    }
+    .about_li:nth-child(2) {
+        margin-bottom: -10px !important;
+    }
     .about_h {
         font-size: 7rem;
     }
@@ -848,7 +862,7 @@ h4 {
         font-size: 0.8rem;
     }
     .button {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .product_detail_button {
         font-size: 1rem;
