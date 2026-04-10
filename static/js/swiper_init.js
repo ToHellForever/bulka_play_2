@@ -40,15 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       touchRatio: 0.5,
       breakpoints: {},
-      on: {
-        init: function () {
-          // Принудительно включаем will-change для слайдов (аппаратное ускорение)
-          this.slides.forEach(slide => {
-            slide.style.willChange = 'transform';
-          });
-        }
-      },
     };
+
     // Устанавливаем разные параметры для карусели аренды, мобильной карусели товара и остальных каруселей
     if (isLandingCarousel) {
       // Настройки для каруселей на главной странице
@@ -57,8 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       swiperParams.loop = true;
       swiperParams.grabCursor = true;
       swiperParams.effect = 'coverflow';
-      swiperParams.speed = 800;
-      swiperParams.easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
+      swiperParams.speed = 1000;
       swiperParams.touchRatio = 0.5;
       swiperParams.coverflowEffect = {
         rotate: 0,
@@ -80,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             modifier: 2.5,
             slideShadows: true,
           }
-        }
-        , 1100: {
+        },
+        1100: {
           slidesPerView: 3,
           spaceBetween: 30,
           effect: 'coverflow',
@@ -136,16 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
         prevEl: '.swiper-button-prev',
       };
       swiperParams.effect = 'slide';
-      swiperParams.speed = 800;
-      swiperParams.easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
+      swiperParams.speed = 1000;
       swiperParams.allowTouchMove = false;
       swiperParams.touchRatio = 0.5;
     } else {
       swiperParams.slidesPerView = 1.5;
       swiperParams.centeredSlides = true;
       swiperParams.spaceBetween = 30;
-      swiperParams.speed = 800;
-      swiperParams.easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
+      swiperParams.speed = 1000;
       swiperParams.touchRatio = 0.5;
       swiperParams.breakpoints = {
         320: { slidesPerView: 1.5, spaceBetween: 10 },
@@ -153,12 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
         640: { slidesPerView: 3, spaceBetween: 40 }
       };
     }
+
     const isMobile = window.innerWidth < 768;
 
     if (isMobile) {
       swiperParams.autoplay.delay = 3500; 
-      swiperParams.speed = 1150; 
     }
+
     new Swiper(swiperEl, swiperParams);
   });
 });
