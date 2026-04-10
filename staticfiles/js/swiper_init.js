@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       loop: true,
       speed: 800,
-      easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
