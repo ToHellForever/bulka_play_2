@@ -39,7 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
         prevEl: '.swiper-button-prev',
       },
       touchRatio: 0.5,
-      breakpoints: {}
+      breakpoints: {},
+      on: {
+        init: function () {
+          // Принудительно включаем will-change для слайдов (аппаратное ускорение)
+          this.slides.forEach(slide => {
+            slide.style.willChange = 'transform';
+          });
+        }
+      },
     };
     // Устанавливаем разные параметры для карусели аренды, мобильной карусели товара и остальных каруселей
     if (isLandingCarousel) {
@@ -145,7 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
         640: { slidesPerView: 3, spaceBetween: 40 }
       };
     }
+    const isMobile = window.innerWidth < 768;
 
+    if (isMobile) {
+      swiperParams.autoplay.delay = 3500; 
+      swiperParams.speed = 1150; 
+    }
     new Swiper(swiperEl, swiperParams);
   });
 });

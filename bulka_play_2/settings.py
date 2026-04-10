@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
 TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "147.45.161.66", "bulka-play.ru"]
 
@@ -37,8 +37,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://147.45.161.66",
     "http://bulka-play.ru",
     "https://bulka-play.ru",
-] 
- 
+]
 
 # Application definition
 
