@@ -9,7 +9,7 @@
     color: rgba(248, 128, 5, 1);
 }
 .game_count_text {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 3rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
@@ -53,13 +53,13 @@
     margin-top: 2rem;
 }
 .product-card-price {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
 }
 .rental-description {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
@@ -72,13 +72,13 @@
     color: rgba(255, 255, 255, 1);
 }
 .contact_text {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
 }
 .contact_link a {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -89,7 +89,7 @@
     color: black;
 }
 .center-block_text {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     color: black;
@@ -107,7 +107,7 @@
 .menu-text {
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     white-space: nowrap;
     font-size: 1rem;
     font-weight: 400;
@@ -126,7 +126,7 @@ a {
     color: white;
 }
 .about_block {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1.1rem !important;
     font-weight: 400;
     line-height: 20px;
@@ -149,7 +149,7 @@ a {
     white-space: nowrap;
 }
 .about_block_text {
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 20px;
@@ -176,14 +176,14 @@ color: rgba(33, 33, 33, 1);
 /* для placeholder */
 select.form-control {
     color: white !important;
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 20px;
 }
 .form-control::-webkit-input-placeholder {
     color: white !important;
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 20px;
@@ -198,7 +198,7 @@ select.form-control {
 }
 .product_card_price {
     color: white;
-    font-family: 'Mont' , sans-serif;
+    font-family: 'Montserrat' , sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
 }
@@ -239,7 +239,7 @@ select.form-control {
 
 .normal-text {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     margin: 0;
@@ -254,7 +254,7 @@ select.form-control {
 }
 .info-block {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -267,7 +267,7 @@ select.form-control {
 
 .product_detail_description{
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -301,7 +301,7 @@ select.form-control {
 }
 .rental_catalog_p {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
 }
@@ -314,13 +314,13 @@ select.form-control {
 }
 .wood_p {
     color: rgba(248, 128, 5, 1);
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
 }
 .rental_recomendation_h {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
     margin-bottom: 0px;
@@ -328,7 +328,7 @@ select.form-control {
 .slider-label-start,
 .slider-label-end {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 25px !important;
 }
@@ -400,7 +400,7 @@ h4 {
 }
 .game-price {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
 }
@@ -413,7 +413,7 @@ h4 {
 }
 .arend-card-description {
     color: black !important;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -490,7 +490,7 @@ h4 {
 
 .exlusive_p {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
 }
@@ -502,7 +502,7 @@ h4 {
 }
 .advantage-block-p {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -514,7 +514,7 @@ h4 {
 }
 .advantage-block-p-2 {
     color: black;
-        font-family: 'Mont', sans-serif;
+        font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -530,7 +530,7 @@ h4 {
 }
 .block-p {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1rem;
     left: 10%;
@@ -558,13 +558,13 @@ h4 {
 }
 .p_button {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
 .p_button-2 {
     color: black;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -606,7 +606,7 @@ h4 {
 }
 .success-message {
     color: white;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 300;
     margin-bottom: 0px;
@@ -843,7 +843,7 @@ h4 {
     }
     .arend_li {
         color: white;
-        font-family: 'Mont', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 400;
         font-style: normal;
         margin-left: 10px;

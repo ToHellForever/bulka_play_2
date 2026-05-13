@@ -11,7 +11,7 @@ body {
 .product-detail-original-price {
     text-decoration: line-through;
     color: gray;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
 }
@@ -22,7 +22,7 @@ body {
 .catalog-discounted-price,
 .product-detail-discounted-price {
     color: rgba(247, 55, 5, 1);
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.8rem;
 }
@@ -39,7 +39,7 @@ body {
 .rental-original-price {
     text-decoration: line-through;
     color: black;
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
 }
@@ -149,7 +149,7 @@ body {
 }
 
 .privacy-text {
-    font-family: 'Mont', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
     color: #ffffff;
