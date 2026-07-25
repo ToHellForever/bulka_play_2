@@ -25,6 +25,18 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
 TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
+
+# Email settings
+EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT")
+DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST_USER", "noreply@bulka-play.ru")
+
+# Email configuration for SMTP
+EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.yandex.ru")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True") == "True"
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 

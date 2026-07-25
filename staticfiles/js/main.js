@@ -407,6 +407,22 @@ function submitFormData() {
   const form = document.getElementById('orderForm');
   const formData = new FormData(form);
   const submitBtn = document.getElementById('submit-btn');
+  
+  // Явно добавляем адрес доставки (скрытые поля не попадают в FormData автоматически)
+  if (currentOrderType === 'buy' || currentOrderType === 'double_buy') {
+    const deliveryAddress = document.getElementById('delivery-address');
+    if (deliveryAddress) {
+      formData.append('delivery_address', deliveryAddress.value);
+      console.log('[DEBUG] delivery_address appended:', deliveryAddress.value);
+    }
+  }
+  else if (currentOrderType === 'rent') {
+    const rentAddress = document.getElementById('rent-address');
+    if (rentAddress) {
+      formData.append('rent_address', rentAddress.value);
+      console.log('[DEBUG] rent_address appended:', rentAddress.value);
+    }
+  }
 
   // Добавляем выбранные игры в зависимости от типа заказа
   if (currentOrderType === 'buy' || currentOrderType === 'double_buy') {

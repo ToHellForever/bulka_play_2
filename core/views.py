@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 from django.utils import timezone
 from datetime import timedelta
 import re
+import logging
 from django.db.models import Max
 from .models import (
     Product,
@@ -21,6 +22,8 @@ from .models import (
     AdditionalProducts,
     Discount,
 )
+
+logger = logging.getLogger(__name__)
 
 
 class LandingView(TemplateView):
@@ -258,6 +261,19 @@ class ProcessOrderView(View):
         try:
             data = request.POST
             ip_address = self.get_client_ip(request)
+            
+            # ЛОГИРОВАНИЕ: что пришло от пользователя
+            print("=" * 60)
+            print(f"=== ПРОИСХОДИТ ЗАПРОС НА СОЗДАНИЕ ЗАКАЗА ===")
+            print(f"POST data keys: {list(data.keys())}")
+            print(f"name: {data.get('name')}")
+            print(f"phone: {data.get('phone')}")
+            print(f"order_type: {data.get('order_type')}")
+            print(f"comment: {data.get('comment')}")
+            print(f"delivery_address (RAW): '{data.get('delivery_address')}' repr={repr(data.get('delivery_address'))}")
+            print(f"rent_address (RAW): '{data.get('rent_address')}' repr={repr(data.get('rent_address'))}")
+            print(f"double_game_count: {data.get('double_game_count', 1)}")
+            print("=" * 60)
 
             # Проверка времени между заявками с одного IP
             recent_orders = Order.objects.filter(ip_address=ip_address).order_by('-created_at')[:3]
@@ -285,7 +301,14 @@ class ProcessOrderView(View):
                     status=400,
                 )
 
-            # Создание заказа
+            # Определение адреса доставки ДО создания заказа
+            delivery_address = None
+            if data.get("order_type") in ("buy", "double_buy"):
+                delivery_address = data.get("delivery_address")
+            elif data.get("order_type") == "rent":
+                delivery_address = data.get("rent_address")
+            
+            # Создание заказа с адресом
             order = Order.objects.create(
                 name=data.get("name"),
                 phone=data.get("phone"),
@@ -293,6 +316,7 @@ class ProcessOrderView(View):
                 comment=comment,
                 double_game_count=data.get("double_game_count", 1),
                 ip_address=ip_address,
+                delivery_address=delivery_address,
             )
 
             # Обработка в зависимости от типа заказа
@@ -307,9 +331,6 @@ class ProcessOrderView(View):
                     additional_goods = data.getlist("additional_goods")
                     order.additional_products.set(additional_goods)
 
-                # Сохранение адреса доставки
-                order.delivery_address = data.get("delivery_address")
-
                 # Сохранение информации о гравировке
                 order.engraving = data.get("engraving", "no")
 
@@ -323,9 +344,6 @@ class ProcessOrderView(View):
                 if "additional_goods" in data:
                     additional_goods = data.getlist("additional_goods")
                     order.additional_products.set(additional_goods)
-
-                # Сохранение адреса доставки
-                order.delivery_address = data.get("delivery_address")
 
                 # Сохранение информации о гравировке
                 order.engraving = data.get("engraving", "no")
@@ -346,11 +364,6 @@ class ProcessOrderView(View):
                 # Сохранение даты аренды
                 if "rent_date" in data:
                     order.date = data.get("rent_date")
-
-                # Сохранение адреса доставки
-                order.delivery_address = data.get("rent_address")
-
-            order.save()
 
             return JsonResponse({"success": True, "message": "Заказ успешно оформлен!"})
 
