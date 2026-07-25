@@ -75,7 +75,6 @@ class ProductAdmin(admin.ModelAdmin):
                     "game_types",
                     "player_ages",
                     "game_rules",
-                    "game_kit_items",
                     "additional_info",
                 ),
             },
