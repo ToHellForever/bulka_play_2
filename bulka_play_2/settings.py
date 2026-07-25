@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # "debug_toolbar",  # Удалено для продакшена
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "core",
@@ -74,6 +75,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",  # Удалено для продакшена
 ]
 
 ROOT_URLCONF = "bulka_play_2.urls"
