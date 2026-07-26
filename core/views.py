@@ -8,6 +8,7 @@ from django.utils import timezone
 from datetime import timedelta
 import re
 import logging
+from django.db import transaction
 from django.db.models import Max
 from .models import (
     Product,
@@ -276,22 +277,22 @@ class ProcessOrderView(View):
             print("=" * 60)
 
             # Проверка времени между заявками с одного IP
-            recent_orders = Order.objects.filter(ip_address=ip_address).order_by('-created_at')[:3]
-            if recent_orders.count() >= 3:
-                last_order = recent_orders.first()
-                cooldown_period = timedelta(minutes=30)  # Ограничение: 30 минут после 3 заявок
-                time_since_last_order = timezone.now() - last_order.created_at
-                if time_since_last_order < cooldown_period:
-                    return JsonResponse(
-                        {
-                            "success": False,
-                            "message": f"Вы отправили 3 заявки подряд. Пожалуйста, подождите {cooldown_period.seconds//60 - time_since_last_order.seconds//60} минут перед отправкой следующей заявки.",
-                        },
-                        status=400,
-                    )
+            # recent_orders = Order.objects.filter(ip_address=ip_address).order_by('-created_at')[:3]
+            # if recent_orders.count() >= 3:
+            #     last_order = recent_orders.first()
+            #     cooldown_period = timedelta(minutes=30)  # Ограничение: 30 минут после 3 заявок
+            #     time_since_last_order = timezone.now() - last_order.created_at
+            #     if time_since_last_order < cooldown_period:
+            #         return JsonResponse(
+            #             {
+            #                 "success": False,
+            #                 "message": f"Вы отправили 3 заявки подряд. Пожалуйста, подождите {cooldown_period.seconds//60 - time_since_last_order.seconds//60} минут перед отправкой следующей заявки.",
+            #             },
+            #             status=400,
+            #         )
 
             # Проверка комментария на наличие ссылок и спама
-            comment = data.get("comment", "")
+            comment = data.get("comment_buy", "") or data.get("comment_rent", "")
             if self.is_spam_comment(comment):
                 return JsonResponse(
                     {
@@ -308,62 +309,68 @@ class ProcessOrderView(View):
             elif data.get("order_type") == "rent":
                 delivery_address = data.get("rent_address")
             
-            # Создание заказа с адресом
-            order = Order.objects.create(
-                name=data.get("name"),
-                phone=data.get("phone"),
-                order_type=data.get("order_type"),
-                comment=comment,
-                double_game_count=data.get("double_game_count", 1),
-                ip_address=ip_address,
-                delivery_address=delivery_address,
-            )
+            # Создание заказа и установка M2M-связей в одной транзакции,
+            # чтобы email-уведомление (через transaction.on_commit) ушло
+            # только после того, как все товары сохранены
+            with transaction.atomic():
+                order = Order.objects.create(
+                    name=data.get("name"),
+                    phone=data.get("phone"),
+                    order_type=data.get("order_type"),
+                    comment=comment,
+                    double_game_count=data.get("double_game_count", 1),
+                    ip_address=ip_address,
+                    delivery_address=delivery_address,
+                )
 
-            # Обработка в зависимости от типа заказа
-            if data.get("order_type") == "buy":
-                # Сохранение выбранных игр для покупки
-                if "buy_games" in data:
-                    games = data.getlist("buy_games")
-                    order.products.set(games)
+                # Обработка в зависимости от типа заказа
+                if data.get("order_type") == "buy":
+                    # Сохранение выбранных игр для покупки
+                    if "buy_games" in data:
+                        games = data.getlist("buy_games")
+                        order.products.set(games)
 
-                # Сохранение дополнительных товаров
-                if "additional_goods" in data:
-                    additional_goods = data.getlist("additional_goods")
-                    order.additional_products.set(additional_goods)
+                    # Сохранение дополнительных товаров
+                    if "additional_goods" in data:
+                        additional_goods = data.getlist("additional_goods")
+                        order.additional_products.set(additional_goods)
 
-                # Сохранение информации о гравировке
-                order.engraving = data.get("engraving", "no")
+                    # Сохранение информации о гравировке
+                    order.engraving = data.get("engraving", "no")
 
-            elif data.get("order_type") == "double_buy":
-                # Сохранение выбранных игр для покупки 2 игр на одной доске
-                if "buy_games" in data:
-                    games = data.getlist("buy_games")
-                    order.products.set(games)
+                elif data.get("order_type") == "double_buy":
+                    # Сохранение выбранных игр для покупки 2 игр на одной доске
+                    if "buy_games" in data:
+                        games = data.getlist("buy_games")
+                        order.products.set(games)
 
-                # Сохранение дополнительных товаров
-                if "additional_goods" in data:
-                    additional_goods = data.getlist("additional_goods")
-                    order.additional_products.set(additional_goods)
+                    # Сохранение дополнительных товаров
+                    if "additional_goods" in data:
+                        additional_goods = data.getlist("additional_goods")
+                        order.additional_products.set(additional_goods)
 
-                # Сохранение информации о гравировке
-                order.engraving = data.get("engraving", "no")
+                    # Сохранение информации о гравировке
+                    order.engraving = data.get("engraving", "no")
 
-                # Установка количества игр на одной доске
-                order.double_game_count = 2
+                    # Установка количества игр на одной доске
+                    order.double_game_count = 2
 
-            elif data.get("order_type") == "rent":
-                # Сохранение выбранных игр для аренды
-                if "rent_games" in data:
-                    games = data.getlist("rent_games")
-                    order.games_for_rent.set(games)
+                elif data.get("order_type") == "rent":
+                    # Сохранение выбранных игр для аренды
+                    if "rent_games" in data:
+                        games = data.getlist("rent_games")
+                        order.games_for_rent.set(games)
 
-                # Сохранение типа аренды
-                if "rent_type" in data:
-                    order.arenda.set([data.get("rent_type")])
+                    # Сохранение типа аренды
+                    if "rent_type" in data:
+                        order.arenda.set([data.get("rent_type")])
 
-                # Сохранение даты аренды
-                if "rent_date" in data:
-                    order.date = data.get("rent_date")
+                    # Сохранение даты аренды
+                    if "rent_date" in data:
+                        order.date = data.get("rent_date")
+
+                # Сохраняем изменения полей (engraving, date и т.д.)
+                order.save()
 
             return JsonResponse({"success": True, "message": "Заказ успешно оформлен!"})
 

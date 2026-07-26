@@ -3,6 +3,13 @@
 import os
 import sys
 
+# На Windows: устанавливаем SSL-сертификаты ДО загрузки Django
+try:
+    import certifi
+    os.environ["SSL_CERT_FILE"] = certifi.where()
+except ImportError:
+    pass
+
 
 def main():
     """Run administrative tasks."""

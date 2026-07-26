@@ -77,11 +77,14 @@ def send_email_notification_for_order(instance):
         logger.info(f"Order {instance.id} email_message preview:\n{email_message[:500]}")
 
         # Отправляем email уведомление
-        send_email_notification(
+        success = send_email_notification(
             subject=f"Новый заказ #{instance.id} от {instance.name}",
             message=email_message
         )
-        logger.info(f"Email успешно отправлен для заказа #{instance.id}")
+        if success:
+            logger.info(f"Email успешно отправлен для заказа #{instance.id}")
+        else:
+            logger.error(f"Не удалось отправить email для заказа #{instance.id}")
     except Exception as e:
         logger.error(f"Ошибка отправки email уведомления: {e}", exc_info=True)
 
