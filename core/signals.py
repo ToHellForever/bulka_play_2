@@ -8,7 +8,7 @@ from django.conf import settings
 import logging
 
 # Настраиваем логгер для записи в файл
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("core")
 logger.setLevel(logging.DEBUG)
 
 # Handler для файла
