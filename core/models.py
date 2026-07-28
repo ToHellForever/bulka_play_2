@@ -1,7 +1,5 @@
 from django.db import models
 from datetime import datetime
-from core.image_utils import compress_image
-
 
 class Size(models.Model):
     name = models.CharField(max_length=100, verbose_name="Размер")
@@ -155,11 +153,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        if self.image:
-            self.image = compress_image(self.image)
-        super().save(*args, **kwargs)
-
     def get_discounted_price(self):
         """Возвращает цену товара с учетом активных скидок"""
         if self.is_price_negotiable:
@@ -238,12 +231,6 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"Фото {self.product}"
-
-    def save(self, *args, **kwargs):
-        if self.image:
-            self.image = compress_image(self.image)
-        super().save(*args, **kwargs)
-
 
 class PlayerRange(models.Model):
     """
