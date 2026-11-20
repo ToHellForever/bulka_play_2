@@ -60,6 +60,67 @@ a {
     color: rgba(33, 33, 33, 1);
 }
 
+.seo-text-block {
+    margin-bottom: 1rem;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 33px;
+    background: rgba(26, 26, 26, 0.96);
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.seo-text-block p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 300;
+}
+
+.seo-text-heading {
+    margin: 2rem 0 1rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.35;
+    font-weight: 500;
+}
+
+.seo-text-block > .seo-text-heading:first-of-type {
+    margin-top: 0;
+}
+
+.seo-text-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.seo-text-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.25rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 20px;
+    background: rgba(248, 128, 5, 1);
+    color: rgba(33, 33, 33, 1);
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.seo-text-button:hover,
+.seo-text-button:focus {
+    color: rgba(33, 33, 33, 1);
+}
+
+.seo-text-button-secondary {
+    background: rgba(255, 255, 255, 1);
+}
+
 .block-img {
     width: 7rem;
     height: auto;
@@ -158,6 +219,15 @@ a {
     /* Скрываем десктопную версию */
     .desktop-layout {
         display: none !important;
+    }
+
+    .seo-text-block {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .seo-text-heading {
+        font-size: 1.2rem;
     }
 
     .landing-container {
